@@ -23,15 +23,27 @@
 
 # Objectives
 
+.row
+  .container width:{100%}
+    By the end of this module, you will be able to:
 
-# Introduction to Groundwater Flow Theory
+    - **Understand porosity**: Calculate and interpret porosity in different geological materials
+    - **Apply Darcy's Law**: Use the fundamental equation to analyze groundwater flow
+    - **Measure hydraulic properties**: Distinguish between hydraulic head, conductivity, and permeability
+    - **Analyze flow systems**: Interpret flow patterns in heterogeneous and anisotropic media
+    - **Use field methods**: Design monitoring networks using wells and piezometers
+    - **Create flow maps**: Construct potentiometric surfaces and interpret hydrographs
+    - **Solve practical problems**: Apply groundwater principles to real-world scenarios
+
+
+# Groundwater Flow Theory
 
 .row
   .container width:{50%}
-    - This lecture introduces the principal laws that govern groundwater movement through porous media.
+    - This module introduces the principal laws that govern groundwater movement through porous media.
     - We will explore:
       - Definitions and significance of **porosity**
-      - **Darcy’s Law**: the foundational equation for flow in saturated zones
+      - **Darcy’s Law**: the foundational equation for flow in saturated zones.
       - Concepts of **hydraulic head**, **conductivity**, and **velocity**
     - These principles form the basis for:
       - Understanding aquifer behavior
@@ -88,7 +100,7 @@
 # Factors Affecting Porosity
 
 .row
-  .container width:{40%}
+  .container width:{45%}
     - **Primary porosity** depends on:
       - **Compaction**: tighter packing = lower porosity
       - **Grain shape and arrangement**: more spherical = less compact = higher porosity
@@ -101,7 +113,7 @@
 
     Good sorting and less compaction = more room for groundwater.
 
-  .container width:{60%}
+  .container width:{55%}
     !(100%)[Sorting and Porosity](image/franklin_fig_3-2.png "Sections of four contiguous spheres of equal size: (a) the most compact arrangement, lowest porosity; (b) less compact arrangement, higher porosity; (c) least compact arrangement, highest porosity")
 
 
@@ -121,10 +133,13 @@
       - Have **dual porosity**: matrix + fractures
       - Fractures provide **secondary porosity** essential for flow
 
-    Never judge porosity by rock type alone—structure and history matter.
+
 
   .container width:{60%}
     !(100%)[Fractured Rock Porosity](image/franklin_fig_3-1.png "Types of openings in selected water-bearing rocks. Block (a) is several millimeters wide and shows primary porosity for unlithified sand. Blocks (b, c) are larger potential meters to 10s of meters in width. For granite (b), secondary porosity created by fracturing facilitates flow. Block (c) illustrates caverns in limestone produced by solution-enhanced enlargements of fractures.")
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{2px}
+        Never judge porosity by rock type alone—structure and history matter.
 
 
 # Effective Porosity and Dual Porosity Systems
@@ -144,6 +159,27 @@
 
   .container width:{50%}
     !(100%)[Dual Porosity Types](image/franklin_fig_3-3.png "Outcrops of Coconino Sanstone along Silver Creek in northeastern Arizona. Notice the fracturing in vertical and horizontal directions.")
+
+# Range of Porosity values
+
+| Material          | Min    | Mean  | Max  | SD   |
+|-------------------|--------|-------|------|------|
+| **Unlithified deposits** |        |       |      |      |
+| Sand              | 28.1   | 38.9  | 44.4 | 4.9  |
+| Dune              | c      | 42.1  | c    | 8.3  |
+| Silt              | 31.5   | 45.2  | 50.8 | 5.6  |
+| Clay              | 40.1   | 46.1  | 55   | 4.5  |
+| Glacial till      | 14.3   | 23.5  | 34   | c    |
+| Peat              | c      | 92    | c    | c    |
+| **Sedimentary rocks**    |        |       |      |      |
+| Sandstone         | 4      | 20.4  | 8.6  | 8.6  |
+| Limestone         | 0.44   | 8.67  | 34.7 | 8.6  |
+| Dolostone         | 0.4    | 7.46  | 26   | c    |
+| Shale             | 0.75   | 10.8  | 27.2 | 8.3  |
+| **Igneous rocks**        |        |       |      |      |
+| Granite           | <0.001 |       | 0.01 |      |
+| Basalt            | <0.01  |       | 0.1  |      |
+
 
 
 # Occurrence of Groundwater
@@ -179,11 +215,19 @@
       - Water table shape
       - Conductivity of subsurface materials
 
-    Flow is slow, deep, and essential to sustaining surface water.
 
   .container width:{60%}
     !(100%)[franklin_fig_3-5.png](image/franklin_fig_3-5.png "Groundwater flow system and discharge to stream")
 
+    .align{center}
+      .container alignment:{center} borderwidth:{1px} background:{yellow} padding:{5px}
+        Flow is slow, deep, and essential to sustaining surface water.
+
+
+# Groundwater flow in the lab
+.align{center}
+  .html
+    <iframe width="400" height="600" src="https://www.youtube.com/embed/FparakKnNZU" height:{100%} width:{20%} a title="Groundwater flow geology lab 💧 There IS water underground!  #geology #hydrology #groundwater" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Darcy’s Law: The Foundations
 
@@ -194,6 +238,7 @@
       - Water moves from **high to low gravitational energy**
       - Like a drop on a slide — higher up means more potential energy
     - Energy loss over distance gives rise to the **hydraulic gradient**:
+
 
       $ i = \frac{e_{top} - e_{bot}}{\Delta l} $
 
@@ -226,7 +271,7 @@
 .row
   .container width:{50%}
     - Not all materials transmit water equally well.
-    - **Hydraulic conductivity** ($K$) quantifies this:
+    - **Hydraulic conductivity** ($ K $) quantifies this:
       - High $ K $ → gravel, coarse sand
       - Low $ K $ → clay, unfractured rock
     - Units: length per time (e.g. m/day)
@@ -246,13 +291,13 @@
   .container width:{50%}
     - Darcy combined gradient ($ i $) and material property ($ K $) to describe flow:
 
-      $ q = -K i \tag{3.6} $
+      $ q = -K i $
 
-      - $q$: Darcy velocity (aka specific discharge), volumetric flow per area
+      - $ q $: Darcy velocity (aka specific discharge), volumetric flow per area
 
     - Alternate form using cross-sectional area $ A $:
 
-      $ Q = -K i A \tag{3.7} $
+      $ Q = -K i A $
 
     - Negative sign: flow goes from high head to low head
     - Valid for **laminar flow** in porous media
@@ -266,7 +311,7 @@
 
 .row
   .container width:{50%}
-    - **Darcy velocity** ($q$) assumes flow spreads over the whole cross section
+    - **Darcy velocity** ($ q $) assumes flow spreads over the whole cross section.
     - But in reality, water only flows through **connected pores**
     - True or **pore velocity** ($ v $) is:
 
@@ -279,16 +324,19 @@
     - Since $ n_e < 1 $, pore velocity is **greater** than Darcy velocity
     - Rearranged Darcy's Law:
 
-      $ v = -\frac{K}{n_e} \cdot \frac{h_1 - h_2}{\Delta l} \tag{3.9} $
+      $ v = -\frac{K}{n_e} \cdot \frac{h_1 - h_2}{\Delta l} $
 
-    This gives the **actual speed** water travels through aquifers.
 
   .container width:{50%}
+
     .align{center}
+      .container
         [gw-project.org](https://books.gw-project.org/hydrogeologic-properties-of-earth-materials-and-principles-of-groundwater-flow/chapter/darcys-law/)
 
 
     !(100%)[Linear velocity concept](image/internet_pore_velocity_schematic.jpg "Water flows through effective pore space only.")
+
+    This gives the **actual speed** water travels through aquifers.
 
 
 
@@ -298,10 +346,10 @@
   .container width:{70%}
     - **Hydraulic head** is a measure of energy available to move groundwater
     - It is expressed in units of **length** (e.g., m above sea level)
-    - In the field, head is measured with a **standpipe** or piezometer
+    - In the field, head is measured with a **standpipe** or piezometer.
     - Key components:
-      - Elevation of top of casing ($EL_{TOC}$)
-      - Depth to water ($DTW$)
+      - Elevation of top of casing ($ EL_{TOC} $)
+      - Depth to water ($ DTW $)
 
     - The head is calculated by:
 
@@ -464,15 +512,18 @@
   .container width:{100%}
   	- For anisotropic flow, each component of flow is influenced by **multiple gradients**:
 
+
   	  $ q_x = -K_{xx} \frac{\partial h}{\partial x} - K_{xy} \frac{\partial h}{\partial y} - K_{xz} \frac{\partial h}{\partial z} $
   	  $ q_y = -K_{yx} \frac{\partial h}{\partial x} - K_{yy} \frac{\partial h}{\partial y} - K_{yz} \frac{\partial h}{\partial z} $
   	  $ q_z = -K_{zx} \frac{\partial h}{\partial x} - K_{zy} \frac{\partial h}{\partial y} - K_{zz} \frac{\partial h}{\partial z} $
 
   	- If the medium is **aligned with coordinate axes**, then off-diagonal terms vanish:
 
+
   	  $ K_{xy} = K_{yx} = K_{xz} = K_{zx} = K_{yz} = K_{zy} = 0 $
 
   	- This simplifies to:
+
 
   	  $ q_x = -K_{xx} \frac{\partial h}{\partial x}, \quad q_y = -K_{yy} \frac{\partial h}{\partial y}, \quad q_z = -K_{zz} \frac{\partial h}{\partial z} $
 
@@ -585,15 +636,105 @@
     _Wells, piezometers, and equipotential lines_
 
 
-<!--
-# Water Table Observation Wells
+#
+.align{center}
+  .html
+    <iframe width="672" height="378" src="https://www.youtube.com/embed/Tjg0VgBhmgk?si=CyUgW3MrT-xvZcrf&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+# Potentiometric Surface Maps
+
+.row
+  .container width:{55%}
+    - Mapping the spatial distribution of hydraulic heads in an aquifer is a key method for **evaluating aquifer conditions**.
+    - A **potentiometric surface map** shows groundwater levels (hydraulic head) across an area.
+    - Important uses:
+      - Identifying **recharge and discharge areas**
+      - Detecting **pumping impacts** (cones of depression)
+      - Predicting **contaminant migration paths**
+    - **Meinzer (1923)**: defined potentiometric surface as the imaginary surface representing groundwater head in an aquifer.
+
+  .container width:{45%}
+    !(100%)[Potentiometric Map Steps](image/franklin_fig_3-18.png "Steps in constructing a potentiometric surface map")
+
+
+# Steps to Create Potentiometric Maps
+
+.row
+  .container width:{50%}
+    - Three main steps:
+      1. **Plot points**: map well/piezometer locations with measured head values
+      2. **Contour**: draw equipotential lines connecting equal head values
+      3. **Flow arrows**: add arrows perpendicular to equipotential lines (showing decreasing head)
+
+    - Key notes:
+      - Map must be for **one aquifer only**
+      - Flow in aquifers is assumed **horizontal**
+      - Equipotential lines → vertical in cross-section, but projected to 2D on the map
+
+  .container width:{50%}
+    !(100%)[Equipotential Example](image/franklin_fig_3-18.png "Equipotential lines and flow arrows on a potentiometric map")
+
+
+# Example: Memphis Aquifer
+
+.row
+  .container width:{45%}
+    - Example: **Memphis Sand Aquifer (1995)**
+    - Heavy pumping caused **cones of depression**
+    - Equipotential contours + flow arrows show water moving toward pumping centers
+    - **Applications**:
+      - Tracking regional groundwater flow
+      - Managing water supply stress
+      - Identifying recovery trends after reduced pumping
+
+  .container width:{55%}
+    !(100%)[Memphis Potentiometric Surface](image/franklin_fig_3-19.png "Potentiometric surface of the Memphis aquifer, showing cones of depression")
+
+
+# Water-Level Hydrographs
+
+.row
+  .container width:{55%}
+    - A **hydrograph** shows groundwater levels over time at a monitoring well
+    - Traditionally: manual measurements (monthly, seasonal)
+    - Now: automated, remote sensors (satellite uplinks, wireless)
+    - Hydrographs complement potentiometric maps:
+      - Maps = snapshot at one time
+      - Hydrographs = long-term temporal trends
+    - Useful for:
+      - Detecting pumping impacts
+      - Seasonal recharge/discharge cycles
+      - Long-term aquifer depletion or recovery
+
+  .container width:{45%}
+    !(100%)[Hydrograph Example](image/franklin_fig_3-20.png "Long-term water-level hydrograph of Memphis aquifer well")
+
+
+# Hydrogeological Cross Sections
+
+.row
+  .container width:{55%}
+    - Vertical sections through aquifers showing:
+      - **Stratigraphy** (layering, $ K $ contrasts)
+      - **Hydraulic head distributions**
+      - **Flow lines and equipotentials**
+    - Often constructed along **mean flow direction**
+    - Show how layering causes **refraction of flow paths**
+    - Vertical exaggeration helps visualize layering and flow
+
+  .container width:{45%}
+    !(100%)[Cross Section](image/franklin_fig_3-21.png "Hydrogeologic cross section with equipotential lines and flow refraction")
+
+# What we learned
 
 .row
   .container width:{100%}
-  	- These wells track **elevation of the water table**
-  	- Screen is long → must intersect the water table
-  	- Head is **not fixed** to one depth — always equal to water table elevation
-  	- In Figure 3.17:
-  	  - Water table well shows head of 81.5 m
-  	  - This value **moves with the table**
--->
+        - We learned about the principles of groundwater flow, covering:
+      - **Porosity and Physical Properties**: void space in rocks and how it controls water storage
+      - **Groundwater Occurrence**: unsaturated vs saturated zones and the water table
+      - **Darcy's Law**: the fundamental equation governing groundwater flow rates
+      - **Hydraulic Properties**: head, conductivity, and permeability measurements
+      - **Heterogeneous Media**: flow behavior in layered systems and flow refraction
+      - **Field Investigation Methods**: wells, piezometers, and mapping techniques
+      - **Practical Applications**: aquifer management and contaminant transport
