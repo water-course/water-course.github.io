@@ -31,7 +31,7 @@ Below is a comprehensive list of course materials for the Water Course.
 
 ### 🔖 Assignments
 - [**Assignment 1**](AssignmentOne/index.html)
-- **Assignment 2**
+- [**Assignment 2**](AssignmentTwo/index.html)
 - **Groundwater - Aquifers**
 
 

@@ -1,4 +1,4 @@
-.docname {AssignmentOne}
+.docname {AssignmentTwo}
 .theme{beaver} layout:{latex}
 .doctype{paged}
 .doclang{English}
