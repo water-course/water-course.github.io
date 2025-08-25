@@ -162,25 +162,29 @@
 
 # Range of Porosity values
 
-| Material          | Min    | Mean  | Max  | SD   |
-|-------------------|--------|-------|------|------|
-| **Unlithified deposits** |        |       |      |      |
-| Sand              | 28.1   | 38.9  | 44.4 | 4.9  |
-| Dune              | c      | 42.1  | c    | 8.3  |
-| Silt              | 31.5   | 45.2  | 50.8 | 5.6  |
-| Clay              | 40.1   | 46.1  | 55   | 4.5  |
-| Glacial till      | 14.3   | 23.5  | 34   | c    |
-| Peat              | c      | 92    | c    | c    |
-| **Sedimentary rocks**    |        |       |      |      |
-| Sandstone         | 4      | 20.4  | 8.6  | 8.6  |
-| Limestone         | 0.44   | 8.67  | 34.7 | 8.6  |
-| Dolostone         | 0.4    | 7.46  | 26   | c    |
-| Shale             | 0.75   | 10.8  | 27.2 | 8.3  |
-| **Igneous rocks**        |        |       |      |      |
-| Granite           | <0.001 |       | 0.01 |      |
-| Basalt            | <0.01  |       | 0.1  |      |
+.row
+  .container width:{50%}
+    | Material          | Min    | Mean  | Max  | SD   |
+    |-------------------|--------|-------|------|------|
+    | **Unlithified deposits** |        |       |      |      |
+    | Sand              | 28.1   | 38.9  | 44.4 | 4.9  |
+    | Dune              | c      | 42.1  | c    | 8.3  |
+    | Silt              | 31.5   | 45.2  | 50.8 | 5.6  |
+    | Clay              | 40.1   | 46.1  | 55   | 4.5  |
+    | Glacial till      | 14.3   | 23.5  | 34   | c    |
+    | Peat              | c      | 92    | c    | c    |
 
-
+  .container width:{50%}
+    | Material          | Min    | Mean  | Max  | SD   |
+    |-------------------|--------|-------|------|------|
+    | **Sedimentary rocks**    |        |       |      |      |
+    | Sandstone         | 4      | 20.4  | 28.6  | 8.6  |
+    | Limestone         | 0.44   | 8.67  | 34.7 | 8.6  |
+    | Dolostone         | 0.4    | 7.46  | 26   | c    |
+    | Shale             | 0.75   | 10.8  | 27.2 | 8.3  |
+    | **Igneous rocks**        |        |       |      |      |
+    | Granite           | <0.001 |       | 0.01 |      |
+    | Basalt            | <0.01  |       | 0.1  |      |
 
 # Occurrence of Groundwater
 
@@ -377,8 +381,7 @@
 
       $ h = z + \frac{P}{\rho_w g} $
 
-    - Units: meters (m)
-    - Pressure (Pa) can be converted from depth of water:
+    - Units: meters (m), Pressure (Pa) can be converted from depth of water:
 
       $ P = \rho_w g (h - z) $
 
@@ -396,8 +399,7 @@
       $ q = -K \frac{dh}{dl} $
 
     - Units of $ K $ are velocity (e.g. m/day)
-    - High $ K $: sand, gravel
-    - Low $ K $: clay, shale
+    - ↑ $ K $: sand, gravel, ↓ $ K $: clay, shale
     - $ K $ depends on:
       - Properties of the **medium**
       - Properties of the **fluid** (density, viscosity)
@@ -417,12 +419,9 @@
           $ K = \frac{k \, \rho_w g}{\mu} $
 
         - At 20°C and 1 atm:
+          $ K = 9.77 \times 10^6 \cdot k$
 
-          $ K = 9.77 \times 10^6 \cdot k $
-
-        - Or:
-
-          $ k = (1.023 ) \times 10^{-7} \, \mathrm{m \cdot sec}) \cdot K $
+          $ k = (1.023 ) \times 10^{-7} \, \mathrm{m \cdot sec} \cdot K $
 
         Use $ k $ for comparisons across different fluids.
 
