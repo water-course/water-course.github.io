@@ -39,6 +39,10 @@ See a description of the data at: [CSR GRACE Mascons](https://www2.csr.utexas.ed
 2. **(5 marks)** Download the ESA Climate Change Initiative (ESACCI) **combined** soil moisture monthly product from:
 [ESA CCI Data](https://catalogue.ceda.ac.uk/uuid/779f116d0477439db1874592add5848c/)
 
+.align{center}
+   .container width:{80%} alignment:{center} background:{rgb(255, 215, 215)} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      *Note:* We have generate a subset of the dataset in one NetCDF file for you and placed it water-course repository in [here](https://gadopt.syd1.cdn.digitaloceanspaces.com/water-course/combined_masked_soil_moisture.nc).
+
 ➡️ Produce a **time series of changes in soil moisture** integrated over the **Murray–Darling Basin** at the same epochs as the estimates in (i).
 
 
