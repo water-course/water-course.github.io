@@ -1,0 +1,160 @@
+.docname {Paper_Critique_Guidelines}
+.doctype {paged}
+.doclang {English}
+.theme {paperwhite} layout:{latex}
+.docauthors
+  - Sia Ghelichkhan
+
+.pagemargin{topright}
+    EMSC3025/EMSC6025: Paper Critique Guidelines
+
+.pagemargin{bottomcenter}
+    page .currentpage / .totalpages
+
+.numbering
+  - tables: 1
+  - figures: 1
+
+##  Course Guideline: Paper Critique
+
+As part of this course you are required to critically assess a scientific paper selected from the provided list (at this point every student is assigned a paper). The critique has **two components**:
+
+- **Written Critique** (10 % of final mark)
+- **Oral Presentation** (20 % of final mark)
+
+Both components assess your ability to read, evaluate, and communicate scientific work clearly and thoughtfully.
+
+---
+
+### Written Critique
+
+- **Task:** Provide a written assessment of your assigned scientific paper.
+- **Length:** Concise but comprehensive (typically 3–4 pages).
+- **Due Date:** End of week 10.
+- **Value:** 20 % of final mark.
+
+#### Structure & Expectations
+Your written critique should include the following. Both me and the peer that will grade your work will be looking for the following:
+
+- **Brief summary (1 mark)**
+  A very short synopsis of the paper’s aims, methods, and findings.
+
+- **Understanding (2 marks)**
+  Explain what you understood clearly and what you did not understand. Be specific about difficult concepts, figures, or methods.
+
+- **Strengths & Weaknesses (3 marks)**
+  Identify what was done well (e.g. clear methods, robust results) and what was done poorly (e.g. unclear assumptions, missing data).
+
+- **Scientific Reception (2 marks)**
+  - Provide citation counts (Scopus, Google Scholar, Web of Science).
+  - Give examples of how and why the paper has been cited by others.
+
+- **Impact (2 marks)**
+  Discuss whether the paper influenced the field. Support with evidence and examples.
+
+**Additional requirement for Honours/Masters students (5 marks, the mark ratios will be adjusted accordingly):**
+Include a detailed critique of **two subsequent papers that cited your chosen article**, addressing:
+- Why the citation was made,
+- How the original article influenced the subsequent work,
+- Whether the later authors captured the key contributions of the original.
+
+---
+
+### Oral Critique (Presentation)
+
+- **Task:** Present an oral critique of the same paper.
+- **Format:** 10 minutes presentation + 5 minutes questions.
+- **Due Date:** Presentations commence in Week 9.
+- **Value:** 10 % of final mark.
+
+#### Structure & Expectations
+Your oral presentation should cover the same core areas as the written critique:
+
+- **Understanding (2 marks)**
+  Explain what you did and did not understand, and why.
+
+- **Strengths & Weaknesses (2 marks)**
+  Describe what was done well and poorly in the paper, with justification.
+
+- **Scientific Reception (2 marks)**
+  Discuss how the scientific community treated the paper after publication.
+
+- **Impact (1 mark)**
+  Describe the impact—or lack thereof—on the field.
+
+- **Presentation Quality (3 marks total)**
+  - Delivery: clarity, engagement, confidence (1.5 marks)
+  - Slides: clarity, appropriateness, effectiveness (1.5 marks)
+
+---
+
+### Peer Assessment
+
+An important part of this assignment is that **you will grade each other’s work**.
+This has two purposes:
+1. To help you engage critically with the work of your peers,
+2. To develop your ability to evaluate scientific communication against clear criteria.
+
+#### How it works
+- For both the **Written Critique** and the **Oral Critique**, each student will be assigned one peer’s work to evaluate.
+- You must complete the assessment using the same marking rubric provided above.
+- Your scores and comments will directly contribute to your peer’s final grade.
+
+#### How grades are determined
+- Your **own grade** will be made up of:
+  - **50%** from the mark assigned by your peer,
+  - **50%** from my assessment of your written report.
+- I will review all peer assessments to ensure fairness.
+- If there is a **large discrepancy** between peer and my judgement, I reserve the right to **veto** and adjust the grade. This will naturally affect your own grade.
+
+This means your responsibility is twofold:
+1. Deliver a thoughtful written and oral critique of your assigned paper.
+2. Provide a fair, well-reasoned evaluation of a peer’s critique.
+
+---
+
+## Tips for Success
+
+- **For both written and oral critiques:**
+  - Focus on *analysis*, not just summary.
+  - Provide evidence (citations, examples, data) where possible.
+  - Distinguish clearly between your own perspective and what is shown in the paper.
+
+- **For oral presentations:**
+  - Engage with your audience (eye contact, clear voice, avoid reading directly).
+  - Use visuals to highlight key points (not to overload with text).
+  - Keep within the time limit.
+  - Make sure figures and text on slides are legible.
+
+- **For peer marking:**
+  - Be constructive and respectful.
+  - Justify your scores clearly.
+  - Highlight strengths as well as areas for improvement.
+
+<<<
+
+### Assessment Summary
+
+| Component | Criteria | Marks |
+|-----------|----------|-------|
+| **Written Critique** | Summary | 1 |
+|  | Understanding | 2 |
+|  | Strengths & Weaknesses | 3 |
+|  | Scientific Reception | 2 |
+|  | Impact | 2 |
+|  | *Honours/Masters only: Citation Analysis* | 5 |
+| **Oral Critique** | Understanding | 2 |
+|  | Strengths & Weaknesses | 2 |
+|  | Scientific Reception | 2 |
+|  | Impact | 1 |
+|  | Delivery | 1.5 |
+|  | Slides | 1.5 |
+
+---
+
+By the end of this assessment, you should be able to:
+- Critically evaluate scientific writing,
+- Communicate complex ideas clearly,
+- Understand how individual studies fit into broader research,
+- Reflect on the role and influence of research within the scientific community,
+- Provide fair, constructive feedback on the work of your peers.
