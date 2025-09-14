@@ -44,7 +44,7 @@
     .container borderwidth:{0.5pt} padding:{0.5cm} background:{.lightblue} alignment:{center}
       $ \frac{\partial}{\partial x} \left( T_x \frac{\partial h}{\partial x} \right) + \frac{\partial}{\partial y} \left( T_y \frac{\partial h}{\partial y} \right) + \frac{\partial}{\partial z} \left( T_z \frac{\partial h}{\partial z} \right) = S \frac{\partial h}{\partial t} $
 
-    ### **Good news**: At this introductory level, we don't need to solve these equations—just recognize and understand them.
+    ### **Good news**: At this introductory level, we don't need to solve these equations—just recognise and understand them.
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred} alignment:{center}
@@ -52,11 +52,11 @@
 
       Hydrogeology provides simplified approaches for dealing with these equations.
 
-# Recognizing Equation Features
+# Recognising Equation Features
 
 .row gap:{1cm} alignment:{center}
   .container width:{55%}
-    You don't need to be a math person for dealing with groundwater equations.Even as toddlers, we could recognize a rhinoceros by its features:
+    You don't need to be a math person for dealing with groundwater equations.Even as toddlers, we could recognise a rhinoceros by its features:
     - Four stubby legs
     - Two horns on an ugly-looking head
 
