@@ -24,7 +24,7 @@
 
 # Objectives
 .align{center}
-  .container width:{60%} background:{.lightblue} radius:{4pt} padding:{0.5cm}
+  .container borderwidth:{0.5pt} width:{60%} background:{.lightblue} radius:{4pt} padding:{0.5cm}
     By the end of this lecture, you should be able to:
       - Understand the **theory of saturated groundwater flow**.
       - Derive and apply the **basic groundwater flow equation**.
@@ -333,7 +333,7 @@
 # Combining All Directions: Full Conservation
 
 .align{center}
-  .container width:{80%} padding:{0.5cm} borderwidth:{1pt} background:{.lightblue}
+  .container padding:{0.5cm} borderwidth:{1pt} background:{.lightblue}
     $ - \left[ \frac{\partial (\rho_w q_x)}{\partial x} + \frac{\partial (\rho_w q_y)}{\partial y} + \frac{\partial (\rho_w q_z)}{\partial z} \right] = \frac{\partial (\rho_w n)}{\partial t} $
 
 .row
@@ -364,8 +364,9 @@
   .container width:{60%}
     The right-hand side can be simplified using **specific storage** ($ S_s $):
 
-    .container width:{90%} padding:{0.5cm} borderwidth:{1pt} background:{.lightblue}
-      $ \frac{1}{\rho_w} \frac{\partial (\rho_w n)}{\partial t} = S_s \frac{\partial h}{\partial t} $
+    .align{center}
+      .container padding:{0.5cm} borderwidth:{1pt} background:{.lightblue} alignment:{center}
+        $ \frac{1}{\rho_w} \frac{\partial (\rho_w n)}{\partial t} = S_s \frac{\partial h}{\partial t} $
 
     **Definition:** $ S_s $ accounts for water release due to both aquifer compression and water expansion.
 
@@ -593,22 +594,22 @@
       - No-flow boundaries (impermeable layers)
 
 
-# Type 1: Dirichlet Boundary Conditions
-
-## "Specified Head" Boundaries
-
+# "Specified Head" Boundaries
+## In math we call this **Dirichlet** Boundary Conditions
 .row
   .container width:{60%}
     **What it specifies:** Hydraulic head values directly
 
     .align{center}
       .container padding:{0.2cm} borderwidth:{1pt} background:{.lightblue} radius:{10pt}
-        $ h(x, y, z)|_\Gamma = h_1(x, y, z, t) $
+        $ h(x, y, z)|_\text{At a boundary} = h_1(x, y, z, t) $
 
     **Common examples:**
-    - Large lakes or rivers (constant water level)
+    - Large lakes or rivers
     - Ocean boundaries
     - Artificial ponds or reservoirs
+
+    For all of these you can calculate the pressure.
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred} radius:{10pt}
@@ -626,7 +627,7 @@
 
     .align{center}
       .container padding:{0.3cm} borderwidth:{1pt} background:{.lightblue}
-        $ q_n|_\Gamma = q_n(x, y, z, t) $
+        $ q_n|_\text{At a boundary} = q_n(x, y, z, t) $
 
     **Common examples:**
     - Precipitation recharge ($ q_n > 0 $)
@@ -635,9 +636,11 @@
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      Remeber $ \nabla h \cdot n = q_n $
+
       **Special case:**
 
-      $ q_n = 0 $ (no-flow) is very common for impermeable rock or clay layers.
+      $ q_n = 0 $ .ul{(no-flow) is very common for impermeable rock or clay layers}.
 
 # Understanding Flux Units
 
@@ -647,11 +650,11 @@
 
     1. **Darcy velocity** $ q_n $ [L/T]
        - Flow per unit area
-       - Used in the flow equation
+       - .ul{This is the source term we use the flow equation}
 
   .container width:{50%}
 
-    2. **Volumetric flow rate** $ Q_n $ [L³/T]
+    2. **Volumetric flow rate** $ Q_n $ [$ L^3/T $]
        - Total volume per time
        - Used for wells and boundaries
 
@@ -662,9 +665,12 @@
 
         $ Q_n = q_n \times \text{Area} $
 
-# Type 3: Cauchy Boundary Conditions
+# "Head-Dependent Flux" Boundaries (Cauchy)
 
-## "Head-Dependent Flux" Boundaries
+.align{center}
+  .fullspan
+    .container borderwidth:{1pt} padding:{0.5cm} radius:{10pt}
+      Sometimes the amount of flux in or out of the system is depending ont he solution itself.
 
 .row
   .container width:{60%}
@@ -709,23 +715,27 @@
 
 .row
   .container width:{100%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Decision Matrix:**
+
+    .align{center}
+      .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+        **Decision Matrix:**
+
+    .whitespace height:{0.5cm}
 
     .row gap:{0.5cm}
-      .container width:{33%}
+      .container width:{33%} borderwidth:{1pt} padding:{0.5cm}
         **Dirichlet**
         - Large water bodies
         - Known, stable water levels
         - Simple to implement
 
-      .container width:{33%}
+      .container width:{33%} borderwidth:{1pt} padding:{0.5cm}
         **Neumann**
         - Known recharge rates
         - Impermeable boundaries
         - Well pumping/injection
 
-      .container width:{33%}
+      .container width:{33%} borderwidth:{1pt} padding:{0.5cm}
         **Cauchy**
         - River-aquifer exchange
         - Variable external conditions
@@ -777,13 +787,12 @@
   .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred} radius:{10pt}
     ## Constructing the streamlines or the flowlines
 
-# Flow-Net Analysis: Visualizing Groundwater Flow
-
+# Visualising Groundwater Flow
 ## From Equations to Pictures
 
 .row
   .container width:{60%}
-    Once we solve the flow equation, we can **visualize the results** using flow nets:
+    We can **visualise the results** using flow nets:
 
     **Two key components:**
     - **Streamlines** (flow paths): show direction of water movement
@@ -797,14 +806,24 @@
 
       Water flows perpendicular to equipotential lines, from high head to low head.
 
+#
+
+
+.row gap:{1cm}
+  .container width:{60%}
+    !(100%)[Flownet](image/internet_flowlines.png)
+  .container width:{40%}
+    Flowlines are our way of visualising the flow, without solving the flow equation.
+
 # The Mathematical Foundation
 
 .row
   .container width:{60%}
     For **2D steady-state flow** in isotropic, homogeneous media:
 
-    .container width:{80%} padding:{0.3cm} borderwidth:{1pt} background:{.lightblue}
-      $ \frac{\partial^2 h}{\partial x^2} + \frac{\partial^2 h}{\partial y^2} = 0 $
+    .align{center}
+      .container padding:{0.5cm} borderwidth:{1pt} background:{.lightblue}
+        $ \frac{\partial^2 h}{\partial x^2} + \frac{\partial^2 h}{\partial y^2} = 0 $
 
     This is **Laplace's equation** - it has special mathematical properties that make flow nets possible.
 
@@ -832,27 +851,20 @@
     - **Constant-head boundaries** → parallel to equipotentials
     - **Symmetry lines** → can be treated as no-flow
 
-# Why "Squares" Matter
+# The famous dam seepage problem
 
-.row
+.row gap:{1cm}
   .container width:{60%}
-    **The square property is crucial for quantitative analysis:**
-
-    - Makes flow calculations much simpler
-    - Ensures proper flow distribution
-    - Allows accurate flow estimation
-
-    **Remember:** These aren't perfect squares, but "curvilinear squares" that maintain proper aspect ratios.
+    !(100%)[Flow net under dam](image/franklin_fig_5-6.png "Seepage through permeable foundation")
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
       **Practical tip:**
-
-      Start with boundary conditions, then sketch equipotentials and streamlines iteratively until squares form.
-
+      .fragment content:{Start with .ul{boundary conditions} from page before, then sketch equipotentials and streamlines iteratively until squares form.}
 
 
-# Flow Net Example: Dam Seepage
+
+# The famous dam seepage problem
 
 .row
   .container width:{55%}
@@ -867,8 +879,7 @@
     **Result:** Curved flow paths that form approximate squares
 
   .container width:{45%}
-    !(100%)[Flow net under dam](image/franklin_fig_5-6.png)
-    _Seepage through permeable foundation_
+    !(100%)[Flow net under dam](image/franklin_fig_5-6.png "Seepage through permeable foundation")
 
 # Reading the Flow Net
 
@@ -894,16 +905,19 @@
 
 
 
-# Quantifying Flow from Flow Nets
+# Quantifying flow
 
-## Flow Through One Channel
+## Let's consider the 1 dimensional example
 
 .row
-  .container width:{60%}
-    **For a single flow channel between two streamlines:**
+  .container width:{50%}
+    **For a single flow channel between two streamlines:** consider the 1d Darcy equation $ Q = A q = -A K \frac{\partial h}{\partial x} $
 
-    .container width:{85%} padding:{0.3cm} borderwidth:{1pt} background:{.lightblue}
-      $ \Delta Q = T \Delta h \frac{\Delta W}{\Delta L} $
+    .whitespace height:{0.5cm}
+
+    .align{center}
+      .container padding:{0.1cm} borderwidth:{1pt} background:{.lightblue} radius:{10pt}
+        $ \Delta Q = T \Delta h \frac{\Delta W}{\Delta L} $
 
     Where:
     - $ \Delta Q $ = flow through one channel
@@ -911,11 +925,30 @@
     - $ \Delta h $ = head drop between equipotentials
     - $ \Delta W / \Delta L $ = width/length ratio (≈ 1 for squares)
 
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Key advantage:**
+  .container width:{50%}
+    !(100%)[Homogeneous aquifer](image/franklin_fig_5-7.png "Streamlines and equipotentials under homogenous and isotropic conditions, flow is due to the constant heads applied at the left and right sides of the domain.")
 
-      For curvilinear squares, $ \Delta W / \Delta L ≈ 1 $, simplifying calculations.
+# Another way of looking at it
+
+.row
+  .container width:{50%}
+    Let's say there are a total number of $ n_f $ flow channels and $ n_d $ equipotential drops.
+
+    .align{center}
+      .container padding:{0.1cm} borderwidth:{1pt} background:{.lightblue} radius:{10pt}
+        $ \Delta Q = \frac{n_f}{n_d} T \Delta h $
+
+    then the flow rate is equal to $ n_f \Delta Q $ and pressure drop is equal to $ n_d \Delta h $.
+
+    Where:
+    - $ \Delta Q $ = flow through one channel
+    - $ T $ = transmissivity
+    - $ \Delta h $ = head drop between equipotentials
+    - $ \Delta W / \Delta L $ = width/length ratio (≈ 1 for squares)
+
+  .container width:{50%}
+    !(100%)[Homogeneous aquifer](image/franklin_fig_5-7.png "Streamlines and equipotentials under homogenous and isotropic conditions, flow is due to the constant heads applied at the left and right sides of the domain.")
+
 
 # Total Flow Calculation
 
@@ -923,8 +956,9 @@
   .container width:{60%}
     **For the entire flow system:**
 
-    .container width:{85%} padding:{0.5cm} borderwidth:{1pt} background:{.lightblue}
-      $ Q_{total} = \frac{n_f}{n_d} T \Delta H $
+    .align{center}
+      .container padding:{0.5cm} borderwidth:{1pt} background:{.lightblue} radius:{10pt}
+        $ Q_{total} = \frac{n_f}{n_d} T \Delta H $
 
     Where:
     - $ n_f $ = number of flow channels (between streamlines)
@@ -940,71 +974,16 @@
       4. Apply formula
 
 
-
-# Flow Nets in Heterogeneous Media
-
-.row
-  .container width:{55%}
-    In **heterogeneous media**, lines don’t form squares. Still, continuity of flow applies:
-
-  .container alignment:{center} padding:{0.2cm} borderwidth:{0.5pt} background:{.lightblue}
-    $ T_1 \Delta h_1 \frac{\Delta W_1}{\Delta L_1} = T_2 \Delta h_2 \frac{\Delta W_2}{\Delta L_2} $
-
-    If $ \Delta h_1 = \Delta h_2 $, then:
-
-  .container alignment:{center} padding:{0.2cm} borderwidth:{0.5pt} background:{.lightblue}
-    $ \frac{T_1}{T_2} = \frac{\Delta L_1 \Delta W_2}{\Delta L_2 \Delta W_1} $
-
-  .container width:{45%}
-    !(100%)[Flow net heterogeneous](image/franklin_fig_5-9.png)
-    _Flow path changes with transmissivity_
-
-
-
-# Flow Line Refraction at Interfaces
+# What we learned
 
 .row
-  .container width:{55%}
-    Flow changes direction when crossing a boundary between media with different conductivity.
-
-  .container alignment:{center} padding:{0.2cm} borderwidth:{0.5pt} background:{.lightblue}
-    $ \frac{K_1}{K_2} = \frac{\tan(\alpha_1)}{\tan(\alpha_2)} $
-
-    This is the **refraction law** for flow lines.
-
-  .container width:{45%}
-    !(100%)[Refraction](image/franklin_fig_5-10.png)
-    _Flow lines bend at boundaries of differing $ K $ values_
-
-
-
-# Flow Nets in Anisotropic Media
-
-.row
-  .container width:{60%}
-    When $ K_x \ne K_y $, we transform coordinates:
-
-  .container alignment:{center} padding:{0.2cm} borderwidth:{0.5pt} background:{.lightblue}
-    $ \left( \frac{K_x}{K_y} \right) \frac{\partial^2 h}{\partial x^2} + \frac{\partial^2 h}{\partial y^2} = 0 $
-
-    Change coordinates to:
-
-  .container alignment:{center} padding:{0.2cm} borderwidth:{0.5pt} background:{.lightblue}
-    $ X = \left( \frac{K_y}{K_x} \right)^{1/2} x \quad \Rightarrow \quad \frac{\partial^2 h}{\partial X^2} + \frac{\partial^2 h}{\partial y^2} = 0 $
-
-    Now the problem becomes Laplacian again — squares restored in transformed domain.
-
-
-
-# Flow Net Transformation Summary
-
-.row
-  .container width:{50%}
-    1. Identify principal directions of $ K $
-    2. Transform $ x $-axis by $ (K_y / K_x)^{1/2} $
-    3. Sketch flow net with squares
-    4. Reproject to original coordinates
-
-  .container width:{50%}
-    !(100%)[Anisotropic flow net](image/franklin_fig_5-11.png)
-    _From rectangles to squares using coordinate transformation_
+  .container width:{100%}
+    We explored the theoretical foundations of groundwater flow, covering:
+      - **Mathematical Framework**: recognizing differential equations and their characteristics (dimensionality, steady-state vs transient)
+      - **Equation Derivation**: conservation of mass in a representative elementary volume leading to the groundwater flow equation
+      - **Darcy's Law Integration**: combining flow relationships with conservation principles
+      - **Specialized Cases**: steady-state flow, isotropic media (Laplace's equation), and unconfined aquifers (Boussinesq equation)
+      - **Boundary Conditions**: Dirichlet (specified head), Neumann (specified flux), and Cauchy (head-dependent flux) boundaries
+      - **Initial Conditions**: starting points for transient problems and their physical significance
+      - **Flow Net Analysis**: visual representation of flow patterns using streamlines and equipotentials
+      - **Practical Applications**: dam seepage, flow quantification, and engineering design using flow nets
