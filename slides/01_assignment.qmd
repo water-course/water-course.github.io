@@ -45,6 +45,12 @@ See a description of the data at: [CSR GRACE Mascons](https://www2.csr.utexas.ed
 
 ➡️ Produce a **time series of changes in soil moisture** integrated over the **Murray–Darling Basin** at the same epochs as the estimates in (i).
 
+**Important data conversion notes:**
+- The ESA CCI Soil Moisture product provides volumetric soil moisture ($ m^3 \text{water}/m^3 \text{soil}$)
+- You must convert this to equivalent water depth for your analysis
+- **Assumption**: Extend the soil data to represent the top 5 meters of the soil column
+- **Data limitation**: The actual measurement accuracy is only for the top 0.05 meters (5 cm) of soil
+
 
 3. **(5 marks)** Download and plot globally **one daily file** of the **Version 07.1 ESACCI combined soil moisture daily product** from the CEDA archive catalogue.
 
