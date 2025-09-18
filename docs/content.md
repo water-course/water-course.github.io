@@ -25,14 +25,14 @@ Below is a comprehensive list of course materials for the Water Course.
 - [**Precipitation**](Tutorial-Precipitation/index.html)
 - [**Evapotranspiration**](Tutorial-Evaporation/index.html)
 - [**Run-off**](Tutorial-Runoff/index.html)
-- **Groundwater - Principles**
+- [**Groundwater - Principles**](Tutorial-Groundwater/index.html)
 - **Groundwater - Theory of Flow**
 - **Groundwater - Aquifers**
 
 ### 🔖 Assignments
-- [**Assignment 1**](AssignmentOne/index.html)
-- [**Assignment 2**](AssignmentTwo/index.html)
-- **Groundwater - Aquifers**
+- [**Assignment 1**](AssignmentOne/index.html) - Precipitation
+- [**Assignment 2**](AssignmentTwo/index.html) - Soil Moisture
+- **Assignment 3** - Groundwater
 
 
 ---
