@@ -47,12 +47,12 @@ See a description of the data at: [CSR GRACE Mascons](https://www2.csr.utexas.ed
 
 **Important data conversion notes:**
 - The ESA CCI Soil Moisture product provides volumetric soil moisture ($ m^3 \text{water}/m^3 \text{soil}$)
-- You must convert this to equivalent water depth for your analysis
-- **Assumption**: Extend the soil data to represent the top 5 meters of the soil column
-- **Data limitation**: The actual measurement accuracy is only for the top 0.05 meters (5 cm) of soil
+- You must convert this to equivalent water depth for your analysis (volumetric water content * depth)
+- **Assumption**: Extend the soil data to represent the top 20 centimetres of the soil column.
+- **Data limitation**: The actual measurement accuracy is only for the top 0.05 meters (5 cm) of soil. Discuss the implications of this limitation by showing the difference between the contribution if the soil data was only for the top 5 cm of the soil column. Explain why the soild moisture data cannot be used beyond 5 cm.
 
 
-3. **(5 marks)** Download and plot globally **one daily file** of the **Version 07.1 ESACCI combined soil moisture daily product** from the CEDA archive catalogue.
+3. **(5 marks)** Download and plot globally **one daily file** of the ESACCI combined soil moisture daily product** from the CEDA archive catalogue.
 
 ➡️ Explain how this product is produced and discuss the **limitations of the data**.
 See [ESA Soil Moisture Project](https://climate.esa.int/en/projects/soil-moisture/) and references within.
