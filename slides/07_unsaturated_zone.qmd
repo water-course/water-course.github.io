@@ -1,0 +1,632 @@
+.docname {Unsaturated-Flow-Basics}
+.doctype {slides}
+.doclang {English}
+.theme {paperwhite} layout:{beamer}
+.slides transition:{fade}
+.docauthors
+   - Sia Ghelichkhan
+
+.include {definitions.qmd}
+.include {definitions_slides.qmd}
+
+#!
+.fullspan
+   .center
+      ![Logo](image/new_logo.png)
+
+      ---
+      #! Unsaturated Flow and Miscellaneous Groundwater Topics
+      ###! EMSC3025/6025
+      ---
+
+      ###! _Dr. Sia Ghelichkhan_
+
+# Objectives
+.fullspan
+   .align{center}
+     .container borderwidth:{0.5pt} width:{75%} background:{.lightblue} radius:{4pt} padding:{0.5cm}
+       By the end of this lecture, you should be able to:
+         - Define **volumetric water content** $ \theta $ and **water saturation** $ s $ in the vadose zone.
+         - Explain why **pressure head** $ \psi $ is **negative** in the unsaturated zone.
+         - Describe methods for **measuring water content** (gravimetric and indirect techniques).
+         - Understand **infiltration, redistribution, and recharge** processes in unsaturated flow.
+         - Explain **characteristic curves**: water retention $ \theta(\psi) $ and hydraulic conductivity $ K(\psi) $.
+         - Recognize key **soil water models** (Brooks-Corey, van Genuchten) and their applications.
+         - Apply the **cubic law** for flow in fractured media and calculate fracture hydraulic conductivity.
+
+# Unsaturated or vadose zone
+
+.align{center}
+   .container background:{.lightblue} padding:{0.5cm} borderwidth:{1pt} radius:{5pt}
+      The space between the water table and the ground surface is called the .ul{vadose zone}.
+
+.row gap:{2cm}
+   .container width:{50%}
+      - The flow of water in the unsaturated zone is complicated.
+      - The the pore spaces contain both soil gas and water.
+      - Hydraulic .ul{constants}, such as **conductivity** and **diffusion**, become .ul{hydraulic functions}.
+      - The transmissive/storage properties can change dramatically depending on the water content.
+
+   .container width:{50%}
+      !(100%)[vadosezone](image/internet_vadose_zone.jpg)
+
+# Vadose zone essentials
+
+.row gap:{1cm}
+   .container width:{60%}
+      In the **unsaturated (vadose) zone**, pores contain **both soil gas and water**. Two core descriptors:
+
+      1. **Volumetric water content**:
+
+      .whitespace height:{0.1cm}
+
+      .align{center}
+         .container borderwidth:{0.5pt} radius:{5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+            $ \theta = \frac{V_w}{V_T} \qquad (0 < \theta < n) $
+
+      $ V_w $: volume of water, $ V_T $: total sample volume, $ n $: porosity.
+
+      2. **Water saturation**:
+
+      .whitespace height:{0.1cm}
+
+      .align{center}
+         .container borderwidth:{0.5pt} radius:{5pt} padding:{0.1cm} background:{.lightblue} alignment:{center}
+            $ s = \frac{V_w}{V_{\text{void}}} \qquad (0 < s < 1) $
+
+   .container width:{40%} padding:{0.5cm} borderwidth:{1pt} radius:{5pt}
+      **Key point**
+      In the unsaturated zone, typically $ \theta < n $ and $ s < 1 $.
+
+      !(90%)[vadose_zone](image/internet_multiphaseflow.webp)
+
+# Measuring water content
+
+.row gap:{1cm}
+  .container width:{40%}
+    - For a direct measurement of water content $ \theta_w $ as a weight fraction:
+      1. Weight the soil in a covered container.
+      2. Dry it in a convection oven for 24 hours.
+      3. Weight it again.
+
+      .align{center}
+        .container width:{100%} background:{.lightblue} alignment:{center} padding:{0.5cm}
+
+          $ \theta_w = \frac{W_{wet - soil}}{W_{dry - soil}} -1 $
+
+          Volumetric water content: $ \theta = \theta_w \,\dfrac{\rho_b}{\rho_w} $
+  .container width:{60%}
+
+    **Indirect methods**: measuring properties associated with water content.
+    - Electrical conductivity: Measuring the electrical resistivity of the soil: dependendent on water content.
+    - Time-domain reflectometry: Measuring dielectric constant of the soil: dependent on water content.
+    - gamma-ray attenuation: Water absorbs more gamma rays than soil.
+
+# Hydraulic head in the unsaturated zone
+.row gap:{1cm}
+    .container width:{55%}
+      .ul{Hydraulic head}: determines the direction of fluid flow.\
+      It combines elevation and pressure:
+
+      .align{center}
+         .container borderwidth:{0.5pt} padding:{0.1cm} background:{.lightblue} alignment:{center} radius:{5pt}
+            $ h \;=\; z \;+\; \psi $
+
+      - Above the water table: $ \psi < 0 $ (**suction/tension**). Water pressure less than atmospheric pressure. Explains why water in unsaturated zon .ul{does not flow to a borehole}.
+      - At the water table: $ \psi = 0 $.
+      - Below the water table (saturated): $ \psi > 0 $.
+   .container width:{45%}
+      !(100%)[Pressure head sign convention](image/franklin_fig_6-1.png "ψ negative above, zero at, and positive below the water table")
+
+# Measuring negative pressure head — Tensiometer
+.row gap:{1cm}
+  .container width:{40%}
+    **Tensiometer** (ASTM 1992; Stannard 1986):
+    - Porous **ceramic cup** connected to a water column/manometer, **vacuum gauge**, or **pressure transducer**.
+    - Cup is water-filled → provides **hydraulic connection** to pore water.
+    - As soil water pressure changes, instrument records **$ \psi $ (negative)** to maintain equilibrium.
+  .container width:{60%}
+    .html
+      <iframe width="800" height="415" src="https://www.youtube.com/embed/Tdjaxj3aEn4?si=qmfg28S3i71VfmMI&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+# Interpreting head profiles
+.row gap:{1cm}
+  .container width:{50%}
+    From the text example:
+    - **Pressure head** $ \psi $: negative **above** the water table, positive **below**.
+    - **Total head** $ h = z + \psi $: decreases with depth through the unsaturated zone → **downward flow**.
+
+  .container width:{50%}
+    !(100%)[Pressure head sign convention](image/franklin_fig_6-1.png "ψ negative above, zero at, and positive below the water table")
+
+# Changes in Moisture Content During Infiltration
+.row gap:{1cm}
+  .container width:{40%}
+    - Water content in the **unsaturated zone** varies with **space** and **time**.
+    - Example: infiltration from rainfall.
+    - At early times → **capillary forces dominate**, increasing water content near the surface.
+    - Later → infiltration ceases, and water redistributes downward.
+    - Both **capillary** and **gravitational** forces act.
+    - A **wetting front** forms: narrow zone where water content sharply increases.
+  .container width:{60%}
+    !(100%)[Infiltration stages](image/franklin_fig_6-4.png "Processes of infiltration redistribution and recharge")
+
+# Redistribution After Infiltration
+.row gap:{1cm}
+  .container width:{40%}
+    - After infiltration stops, the infiltrated pulse moves downward.
+    - The **wetting front** is clearly visible.
+    - Soil above the front gradually dries, while water below remains at higher content.
+    - This redistribution continues until equilibrium is reached or evapotranspiration intervenes.
+  .container width:{60%}
+    !(100%)[Infiltration stages](image/franklin_fig_6-4.png "Processes of infiltration redistribution and recharge")
+
+# Final Stage of Moisture Movement
+
+.row gap:{1cm}
+  .container width:{40%}
+    - Near the surface, **evapotranspiration** removes water once infiltration ends.
+    - Eventually, infiltrated water reaches the **saturated zone**.
+    - The unsaturated zone returns toward its initial condition, with soil moisture gradually reduced.
+    - Figure illustrates soil water entering saturated regions.
+  .container width:{60%}
+    !(100%)[InfiltrationRedistributionDrainage](image/franklin_fig_6-4.png "Processes of infiltration redistribution and recharge")
+
+# Characteristic Curves in the Unsaturated Zone
+
+.row gap:{1cm}
+  .container width:{50%}
+    - Flow in unsaturated media is complex: **two phases** (air + water).
+    - Both **volumetric water content** ($ \theta $) and **hydraulic conductivity** ($ K $) depend on **pressure head** ($ \psi $).
+    - As soils dry:
+      - $ \psi $ becomes more negative.
+      - $ K $ decreases → higher resistance to flow.
+    - Relationship between $ \psi $ and $ \theta $ = **water retention curve**.
+  .container width:{50%}
+    .fragment
+      !(100%)[Tensiometers](image/franklin_fig_6-5.png "Manometer, vacuum gage, pressure transducer")
+
+# Water Retention ($ \theta(\psi) $) Curves
+
+.row gap:{1cm}
+  .container width:{60%}
+    - Show how soil holds/release water as $ \psi $ changes.
+    - Generally: lower $ \theta $ → more negative $ \psi $.
+    - Curves are **nonlinear**, regardless of axes scaling.
+    - At extremes (wet or dry): small changes in $ \theta $ ↔ large changes in $ \psi $.
+    - Minimum $ \theta $ never zero → **residual water content** $ \theta_r $.
+  .container width:{40%}
+    !(100%)[Retention curve example](image/franklin_fig_6-5.png "Water retention curve")
+
+# Effective Saturation
+
+.row gap:{1cm}
+  .container width:{60%}
+    Defined as:
+
+    .align{center}
+      .container background:{.lightblue} alignment:{center} padding:{0.5cm} borderwidth:{0.5pt} radius:{5pt}
+        $ s_e \;=\; \dfrac{\theta - \theta_r}{n - \theta_r} $
+
+    where:
+
+    - $ s_e $ = effective saturation (0–1)
+    - $ \theta_r $ = residual water content
+    - $ n $ = porosity
+
+    **Key point**:
+      Normalises $\theta$ so models can be applied consistently.
+
+
+  .container width:{40%}
+    Many different models from soil physicists over the years:
+
+    - Brooks-Corey.
+    - van Genuchten.
+    - Campbell.
+    - ...
+
+
+# Soil Water Retention Models
+
+.row gap:{1cm}
+
+  .container width:{60%}
+
+    **Brooks–Corey (1966):**
+
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+
+      $ s_e = \begin{cases} \left(\dfrac{\psi_b}{\psi}\right)^\lambda, & \psi < \psi_b \\ 1, & \psi \geq \psi_b \end{cases} $
+
+    - $ \psi_b $: bubbling (air-entry) pressure head
+    - $ \lambda $: pore-size distribution index
+
+  .container width:{40%}
+    **van Genuchten (1980):**
+
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ s_e = \dfrac{1}{\left[1 + (\alpha|\psi|)^\beta\right]^\gamma} $
+    - $ \alpha $: scaling parameter [1/L]
+    - $ \beta $: curve shape exponent
+    - $ \gamma = 1 - 1/\beta $
+
+# Hysteresis and Soil Differences
+
+.row gap:{1cm}
+  .container width:{60%}
+    - **Hysteresis**: curve differs for drying vs wetting.
+      - Drying → air enters pores, displaces water.
+      - Wetting → water enters, displaces air.
+    - **Soil type impact**:
+      - Sand → uniform, large pores → sharp curves.
+      - Silt loam → broad pore size → gradual curves, higher $ \theta $ at same $ \psi $.
+  .container width:{40%}
+    !(100%)[Soil retention curves](image/franklin_fig_6-6.png "Sand, fine sand, silt loam retention curves")
+
+
+# $ K(\psi) $ Curves – Unsaturated Hydraulic Conductivity
+
+.row gap:{1cm}
+  .container width:{60%}
+    - In unsaturated media, **$ K $ is not constant**.
+    - Near saturation ($ \psi \approx 0 $): $ K \approx $ maximum.
+    - As soil dries ($ \psi $ negative):
+      - Pores fill with air → $ K $ decreases.
+      - At residual content → $ K \approx 0 $.
+    - Hence, $ K(\psi) $ is a **strongly nonlinear function**.
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Key point**
+      Flow is limited in unsaturated soils because fewer pores remain water-filled.
+
+# Relative Hydraulic Conductivity
+
+.row gap:{1cm}
+
+  .container width:{60%}
+    Define relative conductivity:
+
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+
+      $ K_r(\psi) = \dfrac{K(\psi)}{K_s} $
+
+    - $ K_s $: saturated conductivity
+    - $ K_r $: fraction of $ K_s $, ranges [0, 1]
+    - Depends on pressure head or saturation
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Modeling use:**
+      Simplifies comparison across soils.
+
+# Brooks–Corey Model for $ K(\psi) $
+
+.row gap:{1cm}
+  .container width:{30%}
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+
+      $ K_r(\psi) = \begin{cases} \left( \dfrac{\psi_b}{\psi} \right)^{2+3\lambda}, & \psi < \psi_b \\ 1, & \psi \geq \psi_b \end{cases} $
+      - $ \psi_b $: air-entry (bubbling) pressure (minimum negative pressure head for air to get tot he largest pores drains first)
+      - $ \lambda $: pore-size distribution index
+
+  .container width:{70%}
+    !(100%)[Conductivity models](image/franklin_fig_6-7.png "K(ψ) model curves")
+
+# van Genuchten Model for $ K(\psi) $
+
+.row gap:{1cm}
+
+  .container width:{40%}
+    - Widely used in hydrological modeling.
+    - Relative conductivity:
+
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+
+      $ K_r(\psi) = \dfrac{ \left[ 1 - (\alpha|\psi|)^{\beta-1} \left( 1 + (\alpha|\psi|)^\beta \right)^{-\gamma} \right]^2 } { \left[ 1 + (\alpha|\psi|)^\beta \right]^{\gamma/2} } $
+
+    - Parameters:
+      - $ \alpha $: scaling [1/L]
+      - $ \beta $: curve steepness
+      - $ \gamma = 1 - 1/\beta $
+
+  .container width:{60%}
+
+    !(100%)[van Genuchten conductivity](image/internet_typical-van-Genuchten.png)
+
+    **Alternative form** in terms of $s_e$:
+
+    $ K_r(s_e) = s_e^l \left[ 1 - \left( 1 - s_e^{1/\beta} \right)^\beta \right]^2 $
+
+    with $ l \approx 0.5 $ (pore connectivity).
+
+# Moisture Capacity or $ C(\psi) $ Curves
+
+.row gap:{1cm}
+  .container width:{60%}
+    - Storage properties described by **specific moisture capacity**:
+
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ c_m = \dfrac{d\theta}{d\psi} $
+
+    - Graphically -> **slope of $ \theta(\psi) $ curve**.
+    - Shows how much $ \theta $ changes for a given change in $ \psi $.
+    - At fine sands: small $ \psi $ change → large $ \theta $ change.
+
+  .container width:{40%}
+    !(100%)[Moisture capacity](image/franklin_fig_6-8.png "Measured vs modeled C(ψ)")
+
+# Models for Moisture Capacity
+
+.row gap:{1cm}
+  .container width:{60%}
+    - **Brooks–Corey model**:\
+    $ c_m(\psi) = \begin{cases} - (n - \theta_r) \dfrac{\lambda}{\psi_b} \left( \dfrac{\psi}{\psi_b} \right)^{-(\lambda+1)}, & \psi \leq \psi_b \\ 0, & \psi > \psi_b \end{cases} $
+
+    - **van Genuchten model**:\
+    $ c_m(\psi) = \begin{cases} \dfrac{ \alpha \gamma \beta (n - \theta_r) (\alpha|\psi|)^{\beta-1} } { \left[ 1 + (\alpha|\psi|)^\beta \right]^{\gamma+1} }, & \psi < 0 \\ 0, & \psi > 0 \end{cases} $
+
+  .container width:{40%}
+    .whitespace width:{100%}
+
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+
+      $ c_m $ is critical for linking **storage** with **unsaturated flow equations**.
+
+
+# Flow Equation in the Unsaturated Zone
+
+.fullspan
+  .align{center}
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} background:{.lightred} alignment:{center}
+      ### To be continued ...
+
+<!--
+.row gap:{1cm}
+  .container width:{60%}
+    Darcy’s law (unsaturated form):
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ q = -K(\psi) \nabla h $  (6.16)
+    - $K(\psi)$: unsaturated conductivity
+    - $h$: hydraulic head
+    Relative conductivity form:
+    $ K(\psi) = K_r(\psi) K_s $  (6.17)
+    - $K_r$: relative conductivity (0–1)
+    - $K_s$: saturated conductivity
+  .container width:{40%}
+    !(100%)[Moisture capacity comparison](image/franklin_fig_6-9.png "Sand vs clay, Brooks–Corey & van Genuchten")
+
+# Conservation in the Unsaturated Zone
+
+.row gap:{1cm}
+  .container width:{60%}
+    Combining Darcy + conservation of mass:
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ \frac{\partial}{\partial x_i} \Big( K_r(\psi) K_{ij} \frac{\partial h}{\partial x_j} \Big) = \frac{\partial \theta}{\partial t} $  (6.19)
+    - General tensor form with $K_{ij}$.
+    - Inflow – outflow = storage change.
+    - Equivalent to **Richards’ equation** for unsaturated flow.
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Key point**:
+      In unsaturated flow, $K$ and storage both depend on $\psi$.
+
+# Modified Richards’ Equation
+
+.row gap:{1cm}
+  .container width:{60%}
+    Equation (6.19) can be rewritten with **moisture capacity** and **specific storage**:
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ \frac{\partial}{\partial x} \Big( K_r(\psi) K_x \frac{\partial h}{\partial x} \Big) +
+         \frac{\partial}{\partial y} \Big( K_r(\psi) K_y \frac{\partial h}{\partial y} \Big) +
+         \frac{\partial}{\partial z} \Big( K_r(\psi) K_z \frac{\partial h}{\partial z} \Big)
+         = (c_m + s S_s) \frac{\partial h}{\partial t} $  (6.10)
+    - $c_m$: moisture capacity
+    - $s$: saturation
+    - $S_s$: specific storage
+  .container width:{40%}
+    !(100%)[Soil parameters](image/franklin_table_6-1.png "Hydraulic properties of soils")
+
+# One-Dimensional Case
+
+.row gap:{1cm}
+  .container width:{60%}
+    For vertical flow ($z$ positive downward):
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ \frac{\partial \theta}{\partial t} = \frac{\partial}{\partial z} \Big( K_r(\psi) K_z \big( \frac{\partial \psi}{\partial z} + 1 \big) \Big) $  (6.11)
+    - Includes both **pressure gradient** and **gravity term** (+1).
+    - Common in infiltration models.
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Check-in**:
+      How is this similar/different to saturated flow equation?
+
+# Velocity in Unsaturated Flow
+
+.row gap:{1cm}
+  .container width:{60%}
+    Linear groundwater (pore water) velocity:
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ v = \frac{q}{\theta} = \frac{q}{s n} $  (6.12)
+    - $q$: Darcy velocity
+    - $\theta$: volumetric water content
+    - $s$: saturation, $n$: porosity
+    **Velocity > Darcy velocity** because water flows only through pores actually filled with water.
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **Practice check**:
+      Why does dividing by $\theta$ increase velocity compared to $q$?
+
+# Worked Example
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Darcy velocity** in unsaturated zone = 3 cm/h.
+    Soil porosity = 0.36, average $s = 0.8$.
+    Unsaturated zone depth = 20 m.
+
+    Step 1: Compute pore velocity
+    $ v = \dfrac{3}{0.35 \times 0.8} \approx 10.7 \,\text{cm/h} $
+
+    Step 2: Travel time to water table
+    $ t = \dfrac{20\,\text{m}}{0.107\,\text{m/h}} \approx 18.7 \,\text{h} $
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Key takeaway**:
+      Unsaturated flow is **slower in Darcy sense** but true pore velocity can be much faster.
+
+
+# Examples of Unsaturated Flow
+
+.row gap:{1cm}
+  .container width:{60%}
+    - Solving Richards’ equation (unsaturated flow) requires **numerical models**.
+    - Codes: HYDRUS, VS2DT, SWMS_3D, TOUGH2, FEHM.
+    - Applications: infiltration, drainage, leakage, contaminant transport.
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Key note**
+      These models couple **$\theta(\psi)$**, **$K(\psi)$**, and flow equations.
+
+# Case Study 1: Infiltration & Drainage in a Caisson
+
+.row gap:{1cm}
+  .container width:{60%}
+    - Experiment in **6 m deep, 3 m dia. caisson** (Los Alamos, Bandelier Tuff).
+    - Modeled with HYDRUS.
+    - Hydraulic parameters (van Genuchten):
+      $K_s = 25.0$ cm/day, $n = 0.3308$, $\theta_r = 0$,
+      $\alpha = 0.01433$ (1/cm), $\beta = 1.506$.
+    - Observed vs simulated:
+      - $\psi$–$\theta$ curve
+      - $K$–$\theta$ curve
+  .container width:{40%}
+    !(100%)[Hydraulic properties](image/franklin_fig_6-11.png "Water retention and conductivity in Bandelier Tuff")
+
+# Wetting Front Progression
+
+.row gap:{1cm}
+  .container width:{60%}
+    - During infiltration:
+      - Pressure head $\psi \approx 0$ just behind wetting front.
+      - Strongly negative $\psi$ ahead of front → dry soil.
+    - As drainage continues:
+      - Water content declines across profile.
+      - Redistribution evident over 100 days.
+  .container width:{40%}
+    !(100%)[Wetting front](image/franklin_fig_6-12.png "Predicted water content profiles in Bandelier Tuff")
+
+# Case Study 2: Unsaturated Leakage from a Ditch
+
+.row gap:{1cm}
+  .container width:{60%}
+    - Ditch: 4 ft wide, 10 ft deep.
+    - Infiltration rate: 5 ft/yr.
+    - Background $\theta = 0.118$, long-term recharge = 0.011 ft/yr.
+    - Modeled with VS2DT.
+    - Hydraulic properties (sand, van Genuchten):
+      $K_s = 16$ ft/day, $n = 0.33$, $\theta_r = 0.072$,
+      $\alpha = 72$ (1/ft), $\beta = 1.7$.
+    - Vertical $K$ / horizontal $K$ = 0.1.
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **Results**
+      1. High water contents → low $\psi$.
+      2. Flow is stronger vertically than horizontally.
+      3. With time, water moves deeper toward the water table.
+
+# Groundwater Flow in Fractured Media
+
+.row gap:{1cm}
+  .container width:{60%}
+    - In fractured rocks:
+      - **Fractures** = main flow paths
+      - **Matrix blocks** = much less permeable
+    - Flow depends on:
+      - Fracture aperture $b$
+      - Fracture geometry and connectivity
+  .container width:{40%}
+    !(100%)[Observed vs predicted water content](image/franklin_fig_6-13.png)
+
+# The Cubic Law
+
+.row gap:{1cm}
+  .container width:{60%}
+    Idealized fracture = **parallel plate model**.
+    Volumetric flow rate:
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ Q = - \dfrac{\rho_w g b^2}{12 \mu} (bw) \dfrac{\partial h}{\partial L} $  (6.24)
+    - $b$: aperture, $w$: fracture width
+    - $h$: head, $L$: length
+    - Flow $\propto b^3$ → small aperture changes = big flow changes.
+  .container width:{40%}
+    !(100%)[Parallel plate fracture model](image/franklin_fig_6-15.png)
+
+# Hydraulic Conductivity of a Fracture
+
+.row gap:{1cm}
+  .container width:{60%}
+    For smooth fracture (parallel plates):
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ K = \dfrac{\rho_w g b^2}{12 \mu} $  (6.25)
+    For rough fracture:
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ K = \dfrac{\rho_w g b^2}{12 \mu [1 + C(x)^n]} $  (6.26)
+    - Roughness lowers $K$.
+    - Mineral deposits can further reduce flow.
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Key idea**:
+      Flow in fractured media often < idealized theory predicts.
+
+# Worked Example: Single Fracture Flow
+
+.row gap:{1cm}
+  .container width:{60%}
+    - Aperture: $b = 0.001$ m
+    - Fracture width: $0.1$ m
+    - Length: $10$ m
+    - Gradient: $\partial h / \partial L = 0.001$
+
+    Step 1: Hydraulic conductivity
+    $ K = 0.81$ m/s
+
+    Step 2: Volumetric flow
+    $ Q = 0.00081 \,\text{m}^3/s $
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **Takeaway**: Even small apertures can carry significant flow.
+
+# Flow in a Set of Parallel Fractures
+
+.row gap:{1cm}
+  .container width:{60%}
+    - Flow in networks modeled using **fracture porosity**:
+      $ \varphi_f = \dfrac{b}{s} $ (6.27)
+    - Permeability:
+      $ k_f = \dfrac{b^3}{12} N $  or
+      $ K_f = \dfrac{\rho_w g b^3}{12 \mu} N $  (6.28)
+    - Fracture frequency:
+      $ N = \dfrac{\cos(\theta_f)}{s} $  (6.29)
+    - Can rewrite in terms of fracture porosity:
+      $ K_f = \dfrac{\rho_w g b^2}{12 \mu} \varphi_f $  (6.30)
+  .container width:{40%}
+    !(100%)[Fracture sets](image/franklin_fig_6-16.png "One vs three fracture sets")
+
+# Equivalent-Continuum Approach
+
+.row gap:{1cm}
+  .container width:{60%}
+    - For large-scale modeling: fractures + matrix represented as **equivalent porous medium**.
+    - Effective permeability:
+    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      $ k = \dfrac{k_m + \dfrac{A_f}{A_m} k_f}{1 + \dfrac{A_f}{A_m}} $  (6.31)
+    - $k_m$: permeability of matrix
+    - $k_f$: permeability of fractures
+    - $A_m, A_f$: cross-sectional areas
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Use case**:
+      When fracture network is dense, system behaves like porous medium.
+-->
