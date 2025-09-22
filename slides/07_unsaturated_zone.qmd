@@ -140,11 +140,17 @@
   .container width:{50%}
     !(100%)[Pressure head sign convention](image/franklin_fig_6-1.png "ψ negative above, zero at, and positive below the water table")
 
+# The process of infiltration is complex
+
+.fullspan
+  .align{center}
+    .container width:{50%} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+      ## Consider the process of infiltration precipitation in unsaturated soil!
+
 # Changes in Moisture Content During Infiltration
 .row gap:{1cm}
   .container width:{40%}
     - Water content in the **unsaturated zone** varies with **space** and **time**.
-    - Example: infiltration from rainfall.
     - At early times → **capillary forces dominate**, increasing water content near the surface.
     - Later → infiltration ceases, and water redistributes downward.
     - Both **capillary** and **gravitational** forces act.
@@ -190,33 +196,33 @@
 # Water Retention ($ \theta(\psi) $) Curves
 
 .row gap:{1cm}
-  .container width:{60%}
+  .container width:{50%}
     - Show how soil holds/release water as $ \psi $ changes.
     - Generally: lower $ \theta $ → more negative $ \psi $.
     - Curves are **nonlinear**, regardless of axes scaling.
     - At extremes (wet or dry): small changes in $ \theta $ ↔ large changes in $ \psi $.
     - Minimum $ \theta $ never zero → **residual water content** $ \theta_r $.
-  .container width:{40%}
+  .container width:{50%}
     !(100%)[Retention curve example](image/franklin_fig_6-5.png "Water retention curve")
 
 # Effective Saturation
 
 .row gap:{1cm}
   .container width:{60%}
-    Defined as:
+    To study unsaturated zone, it is useful to use variables that are .ul{independent of soil type}. We define:
 
     .align{center}
-      .container background:{.lightblue} alignment:{center} padding:{0.5cm} borderwidth:{0.5pt} radius:{5pt}
+      .container background:{.lightblue} alignment:{center} padding:{0.2cm} borderwidth:{0.5pt} radius:{5pt}
         $ s_e \;=\; \dfrac{\theta - \theta_r}{n - \theta_r} $
 
     where:
 
-    - $ s_e $ = effective saturation (0–1)
-    - $ \theta_r $ = residual water content
+    - $ s_e $ = effective saturation (0. – 1.)
+    - $ \theta_r $ = residual water content (lowest water content that can be reached)
     - $ n $ = porosity
 
     **Key point**:
-      Normalises $\theta$ so models can be applied consistently.
+      Normalises $ \theta $ so models can be applied consistently.
 
 
   .container width:{40%}
@@ -232,7 +238,7 @@
 
 .row gap:{1cm}
 
-  .container width:{60%}
+  .container width:{50%}
 
     **Brooks–Corey (1966):**
 
@@ -243,6 +249,13 @@
     - $ \psi_b $: bubbling (air-entry) pressure head
     - $ \lambda $: pore-size distribution index
 
+  .container width:{50%}
+
+    !(100%)[Ghanbarian](image/internet_FittedBrooksCorey.png "Ghanbarian et al 2017")
+
+# Soil Water Retention Models
+
+.row gap:{1cm}
   .container width:{40%}
     **van Genuchten (1980):**
 
@@ -251,6 +264,9 @@
     - $ \alpha $: scaling parameter [1/L]
     - $ \beta $: curve shape exponent
     - $ \gamma = 1 - 1/\beta $
+
+  .container width:{60%}
+    !(100%)[van Genuchten](image/internet_vanGenuchten_SoilRetention.svg.png "van Genuchten pressure water content curve")
 
 # Hysteresis and Soil Differences
 
@@ -319,7 +335,7 @@
 .row gap:{1cm}
 
   .container width:{40%}
-    - Widely used in hydrological modeling.
+    - Widely used in hydrological modelling.
     - Relative conductivity:
 
     .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
@@ -335,27 +351,29 @@
 
     !(100%)[van Genuchten conductivity](image/internet_typical-van-Genuchten.png)
 
-    **Alternative form** in terms of $s_e$:
+    **Alternative form** in terms of $ s_e $:
 
     $ K_r(s_e) = s_e^l \left[ 1 - \left( 1 - s_e^{1/\beta} \right)^\beta \right]^2 $
 
     with $ l \approx 0.5 $ (pore connectivity).
 
-# Moisture Capacity or $ C(\psi) $ Curves
+# Moisture Capacity, $ C(\psi) $, Curves
 
+###! Moisture, capillary or differential water capacity, is the slope of the water retention curve.
 .row gap:{1cm}
   .container width:{60%}
     - Storage properties described by **specific moisture capacity**:
 
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-      $ c_m = \dfrac{d\theta}{d\psi} $
+    .align{center}
+      .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+        $ c_m = \dfrac{d\theta}{d\psi} $
 
     - Graphically -> **slope of $ \theta(\psi) $ curve**.
     - Shows how much $ \theta $ changes for a given change in $ \psi $.
     - At fine sands: small $ \psi $ change → large $ \theta $ change.
 
   .container width:{40%}
-    !(100%)[Moisture capacity](image/franklin_fig_6-8.png "Measured vs modeled C(ψ)")
+    !(80%)[Moisture capacity](image/franklin_fig_6-8.png "Measured vs modeled C(ψ)")
 
 # Models for Moisture Capacity
 
@@ -370,94 +388,96 @@
   .container width:{40%}
     .whitespace width:{100%}
 
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-
-      $ c_m $ is critical for linking **storage** with **unsaturated flow equations**.
-
+    .container
+      !(80%)[Moisture capacity comparison](image/franklin_fig_6-9.png "Sand vs clay, Brooks–Corey & van Genuchten")
 
 # Flow Equation in the Unsaturated Zone
 
-.fullspan
-  .align{center}
-    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} background:{.lightred} alignment:{center}
-      ### To be continued ...
-
-<!--
 .row gap:{1cm}
   .container width:{60%}
-    Darcy’s law (unsaturated form):
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-      $ q = -K(\psi) \nabla h $  (6.16)
-    - $K(\psi)$: unsaturated conductivity
-    - $h$: hydraulic head
-    Relative conductivity form:
-    $ K(\psi) = K_r(\psi) K_s $  (6.17)
-    - $K_r$: relative conductivity (0–1)
-    - $K_s$: saturated conductivity
+    Darcy's law (unsaturated form):
+
+    .align{center}
+      .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+        $ q = -K(\psi) \nabla h $
+
+    - $ K(\psi) $: unsaturated conductivity
+    - $ h $: hydraulic head
+
+    Relative conductivity form: $ K(\psi) = K_r(\psi) K_s $
+    - $ K_r $: relative conductivity (0–1)
+    - $ K_s $: saturated conductivity
+
   .container width:{40%}
-    !(100%)[Moisture capacity comparison](image/franklin_fig_6-9.png "Sand vs clay, Brooks–Corey & van Genuchten")
 
 # Conservation in the Unsaturated Zone
 
 .row gap:{1cm}
   .container width:{60%}
     Combining Darcy + conservation of mass:
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-      $ \frac{\partial}{\partial x_i} \Big( K_r(\psi) K_{ij} \frac{\partial h}{\partial x_j} \Big) = \frac{\partial \theta}{\partial t} $  (6.19)
-    - General tensor form with $K_{ij}$.
+
+    .align{center}
+      .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+        $ \frac{\partial}{\partial x_i} \left( K_r(\psi) \left(K_{ij} \frac{\partial h}{\partial x} + K_{iz} \right)\right) = \frac{\partial \theta}{\partial t} $
+
+    - General tensor form with $ K_{ij} $.
     - Inflow – outflow = storage change.
     - Equivalent to **Richards’ equation** for unsaturated flow.
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Key point**:
-      In unsaturated flow, $K$ and storage both depend on $\psi$.
+
 
 # Modified Richards’ Equation
 
-.row gap:{1cm}
-  .container width:{60%}
-    Equation (6.19) can be rewritten with **moisture capacity** and **specific storage**:
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-      $ \frac{\partial}{\partial x} \Big( K_r(\psi) K_x \frac{\partial h}{\partial x} \Big) +
-         \frac{\partial}{\partial y} \Big( K_r(\psi) K_y \frac{\partial h}{\partial y} \Big) +
-         \frac{\partial}{\partial z} \Big( K_r(\psi) K_z \frac{\partial h}{\partial z} \Big)
-         = (c_m + s S_s) \frac{\partial h}{\partial t} $  (6.10)
-    - $c_m$: moisture capacity
-    - $s$: saturation
-    - $S_s$: specific storage
-  .container width:{40%}
-    !(100%)[Soil parameters](image/franklin_table_6-1.png "Hydraulic properties of soils")
+.row gap:{1cm} alignment:{center}
+
+  .align{center}
+    .container width:{100%}
+      The equation can be rewritten with **moisture capacity** and **specific storage**:
+
+      .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+        $ \frac{\partial}{\partial x} \left( K_r(\psi) K_x \frac{\partial h}{\partial x} \right) + \frac{\partial}{\partial y} \left( K_r(\psi) K_y \frac{\partial h}{\partial y} \right) + \frac{\partial}{\partial z} \left( K_r(\psi) K_z \frac{\partial h}{\partial z}  + K_r(\psi) K_z \right) = (c_m + s S_s) \frac{\partial h}{\partial t} $
+
+- $ c_m $: moisture capacity
+- $ s $: saturation
+- $ S_s $: specific storage
+
 
 # One-Dimensional Case
 
 .row gap:{1cm}
   .container width:{60%}
-    For vertical flow ($z$ positive downward):
+    For vertical flow ($ z $ positive downward):
+
     .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-      $ \frac{\partial \theta}{\partial t} = \frac{\partial}{\partial z} \Big( K_r(\psi) K_z \big( \frac{\partial \psi}{\partial z} + 1 \big) \Big) $  (6.11)
+      $ \frac{\partial \theta}{\partial t} = \frac{\partial}{\partial z} \left( K_r(\psi) K_z \left( \frac{\partial \psi}{\partial z} + 1 \right) \right) $
     - Includes both **pressure gradient** and **gravity term** (+1).
     - Common in infiltration models.
   .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Check-in**:
-      How is this similar/different to saturated flow equation?
+    .fragment
+      .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+        **Check-in**:
+        How is this similar/different to saturated flow equation?
 
 # Velocity in Unsaturated Flow
 
 .row gap:{1cm}
   .container width:{60%}
     Linear groundwater (pore water) velocity:
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-      $ v = \frac{q}{\theta} = \frac{q}{s n} $  (6.12)
-    - $q$: Darcy velocity
-    - $\theta$: volumetric water content
-    - $s$: saturation, $n$: porosity
+
+    .container width:{100%}
+
+      $ v = \frac{q}{\theta} = \frac{q}{s n} $
+
+    - $ q $: Darcy velocity
+    - $ \theta $: volumetric water content
+    - $ s $: saturation, $ n $: porosity
     **Velocity > Darcy velocity** because water flows only through pores actually filled with water.
+
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
       **Practice check**:
-      Why does dividing by $\theta$ increase velocity compared to $q$?
+      Why does dividing by $ \theta $ increase velocity compared to $ q $?
 
+<!--
 # Worked Example
 
 .row gap:{1cm}
