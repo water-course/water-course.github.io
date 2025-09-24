@@ -46,12 +46,14 @@ Below is a short demo showing how to load the full Jupyter notebook directory in
 
 ## 📘 Tutorial List
 
-### [Basics 1](computer-lab/basics_00_solution.ipynb)
+### [Tutorial 1](computer-lab/basics_00_solution.ipynb)
 A beginner-friendly introduction to Python programming for geoscience applications, covering basic maths, loops, formatted output, and simple map plotting with Cartopy.
-### [Basics 2](computer-lab/basics_01_solution.ipynb)
+### [Tutorial 2](computer-lab/basics_01_solution.ipynb)
 Learn how to perform geospatial analysis in Python by working with shapefiles, spatial queries, NetCDF rainfall data, and basin-scale integration over the Murray-Darling Basin.
-### [Tutorial 1 - Precipitation](computer-lab/Ex1_Precipitation_solution.ipynb)
+### [Tutorial 3](computer-lab/Ex1_Precipitation_solution.ipynb)
 Apply multiple interpolation methods to estimate missing rainfall values, using real storm data and geospatial coordinates — adapted from a tutorial by [Jesús Casado Rodríguez](https://github.com/casadoj).
+### [Tutorial 4](computer-lab/basics_02_solution.ipynb)
+Learn a practical approach for adjusting surface-area differences across latitude–longitude grids.
 
 ---
 
