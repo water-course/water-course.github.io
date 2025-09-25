@@ -27,7 +27,7 @@ Below is a comprehensive list of course materials for the Water Course.
 - [**Evapotranspiration**](Tutorial-Evaporation/index.html)
 - [**Run-off**](Tutorial-Runoff/index.html)
 - [**Groundwater - Principles**](Tutorial-Groundwater/index.html)
-- **Groundwater - Theory of Flow**
+- [**Groundwater - Theory of Flow**](Tutorial-Flowtheory/index.html)
 - **Groundwater - Aquifers**
 
 ### 🔖 Assignments
