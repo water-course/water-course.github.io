@@ -33,7 +33,7 @@ Below is a comprehensive list of course materials for the Water Course.
 ### 🔖 Assignments
 - [**Assignment 1**](AssignmentOne/index.html) - Precipitation
 - [**Assignment 2**](AssignmentTwo/index.html) - Soil Moisture
-- **Assignment 3** - Groundwater
+- [**Assignment 3**](AssignmentThree/index.html) - Groundwater
 
 
 ---
