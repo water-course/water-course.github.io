@@ -19,7 +19,7 @@
 .numbering
   - tables: 1
   - figures: 1
-  - headings: 1
+  - headings:
 
 .pagemargin{bottomright}
   .currentpage / .totalpages
