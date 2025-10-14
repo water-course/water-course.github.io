@@ -613,7 +613,7 @@
 # Aquifer Type Transitions
 
 .row gap:{1cm}
-  .container width:{100%}
+  .container width:{50%}
     In some cases, an aquifer may be:
     - **Confined at early stage** of pumping
     - **Becomes unconfined** at late time
@@ -627,12 +627,17 @@
 
     As the aquifer changes from confined to unconfined, **storativity values change accordingly**.
 
+  .container width:{50%}
+    !(100%)[Aquifer type transition](image/franklin_fig_4-1.png "Aquifers can transition from confined to unconfined")
+
 # Specific Yield and Specific Retention
 
 .row gap:{1cm}
   .container width:{60%}
     .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
       **Specific yield** ($ S_y $) is the water released from a water-bearing material by **gravity drainage**.
+
+      Say the ratio of the volume of water yielded from a soil or rock by gravity drainage after being saturated, to the total volume of the soil or rock.
 
     Expressed as the ratio of:
 
@@ -703,8 +708,33 @@
   .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue} alignment:{center}
     ##! Examples of Real-World Aquifer Systems
 
-# Principal Aquifers in the United States
+#
 
+.fullspan
+  .center
+    .html
+      <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%; padding-top: 120px;"><a href="https://www.usgs.gov/mission-areas/water-resources/science/principal-aquifers-united-states" data-iframely-url="//iframely.net/PENPjeK2?theme=light"></a></div></div><script async src="//iframely.net/embed.js"></script>
+
+#
+.fullspan
+  !(100%)[Principal aquifers](image/internet_US_aquifers.png "Principal aquifers in the United States")
+
+#
+.fullspan
+
+  .center
+    !(80%)[Principal aquifers](image/internet_GA_groundwater.png)
+
+.row gap:{1cm}
+  .center
+    .container width:{100%} alignment:{center}
+        [Groundwater in Australia](https://www.ga.gov.au/scientific-topics/water/groundwater/groundwater-in-australia)
+
+#
+!(50%)[Principal aquifers](image/internet_parlimant_GW.jpg "Principal aquifers in the United States")
+
+
+# Principal Aquifers in the United States
 
 .row gap:{1cm}
     .container width:{65%}
@@ -714,712 +744,231 @@
         _Principal Aquifers in the United States organized by aquifer type and showing pumping rates for different uses_
         - This collection accounts for about 90% of daily groundwater production in the US.
 
-# Aquifer Types and Their Importance
-
-.row gap:{1cm}
-  .container width:{50%}
-    **Unconsolidated sand and gravel aquifers**:
-    - Most extensively pumped
-    - Provide much of groundwater in western US
-    - High permeability and storage
-    - Examples: High Plains, Central Valley, Mississippi River Valley
-
-    **Sandstone aquifers**:
-    - Important in many regions
-    - Lower permeability than unconsolidated sediments
-    - Can be very extensive
-
-  .container width:{50%}
-    **Carbonate-rock aquifers**:
-    - Limestone and dolomite
-    - Solution-enhanced permeability
-    - Examples: Floridan aquifer system
-
-    **Crystalline-rock aquifers**:
-    - Fractured granite, basalt
-    - Flow primarily in fractures
-    - Important in New England
-
-    **Volcanic-rock aquifers**:
-    - Basalt flows with high permeability
-    - Hawaiian volcanic, Columbia Plateau
-
-# Basin-Fill Aquifers
-
-.row gap:{1cm}
-  .container width:{60%}
-    Among the list of principal aquifers, **unconsolidated sand and gravel aquifers** rank among the most important aquifer systems in the United States.
-
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Basin-fill aquifers** form when:
-      - Structural basins or troughs associated with mountain ranges
-      - Amplify the quantity of sediments deposited
-      - Can be hundreds or thousands of meters thick
-
-  .container width:{40%}
-    <!-- Placeholder: Cross-section diagram of basin-fill aquifer showing mountain ranges on sides, thick sediment accumulation in basin center, with arrows showing sediment transport from mountains -->
-
-# Important Basin-Fill Aquifer Systems
-
-.row gap:{1cm}
-  .container width:{100%}
-    **Basin and Range Province** (California, Nevada, Utah, Arizona):
-    - Area underlain by basin-fill aquifers: ~383,000 km²
-    - Associated production ranks 4th among Principal Aquifers
-    - Provides water to: Las Vegas, Phoenix, Reno, Salt Lake City
-
-    **Characteristics of Basin and Range aquifers**:
-    - Long and narrow bodies
-    - Sand and gravel interbedded with finer sediments (silt and clay)
-    - Extensional tectonics led to formation
-    - Down-faulted basins among mountain ranges
-    - Some basins drained by streams; others topographically closed
-
-# Other Notable Basin-Fill Systems
-
-.row gap:{1cm}
-  .container width:{50%}
-    **Central Valley aquifer system** (California):
-    - One of the world's most important aquifers
-    - Extensive agricultural use
-    - Major groundwater depletion issues
-
-    **Indo-Gangetic aquifer** (Pakistan, India, Bangladesh):
-    - Among top 10 of world's most important aquifers
-    - Supports massive population
-    - Critical for food security
-
-  .container width:{50%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Common characteristics**
-
-      Basin-fill aquifers in Basin and Range tend to be:
-      - Long, narrow bodies
-      - Comprised of interbedded coarse and fine materials
-      - Some are drained (open basins)
-      - Others are topographically closed
-
-#
-.whitespace height:{3cm}
-
-.row gap:{1cm} alignment:{center}
-  .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue} alignment:{center}
-    ##! Fluvial Aquifers
-
-# Fluvial Aquifers: An Introduction
-
-.row gap:{1cm}
-  .container width:{60%}
-    **Fluvial processes** are also important in creating aquifers.
-
-    Sediments carried by rivers end up deposited in rivers, creating **fluvial deposits** that:
-    - Take on the shape of river valleys
-    - Typically produce aquifers that are **long, narrow, and thin**
-
-    Boggs (1987) recognizes two main environmental settings:
-    - **Meandering rivers**
-    - **Braided rivers**
-
-  .container width:{40%}
-    <!-- Placeholder: Map view comparison showing meandering river with curved channels and point bars vs braided river with multiple interwoven channels -->
-
-# Meandering Rivers
+# Unconsolidated Sand and Gravel Aquifers
 
 .row gap:{1cm}
   .container width:{60%}
     **Characteristics**:
-    - Comprised of looping, sinuous channels
-    - Occupy some portion of the flood plain
-    - Produce **linear shoestring sand bodies**
-    - Aligned parallel to river course
-    - Bounded below and on both sides by finer materials
+    - Intergranular porosity
+    - Primarily **unconfined** conditions
+    - High permeability (varies with clay content and sorting)
+    - Most extensively pumped aquifer type in US
 
-    **Geometry**:
-    - Shoestring sands are **many times wider than thick**
-    - Relatively **discontinuous laterally**
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Example**
-
-      Meandering streams like the Cant (1982) produce point bar deposits that migrate laterally as the channel moves.
-
-# Braided Rivers
-
-.row gap:{1cm}
-  .container width:{50%}
-    **Braided rivers** represent **higher energy environments** with:
-    - Comparatively larger flows
-    - Higher sediment loads
-    - Coarser sheet-like sands
-    - Contain finer materials enclosed within them
-
-    **Deposition pattern**:
-    - More extensive deposition of sand
-    - Function of **constant sediment deposition**
-
-  .container width:{50%}
-    !(100%)[Braided stream](image/franklin_fig_4-8.png "This braided stream in Alaska shows large sediment load under low flow conditions with expansive sand areas")
-
-# Braided Stream Characteristics
-
-.row gap:{1cm}
-  .container width:{60%}
-    Under **low flow conditions**, braided systems show:
-    - Multiple channels across the riverbed
-    - Evident channel network
-    - Rapid sedimentation
-    - Flow redistributed by constantly evolving channel network
-    - Sands distributed broadly across the stream valley
-
-    **Aquifer characteristics**:
-    - More laterally continuous than meandering systems
-    - Better connectivity
-    - Often higher transmissivity
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Real-world example**
-
-      The braided stream in Alaska (Figure 4.8) shows:
-      - Large sediment load
-      - Expansive areas of sand between active channels
-      - Typical low-flow configuration
-
-# Meandering vs Braided: Different Environments
-
-.row gap:{1cm}
-  .container width:{50%}
-    **Meandering streams** are confined more rigorously in:
-    - **Narrow channels**
-    - Separated by islands or bars
-    - Greater sinuosity
-    - Finer sediment load
-    - Point bars and natural levees
-    - Overbank settings or back swamps
-    - Much finer silt and clay deposits
-
-  .container width:{50%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Historical context**
-
-      River systems in North America developed at the margins of glaciers (e.g., Ohio River) often start as **braided streams** with:
-      - Large quantities of sediments
-      - Meltwater from continental glaciers
-
-      With the retreat of glaciers, streams change to become **meandering**.
-
-# Evolution Creates Productive Aquifers
-
-.row gap:{1cm}
-  .container width:{100%}
-    .container borderwidth:{2pt} padding:{0.5cm} background:{.lightblue} radius:{0.5cm}
-      **Key insight**
-
-      Sediments associated with braided streams typically create the **most productive alluvial aquifers**.
-
-    **Why braided stream deposits are better aquifers**:
-    - More continuous laterally
-    - Coarser grain size (higher K)
-    - Greater thickness
-    - Better hydraulic connectivity
-    - Less fine-grained material
-
-    **Examples**: High Plains aquifer, Mississippi River Valley alluvial aquifer
-
-#
-.whitespace height:{3cm}
-
-.row gap:{1cm} alignment:{center}
-  .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred} alignment:{center}
-    ##! Aquifers in Semi-consolidated Sediments
-
-# Semi-consolidated Sand Aquifers
-
-.row gap:{1cm}
-  .container width:{60%}
-    This family of aquifers is **semi-consolidated sand interbedded with**:
-    - Silt
-    - Clay
-    - Minor carbonate rocks
-
-    **Where they are found**:
-    - Formed in coastal settings
-    - Shallow fluvial, and shallow marine environments
-    - Associated with **coastal plains** along Atlantic Ocean and Gulf of Mexico
+    **Four main categories**:
+    1. **Basin/valley-fill**: Central Valley (California), Arizona basins
+    2. **Blanket sand and gravel**: High Plains aquifer (most pumped)
+    3. **Glacial deposits**: North of glaciation line (outwash, terraces)
+    4. **Stream-valley aquifers**: Local, small extent (not mapped)
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Key characteristic**
+      **Key properties**
 
-      These aquifers are **partially consolidated** — intermediate between unconsolidated sediments and fully lithified rocks.
+      - High storage and transmission
+      - Thicker deposits → more regional flow
+      - **Susceptible to contamination**
+      - Provide much of western US groundwater
 
-# Gulf Coast Aquifer Systems
-
-.row gap:{1cm}
-  .container width:{100%}
-    USGS has identified several aquifer systems along the Gulf Coast:
-
-    1. **Coastal lowlands aquifer system** (Texas)
-    2. **Mississippi embayment aquifer system** (Arkansas, Louisiana)
-    3. **Texas coastal uplands aquifer system**
-    4. **Southeastern Coastal Plain aquifer system**
-    5. **Northern Atlantic Coastal Plain aquifer system**
+# US Distribution: Sand and Gravel Aquifers
 
 .fullspan
   .align{center}
-    !(85%)[Gulf Coast aquifers](image/franklin_fig_4-16.png "Major aquifer systems of the Gulf Coastal plains shown with Mississippi River Valley alluvial aquifer")
+    !(50%)[Basin and Range aquifers](image/basinandrange.gif "Basin-fill aquifers in Basin and Range Province")
 
-# Characteristics of Gulf Coast Aquifers
+    _Basin-fill aquifers concentrated in Basin and Range Province (western US)_
 
-.row gap:{1cm}
-  .container width:{60%}
-    These aquifers typically **crop out in topographically higher areas** where they are unconfined.
-
-    **Moving seaward**:
-    - Become confined with upward leakage to shallow aquifers
-    - Discharge to saltwater bodies
-    - Flow is sluggish near the ends of long regional flow systems
-    - Aquifers commonly contain **unflushed saline water** in deeply buried, downdip parts
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Saltwater intrusion risk**
-
-      When shallow aquifers are pumped near coasts, saltwater intrusion can lead to **salinization** of groundwater. The Mississippi River Valley alluvial aquifer overlies older rocks in the Mississippi embayment.
-
-# Cross Section of Coastal Lowlands Aquifer
-
-.fullspan
-  .align{center}
-    !(95%)[Cross section](image/franklin_fig_4-17.png "Cross section showing unconsolidated units comprising the Coastal lowlands aquifer system in Texas with confining units")
-
-    _Units thicken toward the Gulf of Mexico. Subsidence has accommodated uplift on uplands wedge-shaped geometries._
-
-# Aquifer Properties: Gulf Coast System
+# US Distribution: Sandstone Aquifers
 
 .row gap:{1cm}
   .container width:{50%}
-    The Coastal lowlands aquifer system consists of **five aquifer units** (Permeable Units A through E) and **two confining beds** (Zone D and Zone E confining units).
-
-    **Typical characteristics**:
-    - Units thicken toward Gulf of Mexico
-    - Subsidence in Gulf Basin from weight of sediments
-    - Wedge-shaped geometry
+    !(100%)[Sandstone Aquifers](image/usgs_sandstone_aquifers.gif "Principal sandstone aquifers in the United States")
 
   .container width:{50%}
-    **Storage and transmission properties**:
-
-    - **Where confined**: storativity between $ 10^{-4} $ to $ 10^{-3} $
-    - **Where unconfined**: specific yield values from 10% to 30%
-    - **Hydraulic conductivity**: $ 17-21 $ ft/day (or $ 5-7 $ m/day)
-    - **Transmissivity**: $ 5000 $ to $ 35000 $ ft²/day (or $ 500-4000 $ m²/day)
-
-# Case Study: Houston Groundwater Depletion
-
-.row gap:{1cm}
-  .container width:{60%}
-    **Fifty percent of total withdrawals** from the aquifer system in 1985 was concentrated in and around Houston.
-
-    **Production sources**:
-    - Permeable units A, B, and C
-
-    **Large withdrawals of groundwater** by 1982 produced:
-    - **300-ft (91-m) decline** in Permeable Zone B
-    - **>400 ft (121 m) decline** in Zone C
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Land subsidence consequence**
-
-      The large declines in water levels contributed to **land subsidence** in the Houston area:
-
-      More than **9 ft (>2.75 m)** of subsidence (Ryder, 1996).
-
-#
-.whitespace height:{3cm}
-
-.row gap:{1cm} alignment:{center}
-  .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue} alignment:{center}
-    ##! Sandstone Aquifers
-
-# Sandstone Aquifers: Introduction
-
-.row gap:{1cm}
-  .container width:{60%}
-    **Sandstone** is a rock formed from cementation of sand.
-
     **Key characteristics**:
-    - Typically retains only a **small fraction** of the primary porosity of sand
-    - Compaction and cementation together cause **substantial reduction** in porosity
-    - **Secondary openings** (joints, fractures, bedding-plane partings) facilitate flow
-    - Hydraulic conductivity: **low to moderate**
-    - Can provide **large quantities of water** because they extend over large areas
-
-  .container width:{40%}
-    <!-- Placeholder: Block diagram showing sandstone with primary porosity between grains plus secondary openings (fractures and bedding planes) -->
-
-# Important Sandstone Aquifers
-
-.row gap:{1cm}
-  .container width:{100%}
-    Sandstone aquifers are common across the United States and include:
-
-    - **Colorado Plateau** aquifer systems
-    - **Denver Basin** aquifer system
-    - **Lower Cretaceous aquifers** (Northern Great Plains aquifer system)
-    - Many others too numerous to mention
+    - Consolidated sand → **reduced porosity**
+    - Joints and fractures transmit most groundwater
+    - **Low to moderate** hydraulic conductivity
+    - Extend over **large areas** → provide large water quantities
 
     .whitespace height:{0.5cm}
 
-    **Focus of this section**:
-    - Dakota Sandstone aquifer (Northern Great Plains)
-    - Nubian sandstone (North Africa)
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
+      **Map note**
 
-# Dakota Sandstone Aquifer
+      Shows only shallowest principal aquifer. Deeper, sometimes more productive aquifers may exist below.
+
+# US Distribution: Carbonate-Rock Aquifers
+
+.row gap:{1cm}
+  .container width:{50%}
+    !(100%)[Carbonate-Rock Aquifers](image/usgs_carbonate_rocks.gif "Principal carbonate-rock aquifers in the United States")
+
+  .container width:{50%}
+    **Composition**:
+    - **Calcite** (CaCO₃) → limestone
+    - **Dolomite** (CaMg(CO₃)₂) → dolostone
+    - Marine origin (shells, corals, algae, precipitates)
+
+    **Key processes**:
+    - Post-depositional: compaction, cementation, dolomitisation
+    - **Solution enhancement**: dissolution by acidic groundwater
+    - Creates tubes, widened joints, and caverns
+
+# Carbonate Aquifer Characteristics
 
 .row gap:{1cm}
   .container width:{60%}
-    The **Dakota Sandstone** is notable for:
-    - Many studies through the years
-    - One of the **earliest understood** artesian aquifers
-    - Important role in **confining beds** play
+    **Solution openings range from**:
+    - Small tubes and widened joints
+    - To caverns **tens of meters wide**
+    - Extending **hundreds to thousands of meters** in length
 
-    **Classic artesian aquifer studies**:
-    - Chamberlin (1885)
-    - Darton (1909)
+    **Hydraulic properties**:
+    - Well-connected networks → **large yields** to wells
+    - Undissolved rock between openings → nearly impermeable
+    - Extreme heterogeneity
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Historical significance**
+      **Famous example**
 
-      Early studies of "classical" artesian aquifers included the Dakota Sandstone and contributed to fundamental understanding of confined aquifer systems.
+      **Floridan aquifer system**: One of the most productive aquifer systems in the world, supplies water to millions in Florida
 
-# Dakota Aquifer System Structure
-
-.fullspan
-  .align{center}
-    !(90%)[Dakota cross section](image/franklin_fig_4-18.png "West-east cross section showing the most important aquifers and confining beds comprising the Dakota aquifer system")
-
-    _The aquifer system stretches from Black Hills eastward under entire state of South Dakota_
-
-# Characteristics of Classic Artesian Aquifer
+# Other Important Aquifer Types
 
 .row gap:{1cm}
-  .container width:{60%}
-    **The aquifer itself** is confined by:
-    - Rocks of much lower permeability
-    - **Cretaceous shale** below
-    - Structural deformation/erosion of rocks led to exposure in uplands
-    - **Direct recharge** occurs in upland areas
-
-    **Potentiometric surface**:
-    - Might occur **above ground surface** where aquifer is topographically lower
-    - Initially, before extensive pumping impacts
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Important concept**
-
-      This simple model assumes flow is mostly **through the aquifer** with:
-      - No flow in beds below
-      - Only minor leakage upward
-
-      However, both Chamberlin and Darton appreciated that **flow was possible through confining beds**.
-
-# Dakota Aquifer System Components
-
-.row gap:{1cm}
-  .container width:{100%}
-    Three major aquifers present in the basin:
-
-    1. **Mississippian carbonate rocks** (Madison Group)
-    2. **Inyan Kara Group Sandstones**
-    3. **Newcastle Sandstone**
-
-    These aquifers **crop out on the eastern flank** of the Black Hills.
-
-    **Confining beds** are largely shale and include:
-    - **Madison Group confining layer**
-    - **Skull Creek shale**
-    - **Cretaceous Shale confining layer**
-
-# Flow Patterns in Dakota Aquifer
-
-.row gap:{1cm}
-  .container width:{60%}
-    Studies showed the aquifer systems behaved **much differently** than the classic conceptual model of a completely confined aquifer.
-
-    **Total inflows and outflow** through entire aquifer in South Dakota was estimated at **80 ft³/sec**.
-
-    **In terms of recharge**, only ~25% was associated with:
-    - Upland outcrops of sandstone units (Newcastle Sandstone and Inyan Kara Group)
-
-  .container width:{40%}
-    **Recharge to Madison Group**: ~29% ended up as **flux in the sandstone aquifer** because of **cross-formational flow** at depth.
-
-    **Surprisingly**: Nearly **half the total flow** in the aquifer (~46%) came as **recharge through the Cretaceous shale confining unit**.
-
-# Vertical Leakage Through Confining Beds
-
-.row gap:{1cm}
-  .container width:{60%}
-    Although the **vertical hydraulic conductivity was low**, this unit covers a **large area** of South Dakota.
-
-    **Flow modelling results** (Bredehoeft et al., 1983):
-
-    - $ K_z $ value of $ 2 \times 10^{-11} $ ft/sec for combined Cretaceous shale confining layer
-    - $ K_{xy} $ values:
-      - Inyan Kara Group: $ 9.6 \times 10^{-5} $ ft/sec
-      - Dakota-Newcastle: $ 6.4 \times 10^{-5} $ ft/sec
-      - Madison Limestone: $ 1 \times 10^{-5} $ ft/sec
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Key insight**
-
-      Most of the outflow (~80%) left the Dakota Sandstone through **upper confining bed**, rather than the eastern end of the aquifer.
-
-      Wells in the aquifer typically yielded 50–500 gpm.
-
-#
-.whitespace height:{3cm}
-
-.row gap:{1cm} alignment:{center}
-  .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred} alignment:{center}
-    ##! Carbonate-Rock Aquifers
-
-# Carbonate-Rock Aquifers: Introduction
-
-.row gap:{1cm}
-  .container width:{60%}
-    Most of the developed carbonate aquifers supplying groundwater in the United States are found in the **east**, particularly in **Florida**.
-
-    **Major systems**:
-    - **Floridan aquifer system** (most famous)
-    - **Biscayne aquifer**
-
-    Most carbonate-rock aquifers are **limestone**, but locally:
-    - **Dolomite** yields water
-    - **Marble** yields water
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Wide variability**
-
-      Water-yielding properties of carbonate rocks vary widely:
-      - Some units yield **almost no water** (act as confining units)
-      - Others are among the **most productive aquifers** known
-
-# Enhancement of Permeability by Dissolution
-
-.row gap:{1cm}
-  .container width:{60%}
-    Most carbonate rocks originate as **sedimentary deposits in marine environments**.
-
-    **Post-depositional processes**:
-    - Compaction
-    - Cementation
-    - Dolomitisation
-
-    These greatly change **porosity and hydraulic conductivity**.
-
-    **Most important change**: Rock dissolution by circulating, slightly acidic groundwater
-    - Enlarges pore spaces
-    - Creates joints, fractures, and bedding-plane partings
-    - Leads to **increased hydraulic conductivity and porosity**
-
-  .container width:{40%}
-    <!-- Placeholder: Diagram showing progressive dissolution of carbonate rock - starting with intact rock with small fractures, progressing to enlarged fractures and conduits, ending with cave development -->
-
-# Solution Conduits and Caves
-
-.row gap:{1cm}
-  .container width:{60%}
-    In some cases, **solution conduits or caves** can develop that:
-    - Connect recharge areas to discharge areas at the downstream end
-    - Term **"solution conduit"** refers to **long openings** enlarged by groundwater
-    - Such openings are generally considered to be **smaller than caves**
-
-    Where they are saturated, carbonate rocks with **well-connected networks** of solution openings yield:
-    - **Large amounts of water** to wells that penetrate the openings
-    - Intact rock between secondary openings is **poorly permeable**
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Important distinction**
-
-      Although intact rock is poorly permeable, the **network of solution openings** creates very high bulk permeability for the aquifer as a whole.
-
-# Conditions for Solution Enhancement
-
-.row gap:{1cm}
-  .container width:{100%}
-    Major **solutional enhancement** of permeability in carbonate aquifers depends on the circulation of groundwater.
-
-    **Three conditions** must be present (Stringfield and LeGrande, 1966):
-
-    1. **Chemically aggressive groundwater** must be available to recharge the system
-    2. **Fractures** need to be present to transmit water
-    3. **Groundwater must be able to drain out** of the system
-
-    Commonly, these three conditions develop in **unconfined carbonate aquifers**.
-
-# Development of Solution Conduits
-
-.row gap:{1cm}
-  .container width:{60%}
-    **Creation of conduits** begins as water enlarges discontinuities close to the recharge area of the flow system.
-
-    **Initial stage**:
-    - Flow pathways develop
-    - Aggressive flows rapidly through rock to discharge point
-    - Conduits are only about **1 cm wide**
-
-    **As flow paths lengthen** (kilometres):
-    - Selected conduits grow to **size of caves**
-    - Conduits accessible to humans
-    - Extensive literature related to exploring caves
-
-  .container width:{40%}
-    !(100%)[Solution enhancement](image/franklin_fig_4-19.png "Solution enhancement of original porosity showing zones of fracture concentration")
-
-    _Highest well yields occur where multiple fractures intersect_
-
-# Hydraulic Conductivity Ranges in Carbonates
-
-.row gap:{1cm}
-  .container width:{60%}
-    Apart from network of conduits and caves, other **secondary porosity** can be present but **not enlarged**.
-
-    **Result**: Significant regions of a carbonate aquifer might have:
-    - Hydraulic conductivities and porosities **comparable to fractured rocks**
-
-    **Important facts** about carbonate rocks (Brahana et al., 1988):
-
-    1. "Carbonate rocks serve as **significant aquifers throughout North America**. They are not limited by location or the age of the formation."
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Remarkable range**
-
-      2. "Carbonate rocks show a **total range of hydraulic conductivity of 10 orders of magnitude**, from the tightest confining beds to the most prolific aquifers."
-
-# When Carbonates Don't Develop High Permeability
-
-.row gap:{1cm}
-  .container width:{60%}
-    Not all carbonate rocks develop **solution-enhanced porosity and permeability**.
-
-    **Reasons for low permeability**:
-    - Carbonate rocks are of **low permeability** and are thick
-    - Carbonate rock was **never elevated** into an active groundwater circulation system
-    - Features of carbonate rock **inhibit enhancement** in permeability
-
-  .container width:{40%}
-    **Examples of inhibiting features**:
-    - Example: the **rock did not develop** in a carbonate rock that is essentially **unfractured**
-    - Carbonate rock like **chalk** can be so porous that flow is **diffuse** and **not concentrated** along preferential paths
-
-    In these cases, **pores grow equally**.
-
-# Hydrogeologic Response of Carbonates
-
-.row gap:{1cm}
-  .container width:{100%}
-    3. "The hydrogeologic response of carbonates at any time is related to the **rock permeability**, which is affected most by the **dynamic process** of dynamic freshwater circulation and solution of the rock."
-
-    4. "The significant control of the dynamic freshwater circulation is the **integrity of the hydraulic circuit**, which requires that recharge, flow-through, and discharge must be maintained. Without each of these, the system is essentially static and does not act as a conduit. Its evolution rate approaches that of noncarbonate rocks. **Secondary controls** on dynamic circulation include lithologic, structural, geomorphic, hydrologic, and chronologic aspects."
-
-    5. "The significant controls on the process of solution are (a) **rock solubility**, and (b) the **chemical character of the groundwater**......"
+  .container width:{50%}
+    **Crystalline-rock aquifers**:
+    - Fractured granite, basalt, metamorphic rocks
+    - Very low primary porosity
+    - Flow occurs **primarily in fractures**
+    - Secondary porosity controls productivity
+    - Important in New England, Canadian Shield
+    - Well yields highly variable
+
+  .container width:{50%}
+    **Volcanic-rock aquifers**:
+    - Basalt flows with **high permeability**
+    - Flow in cooling fractures and lava tubes
+    - Vesicular zones store water
+    - Examples: Hawaiian volcanic, Columbia Plateau
+    - Can be extremely productive locally
+    - Complex interbedded structure
 
 #
 .whitespace height:{3cm}
 
 .row gap:{1cm} alignment:{center}
   .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue} alignment:{center}
-    ##! Karst Landscapes
+    ##! Summary of Aquifer Systems
 
-# Karst Landscapes
+# Unconsolidated Aquifers Summary
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Basin-Fill Aquifers**:
+    - Structural basins in mountain regions
+    - Hundreds to thousands of meters thick
+    - Examples: Basin and Range, Central Valley
+    - Long, narrow bodies with interbedded materials
+    - Major water sources in western US
+
+    **Fluvial Aquifers**:
+    - Deposited by river systems
+    - Two types: meandering vs braided
+    - Braided → more continuous and productive
+    - Long, narrow, thin geometry
+    - Mississippi River Valley, High Plains
+
+  .container width:{50%}
+    **Key characteristics**:
+    - High permeability (varies with sorting)
+    - Unconfined conditions
+    - High specific yield ($ 0.1-0.3 $)
+    - Susceptible to contamination
+    - Most extensively pumped in US
+
+    **Categories**:
+    - Basin/valley-fill
+    - Blanket sand and gravel
+    - Glacial deposits
+    - Stream-valley aquifers
+
+# Consolidated Aquifers Summary
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Semiconsolidated Sediments**:
+    - Gulf Coast aquifer systems
+    - Wedge-shaped geometry (thicken toward coast)
+    - Confined updip, unconfined downdip
+    - Risk: saltwater intrusion, land subsidence
+    - Example: Houston subsided >9 ft (>2.75 m)
+
+    **Sandstone Aquifers**:
+    - Cemented sand with reduced porosity
+    - Flow in fractures and bedding planes
+    - Low to moderate hydraulic conductivity
+    - Large areal extent
+    - Example: Dakota Sandstone (~46% recharge through confining beds)
+
+  .container width:{50%}
+    **Carbonate-Rock Aquifers**:
+    - Limestone and dolostone
+    - Solution-enhanced permeability
+    - **10 orders of magnitude** range in $ K $
+    - Large yields where well-connected
+    - Example: Floridan aquifer system
+
+    **Other Types**:
+    - **Crystalline-rock**: fractured granite/basalt, flow in fractures
+    - **Volcanic-rock**: basalt with cooling fractures and lava tubes
+
+# Karst Systems Summary
 
 .row gap:{1cm}
   .container width:{60%}
-    Extensive modifications to carbonate or easily dissolvable rocks have a **significant influence on the landscape**.
+    **Formation requirements**:
+    1. Chemically aggressive groundwater
+    2. Fractures present for transmission
+    3. Groundwater can drain out
 
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Karst** describes landscapes shaped by **dissolution processes** to provide unique landforms and underground drainage.
+    **Solution features**:
+    - Start as small conduits (~1 cm)
+    - Grow to cave size (kilometers long)
+    - Highest yields at fracture intersections
+    - Extremely heterogeneous permeability
 
-    **Associated landforms**:
-    - Sinkholes
-    - Sinking streams
+  .container width:{40%}
+    **Karst landforms**:
+    - Sinkholes (dissolution, cover subsidence, cover-collapse)
+    - Stream sinks (disappearing streams)
     - Dry valleys
-    - Caves
-    - Large springs
+    - Large spring systems
+    - Underground cave networks
 
-  .container width:{40%}
-    <!-- Placeholder: 3D diagram of karst landscape showing surface sinkholes, disappearing streams, underground cave systems, and springs emerging at lower elevations -->
+    **Management challenges**:
+    - Rapid contaminant transport
+    - Unpredictable flow paths
+    - Surface-subsurface connectivity
 
-# Sinkholes
-
-.row gap:{1cm}
-  .container width:{60%}
-    **Sinkholes** are bowl-shaped depressions on the land surface.
-
-    **Formation processes**:
-    - **Dissolution** and **suffusion**
-    - Term **"suffusion"** refers to situation where unconsolidated surface deposits overlying bedrock are transported into karst features that form deep sinkholes
-    - Unlike catastrophic collapse, **suffusion is a relatively slow process**
-
-    **Factors affecting formation**:
-    - Character of overburden materials
-    - Their thickness
-    - Types of materials
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Three types of sinkholes** in Florida (Galloway et al., 1999):
-
-      (i) **Dissolution**
-      (ii) **Cover subsidence**
-      (iii) **Cover-collapse** sinkholes
-
-# Stream Sinks
-
-.row gap:{1cm}
-  .container width:{60%}
-    In the setting of shallow carbonate rocks with dissolution features, **stream sinks** can form.
-
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Stream sinks** are places where a small stream simply **disappears into the subsurface** to follow a connected cave system before rejoining the surface water as a spring.
-
-  .container width:{40%}
-    <!-- Placeholder: Cross-section showing stream flowing on surface, then disappearing into sinkhole, flowing through underground cave system, and emerging as spring downstream -->
-
-# Karst Features: Comprehensive View
+# Comparing Major Aquifer Types
 
 .fullspan
   .align{center}
-    !(95%)[Karst conceptual model](image/franklin_fig_4-20.png "Conceptual model showing landforms and features associated with karst including sinkholes, stream sinks, blind valleys, caves, fractures, and springs")
+    .container width:{95%}
+      |**Aquifer Type**|**Porosity**|**K Range**|**Storage**|**Key Feature**|**Main Challenge**|
+      |:---|:---:|:---:|:---:|:---|:---|
+      |**Unconsolidated**|High (0.25-0.35)|High|$ S_y = 0.1-0.3 $|Intergranular|Contamination|
+      |**Basin-fill**|High|High-Moderate|High|Thick accumulations|Over-exploitation|
+      |**Fluvial (braided)**|High|High|High|Lateral continuity|Variable quality|
+      |**Semiconsolidated**|Moderate|Moderate|Moderate|Wedge geometry|Subsidence, saltwater|
+      |**Sandstone**|Low-Moderate|Low-Moderate|$ S = 10^{-3}-10^{-5} $|Fracture flow|Vertical leakage|
+      |**Carbonate**|Variable|10 orders of magnitude|Variable|Solution conduits|Heterogeneity|
+      |**Karst**|Highly variable|Extremely high locally|Low-Moderate|Caves and conduits|Rapid transport|
+      |**Crystalline**|Very low|Very low|Very low|Fractures only|Limited yield|
 
-    _Carbonate bedrock is overlain by surficial deposits with various types of dissolution features_
-
-# Capture and Transmission by Karst Systems
-
-.row gap:{1cm}
-  .container width:{100%}
-    The ability of **fracture and cave systems** to capture and transmit surface water in various ways sometimes leads to:
-
-    - **Absence of surface water** in dry valleys
-    - Water associated with **large springs systems**
-
-    **Various types of sinkholes** described with several classification systems:
-
-    Galloway et al. (1999) described the types found in Florida:
-    - (i) **Dissolution**
-    - (ii) **Cover subsidence**
-    - (iii) **Cover-collapse** sinkholes
-
-    Each type forms through different processes and at different rates.
+      _Comparison of principal aquifer characteristics_
 
 # Summary
 
@@ -1436,6 +985,10 @@
       - Storage mechanisms: elastic ($ S_s $) in confined, gravity drainage ($ S_y $) in unconfined aquifers
       - Relationship: $ n = S_y + S_r $ connects porosity to drainable and retained water
 
+# Summary
+.align{center}
+  .container width:{75%}
+    .box title:{Key takeaways from this lecture:} background:{.lightblue}
       **Real-World Aquifer Systems:**
       - **Basin-fill** (Basin and Range): structural basins with thick sediment accumulation
       - **Fluvial**: braided streams create more continuous aquifers than meandering systems
