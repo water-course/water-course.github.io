@@ -68,7 +68,7 @@ a) Calculate the total hydraulic head at the piezometer measurement point (botto
 
 b) Determine the pressure head at the measurement point.
 
-c) Calculate the absolute pressure at the measurement point, expressing your answer in both Pascals and MPa.
+c) Calculate the absolute pressure at the measurement point, expressing your answer in Pascals.
 
 ## Problem 4: Intrinsic Permeability Analysis
 

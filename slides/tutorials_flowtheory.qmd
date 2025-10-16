@@ -107,7 +107,7 @@ The system consists of a confined aquifer with constant hydraulic properties, bo
 
 **Governing equation:**
 For one-dimensional steady-state flow in a homogeneous confined aquifer:
-$$ \frac{\partial^2 h}{\partial x^2} = 0 $$
+$ \frac{\partial^2 h}{\partial x^2} = 0 $
 
 **Boundary conditions:**
 - At $ x = 0 $: $ h = h_0 = 500 $ m
