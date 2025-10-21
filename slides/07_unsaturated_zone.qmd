@@ -182,102 +182,114 @@
 # Characteristic Curves in the Unsaturated Zone
 
 .row gap:{1cm}
-  .container width:{50%}
-    - Flow in unsaturated media is complex: **two phases** (air + water).
-    - Both **volumetric water content** ($ \theta $) and **hydraulic conductivity** ($ K $) depend on **pressure head** ($ \psi $).
-    - As soils dry:
-      - $ \psi $ becomes more negative.
-      - $ K $ decreases → higher resistance to flow.
-    - Relationship between $ \psi $ and $ \theta $ = **water retention curve**.
-  .container width:{50%}
-    .fragment
-      !(100%)[Tensiometers](image/franklin_fig_6-5.png "Manometer, vacuum gage, pressure transducer")
+  .container width:{60%}
+    - In unsaturated media, flow is complex due to **two-phase flow** (air + water).
+    - Both **volumetric moisture content** ($ \theta $) and **hydraulic conductivity** ($ K $) depend on **water content**.
+    - The **pressure head/moisture content relationship** describes how a sample behaves as water is added or removed.
+    - As soil dries, void spaces fill with air → harder for water to flow.
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **Key insight**
+
+      Hydraulic **constants** become hydraulic **functions** in the unsaturated zone.
 
 # Water Retention ($ \theta(\psi) $) Curves
 
 .row gap:{1cm}
-  .container width:{50%}
-    - Show how soil holds/release water as $ \psi $ changes.
-    - Generally: lower $ \theta $ → more negative $ \psi $.
-    - Curves are **nonlinear**, regardless of axes scaling.
-    - At extremes (wet or dry): small changes in $ \theta $ ↔ large changes in $ \psi $.
-    - Minimum $ \theta $ never zero → **residual water content** $ \theta_r $.
-  .container width:{50%}
+  .container width:{60%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue} radius:{0.5cm}
+      **Water Retention Curve**: Relationship between negative pressure head and volumetric water content.
+
+    - As $ \theta $ decreases → $ \psi $ becomes more negative → capillary pressure increases.
+    - $ \theta $ is always on **arithmetic scale**, while pressure could be on **log scale**.
+    - Curves are **nonlinear** regardless of scaling.
+    - At extremes: small variation in $ \theta $ results in **big variation** in $ \psi $.
+    - Minimum $ \theta $ approaches **residual volumetric water content** $ \theta_r $.
+
+  .container width:{40%}
     !(100%)[Retention curve example](image/franklin_fig_6-5.png "Water retention curve")
 
 # Effective Saturation
 
 .row gap:{1cm}
   .container width:{60%}
-    To study unsaturated zone, it is useful to use variables that are .ul{independent of soil type}. We define:
+    To develop **mathematical relationships**, researchers measure different soil behaviors in the lab and fit equations to the data.
+
+    **Effective saturation** normalizes water content to be .ul{independent of soil type}:
 
     .align{center}
-      .container background:{.lightblue} alignment:{center} padding:{0.2cm} borderwidth:{0.5pt} radius:{5pt}
+      .container background:{.lightblue} alignment:{center} padding:{0.3cm} borderwidth:{0.5pt} radius:{5pt}
         $ s_e \;=\; \dfrac{\theta - \theta_r}{n - \theta_r} $
 
     where:
-
-    - $ s_e $ = effective saturation (0. – 1.)
-    - $ \theta_r $ = residual water content (lowest water content that can be reached)
-    - $ n $ = porosity
-
-    **Key point**:
-      Normalises $ \theta $ so models can be applied consistently.
-
+    - $ s_e $ = effective saturation (0 to 1)
+    - $ \theta_r $ = residual volumetric water content
+    - $ n $ = porosity (maximum $ \theta $ can be)
 
   .container width:{40%}
-    Many different models from soil physicists over the years:
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Two commonly used models**:
 
-    - Brooks-Corey.
-    - van Genuchten.
-    - Campbell.
-    - ...
+      1. **Brooks-Corey** relationship
+      2. **van Genuchten** equations
+
+    .whitespace height:{1cm}
+
+    Both are written in terms of **effective saturation** $ s_e $.
 
 
-# Soil Water Retention Models
+# Brooks-Corey Water Retention Model
 
 .row gap:{1cm}
+  .container width:{60%}
+    **Brooks–Corey equation** defines effective saturation as:
 
-  .container width:{50%}
+    .align{center}
+      .container borderwidth:{1pt} padding:{0.4cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
+        $ s_e = \begin{cases} \left(\dfrac{\psi_b}{\psi}\right)^\lambda, & \text{if } \psi < \psi_b \\ 1, & \text{if } \psi \geq \psi_b \end{cases} $
 
-    **Brooks–Corey (1966):**
+    **Parameters:**
+    - $ \psi_b $ = **bubbling or air-entry pressure head** [L]
+      - Pressure head at which air bubbles start entering the medium
+      - Pressure needed to desaturate the **largest pores** in the medium
+    - $ \lambda $ = **pore-size distribution index** (dimensionless)
 
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-
-      $ s_e = \begin{cases} \left(\dfrac{\psi_b}{\psi}\right)^\lambda, & \psi < \psi_b \\ 1, & \psi \geq \psi_b \end{cases} $
-
-    - $ \psi_b $: bubbling (air-entry) pressure head
-    - $ \lambda $: pore-size distribution index
-
-  .container width:{50%}
-
+  .container width:{40%}
     !(100%)[Ghanbarian](image/internet_FittedBrooksCorey.png "Ghanbarian et al 2017")
 
-# Soil Water Retention Models
+# van Genuchten Water Retention Model
 
 .row gap:{1cm}
-  .container width:{40%}
-    **van Genuchten (1980):**
+  .container width:{50%}
+    **van Genuchten equation** is expressed as:
 
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-      $ s_e = \dfrac{1}{\left[1 + (\alpha|\psi|)^\beta\right]^\gamma} $
-    - $ \alpha $: scaling parameter [1/L]
-    - $ \beta $: curve shape exponent
-    - $ \gamma = 1 - 1/\beta $
+    .align{center}
+      .container borderwidth:{1pt} padding:{0.4cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
+        $ s_e = \dfrac{1}{\left[1 + (\alpha|\psi|)^\beta\right]^\gamma} $
 
-  .container width:{60%}
+    **Parameters:**
+    - $ \alpha $ = scaling parameter [1/L]
+    - $ \beta $ = curve shape exponent (dimensionless)
+    - $ \gamma = 1 - \dfrac{1}{\beta} $ (constraint for van Genuchten)
+
+  .container width:{50%}
     !(100%)[van Genuchten](image/internet_vanGenuchten_SoilRetention.svg.png "van Genuchten pressure water content curve")
 
-# Hysteresis and Soil Differences
+# Hysteresis and Soil Type Effects
 
 .row gap:{1cm}
   .container width:{60%}
-    - **Hysteresis**: curve differs for drying vs wetting.
-      - Drying → air enters pores, displaces water.
-      - Wetting → water enters, displaces air.
-    - **Soil type impact**:
-      - Sand → uniform, large pores → sharp curves.
-      - Silt loam → broad pore size → gradual curves, higher $ \theta $ at same $ \psi $.
+    **Hysteresis**: The actual behavior depends on whether air is entering (drying phase) or water is entering (wetting phase).
+    - **Drying** → air enters pores, displaces water
+    - **Wetting** → water enters, displaces air
+    - Shape is **slightly different** for each process
+
+    **Soil type impact** depends on **pore-size distribution**:
+    - **Sand** → uniform, large pores → sharp curves
+    - **Fine sand** → intermediate behavior
+    - **Silt loam** → broad pore size distribution → gradual curves, higher $ \theta $ at same $ \psi $
+
   .container width:{40%}
     !(100%)[Soil retention curves](image/franklin_fig_6-6.png "Sand, fine sand, silt loam retention curves")
 
@@ -286,110 +298,137 @@
 
 .row gap:{1cm}
   .container width:{60%}
-    - In unsaturated media, **$ K $ is not constant**.
-    - Near saturation ($ \psi \approx 0 $): $ K \approx $ maximum.
-    - As soil dries ($ \psi $ negative):
-      - Pores fill with air → $ K $ decreases.
-      - At residual content → $ K \approx 0 $.
-    - Hence, $ K(\psi) $ is a **strongly nonlinear function**.
+    As expected, for unsaturated media **$ K $ is strongly dependent** on the degree of saturation.
+
+    - As water content approaches zero → negative hydraulic pressure increases more and more.
+    - Close to residual volumetric content $ \theta_r $ → hydraulic conductivity becomes **practically zero**.
+    - Near saturation ($ \psi \approx 0 $) → $ K \approx $ maximum value.
+
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Key point**
-      Flow is limited in unsaturated soils because fewer pores remain water-filled.
+      **Key insight**
+
+      As soil dries, void spaces fill with air, making it harder for water to flow.
 
 # Relative Hydraulic Conductivity
 
 .row gap:{1cm}
-
   .container width:{60%}
-    Define relative conductivity:
+    To capture this behavior, we introduce the concept of **relative hydraulic conductivity** or **permeability**.
 
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+    This shows us the ratio with respect to the saturation property:
 
-      $ K_r(\psi) = \dfrac{K(\psi)}{K_s} $
+    .align{center}
+      .container borderwidth:{1pt} padding:{0.4cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
+        $ K_r(\psi) = \dfrac{K(\psi)}{K_s} $
 
-    - $ K_s $: saturated conductivity
-    - $ K_r $: fraction of $ K_s $, ranges [0, 1]
-    - Depends on pressure head or saturation
+    where:
+    - $ K_r $ = relative hydraulic conductivity (0 to 1)
+    - $ K(\psi) $ = unsaturated hydraulic conductivity
+    - $ K_s $ = saturated hydraulic conductivity
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Modeling use:**
-      Simplifies comparison across soils.
+      **Purpose:**
+
+      Shows the fraction of saturated conductivity available at any given pressure head.
 
 # Brooks–Corey Model for $ K(\psi) $
 
 .row gap:{1cm}
-  .container width:{30%}
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+  .container width:{50%}
+    Going with the same line of thought, the hydraulic conductivity can be written in terms of the negative pressure head:
 
-      $ K_r(\psi) = \begin{cases} \left( \dfrac{\psi_b}{\psi} \right)^{2+3\lambda}, & \psi < \psi_b \\ 1, & \psi \geq \psi_b \end{cases} $
-      - $ \psi_b $: air-entry (bubbling) pressure (minimum negative pressure head for air to get tot he largest pores drains first)
-      - $ \lambda $: pore-size distribution index
+    .align{center}
+      .container borderwidth:{1pt} padding:{0.4cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
+        $ K_r(\psi) = \begin{cases} \left( \dfrac{\psi_b}{\psi} \right)^{2+3\lambda}, & \psi < \psi_b \\ 1, & \psi \geq \psi_b \end{cases} $
 
-  .container width:{70%}
+    **Parameters:**
+    - $ \psi_b $ = bubbling (air-entry) pressure head
+    - $ \lambda $ = pore-size distribution index
+
+  .container width:{50%}
     !(100%)[Conductivity models](image/franklin_fig_6-7.png "K(ψ) model curves")
 
 # van Genuchten Model for $ K(\psi) $
 
 .row gap:{1cm}
+  .container width:{50%}
+    In the same way, we can describe the **van Genuchten relationship** as:
 
-  .container width:{40%}
-    - Widely used in hydrological modelling.
-    - Relative conductivity:
+    .align{center}
+      .container borderwidth:{1pt} padding:{0.4cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
+        $ K_r(\psi) = \dfrac{ \left[ 1 - (\alpha|\psi|)^{\beta-1} \left( 1 + (\alpha|\psi|)^\beta \right)^{-\gamma} \right]^2 } { \left[ 1 + (\alpha|\psi|)^\beta \right]^{\gamma/2} } $
 
-    .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+    **Parameters:**
+    - $ \alpha $ = scaling parameter [1/L]
+    - $ \beta $ = curve steepness parameter
+    - $ \gamma = 1 - \dfrac{1}{\beta} $ (van Genuchten constraint)
 
-      $ K_r(\psi) = \dfrac{ \left[ 1 - (\alpha|\psi|)^{\beta-1} \left( 1 + (\alpha|\psi|)^\beta \right)^{-\gamma} \right]^2 } { \left[ 1 + (\alpha|\psi|)^\beta \right]^{\gamma/2} } $
-
-    - Parameters:
-      - $ \alpha $: scaling [1/L]
-      - $ \beta $: curve steepness
-      - $ \gamma = 1 - 1/\beta $
-
-  .container width:{60%}
-
+  .container width:{50%}
     !(100%)[van Genuchten conductivity](image/internet_typical-van-Genuchten.png)
 
     **Alternative form** in terms of $ s_e $:
 
     $ K_r(s_e) = s_e^l \left[ 1 - \left( 1 - s_e^{1/\beta} \right)^\beta \right]^2 $
 
-    with $ l \approx 0.5 $ (pore connectivity).
+    with $ l \approx 0.5 $ (pore connectivity parameter).
 
-# Moisture Capacity, $ C(\psi) $, Curves
+# Moisture Capacity $ C(\psi) $ Curves
 
-###! Moisture, capillary or differential water capacity, is the slope of the water retention curve.
 .row gap:{1cm}
   .container width:{60%}
-    - Storage properties described by **specific moisture capacity**:
+    The storage properties of an unsaturated soil can be represented by a parameter called **specific moisture capacity** $ c_m $.
+
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue} radius:{0.5cm}
+      **Moisture, capillary or differential water capacity** is the slope of the water retention curve.
 
     .align{center}
-      .container borderwidth:{0.5pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
+      .container borderwidth:{1pt} padding:{0.4cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
         $ c_m = \dfrac{d\theta}{d\psi} $
 
-    - Graphically -> **slope of $ \theta(\psi) $ curve**.
-    - Shows how much $ \theta $ changes for a given change in $ \psi $.
-    - At fine sands: small $ \psi $ change → large $ \theta $ change.
+    This is basically the **derivative of water content with respect to pressure**.
 
   .container width:{40%}
     !(80%)[Moisture capacity](image/franklin_fig_6-8.png "Measured vs modeled C(ψ)")
+
+    **Physical meaning**: Shows how much $ \theta $ changes for a given change in $ \psi $.
 
 # Models for Moisture Capacity
 
 .row gap:{1cm}
   .container width:{60%}
-    - **Brooks–Corey model**:\
-    $ c_m(\psi) = \begin{cases} - (n - \theta_r) \dfrac{\lambda}{\psi_b} \left( \dfrac{\psi}{\psi_b} \right)^{-(\lambda+1)}, & \psi \leq \psi_b \\ 0, & \psi > \psi_b \end{cases} $
+    **Brooks–Corey model:**
 
-    - **van Genuchten model**:\
-    $ c_m(\psi) = \begin{cases} \dfrac{ \alpha \gamma \beta (n - \theta_r) (\alpha|\psi|)^{\beta-1} } { \left[ 1 + (\alpha|\psi|)^\beta \right]^{\gamma+1} }, & \psi < 0 \\ 0, & \psi > 0 \end{cases} $
+    .align{center}
+      .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
+        $ c_m(\psi) = \begin{cases} - (n - \theta_r) \dfrac{\lambda}{\psi_b} \left( \dfrac{\psi}{\psi_b} \right)^{-(\lambda+1)}, & \psi \leq \psi_b \\ 0, & \psi > \psi_b \end{cases} $
+
+    **van Genuchten model:**
+
+    .align{center}
+      .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
+        $ c_m(\psi) = \begin{cases} \dfrac{ \alpha \gamma \beta (n - \theta_r) (\alpha|\psi|)^{\beta-1} } { \left[ 1 + (\alpha|\psi|)^\beta \right]^{\gamma+1} }, & \psi < 0 \\ 0, & \psi > 0 \end{cases} $
 
   .container width:{40%}
-    .whitespace width:{100%}
+    !(80%)[Moisture capacity comparison](image/franklin_fig_6-9.png "Sand vs clay, Brooks–Corey & van Genuchten")
 
-    .container
-      !(80%)[Moisture capacity comparison](image/franklin_fig_6-9.png "Sand vs clay, Brooks–Corey & van Genuchten")
+# Summary: Characteristic Curves
+
+.row gap:{1cm}
+  .container width:{100%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue} radius:{0.5cm}
+      **Three fundamental relationships describe unsaturated flow:**
+
+      1. **Water Retention Curve** $ \theta(\psi) $: How soil holds/releases water as pressure changes
+      2. **Hydraulic Conductivity Curve** $ K(\psi) $: How flow capacity varies with water content
+      3. **Moisture Capacity Curve** $ C(\psi) $: How storage properties change with pressure
+
+    **Key models:**
+    - **Brooks-Corey**: Uses bubbling pressure $ \psi_b $ and pore-size distribution $ \lambda $
+    - **van Genuchten**: Uses scaling parameter $ \alpha $, shape parameter $ \beta $, and constraint $ \gamma = 1 - 1/\beta $
+
+    **All relationships are strongly nonlinear** and depend on soil type and pore-size distribution.
 
 # Flow Equation in the Unsaturated Zone
 

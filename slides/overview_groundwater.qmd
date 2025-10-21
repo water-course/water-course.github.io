@@ -1,0 +1,910 @@
+.docname {Groundwater Overview}
+.doctype {slides}
+.doclang {English}
+.theme {paperwhite} layout:{beamer}
+.slides transition:{fade}
+.docauthors
+  - Sia Ghelichkhan
+
+.include {definitions.qmd}
+.include {definitions_slides.qmd}
+
+#!
+.fullspan
+  .center
+    ![Logo](image/new_logo.png)
+
+    ---
+    #! Groundwater Overview
+    ###! EMSC3025/6025 - Recap Session
+    ---
+
+    ###! _Dr. Sia Ghelichkhan_
+
+# Objectives of this Recap Session
+
+.whitespace height:{2cm}
+
+.row gap:{1cm} alignment:{center}
+  .container width:{70%} borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} radius:{0.5cm}
+    By the end of this session, you should be able to:
+    - **Define** key groundwater parameters: porosity, hydraulic conductivity, transmissivity, and storativity
+    - **Apply** Darcy's Law to calculate flow rates and velocities in different media
+    - **Distinguish** between confined, unconfined, and perched aquifer systems
+    - **Analyze** characteristic curves for unsaturated flow (θ(ψ), K(ψ), C(ψ))
+    - **Solve** practical groundwater problems using flow theory and boundary conditions
+    - **Evaluate** real-world aquifer systems and their management challenges
+
+.fullspan
+  .align{center}
+    This recap consolidates the groundwater modules of the water course.
+
+# The Big Picture: Groundwater in the Global Context
+
+.row gap:{1cm}
+  .container width:{50%}
+    - Groundwater represents **1.69%** of Earth's total water
+    - **23,400 × 10³ km³** stored globally
+    - **Most accessible freshwater** for human use
+    - Critical for:
+      - **Drinking water supply** (billions depend on it)
+      - **Agricultural irrigation** (40% of global food production)
+      - **Industrial processes**
+      - **Ecosystem support** (baseflow to rivers)
+
+  .container width:{50%}
+    .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+       ###! Challenge: Invisible, slow-moving, easily overexploited
+
+    | Region | Groundwater Use (%) |
+    |--------|-------------------|
+    | Australia | 21% of total water |
+    | USA | 26% of total water |
+    | India | 60% of irrigation |
+    | Europe | 75% of drinking water |
+    "Groundwater dependence varies globally"
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
+      #! Fundamental Parameters: The Building Blocks
+
+# Porosity: The Foundation of Groundwater Storage
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Total porosity** describes void space available for water storage:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightred}
+      $ n_T = \frac{V_v}{V_T} = \frac{V_T - V_s}{V_T} $
+
+    **Alternative calculation using bulk density:**
+    $ n_T = 1 - \frac{\rho_b}{\rho_s} $
+
+    **Two types:**
+    - **Primary porosity**: Original voids (sediment packing, vesicles)
+    - **Secondary porosity**: Later formation (fractures, dissolution)
+
+  .container width:{40%}
+    **Typical porosity values:**
+    | Material | Porosity Range |
+    |----------|----------------|
+    | Sand | 0.25 – 0.35 |
+    | Silt | 0.35 – 0.50 |
+    | Clay | 0.40 – 0.55 |
+    | Sandstone | 0.05 – 0.25 |
+    | Limestone | 0.01 – 0.30 |
+    | Granite | <0.01 |
+    "Porosity varies dramatically by material"
+
+# Effective Porosity vs Total Porosity
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Not all pores contribute to flow:**
+
+    - **Total porosity** ($ n_T $): All void space
+    - **Effective porosity** ($ n_e $): Connected pores that allow flow
+    - **Relationship**: $ n_e \leq n_T $
+
+    **In fractured media:**
+    - **Matrix porosity**: Storage in rock blocks
+    - **Fracture porosity**: Flow pathways
+    - **Dual porosity systems**: Both contribute
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Key insight**
+
+      High porosity ≠ High permeability
+
+      Clay: High porosity, low permeability
+      Fractured granite: Low porosity, high permeability
+
+# Hydraulic Conductivity: The Flow Parameter
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Hydraulic conductivity** ($ K $) quantifies ease of water transmission:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightred}
+      $ q = -K \frac{dh}{dl} $ (Darcy's Law)
+
+    **Units**: Length/time (m/day, cm/s)
+
+    **Depends on:**
+    - **Medium properties**: Pore size, connectivity, tortuosity
+    - **Fluid properties**: Density, viscosity
+
+    **Intrinsic permeability** ($ k $): Medium-only property
+    $ K = \frac{k \rho_w g}{\mu} $
+
+  .container width:{40%}
+    **Hydraulic conductivity ranges:**
+    | Material | K (m/s) |
+    |----------|---------|
+    | Gravel | 10⁻¹ – 10⁻³ |
+    | Sand | 10⁻³ – 10⁻⁶ |
+    | Silt | 10⁻⁶ – 10⁻⁹ |
+    | Clay | 10⁻⁹ – 10⁻¹² |
+    | Fractured rock | 10⁻⁵ – 10⁻⁸ |
+    | Intact rock | 10⁻¹⁰ – 10⁻¹⁴ |
+    "12+ orders of magnitude variation!"
+
+# Measuring Hydraulic Conductivity
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Laboratory methods:**
+
+    **Constant-head test** (coarse materials):
+    $ K = \frac{Q L}{A h} $
+    - Steady flow through sample
+    - Good for sands, gravels
+
+    **Falling-head test** (fine materials):
+    $ K = 2.3 \frac{a L}{A (t_1 - t_0)} \log_{10} \left( \frac{h_0}{h_1} \right) $
+    - Declining head over time
+    - Good for clays, silts
+
+  .container width:{50%}
+    !(100%)[permeameter](image/franklin_fig_3-13-a.png "Constant-head permeameter setup")
+
+    **Field methods:**
+    - Slug tests
+    - Pumping tests
+    - Tracer tests
+
+# Hydraulic Head: The Driving Force
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Hydraulic head** represents energy available to move groundwater:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightred}
+      $ h = z + \frac{P}{\rho_w g} $
+
+    **Components:**
+    - **Elevation head** ($ z $): Height above datum
+    - **Pressure head** ($ P/\rho_w g $): Pressure energy
+    - **Velocity head**: Usually negligible in groundwater
+
+    **Field measurement:**
+    $ h = EL_{TOC} - DTW $
+    - $ EL_{TOC} $: Elevation of top of casing
+    - $ DTW $: Depth to water
+
+  .container width:{40%}
+    !(100%)[head measurement](image/franklin_fig_3-8.png "Measuring hydraulic head with piezometers")
+
+    **Flow direction**: From high head to low head
+    **Gradient**: $ i = \frac{dh}{dl} $
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm} alignment:{center}
+      #! Aquifer Properties: Storage and Transmission
+
+# Transmissivity: Aquifer-Scale Flow Parameter
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Transmissivity** integrates conductivity over aquifer thickness:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{2pt} padding:{0.3cm} background:{.lightblue}
+      $ T = K \times b $
+
+    Where:
+    - $ T $ = transmissivity [L²/T]
+    - $ K $ = hydraulic conductivity [L/T]
+    - $ b $ = aquifer thickness [L]
+
+    **Darcy's Law for aquifers:**
+    $ Q = T \times W \times i $
+    - $ Q $ = discharge [L³/T]
+    - $ W $ = width perpendicular to flow
+    - $ i $ = hydraulic gradient
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Physical meaning**
+
+      Transmissivity tells you how much water can flow through the **entire thickness** of an aquifer per unit width.
+
+    **Units**: m²/day, ft²/day
+
+# Storativity: Water Release from Storage
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Storativity** ($ S $) quantifies water release per unit area per unit head change:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{2pt} padding:{0.3cm} background:{.lightblue}
+      $ S = \frac{\text{volume of water}}{\text{unit area} \times \text{unit head change}} $
+
+    **Dimensionless quantity**
+
+    **Relationship to specific storage:**
+    $ S = S_s \times b $
+    - $ S_s $ = specific storage [1/L]
+    - $ b $ = aquifer thickness [L]
+
+  .container width:{40%}
+    **Typical storativity values:**
+    | Aquifer Type | S Range |
+    |--------------|---------|
+    | **Confined** | 10⁻⁵ – 10⁻³ |
+    | **Unconfined** | 0.01 – 0.30 |
+    "3+ orders of magnitude difference!"
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue}
+      **Why the difference?**
+      Different storage mechanisms!
+
+# Storage Mechanisms: Confined vs Unconfined
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Confined aquifer storage:**
+
+    Two mechanisms supply water:
+    1. **Water expansion**: Lower pressure → molecules expand
+    2. **Aquifer compression**: Reduced support → grains compress
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ S_s = \rho_w g (\beta_p + n\beta_w) $
+
+    - $ \beta_p $ = matrix compressibility
+    - $ \beta_w $ = water compressibility
+    - Matrix compression dominates
+
+  .container width:{50%}
+    **Unconfined aquifer storage:**
+
+    **Early time**: Elastic mechanisms (like confined)
+    **Later time**: **Gravity drainage** dominates
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ S = S_y + bS_s $
+
+    **Specific yield** ($ S_y $) >> $ bS_s $
+    - $ S_y $ = drainable porosity
+    - Much more water released per head drop
+
+# Specific Yield and Specific Retention
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Specific yield** ($ S_y $): Water released by gravity drainage
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ S_y = \frac{V_d}{V_T} $
+
+    **Specific retention** ($ S_r $): Water retained against gravity
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ S_r = \frac{V_r}{V_T} $
+
+    **Fundamental relationship:**
+    $ n = S_y + S_r $
+
+  .container width:{40%}
+    **Material characteristics:**
+    | Material | $ S_y $ | $ S_r $ |
+    |----------|---------|---------|
+    | Coarse gravel | 0.20-0.25 | 0.01-0.05 |
+    | Fine sand | 0.10-0.25 | 0.05-0.15 |
+    | Silt | 0.05-0.15 | 0.15-0.30 |
+    | Clay | 0.01-0.05 | 0.30-0.50 |
+    "Inverse relationship: High $ S_r $ → Low $ S_y $"
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
+      #! Aquifer Types and Classification
+
+# Aquifer Classification by Confinement
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Three main types:**
+
+    **1. Unconfined (water table) aquifers:**
+    - Water table forms upper boundary
+    - No confining layer above
+    - Water under atmospheric pressure at water table
+
+    **2. Confined (artesian) aquifers:**
+    - Bounded by confining beds above and below
+    - Water under pressure > atmospheric
+    - Water level in wells above aquifer top
+
+    **3. Perched aquifers:**
+    - Unconfined aquifer above regional water table
+    - Forms on low-permeability layer
+    - Unsaturated zone exists below
+
+  .container width:{50%}
+    !(100%)[aquifer types](image/franklin_fig_4-1.png "Unconfined, confined, and perched aquifers")
+
+# Confining Beds: More Than Just Barriers
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Traditional classification:**
+    - **Aquifuge**: No storage, no transmission (intact crystalline rock)
+    - **Aquiclude**: Storage but no transmission (clay layers)
+    - **Aquitard**: Some storage and transmission (silty clay)
+
+    **Modern understanding: Aquitardifers**
+    - **Extreme anisotropy**: $ K_h $ >> $ K_v $
+    - **Horizontal flow**: Like an aquifer
+    - **Vertical resistance**: Like a confining bed
+    - **Fractures**: Can create fast pathways
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Real-world complexity**
+
+      Simple textbook models often don't capture the dual nature of confining beds.
+
+    **Management implications:**
+    - Detailed site characterization essential
+    - Consider both protective and transmissive functions
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm} alignment:{center}
+      #! Unsaturated Zone: Where Constants Become Functions
+
+# The Unsaturated Zone Challenge
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Key insight**: In unsaturated media, hydraulic **constants** become hydraulic **functions**
+
+    **Two-phase flow**: Air + water in pores
+    - As soil dries → void spaces fill with air
+    - Harder for water to flow
+    - Both $ \theta $ and $ K $ depend on $ \psi $
+
+    **Pressure head in unsaturated zone:**
+    - $ \psi < 0 $ (suction/tension)
+    - Water pressure less than atmospheric
+    - Explains why water doesn't flow to boreholes
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **Fundamental change**
+
+      Saturated: $ K $ = constant
+      Unsaturated: $ K(\psi) $ = function
+
+    !(80%)[vadose zone](image/internet_vadose_zone.jpg)
+
+# Three Characteristic Curves
+
+.row gap:{1cm}
+  .container width:{100%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue} radius:{0.5cm}
+      **Three fundamental relationships describe unsaturated flow:**
+
+      1. **Water Retention Curve** $ \theta(\psi) $: How soil holds/releases water as pressure changes
+      2. **Hydraulic Conductivity Curve** $ K(\psi) $: How flow capacity varies with water content
+      3. **Moisture Capacity Curve** $ C(\psi) $: How storage properties change with pressure
+
+    **All relationships are strongly nonlinear** and depend on soil type and pore-size distribution.
+
+# Water Retention Curves θ(ψ)
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Water retention curve**: Relationship between negative pressure head and volumetric water content
+
+    - As $ \theta $ decreases → $ \psi $ becomes more negative
+    - Curves are **nonlinear** regardless of scaling
+    - At extremes: small $ \theta $ change → large $ \psi $ change
+    - **Hysteresis**: Different curves for drying vs wetting
+
+    **Effective saturation** normalizes for soil type:
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ s_e = \frac{\theta - \theta_r}{n - \theta_r} $
+
+  .container width:{40%}
+    **Two main models:**
+
+    **Brooks-Corey:**
+    $ s_e = \left(\frac{\psi_b}{\psi}\right)^\lambda $ (if $ \psi < \psi_b $)
+
+    **van Genuchten:**
+    $ s_e = \frac{1}{[1 + (\alpha|\psi|)^\beta]^\gamma} $
+
+    Both use effective saturation $ s_e $ (0 to 1)
+
+# Unsaturated Hydraulic Conductivity K(ψ)
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Relative hydraulic conductivity** shows fraction of saturated value:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ K_r(\psi) = \frac{K(\psi)}{K_s} $
+
+    **Brooks-Corey model:**
+    $ K_r(\psi) = \left(\frac{\psi_b}{\psi}\right)^{2+3\lambda} $ (if $ \psi < \psi_b $)
+
+    **van Genuchten model:**
+    $ K_r(\psi) = \frac{[1 - (\alpha|\psi|)^{\beta-1}(1 + (\alpha|\psi|)^\beta)^{-\gamma}]^2}{[1 + (\alpha|\psi|)^\beta]^{\gamma/2}} $
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Key behavior**
+
+      Near saturation: $ K_r \approx 1 $
+      As soil dries: $ K_r \rightarrow 0 $
+
+      **Strongly nonlinear decrease**
+
+# Moisture Capacity C(ψ)
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Moisture capacity**: Slope of water retention curve
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ c_m = \frac{d\theta}{d\psi} $
+
+    **Physical meaning**: How much $ \theta $ changes for given $ \psi $ change
+
+    **Storage in unsaturated zone**: Combines moisture capacity and specific storage
+    $ (c_m + sS_s) \frac{\partial h}{\partial t} $
+
+  .container width:{40%}
+    **Applications:**
+    - **Richards' equation** for unsaturated flow
+    - **Infiltration modeling**
+    - **Vadose zone transport**
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue}
+      **Derivative relationship**
+
+      $ c_m $ derived from $ \theta(\psi) $ models using calculus
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
+      #! Groundwater Flow Theory and Applications
+
+# Darcy's Law: The Foundation
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Darcy's Law** relates flow to energy gradients:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{2pt} padding:{0.3cm} background:{.lightred}
+      $ q = -K \frac{dh}{dl} $
+
+    **Physical meaning:**
+    - Water flows from high to low energy (head)
+    - Flow rate proportional to gradient and conductivity
+    - Negative sign: flow opposes gradient direction
+
+    **3D form:**
+    $ q_x = -K_x \frac{\partial h}{\partial x} $, $ q_y = -K_y \frac{\partial h}{\partial y} $, $ q_z = -K_z \frac{\partial h}{\partial z} $
+
+  .container width:{40%}
+    **Linear (pore) velocity:**
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ v = \frac{q}{n_e} $
+
+    **Key insight**: Actual water speed > Darcy velocity because water flows only through connected pores
+
+# The Groundwater Flow Equation
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Fundamental equation** for saturated flow (from mass conservation + Darcy's Law):
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{2pt} padding:{0.3cm} background:{.lightblue}
+      $ \frac{\partial}{\partial x}\left(K_x \frac{\partial h}{\partial x}\right) + \frac{\partial}{\partial y}\left(K_y \frac{\partial h}{\partial y}\right) + \frac{\partial}{\partial z}\left(K_z \frac{\partial h}{\partial z}\right) = S_s \frac{\partial h}{\partial t} $
+
+    **Special cases:**
+    - **Steady-state**: $ \frac{\partial h}{\partial t} = 0 $
+    - **Isotropic, homogeneous**: Laplace equation $ \nabla^2 h = 0 $
+
+  .container width:{40%}
+    **What it describes:**
+    - How hydraulic head varies in space and time
+    - 3D flow in heterogeneous, anisotropic media
+    - Foundation for all groundwater modeling
+
+# Boundary Conditions: Defining the Problem
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Three types of boundary conditions:**
+
+    **1. Dirichlet (specified head):**
+    $ h = h_1(x,y,z,t) $ at boundary
+    - Large water bodies (lakes, rivers)
+    - Known, stable water levels
+
+    **2. Neumann (specified flux):**
+    $ q_n = q_n(x,y,z,t) $ at boundary
+    - Recharge zones ($ q_n > 0 $)
+    - Impermeable boundaries ($ q_n = 0 $)
+    - Pumping wells ($ q_n < 0 $)
+
+  .container width:{50%}
+    **3. Cauchy (head-dependent flux):**
+    $ q_n = \frac{K_m}{M}[h_m - h] $
+    - River-aquifer interactions
+    - Semi-permeable boundaries
+    - Flow direction can reverse
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
+      **Critical point**
+
+      Boundary conditions determine the unique solution. Same equation, different boundaries = different answers.
+
+# Flow Nets: Visualizing Groundwater Flow
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Flow nets** provide graphical solutions to Laplace equation:
+
+    **Two key components:**
+    - **Streamlines**: Show flow direction
+    - **Equipotential lines**: Contours of equal head
+
+    **Key properties:**
+    - Streamlines ⊥ equipotentials (in isotropic media)
+    - Form curvilinear squares
+    - Equal head drop between equipotentials
+    - Same flow between streamlines
+
+  .container width:{40%}
+    !(100%)[flow net](image/franklin_fig_5-6.png "Dam seepage flow net")
+
+    **Applications:**
+    - Dam seepage analysis
+    - Well capture zones
+    - Contaminant transport paths
+
+# Quantifying Flow from Flow Nets
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Flow calculation** from flow net geometry:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ Q_{total} = \frac{n_f}{n_d} T \Delta H $
+
+    Where:
+    - $ n_f $ = number of flow channels
+    - $ n_d $ = number of equipotential drops
+    - $ T $ = transmissivity
+    - $ \Delta H $ = total head difference
+
+    **Practical steps:**
+    1. Count flow channels between streamlines
+    2. Count equipotential intervals
+    3. Measure total head drop
+    4. Apply formula
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **Engineering applications**
+
+      - Assess dam safety (uplift pressure)
+      - Design drainage systems
+      - Estimate seepage losses
+      - Optimize well placement
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm} alignment:{center}
+      #! Real-World Aquifer Systems
+
+# Major Aquifer Types and Characteristics
+
+.fullspan
+  .align{center}
+    .container width:{95%}
+      |**Aquifer Type**|**Porosity**|**K Range**|**Storage**|**Key Feature**|**Main Challenge**|
+      |:---|:---:|:---:|:---:|:---|:---|
+      |**Unconsolidated**|High (0.25-0.35)|High|$ S_y = 0.1-0.3 $|Intergranular|Contamination|
+      |**Basin-fill**|High|High-Moderate|High|Thick accumulations|Over-exploitation|
+      |**Sandstone**|Low-Moderate|Low-Moderate|$ S = 10^{-3}-10^{-5} $|Fracture flow|Vertical leakage|
+      |**Carbonate**|Variable|10 orders of magnitude|Variable|Solution conduits|Heterogeneity|
+      |**Karst**|Highly variable|Extremely high locally|Low-Moderate|Caves and conduits|Rapid transport|
+      |**Crystalline**|Very low|Very low|Very low|Fractures only|Limited yield|
+
+      _Comparison of principal aquifer characteristics_
+
+# Unconsolidated Aquifers: High Yield Systems
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Characteristics:**
+    - **Intergranular porosity**: 0.25-0.35
+    - **High permeability**: Varies with sorting
+    - **Unconfined conditions**: Direct recharge
+    - **High specific yield**: 0.1-0.3
+    - **Most extensively pumped** in many regions
+
+    **Four main categories:**
+    1. **Basin-fill**: Central Valley (CA), Arizona basins
+    2. **Blanket sand/gravel**: High Plains aquifer
+    3. **Glacial deposits**: Northern US, Canada
+    4. **Stream-valley**: Local, small extent
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **Advantages:**
+      - High storage and transmission
+      - Predictable flow patterns
+      - Good well yields
+
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Challenges:**
+      - Susceptible to contamination
+      - Over-exploitation risks
+      - Land subsidence potential
+
+# Consolidated Rock Aquifers: Complexity and Heterogeneity
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Sandstone aquifers:**
+    - **Cemented sand**: Reduced porosity
+    - **Fracture/bedding flow**: Main pathways
+    - **Large areal extent**: Regional water supply
+    - **Example**: Dakota Sandstone (46% recharge through confining beds)
+
+    **Carbonate aquifers:**
+    - **Solution enhancement**: Dissolution creates conduits
+    - **Extreme heterogeneity**: 10 orders of magnitude K range
+    - **Large yields**: Where well-connected
+    - **Example**: Floridan aquifer system
+
+  .container width:{50%}
+    **Crystalline rock aquifers:**
+    - **Fractured granite/basalt**: Very low matrix porosity
+    - **Flow in fractures only**: Secondary porosity controls
+    - **Highly variable yields**: Depends on fracture networks
+    - **Important**: New England, Canadian Shield
+
+    **Volcanic rock aquifers:**
+    - **Basalt flows**: Cooling fractures and lava tubes
+    - **Vesicular zones**: Water storage
+    - **Examples**: Hawaiian volcanic, Columbia Plateau
+
+# Karst Systems: Extreme Heterogeneity
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Formation requirements:**
+    1. **Chemically aggressive groundwater** (low pH)
+    2. **Fractures present** for transmission
+    3. **Groundwater can drain out** (hydraulic gradient)
+
+    **Solution features evolution:**
+    - Start as small conduits (~1 cm)
+    - Grow to cave size (kilometers long)
+    - **Highest yields** at fracture intersections
+    - **Extremely heterogeneous** permeability
+
+  .container width:{40%}
+    **Karst landforms:**
+    - **Sinkholes**: Dissolution, subsidence, collapse
+    - **Stream sinks**: Disappearing streams
+    - **Dry valleys**: Former surface drainage
+    - **Large springs**: Concentrated discharge
+    - **Cave networks**: Underground drainage
+
+    **Management challenges:**
+    - Rapid contaminant transport
+    - Unpredictable flow paths
+    - Surface-subsurface connectivity
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
+      #! Practical Applications: Tutorial Insights
+
+# Problem-Solving Approaches: Key Calculations
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Hydraulic head and flow direction:**
+    - Calculate hydraulic gradient: $ i = \frac{h_1 - h_2}{\Delta l} $
+    - Determine flow direction: High head → Low head
+    - Apply Darcy's Law: $ q = -K \cdot i $
+
+    **Linear groundwater velocity:**
+    - Darcy velocity: $ q = K \cdot i $
+    - Pore velocity: $ v = \frac{q}{n_e} $
+    - **Key insight**: $ v > q $ because flow through connected pores only
+
+  .container width:{50%}
+    **Pressure and head calculations:**
+    - Total head: $ h = EL_{TOC} - DTW $
+    - Pressure head: $ \psi = h - z $
+    - Absolute pressure: $ P = \rho_w g (h - z) $
+
+    **Intrinsic permeability:**
+    - Convert from hydraulic conductivity
+    - $ k = \frac{K \mu}{\rho_w g} $
+    - Useful for fluid-independent comparisons
+
+# Layered Aquifer Systems: Equivalent Properties
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Horizontal equivalent conductivity** (thickness-weighted average):
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ K_h = \frac{\sum_{i=1}^M b_i K_{hi}}{\sum_{i=1}^M b_i} $
+
+    **Vertical equivalent conductivity** (harmonic average):
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue}
+      $ K_v = \frac{\sum_{i=1}^M b_i}{\sum_{i=1}^M \frac{b_i}{K_{vi}}} $
+
+    **Flow refraction** across boundaries:
+    $ \frac{K_1}{K_2} = \frac{\tan(\alpha_1)}{\tan(\alpha_2)} $
+
+  .container width:{40%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Key insight**
+
+      Low-K layers dominate vertical resistance (harmonic average)
+
+      High-K layers dominate horizontal flow (arithmetic average)
+
+# Boundary Condition Applications
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Identifying boundary types:**
+    - **Constant head**: Large water bodies, known levels
+    - **No-flow**: Impermeable boundaries, symmetry lines
+    - **Specified flux**: Recharge zones, pumping wells
+    - **Head-dependent**: River-aquifer interactions
+
+    **Flow net construction:**
+    1. Identify boundary conditions
+    2. Sketch streamlines and equipotentials
+    3. Ensure orthogonality and square formation
+    4. Count flow channels and head drops
+
+  .container width:{50%}
+    **Analytical solutions:**
+    - **Confined aquifer**: Linear head distribution
+      $ h = h_0 + (h_L - h_0)\frac{x}{L} $
+    - **Unconfined aquifer**: Curved water table
+      $ h = \sqrt{h_0^2 + (h_L^2 - h_0^2)\frac{x}{L}} $
+
+    **Flow rate calculations:**
+    - Use appropriate form of Darcy's Law
+    - Account for aquifer geometry
+    - Consider boundary conditions
+
+# Case Studies: Real-World Applications
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Dam seepage analysis:**
+    - Flow nets reveal seepage patterns
+    - Identify high-gradient zones
+    - Assess uplift pressures
+    - Design drainage systems
+
+    **Aquifer characterization:**
+    - Pumping test analysis
+    - Tracer test interpretation
+    - Multi-well monitoring networks
+    - Potentiometric surface mapping
+
+  .container width:{50%}
+    **Contamination assessment:**
+    - Determine flow directions
+    - Estimate travel times
+    - Design monitoring networks
+    - Evaluate remediation options
+
+    **Water supply management:**
+    - Sustainable yield calculations
+    - Well interference analysis
+    - Conjunctive use planning
+    - Climate change impacts
+
+# Integration: Putting It All Together
+
+.row gap:{1cm}
+  .container width:{50%}
+    **The groundwater system approach:**
+    - **Physical properties**: Porosity, permeability, storage
+    - **Flow dynamics**: Darcy's Law, gradients, boundaries
+    - **System behavior**: Confined vs unconfined responses
+    - **Unsaturated zone**: Variable properties, characteristic curves
+    - **Real-world complexity**: Heterogeneity, anisotropy, scale effects
+
+  .container width:{50%}
+    **Problem-solving strategy:**
+    1. **Define the system**: Geometry, boundaries, properties
+    2. **Identify governing equations**: Steady vs transient, dimensions
+    3. **Apply boundary conditions**: Match physical constraints
+    4. **Solve or approximate**: Analytical, numerical, or graphical
+    5. **Interpret results**: Physical meaning, limitations, implications
+
+# Summary: Groundwater Fundamentals
+
+.whitespace height:{2cm}
+
+.row gap:{1cm} alignment:{center}
+  .container width:{70%} borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
+    **Key takeaways from this overview:**
+    - **Fundamental parameters** (porosity, K, T, S) control groundwater behavior
+    - **Darcy's Law** provides the foundation for all flow analysis
+    - **Aquifer types** have distinct characteristics and management challenges
+    - **Unsaturated zone** adds complexity through variable properties
+    - **Flow theory** enables quantitative analysis and prediction
+    - **Real-world applications** require integration of multiple concepts and careful consideration of site-specific conditions
+
+.fullspan
+  .align{center}
+    These concepts form the foundation for groundwater resource assessment, contamination studies, and sustainable water management.
+
+# Questions for Review and Discussion
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Conceptual questions:**
+    - Why does specific yield differ so dramatically from storativity in confined aquifers?
+    - How do characteristic curves in the unsaturated zone relate to soil type and pore structure?
+    - What makes karst aquifers both valuable water sources and management challenges?
+
+  .container width:{50%}
+    **Application questions:**
+    - Given field measurements, how would you determine if an aquifer is confined or unconfined?
+    - How would you design a monitoring network to characterize a heterogeneous aquifer system?
+    - What factors would you consider when assessing the sustainability of groundwater pumping?
+
+.fullspan
+  .align{center}
+    .container width:{60%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+      Ready to apply these concepts to complex groundwater problems and real-world water resource challenges!
