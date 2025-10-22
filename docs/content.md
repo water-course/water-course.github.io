@@ -28,7 +28,8 @@ Below is a comprehensive list of course materials for the Water Course.
 - [**Run-off**](Tutorial-Runoff/index.html)
 - [**Groundwater - Principles**](Tutorial-Groundwater/index.html)
 - [**Groundwater - Theory of Flow**](Tutorial-Flowtheory/index.html)
-- **Groundwater - Aquifers**
+- [**Groundwater - Aquifers**](Tutorial-Aquifers/index.html)
+
 
 ### 🔖 Assignments
 - [**Assignment 1**](AssignmentOne/index.html) - Precipitation
