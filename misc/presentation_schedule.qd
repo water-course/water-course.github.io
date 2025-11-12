@@ -1,4 +1,4 @@
-.docname {PaperPresentations}
+.docname {presentation_schedule}
 .doctype {paged}
 .doclang {English}
 .theme {paperwhite} layout:{latex}
@@ -18,36 +18,36 @@
 
 ### Monday (September 29th, 2025)
 
-| Time       | Student Name              | Paper               |
-|------------|---------------------------|---------------------|
-| 09:00-09:15 | Sheryl Shankar            | lapworth2012.pdf   |
-| 09:15-09:30 | Max Rechner Thomas        | reager2016.pdf     |
-| 09:30-09:45 | Charlie Tapsfield         | gleeson2012.pdf    |
-| 09:45-10:00 | Crystal Yan               | feng2018.pdf       |
+| Time       | Student Name              | Paper               | To be assessed by|
+|------------|---------------------------|---------------------| -------|
+| 09:00-09:15 | Sheryl Shankar            | lapworth2012.pdf   | Max Rechner Thomas |
+| 09:15-09:30 | Max Rechner Thomas        | reager2016.pdf     | Bradley Gardiner |
+| 09:30-09:45 | Charlie Tapsfield         | gleeson2012.pdf    | Maya Taib |
+| 09:45-10:00 | Crystal Yan               | feng2018.pdf       | Ethan Dunkley |
 
 ### Wednesday (October 1st, 2025)
-| Time       | Student Name              | Paper               |
-|------------|---------------------------|---------------------|
-| 11:00-11:15 | Fred Fifield              | frappart2018.pdf    |
-| 11:15-11:30 | Declan Pascoe             | song2019.pdf        |
-| 11:30-11:45 | Ryan Campbell             | chaussard2014.pdf   |
-| 11:45-12:00 | Josie Lemm                | veit2016.pdf        |
+| Time       | Student Name              | Paper               | To be assessed by |
+|------------|---------------------------|---------------------| ----------------- |
+| 11:00-11:15 | Fred Fifield              | frappart2018.pdf   | Ciara Wilson |
+| 11:15-11:30 | Declan Pascoe             | song2019.pdf       | Micheal James Yake |
+| 11:30-11:45 | Ryan Campbell             | chaussard2014.pdf  | **Absent** |
+| 11:45-12:00 | ~~Josie Lemm~~ Sarah Meixner | pfeffer2014.pdf | Saskia Lai Butler |
 
 ### Thursday (Tutorials session) (October 2nd, 2025)
-| Time       | Student Name              | Paper               |
-|------------|---------------------------|---------------------|
-| 12:00-12:15 | Tara Glover               | hahnlein2013.pdf    |
-| 12:15-12:30 | Saskia Lai Butler         | rodell2018.pdf      |
-| 12:30-12:45 | Ben McFadden              | ketabchi2016.pdf    |
-| 12:45-13:00 | Stephan Kashkarov         | gleeson2016.pdf     |
+| Time       | Student Name              | Paper               | To be assessed by |
+|------------|---------------------------|---------------------| ----------------- |
+| 12:00-12:15 | Tara Glover               | hahnlein2013.pdf    | **Absent**|
+| 12:15-12:30 | Saskia Lai Butler         | rodell2018.pdf      | Milou De Jong |
+| 12:30-12:45 | Ben McFadden              | ketabchi2016.pdf    | **Absent** |
+| 12:45-13:00 | Stephan Kashkarov         | gleeson2016.pdf     | Josie Lemm |
 
 ### Thursday (Computer labs session) (October 2nd, 2025)
-| Time       | Student Name              | Paper               |
-|------------|---------------------------|---------------------|
-| 17:00-17:15 | Justin Mann               | richey2015.pdf      |
-| 17:15-17:30 | Maya Taib                 | podgorski2020.pdf   |
-| 17:30-17:45 | Michael James Yake        | long2013.pdf        |
-| 17:45-18:00 | Sarah Meixner             | pfeffer2014.pdf     |
+| Time       | Student Name              | Paper               | To be assessed by |
+|------------|---------------------------|---------------------| ----------------- |
+| 17:00-17:15 | Justin Mann               | richey2015.pdf      | Sarah Meixner |
+| 17:15-17:30 | Maya Taib                 | podgorski2020.pdf   | Justin Mann |
+| 17:30-17:45 | Michael James Yake        | long2013.pdf        | Savannah Easterby-Wood |
+| 17:45-18:00 | ~~Sarah Meixner~~ Josie Lemm | veit2016.pdf     | Alliya Alvaran |
 
 ## Week 10
 
@@ -55,18 +55,18 @@
 
 ### Wednesday (October 8th, 2025)
 
-| Time       | Student Name              | Paper               |
-|------------|---------------------------|---------------------|
-| 11:00-11:15 | Ciara Wilson              | taylor2012.pdf      |
-| 11:15-11:30 | Lily Delves               | wada2012.pdf        |
-| 11:30-11:45 | Alliya Alvaran            | meixner2016.pdf     |
-| 11:45-12:00 | Ethan Dunkley             | condon2020.pdf      |
+| Time       | Student Name              | Paper               | To be assessed by |
+|------------|---------------------------|---------------------|----------------- |
+| 11:00-11:15 | Ciara Wilson              | taylor2012.pdf      | Tara Glover |
+| 11:15-11:30 | Lily Delves               | wada2012.pdf        | Sophie Simpson |
+| 11:30-11:45 | Alliya Alvaran            | meixner2016.pdf     | Fred Fifield |
+| 11:45-12:00 | Ethan Dunkley             | condon2020.pdf      | Declan Pascoe |
 
 ### Thursday (Tutorials session) (October 9th, 2025)
-| Time       | Student Name              | Paper               |
-|------------|---------------------------|---------------------|
-| 12:00-12:15 | Sophie Simpson            | dalin2017.pdf       |
-| 12:15-12:30 | Milou De Jong             | chutbert2019.pdf    |
-| 12:30-12:45 | Ahmad Surosh Yousufzai    | famiglietti2011.pdf |
-| 12:45-13:00 | Bradley Gardiner          | mueller2016.pdf     |
-| 13:00-13:15 | Savannah Easterby-W...    | glenn2011.pdf       |
+| Time       | Student Name              | Paper               | To be assessed by |
+|------------|---------------------------|---------------------| ----------------- |
+| 12:00-12:15 | Sophie Simpson            | dalin2017.pdf       | Sheryl Shankar |
+| 12:15-12:30 | Milou De Jong             | chutbert2019.pdf    | Charlie Tapsfield |
+| 12:30-12:45 | Ahmad Surosh Yousufzai    | famiglietti2011.pdf | **Absent** |
+| 12:45-13:00 | Bradley Gardiner          | mueller2016.pdf     | Ben McFadden|
+| 13:00-13:15 | Savannah Easterby-W...    | glenn2011.pdf       | Crystal Yan|
