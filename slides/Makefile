@@ -5,8 +5,8 @@
 HTML_DIR = ../site/content/
 PDF_DIR = ../pdf/
 
-# List of numbered .qmd files to compile
-QMD_FILES = $(wildcard *.qmd)
+# List of Quarkdown source files to compile
+QMD_FILES = $(wildcard *.qd)
 
 # Define the quarkdown command with your preferred options
 QUARKDOWN_CMD = quarkdown c
@@ -15,17 +15,17 @@ QUARKDOWN_CMD = quarkdown c
 all: html
 
 # Explicit targets for html and pdf
-html: $(QMD_FILES:.qmd=.html)
-pdf: $(QMD_FILES:.qmd=.pdf)
+html: $(QMD_FILES:.qd=.html)
+pdf: $(QMD_FILES:.qd=.pdf)
 
-# Pattern rule to compile each .qmd file
-%.html: %.qmd
+# Pattern rule to compile each .qd file
+%.html: %.qd
 	@echo "Compiling $< to $(HTML_DIR)"
 	mkdir -p $(HTML_DIR)
 	$(QUARKDOWN_CMD) $< -o $(HTML_DIR)
 
-# Pattern rule to compile each .qmd file
-%.pdf: %.qmd
+# Pattern rule to compile each .qd file
+%.pdf: %.qd
 	@echo "Compiling $< to $(PDF_DIR)"
 	mkdir -p $(PDF_DIR)
 	$(QUARKDOWN_CMD) $< -o $(PDF_DIR) --pdf
@@ -39,9 +39,9 @@ clean:
 # Help target
 help:
 	@echo "Available targets:"
-	@echo "  all     - Compile all .qmd files to HTML (default)"
-	@echo "  html    - Compile all .qmd files to HTML"
-	@echo "  pdf     - Compile all .qmd files to PDF"
+	@echo "  all     - Compile all .qd files to HTML (default)"
+	@echo "  html    - Compile all .qd files to HTML"
+	@echo "  pdf     - Compile all .qd files to PDF"
 	@echo "  clean   - Remove all compiled files from output directories"
 	@echo "  help    - Show this help message"
 	@echo ""

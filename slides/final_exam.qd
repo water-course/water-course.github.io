@@ -1,0 +1,295 @@
+.docname {Final-Exam}
+.theme{beaver} layout:{latex}
+.doctype{paged}
+.doclang{English}
+
+.include {definitions.qd}
+
+.pagemargin{bottomleft}
+    EMSC3025-6025
+
+.pagemargin{topright}
+    Final Exam
+
+
+# Final Exam
+
+**Total Points: 100**
+
+## Q 1: Water Balance Analysis [20 points]
+
+You are analysing a medium-sized catchment ($ A = 450 \text{ km}^2 $) over a one-year period. The catchment experiences a Mediterranean climate with distinct wet and dry seasons. Monthly water balance data has been collected, though estimates for evapouration were not available.
+
+**Given data:**
+
+| Month | Precipitation (mm) | Runoff (mm) | Storage (mm) | Evapouration (mm) |
+|----|----|----|----|-----|
+| Jan   | 125 | 85   | +15  | ? |
+| Feb   | 142 | 98   | +22  | ? |
+| Mar   | 178 | 134  | +18  | ? |
+| Apr   | 92  | 68   | -8   | ? |
+| May   | 48  | 32   | -12  | ? |
+| Jun   | 28  | 15   | -6   | ? |
+| Jul   | 15  | 8    | -4   | ? |
+| Aug   | 22  | 12   | -5   | ? |
+| Sep   | 38  | 24   | -3   | ? |
+| Oct   | 68  | 45   | -2   | ? |
+| Nov   | 95  | 62   | +5   | ? |
+| Dec   | 108 | 72   | +12  | ? |
+
+**Tasks:**
+
+a) **[6 points]** Based on what you know from water cycle, calculate the monthly evapouration for each month. Show your calculations for at least for three months (one from each season: wet, transition, dry).
+
+b) **[5 points]** Identify which months represent the wet season, transition period, and dry season based on the data patterns. For each season, identify which term in the water balance equation is dominant and explain why.
+
+c) **[4 points]** After the measurements were done, we noticed the storage change in May might be uncertain. If the actual evapouration in May is known to be 28 mm, use the water balance equation to calculate the corrected storage change. Discuss what this correction implies about the catchment's behaviour during this period.
+
+d) **[5 points]** A neighbouring catchment of similar size ($ A = 480 \text{ km}^2 $) but in an arid climate shows the following **annual** totals: $ \text{Precipitation} = 280 \text{mm} $, $ \text{Runoff} = 45 \text{mm} $, $ \text{Evapouration} = 210 \text{mm} $, and $ \text{Storage} = 25 \text{mm} $. Compare the annual water balances of the two catchments and explain how climate differences manifest in the relative magnitudes of the balance components.
+
+<<<<
+
+.whitespace height:{2cm}
+<<<<
+
+## Q 2: Thiessen Polygon Method for Areal Precipitation [15 points]
+
+A catchment has been instrumented with five rain gauges to monitor precipitation patterns. The gauge locations and measured rainfall for a specific storm event are shown in Figure 2.
+
+.fullspan
+    !(80%)[Thiessen Polygon Exercise](image/thiessen_excersise_filnal.png "Rain gauge locations and precipitation measurements for Thiessen polygon analysis")
+
+**Catchment information:**
+- Total catchment area: $ A = 120 \text{km}^2 $
+
+**Tasks:**
+
+a) **[3 points]** Construct Thiessen polygons for all five rain gauges on the provided map. Show your construction lines and clearly mark the polygon boundaries. Explain the step-by-step process for creating Thiessen polygons.
+
+b) **[3 points]** Calculate the area of each Thiessen polygon using the grid counting method. Show your calculations and express areas in both grid squares and $ km^2 $. Approximate the surface area of each polygon up to 1/4, 1/2, and 3/4 of precision of each square.
+
+c) **[3 points]** Calculate the areal average precipitation for the catchment using the Thiessen polygon method: $ R = \frac{1}{A}\sum_{i=1}^{n} R_i \times a_i $, where $ R_i $ is the precipitation at gauge $ i $, $ a_i $ is the area of the corresponding Thiessen polygon, and $ A $ is the total catchment area.
+
+d) **[3 points]** Compare your Thiessen polygon result with the simple arithmetic mean of all gauge readings. Discuss the differences and explain which method is more appropriate for this catchment, considering the spatial distribution of gauges and precipitation patterns.
+
+e) **[3 points]** Identify potential limitations of the Thiessen polygon method in this case. What additional information would be helpful for improving the areal precipitation estimate?
+
+<<<
+.whitespace height:{2cm}
+
+<<<
+
+## Q 3: Evapouration Across Different Environments [14 points]
+
+Evapouration processes vary dramatically across different climatic and environmental settings. Understanding these variations is critical for water resource management.
+
+**Three contrasting environments:**
+
+**Environment 1: Arid desert region**
+- Mean annual precipitation: 180 mm
+- Mean annual potential evapouration: 2800 mm
+- Deep water table (> 50 m)
+- Sparse vegetation (desert shrubs)
+- Sandy, well-drained soils
+
+**Environment 2: Humid temperate forest**
+- Mean annual precipitation: 1400 mm
+- Mean annual potential evapouration: 850 mm
+- Shallow water table (2-5 m)
+- Dense forest canopy
+- Clay-rich, moisture-retentive soils
+
+**Environment 3: Cold alpine tundra**
+- Mean annual precipitation: 450 mm (mostly snow)
+- Mean annual potential evapouration: 320 mm
+- Permafrost present
+- Low-lying vegetation (mosses, lichens)
+- Shallow, organic-rich soils
+
+**Tasks:**
+
+a) **[4 points]** For each of the three environments, compare the likely relationship between actual evapouration ($ E_t $) and potential evapouration ($ E_{pt} $). Which environment will have the smallest ratio $ E_t / E_{pt} $ and which will have the largest? Provide quantitative estimates and explain your reasoning.
+
+b) **[4 points]** Explain how the three fundamental controls on evapouration (available energy, water availability, and atmospheric demand) operate in each environment. Identify which control is most limiting in each case and why.
+
+c) **[3 points]** Evaluate which evapouration estimation method (Thornthwaite temperature-based, Penman combination, or water balance approach) would be most appropriate for each environment. Justify your choice by considering data availability, accuracy requirements, and method assumptions. Discuss the limitations of each method in the contexts where it is less suitable.
+
+d) **[3 points]** At the catchment scale, direct measurement of evapouration is extremely challenging. Discuss three major obstacles to obtaining reliable catchment-average evapouration estimates, and explain how these obstacles vary between the three environments described above.
+
+<<<
+.whitespace height:{2cm}
+
+<<<
+
+## Q 4: Runoff Hydrograph Analysis [15 points]
+
+Figure below shows a storm hydrograph recorded at a stream gauging station following a significant rainfall event. The hydrograph displays the characteristic response of a small catchment to precipitation input.
+
+.fullspan
+    !(80%)[Storm Hydrograph](image/davie_fig_5-2_blank.png "Storm hydrograph showing discharge response to rainfall event")
+
+**Catchment characteristics:**
+- Catchment area: $ A = 85 \text{ km}^2 $
+- Soil type: Clay-loam with moderate infiltration capacity
+- Land use: Mixed agriculture and forest
+- Antecedent conditions: Moderately wet (soil moisture at 60% of field capacity)
+
+**Tasks:**
+
+a) **[2 points]** On the hydrograph, clearly identify and label the following components:
+   - Rising limb
+   - Peak discharge
+   - Recession limb
+   - Baseflow (pre-storm and post-storm)
+
+b) **[3 points]** Explain the hydrological processes responsible for each part of the hydrograph:
+   - What causes the steep rising limb?
+   - Why does the hydrograph peak at a particular time?
+   - What processes dominate during the recession limb?
+
+c) **[4 points]** Compare the three main theories of runoff generation:
+   - Horton's infiltration-excess overland flow
+   - Betson's partial contributing areas
+   - Hewlett & Hibbert's saturation overland flow
+
+   For each theory, describe the dominant control mechanism and indicate in which type of environment it is most relevant.
+
+d) **[3 points]** Based on the hydrograph shape and catchment characteristics, identify which runoff generation mechanism is most likely dominant in this case. Justify your answer by referencing specific features of the hydrograph and explaining how the catchment conditions support your conclusion.
+
+e) **[3 points]** If this same rainfall event occurred during a drought period when antecedent soil moisture was only 20% of field capacity, predict how the hydrograph would differ. Discuss changes in peak discharge magnitude, time to peak, and overall hydrograph shape, providing your reasoning.
+
+
+
+<<<<
+
+.whitespace height:{2cm}
+<<<<
+
+
+## Q 5: Layered Aquifer Flow Analysis [12 points]
+
+A contaminant spill has occurred near a multi-layered aquifer system, and you need to analyse groundwater flow paths and estimate travel times for risk assessment.
+
+**Aquifer system characteristics:**
+
+The system consists of four horizontal layers (from top to bottom):
+
+| Layer | Thickness b (m) | Hydraulic Conductivity K (m/day) | Porosity n | Type |
+|-------|----------------|----------------------------------|-------------|------|
+| 1     | 8               | 25                               | 0.32        | Sand |
+| 2     | 3               | 0.8                              | 0.28        | Silt |
+| 3     | 15              | 18                               | 0.30        | Sand |
+| 4     | 5               | 0.05                             | 0.22        | Clay |
+
+**Flow conditions:**
+- Total hydraulic head at upgradient boundary: $ h_1 = 125 \text{m} $
+- Total hydraulic head at downgradient boundary: $ h_2 = 118 \text{m} $
+- Distance between boundaries: $ L = 1200 \text{m} $
+- Contamination point: Located at the upgradient boundary, top of Layer 1
+- Aquifer width (perpendicular to flow): $ W = 500 \text{m} $
+
+**Tasks:**
+
+a) **[3 points]** Calculate the equivalent horizontal hydraulic conductivity ($ K_h $) and equivalent vertical hydraulic conductivity ($ K_v $) for the entire layered system. Explain why $ K_h \neq K_v $ and what this means for flow behaviour.
+
+b) **[3 points]** Assuming horizontal flow dominates, calculate the horizontal hydraulic gradient and the Darcy velocity in each layer. If flow is primarily horizontal, in which layer would you expect the highest flow velocity?
+
+c) **[3 points]** Calculate the transmissivity for the entire system. Then, assuming the system behaves as a single confined aquifer with this transmissivity, calculate the total volumetric flow rate.
+
+d) **[3 points]** Estimate the travel time for a conservative (non-reactive) contaminant moving from the spill location to the downgradient boundary, assuming it follows horizontal flow paths. Assume an effective porosity of $ n_e = 0.9 \times n $ for sands and $ n_e = 0.85 \times n $ for finer materials. Which layer will control the overall travel time, and why?
+
+
+<<<<
+
+.whitespace height:{2cm}
+<<<<
+
+
+
+## Q 6: Aquifer Characterisation and Management [12 points]
+
+A groundwater consultant has collected data from a new well field development site. Your task is to analyse the data to characterise the aquifer system and evaluate its management potential.
+
+**Field measurement data:**
+
+**Well A (near recharge area):**
+- Ground surface elevation: 450 m above sea level
+- Well casing extends to 80 m depth
+- Water level in well (depth below surface): 12 m
+- Screened interval: 65-75 m depth
+- Pressure measurement at screen midpoint (70 m depth): 520 kPa (absolute)
+
+**Well B (downgradient, near discharge area):**
+- Ground surface elevation: 442 m above sea level
+- Well casing extends to 90 m depth
+- Water level in well (depth below surface): 28 m
+- Screened interval: 80-90 m depth
+- Pressure measurement at screen midpoint (85 m depth): 380 kPa (absolute)
+
+**Regional information:**
+- Estimated annual recharge: $ R = 150 \text{ mm}/\text{yr} $ over catchment area of $ 85 \text{ km}^2 $
+- Current pumping rate from 12 production wells: $ Q_{\text{pump}} = 8.5 \times 10^6 \text{ m}^3/\text{yr} $
+- Estimated annual discharge to streams: $ Q_{\text{discharge}} = 2.2 \times 10^6 \text{ m}^3/\text{yr} $
+- Aquifer material: Medium to fine sand
+- Top confining layer begins at 25 m depth
+- Bottom of aquifer unit at 100 m depth
+
+**Additional data:**
+- Water density: $ \rho_w = 1000 \text{ kg}/\text{m}^3 $
+- Gravitational acceleration: $ g = 9.81 \text{ m}/\text{s}^2 $
+
+**Tasks:**
+
+a) **[3 points]** For both wells, calculate the hydraulic head at the screened interval. Determine whether this aquifer system is confined or unconfined, and justify your conclusion using the head measurements, pressure data, and well construction information.
+
+b) **[3 points]** Explain the fundamental difference in storage mechanisms between confined and unconfined aquifers. Given that both storage mechanisms (water compressibility and aquifer matrix compressibility for confined; gravity drainage for unconfined) operate, why do we observe such different values of storativity ($ S = 10^{-5} $ to $ 10^{-3} $ for confined vs. $ S = 0.01 $ to $ 0.30 $ for unconfined)? Use specific storage concepts in your explanation.
+
+c) **[3 points]** Based on the recharge and discharge data, evaluate whether the current pumping rate is sustainable. Calculate the annual water balance and determine if there is a storage deficit. If pumping continues at this rate, what might happen to the hydraulic heads and what are the long-term implications?
+
+d) **[3 points]** This aquifer type (unconsolidated sand) differs significantly from other major aquifer types such as karst limestone or fractured crystalline rock. Compare the management challenges for: (i) contamination risk and remediation, (ii) sustainable yield estimation, and (iii) monitoring network design. For each challenge category, explain why the approach differs between unconsolidated and the other aquifer types you discuss.
+
+<<<<
+.whitespace height:{2cm}
+
+<<<<
+
+
+## Q 7: Satellite Geodesy for Water Cycle Monitoring [12 points]
+
+Remote sensing via satellite missions has revolutionised our ability to monitor water cycle components at regional to global scales. Understanding what satellites actually measure versus what hydrological quantities they derive is essential for proper interpretation.
+
+**Three satellite missions for water monitoring:**
+
+**Mission 1: GRACE (Gravity Recovery and Climate Experiment) and GRACE Follow-On**
+- Orbital altitude: ~500 km
+- Spatial resolution: ~300 km
+- Temporal resolution: Monthly
+
+**Mission 2: SMAP (Soil Moisture Active Passive)**
+- Orbital altitude: ~685 km
+- Spatial resolution: ~40 km (passive), ~3 km (active)
+- Temporal resolution: 2-3 days global coverage
+
+**Mission 3: SWOT (Surface Water and Ocean Topography)**
+- Orbital altitude: ~891 km
+- Spatial resolution: ~50-200 m (swath-dependent)
+- Temporal resolution: Variable (near-polar orbit, repeat cycle)
+
+**Tasks:**
+
+a) **[3 points]** For each of the three missions (GRACE, SMAP, SWOT), clearly identify: (i) what physical property is directly measured by the satellite sensors, and (ii) what hydrological quantity is derived from these measurements using retrieval algorithms or models.
+
+b) **[3 points]** Explain the physical principles that underlie each measurement approach.
+
+c) **[3 points]** For each mission, compare satellite-derived estimates with traditional ground-based measurement methods. Identify two advantages and two limitations of the satellite approach relative to ground measurements. Consider factors such as spatial coverage, temporal resolution, accuracy, cost, and data accessibility.
+
+d) **[3 points]** In practice, satellite data are often integrated with ground-based observations through data assimilation or hybrid monitoring strategies. Discuss when and why such integration is necessary. Provide a specific example of how you would combine GRACE total water storage data with in-situ groundwater well measurements to improve estimates of regional groundwater changes. What are the key challenges in this integration?
+
+
+<<<<
+.whitespace height:{2cm}
+
+<<<<
+.whitespace height:{2cm}
+
+<<<<

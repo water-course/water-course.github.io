@@ -1,0 +1,46 @@
+.docname {Tutorial-Watercycle}
+.theme{beaver} layout:{latex}
+.doctype{paged}
+.doclang{English}
+
+.include {definitions.qd}
+
+.pagemargin{bottomleft}
+    Tutorials
+
+.pagemargin{topright}
+    Water Cycle
+
+
+# Water Cycle
+## The Hydrological Cycle
+Define the hydrological cycle and explain how it operates at both the global and catchment scales.
+In your answer, describe three key processes and how they interact across these scales.
+
+## Water Balance in a Semi-Arid Basin
+Consider a large basin in a semi-arid climate.  Using the water balance equation
+
+$ P = Q + E + \Delta S $
+
+discuss how each term is likely to behave in this setting.
+Explain what challenges this poses for hydrologists in measuring or estimating water availability.
+
+## Global water distribution
+Let's go back to a quote from the lecture:
+
+> “The total quantity of fresh water on Earth could satisfy all human needs if it were evenly distributed and accessible.”
+> — *Stumm (1986)*
+
+Critically evaluate this statement using information from the lecture and Chapter 1.  Include examples of spatial inequality in water resources and discuss how hydrology as a science and applied field contributes to addressing such challenges.
+
+<<<<
+
+## Delineating a Watershed Boundary
+Refer to the **topographic map provided** below. The contour lines represent elevation. A stream is visible in the valley. Your task is to manually delineate the **watershed boundary** for a given outlet point along the stream using standard hydrological reasoning.
+
+!(40%)[topomap](image/tutorial_usgs_catchment.png "A hypothetical topographic map of a catchment")
+
+1. Briefly list the **five manual delineation steps** for defining a watershed boundary.
+2. On the map, **describe** (in words) how you would apply each step. You may refer to locations by compass direction (e.g., "north ridge") or elevation.
+3. Explain why understanding **topographic divides** and **contour orientation** is critical in watershed boundary definition.
+4. (Optional extension) What is a limitation of this method compared to digital (GIS-based) watershed delineation?

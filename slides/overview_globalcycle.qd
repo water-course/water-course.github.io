@@ -1,0 +1,571 @@
+.docname {Global Water Cycle Overview}
+.doctype {slides}
+.doclang {English}
+.theme {paperwhite} layout:{beamer}
+.slides transition:{fade}
+.docauthors
+  - Sia Ghelichkhan
+
+.include {definitions.qd}
+.include {definitions_slides.qd}
+
+#!
+.fullspan
+  .center
+    ![Logo](image/new_logo.png)
+
+    ---
+    #! Global Water Cycle Overview
+    ###! EMSC3025/6025 - Recap Session
+    ---
+
+    ###! _Dr. Sia Ghelichkhan_
+
+# Objectives of this Recap Session
+
+.whitespace height:{2cm}
+
+.row gap:{1cm} alignment:{center}
+  .container width:{70%} borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} radius:{0.5cm}
+    By the end of this session, you should be able to:
+    - **Synthesise** the fundamental processes of the hydrological cycle
+    - **Apply** the water balance equation to different environments
+    - **Explain** precipitation formation and measurement challenges
+    - **Evaluate** evaporation controls and estimation methods
+    - **Analyse** runoff generation mechanisms and streamflow measurement
+    - **Integrate** these processes at catchment and global scales
+
+.fullspan
+  .align{center}
+    This recap consolidates the foundation modules of the water course.
+
+# The Big Picture: Global Water Distribution
+
+.row gap:{1cm}
+  .container width:{50%}
+    - Earth's water is **highly concentrated**:
+      - Oceans/seas: **96.5%**
+      - Ice/glaciers: **1.74%**
+      - Groundwater: **1.69%**
+      - Accessible freshwater: **~0.27%**
+
+    .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+       ###! The challenge: Uneven distribution in space and time
+
+  .container width:{50%}
+    | Storage              | Volume (×10³ km³) | % of total |
+    |----------------------|-------------------|------------|
+    | Oceans/seas          | 1,338,000         | 96.54      |
+    | Ice caps/glaciers    | 24,064            | 1.74       |
+    | Groundwater          | 23,400            | 1.69       |
+    | Lakes                | 176               | 0.013      |
+    | Atmosphere           | 12.9              | 0.0009     |
+    | Rivers               | 2.12              | 0.00015    |
+    "Global water distribution - the foundation of all hydrology"
+
+# The Water Balance Equation: Our Central Tool
+
+.row gap:{1cm}
+  .container width:{60%}
+    The **water balance equation** represents mass conservation:
+
+    .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightred}
+      $ P \pm E \pm \Delta S \pm Q = 0 $
+
+    Often rearranged as:
+    $ Q = P - E - \Delta S $
+
+    Where:
+    - $ P $: Precipitation (input)
+    - $ E $: Evaporation (output)
+    - $ \Delta S $: Change in storage
+    - $ Q $: Runoff/discharge (output)
+
+  .container width:{40%}
+    **Applications vary by environment:**
+    - **Humid regions**: $ P $ dominates
+    - **Arid regions**: $ E $ dominates
+    - **Cold regions**: $ \Delta S $ (snow/ice) critical
+    - **Urban areas**: Modified by infrastructure
+
+# Catchments: Our Spatial Framework
+
+.row gap:{1cm}
+  .container width:{50%}
+    - A **catchment** is defined by **topographic divides**
+    - Surface water vs groundwater boundaries may differ
+    - **Nested hierarchy**: sub-catchments within larger basins
+
+    **Manual delineation steps:**
+    1. Identify outlet point
+    2. Trace flow lines (perpendicular to contours)
+    3. Identify ridgelines
+    4. Connect divides to form boundary
+    5. Verify all flow drains to outlet
+
+  .container width:{50%}
+    !(100%)[catchmentmap](image/davie_fig_1-5.png "Catchment boundaries define our study units")
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
+      #! Precipitation: Water Input to the System
+
+# Precipitation Formation: Three Essential Conditions
+
+.row gap:{1cm}
+  .container width:{40%}
+    **For precipitation to occur:**
+    1. **Cooling** of the atmosphere
+       - Adiabatic cooling via uplift
+       - DALR: ~9.8°C/km (dry air)
+       - SALR: ~4-6°C/km (saturated air)
+
+    2. **Condensation nuclei**
+       - Dust, smoke, sea salt particles
+       - Enable droplet formation
+
+    3. **Droplet growth**
+       - From ~1μm to ~3000μm
+       - Via collision-coalescence or Bergeron process
+
+  .container width:{60%}
+    !(100%)[uplift](image/internet_meteorology_uplift.jpg "Three main lifting mechanisms")
+
+# Precipitation Distribution Controls
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Static influences** (fixed landscape features):
+    - **Altitude**: Higher elevations → more rainfall
+    - **Aspect**: Windward slopes → more precipitation
+    - **Slope**: Minor effect at small scales
+
+    **Dynamic influences** (atmospheric processes):
+    - **Storm tracks**: Cyclone paths
+    - **Frontal systems**: Air mass interactions
+    - **Seasonal patterns**: Monsoons, ITCZ shifts
+
+  .container width:{50%}
+    !(100%)[rainshadow](image/davie_fig_2-5-b.png "Rain shadow effect in New Zealand")
+
+# Precipitation Measurement Challenges
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Four major error sources:**
+    1. **Evaporation**: Water lost before measurement
+    2. **Wetting**: Water adheres to funnel walls
+    3. **Rain splash**: Water splashes in/out
+    4. **Wind turbulence**: Reduces catch efficiency
+
+    **Solutions:**
+    - Funnel design minimizes evaporation
+    - Steep angles reduce wetting
+    - Wind shields reduce turbulence
+    - Non-splash grids prevent splash errors
+
+  .container width:{40%}
+    !(100%)[raingauge](image/davie_fig_2-8.png "Wind effects on rain gauge accuracy")
+
+# From Point to Areal Precipitation
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Challenge**: Convert point measurements to catchment-wide estimates
+
+    **Three main methods:**
+    1. **Thiessen polygons**: Area-weighted average
+       $ R = \sum_{i=1}^{n} r_i \times \left(\frac{a_i}{A}\right) $
+
+    2. **Hypsometric method**: Elevation-based
+    3. **Isohyetal method**: Contour-based interpolation
+
+  .container width:{50%}
+    !(80%)[thiessen](image/davie_fig_2-13.png "Thiessen polygon method")
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm} alignment:{center}
+      #! Evaporation: Water Output from the System
+
+# Types of Evaporation
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Three key definitions:**
+    - **Open water evaporation** ($ E_O $): From lakes, rivers, oceans
+    - **Potential evaporation** ($ E_{pt} $): Maximum possible with unlimited water
+    - **Actual evaporation** ($ E_t $): What actually occurs
+
+    **Components:**
+    - **Soil evaporation**: Direct from soil matrix
+    - **Transpiration**: Through plant stomata
+    - **Interception loss**: From wet vegetation surfaces
+
+  .container width:{50%}
+    !(100%)[evapcomponents](image/internet_transpiration.webp "Components of evapotranspiration")
+
+# Controls on Evaporation
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Three fundamental controls:**
+
+    1. **Available energy** ($ Q^* $):
+       $ Q^* = Q_S \pm Q_L \pm Q_G $
+       - Solar radiation dominates
+       - Net radiation drives the process
+
+    2. **Water availability**:
+       - Unlimited over oceans
+       - Limited by soil moisture on land
+       - Plant access via root systems
+
+    3. **Atmospheric demand**:
+
+       - **Vapour pressure deficit** (VPD)
+       - .whitespace width:{0.1cm} $ VPD = e_s - e_a $
+       - Higher VPD -> greater evaporation potential
+
+
+  .container width:{50%}
+    !(100%)[vpdgraph](image/davie_fig_3-2.png "Vapour pressure deficit controls atmospheric demand")
+
+# Measuring Evaporation: The Challenge
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Direct methods:**
+    - **Eddy covariance**: Most accurate, expensive
+    - **Bowen ratio**: Uses temperature/humidity gradients
+    - **Aerodynamic profile**: Flux-gradient relationships
+
+    **Indirect methods:**
+    - **Evaporation pans**: Simple but overestimate
+    - **Lysimeters**: Most accurate for vegetated surfaces
+    - **Water balance**: $ E = \Delta S - P - Q $
+
+  .container width:{50%}
+    !(100%)[lysimeter](image/davie_fig_3-4.png "Weighing lysimeter for accurate ET measurement")
+
+# Evaporation Estimation Methods
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Thornthwaite method** (temperature-based):
+
+    $ E_p = 16 b \left( \frac{10T}{I} \right)^{a} $
+
+    - Simple, requires only temperature
+    - Monthly scale only
+    - Regional calibration needed
+
+    **Penman equation** (combination method):
+
+    $ E_O = \frac{\Delta Q^* + \gamma E_a}{\Delta + \gamma} $
+    - Combines energy balance and aerodynamic terms
+    - More accurate, requires more data
+
+  .container width:{50%}
+    **Relationship between actual and potential:**
+    - Depends on water availability
+    - Non-linear relationship with soil moisture
+    - Vegetation adds stomatal control
+
+    !(80%)[etrelation](image/davie_3rd_3-10.png "Actual vs potential evaporation relationship")
+
+#
+.whitespace height:{3cm}
+
+.row alignment:{center}
+  .container borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm} alignment:{center}
+      #! Runoff: Water Movement to Channels
+
+# Understanding Hydrographs
+
+.row gap:{1cm}
+  .container width:{40%}
+    **Components of a storm hydrograph:**
+    - **Rising limb**: Steep increase to peak
+    - **Peak discharge**: Maximum flow rate
+    - **Recession limb**: Gradual decline
+
+    **Controls on shape:**
+    - Catchment size, slope, shape
+    - Soil characteristics
+    - Vegetation cover
+    - Antecedent moisture conditions
+
+  .container width:{60%}
+    !(100%)[hydrograph](image/davie_fig_5-2.png "Typical storm hydrograph components")
+
+# Runoff Generation Theories
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Three key theories:**
+
+    1. **Horton (1933)**: Infiltration-excess overland flow
+       - Occurs when rainfall > infiltration capacity
+       - Uniform across catchment
+
+    2. **Betson (1964)**: Partial contributing areas
+       - Only specific zones produce overland flow
+       - Retains infiltration control
+
+    3. **Hewlett & Hibbert (1967)**: Saturation overland flow
+       - Water table rises to surface
+       - Variable source areas near channels
+
+  .container width:{40%}
+    !(100%)[runoffmech](image/davie_fig_5-3.png "Hillslope runoff processes")
+
+# The Modern View: Variable Source Areas
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Key insights:**
+    - All theories capture aspects of truth
+    - **Saturated overland flow** dominates in humid regions
+    - **Variable source area** concept best represents reality
+    - Contributing areas expand/contract with wetness
+
+    **Subsurface contributions:**
+    - **Throughflow**: Lateral flow through soil
+    - **Piston flow**: New water displaces old water
+    - **Macropores**: Rapid preferential flow paths
+
+  .container width:{50%}
+    | Theory | Mechanism | Environment |
+    |--------|-----------|-------------|
+    | Horton | Infiltration-excess | Arid/urban |
+    | Betson | Partial areas | Semi-arid |
+    | Hewlett & Hibbert | Saturation | Humid |
+    "Runoff theories and their applications"
+
+# Groundwater's Rapid Role
+
+.row gap:{1cm}
+  .container width:{60%}
+    **Capillary fringe hypothesis** (Farvolden, 1979):
+    - Groundwater ridge forms near streams during recharge
+    - Infiltration saturates unsaturated zone
+    - Creates hydraulic gradients driving discharge
+    - **Non-linear** water-saturation relationships
+
+    **Evidence from tracer studies:**
+    - Significant "old water" in storm runoff
+    - Rapid groundwater contributions confirmed
+    - Piston flow and macropore evidence
+
+  .container width:{40%}
+    !(100%)[maimai](image/davie_fig_5-5.png "Groundwater contributions at Maimai")
+
+# Measuring Streamflow
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Velocity-area method:**
+
+    - .whitespace width:{0.1cm} $ Q = V \times A $
+    - Measure velocity at 60% depth
+    - Good for small rivers
+    - Challenges in turbid/shallow streams
+
+    **Stage-discharge relationships:**
+    - Develop rating curves: stage vs discharge
+    - Enable continuous monitoring
+    - Assume stable channel geometry
+    - Errors increase at high flows
+
+  .container width:{50%}
+    !(100%)[measurement](image/davie_fig_5-6.png "Velocity-area measurement method")
+
+# Gauging Structures: Weirs and Flumes
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Advantages:**
+    - Standardize flow through known geometry
+    - Enable continuous discharge records
+    - Known discharge equations
+
+    **V-notch weir equation:**
+    $ Q = 1.366\ h^{2.5} $ (for 90° notch)
+
+    **Design considerations:**
+    - V-notches excellent for low flows
+    - Flumes reduce sedimentation
+    - Must handle peak flows without bypass
+
+  .container width:{50%}
+    !(100%)[weir](image/davie_fig_5-10.png "V-notch weir discharge coefficients")
+
+# Integration: Putting It All Together
+
+.row gap:{1cm}
+  .container width:{50%}
+    **The water balance in practice:**
+    - **Precipitation**: Highly variable input
+    - **Evaporation**: Energy and water limited
+    - **Runoff**: Complex generation mechanisms
+    - **Storage**: Critical buffer, hard to measure
+
+    **Scale considerations:**
+    - **Point measurements** vs **areal estimates**
+    - **Process understanding** vs **practical application**
+    - **Data availability** vs **model complexity**
+
+  .container width:{50%}
+    !(100%)[integration](image/davie_3d_fig_7-8.png "Integrated runoff processes")
+
+# Climate and Environmental Controls
+
+.row gap:{1cm}
+  .container width:{60%}
+    **How climate shapes the water balance:**
+
+    **Humid temperate regions:**
+    - Balanced P, E, Q components
+    - Saturated overland flow dominates
+    - Groundwater contributions significant
+
+    **Arid/semi-arid regions:**
+    - High E/P ratios
+    - Flash flooding from intense rainfall
+    - Storage changes critical
+
+    **Cold regions:**
+    - Snow storage delays runoff
+    - Seasonal melt dominates discharge
+    - Frozen ground affects infiltration
+
+  .container width:{40%}
+    !(100%)[climatezones](image/davie_fig_1-8.png "Climate zone water partitioning")
+
+# Measurement and Estimation Challenges
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Common challenges across all components:**
+
+    **Spatial variability:**
+    - Point measurements vs areal needs
+    - Scaling issues
+    - Representative sampling
+
+    **Temporal variability:**
+    - Event-based vs continuous processes
+    - Data resolution mismatches
+    - Long-term vs short-term patterns
+
+  .container width:{50%}
+    **Uncertainty sources:**
+    - Instrument errors and calibration
+    - Environmental factors (wind, temperature)
+    - Model assumptions and parameters
+    - Data gaps and quality issues
+
+    **Solutions:**
+    - Multiple measurement methods
+    - Quality control procedures
+    - Uncertainty quantification
+    - Model validation
+
+# Practical Applications: Tutorial Insights
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Key problem-solving approaches:**
+
+    **Water balance calculations:**
+    - Identify dominant terms for different environments
+    - Account for measurement uncertainties
+    - Consider temporal and spatial scales
+
+    **Precipitation analysis:**
+    - Understand formation mechanisms
+    - Evaluate measurement errors
+    - Apply spatial estimation methods
+
+  .container width:{50%}
+    **Evaporation estimation:**
+    - Choose appropriate method for data availability
+    - Understand limitations and assumptions
+    - Consider vegetation and soil controls
+
+    **Runoff analysis:**
+    - Interpret hydrograph characteristics
+    - Identify dominant generation mechanisms
+    - Apply measurement techniques appropriately
+
+# Case Study Integration: Real-World Examples
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Examples from the course:**
+
+    **New Zealand rain shadow:**
+    - Orographic precipitation effects
+    - Windward vs leeward contrasts
+    - Measurement challenges in mountains
+
+    **Darwin thunderstorms:**
+    - Convective precipitation formation
+    - Tropical climate characteristics
+    - Measurement in high-intensity events
+
+  .container width:{50%}
+    **Corn sweat phenomenon:**
+    - Transpiration impacts on local climate
+    - Agricultural water use
+    - Regional-scale evapotranspiration
+
+    **Maimai experiments:**
+    - Groundwater contributions to streamflow
+    - Tracer study insights
+    - Process understanding vs traditional theory
+
+
+# Summary: The Global Water Cycle
+
+.whitespace height:{2cm}
+
+.row gap:{1cm} alignment:{center}
+  .container width:{70%} borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
+    **Key takeaways from this overview:**
+    - The **water balance equation** provides our fundamental framework
+    - **Precipitation** formation requires specific atmospheric conditions and faces measurement challenges
+    - **Evaporation** is controlled by energy, water availability, and atmospheric demand
+    - **Runoff** generation involves complex interactions between surface and subsurface processes
+    - **Integration** across scales and processes is essential for understanding catchment hydrology
+    - **Measurement and estimation** methods each have strengths, limitations, and appropriate applications
+
+.fullspan
+  .align{center}
+    These processes form the foundation for all subsequent hydrological analysis and water resource management.
+
+# Questions for Review and Discussion
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Conceptual questions:**
+    - How do the three evaporation types (E₀, Eₚₜ, Eₜ) relate to each other?
+    - Why is the variable source area concept considered superior to earlier runoff theories?
+    - How do measurement errors compound when estimating catchment water balance?
+
+  .container width:{50%}
+    **Application questions:**
+    - Given climate data, which evaporation estimation method would you choose and why?
+    - How would you design a precipitation monitoring network for a mountainous catchment?
+    - What factors would influence your choice of streamflow measurement method?
+
+.fullspan
+  .align{center}
+    .container width:{60%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+      Ready to apply these concepts to real-world hydrological problems!

@@ -1,0 +1,105 @@
+.docname{Tutorial-Runoff-Answers}
+.theme{beaver} layout:{latex}
+.doctype{paged}
+.doclang{English}
+
+.include {definitions.qd}
+
+.pagemargin{bottomleft}
+    Model Answers
+
+.pagemargin{topright}
+    Runoff
+
+# Runoff
+## Storm Hydrograph Interpretation
+
+**Identifying parts of the hydrograph (Fig. 1):**
+- **Rising limb**: The initial, relatively steep increase in discharge following rainfall onset.
+- **Peak discharge**: The maximum discharge reached during/after the storm.
+- **Recession limb**: The gradual decline in discharge as event water inputs diminish and the catchment drains.
+
+**Process-based explanation**
+- **Why is the rising limb steep?**
+  Rapid delivery of water to the channel via quick pathways: direct channel precipitation, overland flow (where it occurs), near-surface lateral flow/“interflow”, and fast subsurface responses (macropores, piston-type displacement). Steepness increases with higher rainfall intensity, high antecedent moisture (reduced storage), steeper slopes, and more impervious surfaces.
+- **Why does the hydrograph peak when it does?**
+  Peak occurs when contributing areas and pathways reach maximum effectiveness; typically when rainfall duration $ \ge $ time of concentration (the time for flow from the most distant point to reach the outlet). After this, inputs diminish and/or storages begin to dominate outflows, reducing discharge.
+- **What dominates the recession limb?**
+  Event water subsides and **subsurface drainage** governs the tail: lateral throughflow and groundwater discharge (baseflow) gradually feed the channel as catchment storages empty.
+
+**Influence of antecedent moisture and geology**
+- **Antecedent soil moisture (ASM):**
+  Wet antecedent conditions reduce infiltration capacity and available storage, yielding **faster, higher peaks** and shorter lags; dry conditions yield more damped responses.
+- **Geology/permeability:**
+  - **High-permeability (e.g., chalk/limestone, coarse alluvium):** broader peaks, slower rise, **stronger/sustained baseflow** (concave, long recession).
+  - **Low-permeability (e.g., clay/shales, bedrock with thin soils):** **flashier** hydrographs—sharp peaks, quick recessions, weak baseflow.
+- **Reasoned inference from Fig. 1:**
+  - If Fig. 1 shows **flashy peaks and short recession**, infer **low-permeability**/more impervious geology.
+  - If Fig. 1 shows **damped peaks with strong baseflow and long recession**, infer **high-permeability** geology with substantial subsurface storage.
+
+## Runoff Mechanism Comparison
+
+**Horton (infiltration-excess overland flow)**
+- **Dominant control:** Infiltration capacity vs rainfall intensity; overland flow occurs where intensity > infiltration capacity.
+- **Sketch features:** Rain > infil. cap. on slopes → thin surface film flows to channel.
+- **Likely environments:** Arid/semi-arid storms with intense rainfall; compacted/impervious urban areas; crusted/bare soils.
+- **Limitations:** In many humid/forested settings, typical rainfall intensities are **less** than infiltration capacities; continuous sheet flow is uncommon.
+
+**Betson (partial contributing areas)**
+- **Dominant control:** Spatial heterogeneity of infiltration capacity and runoff generation—only certain patches create surface runoff.
+- **Sketch features:** Patchy contributing zones connected to drainage network during storms.
+- **Likely environments:** Mixed land use/soils; landscapes where only limited areas (e.g., near roads/compacted ground) produce surface runoff.
+
+**Hewlett & Hibbert (saturation overland flow)**
+- **Dominant control:** Water table rising to/near surface; expansion of **saturated zones** in hollows/near channels produces return flow + direct rain-on-saturated ground.
+- **Sketch features:** Variable saturated areas growing downslope/near channels during events.
+- **Likely environments:** Humid, mid-latitude forested catchments; riparian zones; areas with shallow soil over low-permeability layers.
+
+**Synthesis — Variable Source Area (VSA) concept**
+- Modern view integrates these: **source areas vary in space/time** with antecedent wetness, rainfall, soils, and topography. Surface and subsurface pathways co-exist; saturated areas near channels expand/contract, explaining much stormflow behavior.
+- Supporting definitions of **overland flow** and **interflow** (lateral flow above the water table during storms) align with this mixed-process picture.
+
+## Runoff Estimation (Rational Method)
+
+**Given**
+- Catchment area **A** = 80 acres
+- Land uses and **C** values:
+  - 20% residential single-family: C = 0.40
+  - 10% streets & driveways: C = 0.90
+  - 30% lawn (sandy soil): C = 0.15
+  - 40% woodland: C = 0.10
+- Design storm intensity **i** = 4.9 **mm/hr**, and **T\_c** = 15 min (so use this i).
+- Target units: **m³/s** (SI)
+
+**Step 1 – Area-weighted runoff coefficient, $ C_{\text{basin}} $:**
+
+$ C_{\text{basin}} = 0.20 \times 0.40 + 0.10 \times 0.90 + 0.30 \times 0.15 + 0.40 \times 0.10 \\= 0.08 + 0.09 + 0.045 + 0.04 = \boxed{0.255} $
+
+**Step 3 – Compute peak discharge \(Q\):**
+
+$ Q = 0.255 \times 4.9 \times 80 = 99.96\,cfs$
+
+**Step 4 – Sensitivity to urbanisation**
+
+Replace the **40% woodland (C = 0.10)** with **parking lots (C ≈ 0.90)**:
+
+$ C'_{\text{basin}}=0.20(0.40)+0.10(0.90)+0.30(0.15)+0.40(0.90) = 0.08+0.09+0.045+0.36 = \boxed{0.575} $
+
+$ Q' = 0.575 \times 4.9 \times 80= \boxed{225.39\ cfs} $
+**Increase factor:** \(0.113/0.0502 \approx \mathbf{2.25\times}\).
+
+## Groundwater and Subsurface Contributions
+
+A. _Piston flow vs throughflow_
+- **Throughflow:** Lateral movement of water through the **unsaturated** soil matrix on slopes, contributing to streams during/after storms.
+- **Piston flow (conceptual):** New rainfall infiltrates at the top and **displaces older pore water** downslope/downslope interfaces (e.g., along a low-permeability horizon), pushing it rapidly toward streams—akin to a pressure pulse.
+- Result: Event hydrographs can contain a large fraction of **pre-event (“old”) water** mobilised from storage rather than newly infiltrated rain.
+
+B. _Capillary fringe/"groundwater ridge" contribution_
+- During recharge, rising heads near channels create a local **groundwater mound** (ridge) adjacent to streams, steepening hydraulic gradients toward the channel.
+- This accelerates **rapid groundwater discharge** to the stream, boosting stormflow beyond what overland flow alone can explain.
+
+C. _Why is "old water" observed after storms? Implications_
+- Tracer studies show much stormflow is stored water quickly **mobilised by pressure and gradient changes** (piston-like displacement, macropore bypass, rising water tables), not solely new rain.
+- **Implication:** Subsurface pathways and dynamic saturated areas are central to storm response; the hydrograph recession reflects **drainage of subsurface storages** (throughflow and groundwater).
+- Overland flow and interflow are part of **direct runoff**, but the significant role of subsurface contributions explains sustained recessions and the presence of old water in early stormflow.
