@@ -1,12 +1,19 @@
 # Makefile for compiling Quarkdown documents
-# Uses quarkdown c command with -o ./dir/ --pretty --clean options
+# Uses quarkdown c command with -o ./dir/ options
+#
+# Source .qd files live in category subdirectories (lectures/, tutorials/,
+# assignments/, overviews/, exams/). The shared includes (definitions.qd,
+# definitions_slides.qd) sit at this root and are pulled in via .include, so
+# they must NOT be compiled as standalone documents.
 
 # Define the output directory
 HTML_DIR = ../site/content/
 PDF_DIR = ../pdf/
 
-# List of Quarkdown source files to compile
-QMD_FILES = $(wildcard *.qd)
+# All standalone Quarkdown documents, found recursively in the category
+# subdirectories. definitions*.qd are includes, not documents, so they are
+# excluded (they have no docname and would produce junk output).
+QMD_FILES = $(shell find . -name '*.qd' -not -name 'definitions*.qd')
 
 # Define the quarkdown command with your preferred options
 QUARKDOWN_CMD = quarkdown c
@@ -45,8 +52,8 @@ help:
 	@echo "  clean   - Remove all compiled files from output directories"
 	@echo "  help    - Show this help message"
 	@echo ""
-	@echo "Individual files can be compiled with: make filename.html or make filename.pdf"
-	@echo "Example: make 02_precipitation.html"
+	@echo "Individual files can be compiled with: make path/to/filename.html"
+	@echo "Example: make lectures/precipitation.html"
 
 # Phony targets
 .PHONY: all html pdf clean help

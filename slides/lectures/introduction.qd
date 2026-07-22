@@ -1,0 +1,250 @@
+.docname {Introduction}
+.doctype {slides}
+.doclang {English}
+.theme {paperwhite} layout:{beamer}
+.slides transition:{fade}
+.docauthors
+  - Sia Ghelichkhan
+
+.include {../definitions.qd}
+.include {../definitions_slides.qd}
+
+#!
+.fullspan
+  .center
+    ![Logo](../image/new_logo.png)
+
+    ---
+    #! Remote Sensing of Water Resources
+    ###! EMSC3025/6025
+    ---
+
+    ###! _Dr. Sia Ghelichkhan_
+
+# Welcome
+.align{center}
+  .container width:{60%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    ##! Remote Sensing of Water Resources
+
+.row alignment:{center}
+    .container width:{60%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
+      ####! Course Evolution
+      **Historical Focus Areas:**
+        - Previously titled **Groundwater**: Emphasised geochemistry and fine-scale groundwater processes, with aspects of hydrogeology.
+        - Later transitioned to **Remote Sensing of Water**.
+
+      **Current Direction:**
+      This year marks my first as course convenor, and I will be delivering the course for the foreseeable future. The curriculum has been comprehensively restructured and now consists of three core modules:
+        - Hydrological Cycle
+        - Remote Sensing of Water Resources
+        - Groundwater
+
+# Our Relationship to Water
+.whitespace height:{4cm}
+
+.align{center}
+  .container width:{60%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    #! What is water to you?
+
+# Our Relationship to Water
+.row gap:{1cm} alignment:{center}
+  .container borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue} alignment:{center}
+    ##! What is water to Sia Ghelichkhan?
+
+.row gap:{1cm} alignment:{center}
+  .container width:{60%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    - I am an Earth scientist with a strong interest in **fluid dynamics** and **numerical modelling**.
+    - My research is primarily focused on developing **numerical methods** to better understand **Earth processes** involving fluid flow.
+    - These processes include .emph{groundwater flow}, .emph{glacial-isostatic adjustment} of the Earth's surface, and .emph{mantle convection}—each of which can be described as fluid dynamics under the right conditions.
+    - My main area of expertise is in .emph{data assimilation}, aiming to improve our understanding of complex Earth systems through the integration of models and observations.
+
+
+# Course Objectives
+.align{center}
+  .container width:{80%}
+    .box title:{What is this course about} background:{.lightblue}
+        -  Demonstrate an understanding of the **different components of water** in the landscape and how they interact.
+        - Undertake **quantitative analysis** and interpretation of actual data related to water in Australia.
+        - Understand the principles of **groundwater** and the physics of groundwater flow.
+        - Understand a variety of **remote sensing** satellite missions and how the observations inform water research.
+        - **Critically evaluate** technical reports and journal articles.
+        - Synthesise key concepts in hydrology and/or remote sensing to understand **changes in water resources**.
+
+# Structure of the course
+_Note: The actual content might change depending on our pace_
+| Week          | Topic                                                  | Activities                                                                                      |
+|---------------|--------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| 1  | Introduction | The course, and the global and regional water cycle; observing water from space |
+| 2  | Precipitation | Precipitation processes and measurement, and satellite precipitation (GPM/TRMM) |
+| 3  | Evapotranspiration | Physical controls on evapotranspiration and its remote sensing |
+| 4  | Runoff and streamflow | Hydrographs and catchments, and satellite altimetry (SWOT) |
+| 5  | Soil moisture and the unsaturated zone | Water retention, and satellite soil moisture (SMAP/SMOS) |
+| 6  | Groundwater -- Principles | Occurrence and storage, and total water storage from GRACE gravity |
+| 7  | Groundwater -- Aquifers | Types, hydraulic properties, and characterisation of aquifers |
+| 8  | Theory of groundwater flow I | Darcy's law and saturated flow |
+| 9  | Theory of groundwater flow II | Wells, pumping, and transient flow |
+| 10 | Geology and Hydrogeology                              ||
+| 11 | Groundwater management | Water resources in Australia |
+| 12 | Water resources in a changing climate | Integrating observations and synthesis |
+
+# Course Materials
+.align{center}
+  .container width:{60%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    - [Canvas](https://canvas.anu.edu.au/courses/3453) will provide all the necessary resources for this course.
+    - [watercourse.earth](https://watercourse.earth) is the course website. It is part of me experimenting with new ways of delivering the course.
+    - I will be providing additional resources in form of (AI generated)podcasts and links to articles and videos for the course.
+    - Use either [Zulip](https://rswater.zulipchat.com) or [Canvas](https://canvas.anu.edu.au/courses/3453) to ask questions and discuss the course material.
+    - **I am looking forward to your feedback on the course.**
+
+
+
+# Assessment
+## How is the course going to be assessed?
+
+.row gap:{1cm}
+  .container width:{70%}
+    .mermaid
+      pie showData
+          "Assignments" : 40
+          "Oral Critique" : 20
+          "Tutorial Participation" : 10
+          "Exam" : 30
+
+  .container width:{30%}
+    .align{end}
+
+      |Assessment| |
+      |:-----|----|
+      |Assignments |	40%|
+      |Oral critique|	20%|
+      |Tutorial participation | 10%|
+      |Exam | 30%|
+
+# Assignments
+.row gap:{1cm}
+  .container width:{33%}
+    .box title:{Assignment I}
+      - Precipitation.
+      - Post Week 2
+      - _Analysing a precipitation record_.
+
+  .container width:{33%}
+    .box title:{Assignment II}
+      - Soil Moisture.
+      - Post Week 5
+      - _Analysing soil moisture data, including satellite observations_.
+
+  .container width:{33%}
+    .box title:{Assignment III}
+      - Groundwater.
+      - Post Week 9
+      - _Analysing groundwater levels and storage_.
+.fullspan
+  .align{center}
+    .container width:{50%}
+      .box type:{note} background:{.lightred}
+        - Assignments will be posted on canvas.
+        - All assignments will have the same grade.
+
+
+# Paper Critique
+
+.row gap:{1cm}
+  .container width:{50%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    ## 1. Oral Presentation
+    - Each student presents a selected paper (10-minute talk). (Chosen from a list of papers, first come first serve)
+    - Assessed by the instructor; worth 20% of the course.
+
+  .container width:{50%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
+    ## 2. Engagement
+    - Attend the presentations.
+    - Ask questions and take part in the discussion.
+
+
+
+# Schedule
+
+.align{center}
+  .container borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
+    _EMSC3025 / EMSC6025 Timetable – Semester 2_
+    | Time  | Monday             | Wednesday               |
+    |:------|--------------------|-------------------------|
+    | 09–10 | Lecture, R1.02, J8 | Tutorial, R1.02, J8     |
+    | 10–11 | Lecture, R1.02, J8 | Tutorial, R1.02, J8     |
+    | 11–12 |                    | Computer Lab, R1.02, J8 |
+
+.box type:{Note} background:{.lightred}
+  Participation is assessed during the Wednesday tutorial.
+
+# Lecturers
+
+.row gap:{0.5cm}
+  .container alignment:{center} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    .box background:{.lightblue}
+      Dr. Sia Ghelichkhan (he/him)\
+      siavash.ghelichkhan@anu.edu.au\
+      Building J4 room L18\
+      _All lectures_
+
+    .clip {circle}
+      !(80%)[Sky](../image/internet_SiaG.webp)
+
+  .container width:{25%} alignment:{center} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    .box background:{.lightblue}
+      Liam Morrow (he/him)\
+      liam.morrow@anu.edu.au\
+      Wednesday tutorials
+
+  .container width:{25%} alignment:{center} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    .box background:{.lightblue}
+      Computer lab demonstrator\
+      _TBA -- announced closer to the date_
+
+.whitespace height:{0.5cm}
+.box type:{note} background:{rgb(200, 225, 200)}
+  Some of the remote-sensing material draws on lectures given by Prof. Paul Tregoning in previous years.
+
+
+
+# Course Organisation
+.row gap:{1cm} alignment:{center}
+  .container width:{80%}
+    .box title:{Tutorials} background:{.lightblue}
+      - Explanation/revision of maths techniques
+      - Sample exam-type questions
+      - Python examples
+      - Tutorials might explain how to do the assignments
+      - **Participation is assessed here** (engagement, not attendance; best 8 count)
+
+  .container width:{80%} background:{rgb(200, 225, 200)}
+    .box title:{Comp Labs}
+      - Drop-in sessions to work on assignments.
+      - Demonstrator (TBA) available to provide assistance
+
+.row gap:{1cm} alignment:{center}
+  .container width:{80%}
+    .box title:{Class Representative} background:{rgb(200, 200, 220)}
+      - The "voice" of the class
+      - Meets with Associate Director Education mid-semester and near the end of semester
+      - Provide feedback on arrangements and performance of lecturer/tutors
+      - AD Education passes feedback to us so that we can improve the course
+
+      **Need a volunteer. Email me if interested.**
+
+
+# Looking for more?
+
+.row gap:{1cm} alignment:{center}
+  .container width:{80%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
+    ###! There are research opportunities!
+    ###! There are opportunities to undertake research projects related to this course, particularly in numerical modeling of groundwater systems.
+    ###! Please contact me if you are interested in pursuing these research opportunities!
+
+
+#
+.row gap:{1cm} alignment:{center}
+  .container borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)} alignment:{center}
+    #! Questions?
+
+.fullspan
+    !(40%)[Questiosn](../image/internet_questions.jpg)

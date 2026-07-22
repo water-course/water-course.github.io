@@ -1,0 +1,106 @@
+.docname{Tutorial-Groundwater}
+.theme{beaver} layout:{latex}
+.doctype{paged}
+.doclang{English}
+
+.include {../definitions.qd}
+
+.pagemargin{bottomleft}
+    Tutorials
+
+.pagemargin{topright}
+    Groundwater
+
+# Groundwater
+
+## Problem 1: Hydraulic Head and Flow Direction
+
+Consider a simple flow system with a dipping aquifer as shown in the figure below. Two piezometers have been installed at different elevations on a hillside (points 1 and 2), where point 1 is located at the top of the hill and point 2 at the bottom. Monitoring data shows that the volumetric flow rate entering the aquifer at the top equals the flow rate exiting at the bottom, indicating no net recharge or discharge along the hillslope.
+
+.fullspan
+    !(70%)[Simple flow system](../image/franklin_fig_3-6.png "Simple flow system with a dipping aquifer showing piezometer locations and hydraulic head measurements.")
+
+**Given data:**
+- Hydraulic head at point 1: $ h_1 = 145 $ m
+- Hydraulic head at point 2: $ h_2 = 125 $ m
+- Distance between measurement points: $ \Delta l = 5000 $ m
+- Assumption: No recharge between the two measurement points
+
+**Tasks:**
+
+a) Determine the direction of groundwater flow in this system.
+
+b) Calculate the hydraulic gradient between the two measurement points.
+
+c) Identify where groundwater flow exits this system.
+
+## Problem 2: Linear Groundwater Velocity in Different Media
+
+Building on the hydraulic gradient calculated in Problem 1 (i = 0.004), we now want to determine how fast groundwater actually moves through different types of aquifer materials. Laboratory analysis has determined that the hydraulic conductivity of this aquifer is $ 1 \times 10^{-4} $ m/sec.
+
+**Given data:**
+- Hydraulic gradient: $ i = 0.004 $ (from Problem 1)
+- Hydraulic conductivity: $ K = 1 \times 10^{-4} $ m/sec
+
+**Tasks:**
+
+a) If the aquifer consists of granular porous medium with a total porosity $ n_T = 0.3 $, calculate the linear groundwater velocity using Darcy's equation.
+
+b) If instead the aquifer is a fractured shale with the same hydraulic conductivity but different porosity characteristics (total porosity $ n_T = 0.1 $ and fracture porosity $ n_f = 3 \times 10^{-3} $), calculate the linear groundwater velocity. Compare this result with part (a) and discuss the implications for contaminant transport.
+
+## Problem 3: Piezometer Analysis and Pressure Calculations
+
+You are working as a hydrogeologist and need to analyze data from a piezometer installation. The piezometer has been installed at a site where the ground surface elevation is 1000 m above sea level. Field measurements show that the water level in the piezometer is 25 m below the ground surface, and the total length of the piezometer (depth to measurement point) is 50 m.
+
+.fullspan
+    !(60%)[Piezometer diagram](../image/franklin_fig_3-9.png "Cross-sectional diagram showing piezometer installation with elevation, pressure, and total head components")
+
+**Given data:**
+- Ground surface elevation: 1000 m above sea level
+- Depth to water level: 25 m below ground surface
+- Total piezometer depth: 50 m below ground surface
+- Water density: $ \rho_w = 1000 $ kg/m³
+- Gravitational acceleration: $ g = 9.81 $ m/s²
+
+**Tasks:**
+
+a) Calculate the total hydraulic head at the piezometer measurement point (bottom of piezometer).
+
+b) Determine the pressure head at the measurement point.
+
+c) Calculate the absolute pressure at the measurement point, expressing your answer in Pascals.
+
+## Problem 4: Intrinsic Permeability Analysis
+
+A geotechnical engineering firm has conducted hydraulic testing on a saturated soil sample and determined its hydraulic conductivity to be 15.24 m/day under standard laboratory conditions. You need to determine the intrinsic permeability of this material, which is an important parameter for comparing the flow characteristics of different porous media regardless of fluid properties.
+
+**Given data:**
+- Measured hydraulic conductivity: $ K = 15.24 $ m/day
+- Test conditions: 20°C temperature, 1 atm pressure
+- Fluid: pure water
+
+**Task:**
+
+Calculate the intrinsic permeability $ k $ of this porous medium, expressing your answer in m². Show all unit conversions and explain the physical significance of intrinsic permeability versus hydraulic conductivity.
+
+## Problem 5: Flow in Layered Aquifer Systems
+
+You are investigating groundwater flow through a sedimentary sequence consisting of interbedded sandstone and shale layers. Core drilling and geophysical logging have revealed a 300-m thick sequence where sandstone comprises 75% of the total thickness. Laboratory permeability tests show that the sandstone layers have isotropic hydraulic conductivity of $ 10^{-5} $ m/sec, while the shale layers have much lower isotropic hydraulic conductivity of $ 1.92 \times 10^{-12} $ m/sec.
+
+Field observations using tracer tests indicate that groundwater in the sandstone layers flows at an angle of 45° from the vertical direction as it approaches the sandstone-shale boundaries.
+
+**Given data:**
+- Total sequence thickness: 300 m
+- Sandstone proportion: 75% (equivalent to 225 m total thickness)
+- Shale proportion: 25% (equivalent to 75 m total thickness)
+- Sandstone hydraulic conductivity: $ K_{sandstone} = 10^{-5} $ m/sec (isotropic)
+- Shale hydraulic conductivity: $ K_{shale} = 1.92 \times 10^{-12} $ m/sec (isotropic)
+- Observed flow angle in sandstone: 45° from vertical toward layer boundary
+
+**Tasks:**
+
+a) Calculate the equivalent horizontal hydraulic conductivity $ K_h $ for the entire layered system.
+
+b) Calculate the equivalent vertical hydraulic conductivity $ K_v $ for the entire layered system.
+
+c) Using principles of flow refraction, determine the flow direction in the shale layers when groundwater crosses from sandstone at the observed 45° angle.

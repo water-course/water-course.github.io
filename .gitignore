@@ -14,6 +14,10 @@ slides/output/
 # Computer-lab notebooks are pulled from the water-course/tutorials repo at build time
 docs/computer-lab/
 
+# Year-specific teaching admin (grading, class reports, per-cohort notes).
+# Kept on disk but out of the repo; the frozen state lives in the emsc3025-2025 tag.
+/admin/
+
 # Python virtualenv
 .venv/
 

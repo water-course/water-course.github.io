@@ -1,4 +1,4 @@
-# TODO — update the intro deck (`slides/00_introduction.qmd`) for 2026 Sem 2
+# TODO — update the intro deck (`slides/lectures/introduction.qd`) for 2026 Sem 2
 
 Goal: bring the intro slides in line with the finalized CMS class summary (class 90518,
 the authoritative record). Key changes this drives: remote sensing is now **woven into each
