@@ -7,9 +7,13 @@
    EMSC3025-6025
 
 .pagemargin{topright}
-    Assignment II
+    Assignment II -- Total Water Storage
 
 .include {../definitions.qd}
+
+# Total Water Storage: Soil Moisture and Groundwater
+
+The goal of this assignment is to isolate the **groundwater** signal over the Murray–Darling Basin by combining two independent satellite records: total water storage from space gravity, and soil moisture from active/passive sensors. You will build a time series of each and take their difference.
 
 Changes in total water storage can be estimated from space gravity data of the **GRACE** and **GRACE Follow-On** missions.
 This includes changes in:

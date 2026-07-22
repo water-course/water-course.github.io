@@ -123,19 +123,19 @@ _Note: The actual content might change depending on our pace_
 # Assignments
 .row gap:{1cm}
   .container width:{33%}
-    .box title:{Assignment I}
+    .box title:{Assignment I (10%)}
       - Precipitation.
       - Post Week 2
       - _Analysing a precipitation record_.
 
   .container width:{33%}
-    .box title:{Assignment II}
-      - Soil Moisture.
+    .box title:{Assignment II (15%)}
+      - Total water storage.
       - Post Week 5
-      - _Analysing soil moisture data, including satellite observations_.
+      - _Deriving soil moisture and groundwater change from GRACE space gravity_.
 
   .container width:{33%}
-    .box title:{Assignment III}
+    .box title:{Assignment III (15%)}
       - Groundwater.
       - Post Week 9
       - _Analysing groundwater levels and storage_.
@@ -144,7 +144,7 @@ _Note: The actual content might change depending on our pace_
     .container width:{50%}
       .box type:{note} background:{.lightred}
         - Assignments will be posted on canvas.
-        - All assignments will have the same grade.
+        - The three assignments are worth 10%, 15% and 15% (40% in total).
 
 
 # Paper Critique
@@ -153,6 +153,7 @@ _Note: The actual content might change depending on our pace_
   .container width:{50%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
     ## 1. Oral Presentation
     - Each student presents a selected paper (10-minute talk). (Chosen from a list of papers, first come first serve)
+    - Presentations take place in Week 10.
     - Assessed by the instructor; worth 20% of the course.
 
   .container width:{50%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
