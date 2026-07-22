@@ -50,7 +50,6 @@ This site is a living resource, and contributions are welcome.
 Whether you're a student, researcher, modeller, or practitioner:
 
 - Provide feedback on course materials
-- Join the discussion on the [Zulip board](https://rswater.zulipchat.com)
 - Suggest additions or improvements to exercises and workflows
 - Participate in future offerings of the course or workshops
 
@@ -63,7 +62,6 @@ For questions, feedback, or collaboration, reach out to:
 **Dr. Siavash Ghelichkhan**<br>
 *Course Convenor – EMSC3025/6025*<br>
 📧 [siavash.ghelichkhan@anu.edu.au](mailto:siavash.ghelichkhan@anu.edu.au)<br>
-🏢 *Jaeger 4, Level 1.18*<br>
-💬 [Zulip Discussion Board](https://rswater.zulipchat.com)
+🏢 *Jaeger 4, Level 1.18*
 
 ---
