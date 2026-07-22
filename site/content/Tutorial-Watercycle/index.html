@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial-Watercycle</title>
+    <script src="script/script.js"></script>
+    <script>window.PagedConfig = {auto: false};</script>
+    <script src="https://unpkg.com/pagedjs@0.4.3/dist/paged.polyfill.js"></script>
+    <script src="script/paged.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="theme/theme.css">
+    <script>
+        doc = new PagedDocument();
+        doc.prepare();
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+    <script src="script/math.js"></script>
+    <script>
+        const texMacros = {
+        }
+    </script>
+
+    <style>
+
+        body {
+        }
+
+        .page-break {
+            break-before: always;
+        }
+
+        .quarkdown-plain .page-break {
+            break-before: avoid;
+            break-after: avoid;
+        }
+
+        body.quarkdown-plain {
+        }
+
+        body.quarkdown-slides .reveal {
+        }
+
+        @page {
+        }
+
+        p {
+        }
+    </style>
+</head>
+<body class="quarkdown quarkdown-paged">
+<div class="page-margin-content page-margin-bottom-right"><p><span class="current-page-number">-</span> / <span class="total-page-number">-</span></p></div><div class="page-margin-content page-margin-bottom-left"><p>Tutorials</p></div><div class="page-margin-content page-margin-top-right"><p>Water Cycle</p></div><div class="page-break" data-hidden=""></div><h1 id="water-cycle">Water Cycle</h1><h2 id="the-hydrological-cycle">The Hydrological Cycle</h2><p>Define the hydrological cycle and explain how it operates at both the global and catchment scales.
+In your answer, describe three key processes and how they interact across these scales.</p><h2 id="water-balance-in-a-semi-arid-basin">Water Balance in a Semi-Arid Basin</h2><p>Consider a large basin in a semi-arid climate.  Using the water balance equation</p><formula data-block="">P = Q + E + \Delta S</formula><p>discuss how each term is likely to behave in this setting.
+Explain what challenges this poses for hydrologists in measuring or estimating water availability.</p><h2 id="global-water-distribution">Global water distribution</h2><p>Let&rsquo;s go back to a quote from the lecture:</p><blockquote><p>“The total quantity of fresh water on Earth could satisfy all human needs if it were evenly distributed and accessible.”
+— <em>Stumm (1986)</em></p></blockquote><p>Critically evaluate this statement using information from the lecture and Chapter 1.  Include examples of spatial inequality in water resources and discuss how hydrology as a science and applied field contributes to addressing such challenges.</p><div class="page-break" data-hidden=""></div><h2 id="delineating-a-watershed-boundary">Delineating a Watershed Boundary</h2><p>Refer to the <strong>topographic map provided</strong> below. The contour lines represent elevation. A stream is visible in the valley. Your task is to manually delineate the <strong>watershed boundary</strong> for a given outlet point along the stream using standard hydrological reasoning.</p><figure id="figure-1"><img src="media/tutorial_usgs_catchment@542992412.png" alt="topomap" title="A hypothetical topographic map of a catchment" style="width: 40.0%;" /><figcaption class="caption-bottom" data-element-label="1" data-localized-kind="Figure">A hypothetical topographic map of a catchment</figcaption></figure><ol><li>Briefly list the <strong>five manual delineation steps</strong> for defining a watershed boundary.</li><li>On the map, <strong>describe</strong> (in words) how you would apply each step. You may refer to locations by compass direction (e.g., &ldquo;north ridge&rdquo;) or elevation.</li><li>Explain why understanding <strong>topographic divides</strong> and <strong>contour orientation</strong> is critical in watershed boundary definition.</li><li>(Optional extension) What is a limitation of this method compared to digital (GIS-based) watershed delineation?</li></ol>
+</body>
+</html>

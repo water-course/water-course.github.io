@@ -1,0 +1,41 @@
+.docname {AssignmentTwo—MarkingGuide}
+.doctype{paged}
+.doclang{English}
+.pageformat size:{A4} orientation:{landscape}
+
+.font size:{7pt}
+
+| Student Name | Student ID | Q1: (5 pts) | Q2: (5 pts) | Q3: (5 pts) | Q4: (5 pts) | Q5: (5 pts) | Total (25 pts) - General Comments |
+|---|---|---|---|---|---|---|---|
+| alvaranalliya | u7391093 | 1/5 – Import grace_file twice; extraneous netcdf4.Dataset call; improper indentation means integration step does not run and no plot is produced. Unnecessary multiplication of mdb_mask twice. | 0/5 – "Assuming uniform spacing" repeated four times. Unclear why both masked_areas and valid_areas computed. Code does not run because resampled_mdb_sm_time_series and tws_df_datetime undefined. sm_df never used or saved. | 5/5 – Good discussion. Try/except for title/history/source is overkill for static file and obviously AI generated. Don't leave prompt traces like "Moved inside the with block". | 4/5 – aligned_sm_series computed but not used. Affected by undefined resampled_mdb_sm_time_series and tws_df_datetime. | 4.5/5 – 10m difference claim doesn't match plot (closer to 10cm). Unclear what "the flow" means. | 14.5/25 |
+| dejongmilou | u8307744 | 0/5 – Please submit as Jupyter notebook. All images blank because plt.savefig called after plt.show. Better to show mask with pcolormesh on line 88. Line 101 crashes (fig undefined). Units not provided on y axis. Program crashes. | 1/5 – Line 130 crashes because lons2 and lats2 undefined. Discussion of limitations is fine. Program crashes. | 5/5 | 5/5 | 3/5 – Unclear what plot referred to on lines 377-380. Difficult to compare box plots in separate figures with different y axes. Need to say something about ANOVA testing results. | 14/25 Please submit as a Jupyter notebook. |
+| delveslily | u7470723 | 5/5 | 2.5/5 – No discussion of data limitation. | 5/5 – Written part is obviously AI written. | 0/5 – gw_df_all not defined in submitted file so no plots produced. Code does not run. | 2/5 – Long term declining trend not evidenced. Plot does not well support argument about north having greater variability. Computing variances would help. | 14.5/25 Please comment your code and indicate which question you are working on. Add markdown text to notebook instead of printing written answers. |
+| easterbywoodsavannah | u7567961 | 0/5 – Point not imported. lats and lons used before defined. decoded_times used before defined. Code does not run. | 3/5 – Good plot, but no discussion. | 5/5 | 5/5 | 5/5 | 18/25 Please include text answers in markdown cells in the notebook. |
+| fifieldfred | u7930555 | 5/5 | 2.5/5 – No discussion. | 5/5 | 5/5 | 5/5 | 22.5/25 Please submit the `.ipynb` file so that I can run it. |
+| gardinerbradley | u7224912 | 5/5 | 5/5 | 3/5 – xarray not imported so code does not run as submitted. | 0/5 – Not attempted. | 0/5 – Not attempted. | 13/25 |
+| laibutlersaskia | u7943537 | 5/5 | 2.5/5 – No discussion. | 5/5 | 5/5 | 5/5 | 22.5/25 |
+| lemmjosie | u7932320 | 5/5 | 2.5/5 – No discussion. | 5/5 | 5/5 | 4/5 – Discussion of spatial variability is very basic. | 21.5/25 Please submit the `.ipynb` file so that I can make sure the code runs. |
+| mannjustin | u8350605 | 4/5 – Title says LWE but units are in m3. This does not match up. | 3/5 – Deeper soil layers might be drier but soil extends past 20cm. Claim that 20cm assumption is gross overestimation not well argued. Plot suggests ~50 m3 soil moisture in entire basin, improbable (check units). | 4/5 – No units on plot. | 4/5 – Don't believe we've gone from order of 1e11 m3 variability in TWS to order of 1e8 m3 in groundwater. North/south plot makes much more sense. | 5/5 | 20/25 |
+| mcfaddenben | u7655069 | 5/5 – Typo on y axis label, should say km3. | 2.5/5 – No discussion. | 5/5 | 5/5 – North/south plots could be combined for better comparison. | 5/5 | 22.5/25 |
+| meixnersarah | u7930427 | 5/5 | 2/5 – Using 5cm depth assumption instead of 20cm. No discussion. | 5/5 | 5/5 | 5/5 | 22/25 Please submit your `.ipynb` file. |
+| pascoedeclan | u7478492 | 5/5 – If statement for units unnecessary with static data type. MDB_total_ws computed but not used. | 2.5/5 – No discussion of thickness assumption. Please comment your code. | 5/5 | 5/5 | 3/5 – Mascon-scale maps not provided. Leakage near coastlines difficult to justify since MDB is almost all inland. Give years for droughts you/the AI talk about. | 20.5/25 It is preferred that you submit everything in one jupyter notebook. X axes with days since grace epoch are difficult to interpret. Marking years would be preferred. |
+| rechnerthomasmax | u7468592 | 2/5 – Point not imported from shapely.geometry so submitted code does not run. | 2.5/5 – No discussion. Don't write "fractional units from dataset", just write the unit. | 5/5 | 4/5 – Assignment says to assume soil depth of 20cm, but you use 10cm without justification. | 5/5 – Numbers quoted don't match those outputted by code. | 18.5/25 |
+| taibmaya | u7646490 | 5/5 – Would have been great if you submitted the mask files. | 5/5 | 5/5 | 5/5 | 5/5 | 25/25 |
+| tapsfieldcharlie | u7655929 | 5/5 | 2.5/5 – No discussion. | 5/5 | 5/5 | 5/5 – First panel of figure is blank. | 22.5/25 |
+| wilsonciara | u7471093 | 5/5 – Inconsistency in comments about whether LWE is in cm or mm. | 2.5/5 – No discussion of soil depth assumption (relevant if integrating instead of averaging). | 5/5 | 5/5 | 5/5 | 22.5/25 Please submit your `.ipynb` file. |
+| yakemichaeljames | u8301677 | 3/5 – I need to be able to run your code, which means submitting the `.geojson` file since it's not one linked to in the assignment. | 5/5 | 5/5 | 5/5 | 4/5 – Computing variances would help make arguments about variability. | 22/25 |
+| yancrystal | u7894912 | 5/5 – Putting everything into a function is odd structure in a notebook. | 5/5 | 5/5 | 5/5 – Please use line breaks to structure your code for readability. | 5/5 | 25/25 Please submit your `.ipynb` file, and prefer to include written answers in markdown cells in notebook. |
+| yousufzaiahmadsurosh | u7513423 | 0/5 – Please resubmit. The file submitted links to files on your local directory. | 0/5 – Please resubmit. | 0/5 – Please resubmit. | 0/5 – Please resubmit. | 0/5 – Please resubmit. | 0/25 Please resubmit. The file submitted links to files on your local directory. |
+| campellrayan |  |  |  |  |  |  | LATE – No submission received. |
+| dunkleyethan |  |  |  |  |  |  | LATE – Submitted as PDF (Colab file). Requires grading. |
+| glovertara |  |  |  |  |  |  | LATE – Submitted as separate PDF files and CSV outputs. Requires grading. |
+| kashkarovstephan | u6729293 |  |  |  |  |  | LATE – Submitted as PDF. Requires grading. |
+
+## Question Descriptions
+- **Q1 (5 pts)**: GRACE data processing and total water storage visualization
+- **Q2 (5 pts)**: Soil moisture calculation with 20cm depth assumption and discussion of limitations
+- **Q3 (5 pts)**: Groundwater analysis and visualization
+- **Q4 (5 pts)**: Groundwater time series analysis and north/south comparison
+- **Q5 (5 pts)**: Spatial variability analysis and interpretation
+
+**Total: 25 points**

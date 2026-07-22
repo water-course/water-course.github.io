@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial-Evaporation</title>
+    <script src="script/script.js"></script>
+    <script>window.PagedConfig = {auto: false};</script>
+    <script src="https://unpkg.com/pagedjs@0.4.3/dist/paged.polyfill.js"></script>
+    <script src="script/paged.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="theme/theme.css">
+    <script>
+        doc = new PagedDocument();
+        doc.prepare();
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+    <script src="script/math.js"></script>
+    <script>
+        const texMacros = {
+        }
+    </script>
+
+    <style>
+
+        body {
+        }
+
+        .page-break {
+            break-before: always;
+        }
+
+        .quarkdown-plain .page-break {
+            break-before: avoid;
+            break-after: avoid;
+        }
+
+        body.quarkdown-plain {
+        }
+
+        body.quarkdown-slides .reveal {
+        }
+
+        @page {
+        }
+
+        p {
+        }
+    </style>
+</head>
+<body class="quarkdown quarkdown-paged">
+<div class="page-margin-content page-margin-bottom-right"><p><span class="current-page-number">-</span> / <span class="total-page-number">-</span></p></div><div class="page-margin-content page-margin-bottom-left"><p>Tutorials</p></div><div class="page-margin-content page-margin-top-right"><p>Evaporation</p></div><div class="page-break" data-hidden=""></div><h1 id="evaporation">Evaporation</h1><h2 id="potential-and-actual-evaporation">Potential and Actual Evaporation</h2><p>You are given three months of daily climate data (temperature, humidity, radiation, wind) for a small catchment.</p><ul><li>Explain how you would estimate <strong>potential evaporation</strong> (<formula>E_{pt}</formula>) from this data.</li><li>What key assumptions are you making in the calculation?</li><li>Explain how <formula>E_{pt}</formula> relates to actual evaporation, <formula>E_t</formula> and how you might evaluate if <formula>E_t \approx E_{pt}</formula> for the wet season.</li></ul><h2 id="evaporation-dynamics-in-soil">Evaporation Dynamics in Soil</h2><p>A lysimeter experiment was conducted in two neighbouring plots: one bare soil, one vegetated.</p><ul><li>Which plot would you expect to have higher total evaporation over the summer? Why?</li><li>Discuss how <strong>soil moisture</strong> affects actual evaporation in both plots.</li><li>Explain the role of <strong>capillarity</strong> and <strong>transpiration</strong> in the vegetated plot.</li></ul><h2 id="vapour-pressure-deficit">Vapour Pressure Deficit</h2><p>Given the following measurements at midday:</p><table><thead><tr><th>Air Temperature</th><th>Relative Humidity</th><th>Saturated Vapour Pressure</th></tr></thead><tbody><tr><td><formula>25 \degree C</formula></td><td>40%</td><td>3.2 kPa</td></tr></tbody></table><ul><li>Calculate the actual vapour pressure <formula>e_a</formula> and the vapour pressure deficit (VPD).</li><li>Briefly describe what this VPD tells us about the potential for evaporation at this time.</li><li>What might plants do in response to this VPD?</li></ul><h2 id="comparing-evaporation-measurement-methods">Comparing Evaporation Measurement Methods</h2><p>Evaluate the <strong>advantages and limitations</strong> of the following methods for measuring or estimating evaporation in a catchment:</p><ol><li>Evaporation pans</li><li>Lysimeters</li><li>Water balance method (catchment scale)</li><li>Eddy covariance</li></ol><p>For each method, comment on:</p><ul><li>The scale (point vs landscape)</li><li>Type of surface (soil, open water, vegetation)</li><li>Key sources of uncertainty</li></ul><h2 id="the-thornthwaite-method-for-estimating-potential-evapotranspiration">The Thornthwaite Method for Estimating Potential Evapotranspiration</h2><p><strong>Introduction -</strong> In hydrologic analysis, estimating evaporation is crucial but challenging. While direct measurements using lysimeters provide the most accurate data, these devices are expensive and complex to maintain. In data-sparse regions, empirical models offer practical alternatives. The <strong>Thornthwaite method</strong> is one of the simplest and most widely used approaches, requiring only mean monthly air temperature and geographic latitude to estimate potential evapotranspiration (<formula>E_{pt}</formula>).</p><p>The Thornthwaite equation estimates monthly potential evapotranspiration as:</p><formula data-block="">E_{pt} = 1.62 \left( \frac{10 T_a}{I} \right)^a</formula><p>Where:</p><ul><li><formula>E_{pt}</formula> = estimated potential evapotranspiration (cm/month)</li><li><formula>T_a</formula> = mean monthly air temperature (°C)</li><li><formula>I</formula> = annual heat index (dimensionless)</li><li><formula>a</formula> = empirically derived exponent</li></ul><p><strong>Step-by-Step Calculation:</strong></p><ol><li><p><strong>Compute the annual heat index</strong> by summing across all months with <formula>T_a > 0</formula>:</p><formula data-block="">I = \sum_{i=1}^{12} \left( \frac{T_{ai}}{5} \right)^{1.5}</formula></li><li><p><strong>Calculate the exponent</strong> using the cubic polynomial:</p><formula data-block="">a = 0.492 + 0.0119 I - 0.0000771 I^2 + 0.000000675 I^3</formula></li><li><p><strong>Apply daylight correction</strong> by multiplying monthly <formula>E_{pt}</formula> by a latitude-dependent factor to account for seasonal variations in day length.</p></li></ol><p>The table below provides daylight correction factors for different latitudes:</p><table id="table-1"><thead><tr><th>North lat.</th><th>J</th><th>F</th><th>M</th><th>A</th><th>M</th><th>J</th><th>J</th><th>A</th><th>S</th><th>O</th><th>N</th><th>D</th></tr></thead><tbody><tr><td>0E</td><td>1.04</td><td>0.94</td><td>1.04</td><td>1.01</td><td>1.04</td><td>1.01</td><td>1.04</td><td>1.04</td><td>1.01</td><td>1.04</td><td>1.01</td><td>1.04</td></tr><tr><td>10E</td><td>1.00</td><td>0.91</td><td>1.03</td><td>1.03</td><td>1.08</td><td>1.06</td><td>1.08</td><td>1.07</td><td>1.02</td><td>1.02</td><td>0.98</td><td>0.99</td></tr><tr><td>20E</td><td>0.95</td><td>0.90</td><td>1.03</td><td>1.05</td><td>1.13</td><td>1.11</td><td>1.14</td><td>1.11</td><td>1.02</td><td>1.00</td><td>0.93</td><td>0.94</td></tr><tr><td>30E</td><td>0.90</td><td>0.87</td><td>1.03</td><td>1.08</td><td>1.18</td><td>1.17</td><td>1.20</td><td>1.14</td><td>1.03</td><td>0.98</td><td>0.89</td><td>0.88</td></tr><tr><td>35E</td><td>0.87</td><td>0.85</td><td>1.03</td><td>1.09</td><td>1.21</td><td>1.21</td><td>1.23</td><td>1.16</td><td>1.03</td><td>0.97</td><td>0.86</td><td>0.85</td></tr><tr><td>40E</td><td>0.84</td><td>0.83</td><td>1.03</td><td>1.11</td><td>1.24</td><td>1.24</td><td>1.27</td><td>1.18</td><td>1.04</td><td>0.96</td><td>0.83</td><td>0.81</td></tr><tr><td>45E</td><td>0.80</td><td>0.81</td><td>1.02</td><td>1.13</td><td>1.28</td><td>1.28</td><td>1.31</td><td>1.21</td><td>1.04</td><td>0.94</td><td>0.79</td><td>0.75</td></tr><tr><td>50E</td><td>0.74</td><td>0.78</td><td>1.02</td><td>1.15</td><td>1.33</td><td>1.33</td><td>1.37</td><td>1.25</td><td>1.06</td><td>0.92</td><td>0.76</td><td>0.70</td></tr></tbody><caption class="caption-bottom" data-element-label="1" data-localized-kind="Table">NRC mean hours of bright sunshine expressed in units of 30 days of 12 hours each day</caption></table><h2 id="applying-the-thornthwaite-method">Applying the Thornthwaite Method</h2><p><strong>Problem Statement:</strong></p><p>You are tasked with estimating the total potential evapotranspiration for a growing season in Saskatoon, Canada (latitude approximately 52°N). Using the Thornthwaite method, calculate the total <formula>E_{pt}</formula> for the period from May 16 to September 24, 1961.</p><p><strong>Given Data:</strong></p><div class="container fullwidth" style="justify-items: center; text-align: center;"><table id="table-2"><thead><tr><th align="center">Month</th><th align="center">Mean Temperature (°C)</th></tr></thead><tbody><tr><td align="center">Apr</td><td align="center">1.8</td></tr><tr><td align="center">May</td><td align="center">11.6</td></tr><tr><td align="center">Jun</td><td align="center">19.7</td></tr><tr><td align="center">Jul</td><td align="center">19.3</td></tr><tr><td align="center">Aug</td><td align="center">21.3</td></tr><tr><td align="center">Sep</td><td align="center">8.7</td></tr><tr><td align="center">Oct</td><td align="center">4.6</td></tr></tbody><caption class="caption-bottom" data-element-label="2" data-localized-kind="Table">Mean monthly temperatures for Saskatoon, Canada in 1961</caption></table></div><p><strong>Tasks:</strong></p><ol><li>Calculate the annual heat index <formula>I</formula> using all months with temperatures above 0°C</li><li>Determine the exponent <formula>a</formula> using the cubic polynomial</li><li>Calculate monthly <formula>E_{pt}</formula> values for May through September</li><li>Apply appropriate daylight correction factors for latitude 52°N</li><li>Sum the corrected monthly values to find the total <formula>E_{pt}</formula> for the specified period</li></ol>
+</body>
+</html>

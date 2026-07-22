@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial-Precipitation-Answers</title>
+    <script src="script/script.js"></script>
+    <script>window.PagedConfig = {auto: false};</script>
+    <script src="https://unpkg.com/pagedjs@0.4.3/dist/paged.polyfill.js"></script>
+    <script src="script/paged.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="theme/theme.css">
+    <script>
+        doc = new PagedDocument();
+        doc.prepare();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+    <script src="script/code.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+    <script src="script/math.js"></script>
+    <script>
+        const texMacros = {
+        }
+    </script>
+
+    <style>
+
+        body {
+        }
+
+        .page-break {
+            break-before: always;
+        }
+
+        .quarkdown-plain .page-break {
+            break-before: avoid;
+            break-after: avoid;
+        }
+
+        body.quarkdown-plain {
+        }
+
+        body.quarkdown-slides .reveal {
+        }
+
+        @page {
+        }
+
+        p {
+        }
+    </style>
+</head>
+<body class="quarkdown quarkdown-paged">
+<div class="page-margin-content page-margin-bottom-right"><p><span class="current-page-number">-</span> / <span class="total-page-number">-</span></p></div><div class="page-margin-content page-margin-bottom-left"><p>Model Answers</p></div><div class="page-margin-content page-margin-top-right"><p>Precipitation</p></div><div class="page-break" data-hidden=""></div><h1 id="precipitation">Precipitation</h1><h2 id="top-end-thunderstorms">Top End Thunderstorms</h2><table><thead><tr><th>Required condition</th><th>Why essential</th></tr></thead><tbody><tr><td><em>i</em>. <strong>Atmospheric cooling to dew-point</strong> (by convective uplift in Darwin)</td><td>Lowers saturation vapour pressure; allows condensation to start.</td></tr><tr><td><em>ii</em>. <strong>Abundant condensation nuclei</strong> (sea-salt, smoke from bushfires)</td><td>Provide surfaces for initial microscopic droplet formation; without them, air can remain supersaturated.</td></tr><tr><td><em>iii</em>. <strong>Droplet growth to <formula>> \approx 3 mm</formula></strong> (collision–coalescence in warm clouds)</td><td>Gives droplets sufficient mass to overcome up-draughts and fall as rain.</td></tr></tbody></table><p>If any one is missing, vapour remains suspended, clouds persist without rainfall, or virga evaporates before reaching ground.</p><h2 id="singapore-vs-scottish-highlands">Singapore vs Scottish Highlands</h2><ul><li>Singapore &rArr; <strong>collision–coalescence</strong> in warm (&gt; 0 °C) cumulonimbus; Highlands &rArr; <strong>Bergeron (ice-crystal) process</strong> in mixed-phase nimbostratus.</li><li>Singapore: whole cloud above freezing, strong up-draughts &rarr; droplets of different radii collide &amp; merge.  Highlands: vertical cross-section spans −5 °C to −15 °C; ice crystals grow at expense of super-cooled droplets because <formula>e_{s, \ ice} < e_{s, \ liq}</formula>; moderate lifting in frontal system.</li><li>Warm-cloud rain gives <strong>large, uniform raindrops</strong>, often <formula>> 2 mm</formula>, causing high-intensity bursts (<formula>> 100 \ mm  \ h^{-1}</formula>).  Bergeron process yields <strong>smaller frozen aggregates</strong>, which melt on descent &rarr; lower intensity but longer-lasting precipitation, with mixed graupel or wet snow.</li></ul><h2 id="sierra-nevada">Sierra Nevada</h2><ul><li>Orographic precipitation:<ul><li>Max orographic band = 1 000–3 000 m on windward (western) flank.</li><li>Rain shadow = Owens Valley east of crest (&lt; 300 mm yr⁻¹).</li></ul></li><li>Dry-adiabatic: <formula>9.8 \ °C \ km^{-1}</formula> up to LCL ( <formula>\approx 1200 \ m</formula>), then saturated rate <formula>6 \degree \ C \ km^{-1}</formula> to 3000 m: <formula>\Delta T \approx −23 \ \degree C</formula>.  Descent: warms at dry rate:   <formula>+29 \degree C</formula> to valley floor.</li><li>Example towns: <strong>Bishop, Lone Pine.</strong>  Both import water via Los Angeles Aqueduct; pumping from deep alluvial fans carefully managed because local recharge is minimal under rain-shadow conditions. <a href="https://www.ladwp.com/who-we-are/water-system/los-angeles-aqueduct/facts-history">See link.</a></li></ul><h2 id="clearing-versus-forest-experiment">Clearing versus Forest Experiment</h2><pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv(&#39;Paired_Gauges_Table.csv&#39;, parse_dates=[&#39;Date&#39;])
+df.plot(x=&#39;Date&#39;, kind=&#39;bar&#39;, width=0.85)
+plt.ylabel(&#39;Daily rainfall (mm)&#39;)
+plt.title(&#39;Forest vs Pasture Gauge – Pará, 10–23 Feb&#39;)
+plt.xticks(rotation=45, ha=&#39;right&#39;)
+plt.legend([&#39;Forest&#39;, &#39;Pasture&#39;])
+plt.tight_layout()
+plt.show()
+</code></pre><p>Total rainfall: Forest = 140 mm; Pasture = 119 mm (<formula>\approx  +15 \%</formula>).</p><h4 id="possible-biases--fixes">Possible biases & fixes:</h4><table><thead><tr><th>Bias / micro-site factor</th><th>Likely effect</th><th>Mitigation</th></tr></thead><tbody><tr><td>Dense canopy causes <strong>interception loss</strong> before drops reach gauge orifice.</td><td>Under-catch at Forest site.</td><td>Install <em>trough</em> throughfall collectors + stemflow collars to quantify interception; or raise gauge above understory in a tower.</td></tr><tr><td><strong>Wind-turbulence</strong> differences: clearing exposed → eddies may enhance Pasture catch.</td><td>Over-catch at Pasture.</td><td>Equip both gauges with Alter shields, measure local wind speed for correction factors.</td></tr><tr><td><strong>Splash-in from drip points</strong> off overhanging leaves near Forest gauge.</td><td>Over-catch on intense days, but net effect variable.</td><td>Clear 1 m radius around gauge; fit non-splash grid.</td></tr></tbody></table><figure id="figure-1"><img src="media/tutorials_precipitation_raingauge@-981732618.png" alt="Paired bar chart" title="Paired bar chart of rainfall at Forest and Pasture gauges." style="width: 90.0%;" /><figcaption class="caption-bottom" data-element-label="1" data-localized-kind="Figure">Paired bar chart of rainfall at Forest and Pasture gauges.</figcaption></figure><h2 id="a-5himalayan-catchment">A 5 Himalayan Catchment</h2><ul><li><strong>Hypsometric method</strong> chosen:<ul><li>Because gauges cluster low (&lt; 1 800 m) yet <formula>\approx 40 \%</formula> of basin lies above snowline, rainfall–altitude gradient is strong & non-linear.  Thiessen would over-weight lowlands; hypsometric belts (e.g., 500 m intervals) allocate snowfall intensities based on elevation and aspect &rarr; better represent orographic input and snow-water storage.</li></ul></li><li>Supplement <strong>GPM (Global Precipitation Measurement) IMERG satellite</strong> or regional weather-radar composites.  Calibrate bias using available gauges; blend with hypsometric zones through kriging or Bias-Corrected Precipitation Reconstruction (BCPR) to refine daily grids.</li></ul>
+</body>
+</html>

@@ -1,0 +1,20 @@
+.docname {test}
+.doctype {paged}
+.doclang {English}
+
+.pageformat size:{A4} orientation:{landscape}
+
+.font size:{20pt}
+
+.docauthors
+  - John Johnny 
+
+# Here is a test
+
+.row gap:{1cm} alignment:{center}
+
+   .container width:{50%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)} alignment:{center}
+      .loremipsum
+
+   .container width:{50%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)} alignment:{center}
+      ###! .loremipsum

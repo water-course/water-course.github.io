@@ -1,0 +1,51 @@
+PRESENTATION SCHEDULE
+================================================================================
+
+
+MONDAY (WEEK 1)
+----------------------------------------
+   9:00-9:15 | Sheryl Shankar            | lapworth2012.pdf
+   9:15-9:30 | Max Rechner Thomas        | reager2016.pdf
+   9:30-9:45 | Charlie Tapsfield         | gleeson2012.pdf
+  9:45-10:00 | Crystal Yan               | feng2018.pdf
+
+WEDNESDAY (WEEK 1)
+----------------------------------------
+ 11:00-11:15 | Fred Fifield              | frappart2018.pdf
+ 11:15-11:30 | Declan Pascoe             | song2019.pdf
+ 11:30-11:45 | Ryan Campbell             | chaussard2014.pdf
+ 11:45-12:00 | Josie Lemm                | veit2016.pdf
+
+THURSDAY (WEEK 1)
+----------------------------------------
+ 12:00-12:15 | Tara Glover               | hahnlein2013.pdf
+ 12:15-12:30 | Saskia Lai Butler         | rodell2018.pdf
+ 12:30-12:45 | Ben McFadden              | ketabchi2016.pdf
+ 12:45-13:00 | Stephan Kashkarov         | gleeson2016.pdf
+ 17:00-17:15 | Justin Mann               | richey2015.pdf
+ 17:15-17:30 | Maya Taib                 | podgorski2020.pdf
+ 17:30-17:45 | Michael James Yake        | long2013.pdf
+ 17:45-18:00 | Sarah Meixner             | pfeffer2014.pdf
+
+MONDAY (WEEK 2)
+----------------------------------------
+   9:00-9:15 | Milou De Jong             | chutbert2019.pdf
+   9:15-9:30 | Ahmad Surosh Yousufzai    | famiglietti2011.pdf
+   9:30-9:45 | Bradley Gardiner          | mueller2016.pdf
+  9:45-10:00 | Savannah Easterby-W...    | glenn2011.pdf
+
+WEDNESDAY (WEEK 2)
+----------------------------------------
+ 11:00-11:15 | Ciara Wilson              | taylor2012.pdf
+ 11:15-11:30 | Lily Delves               | wada2012.pdf
+ 11:30-11:45 | Alliya Alvaran            | meixner2016.pdf
+ 11:45-12:00 | Ethan Dunkley             | condon2020.pdf
+
+THURSDAY (WEEK 2)
+----------------------------------------
+ 12:00-12:15 | Sophie Simpson            | dalin2017.pdf
+
+================================================================================
+Total presentations scheduled: 25
+Available time slots: 32
+Generated on: 2025-09-02 17:31:02

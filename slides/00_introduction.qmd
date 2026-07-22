@@ -65,6 +65,7 @@
     .box title:{What is this course about} background:{.lightblue}
         -  Demonstrate an understanding of the **different components of water** in the landscape and how they interact.
         - Undertake **quantitative analysis** and interpretation of actual data related to water in Australia.
+        - Understand the principles of **groundwater** and the physics of groundwater flow.
         - Understand a variety of **remote sensing** satellite missions and how the observations inform water research.
         - **Critically evaluate** technical reports and journal articles.
         - Synthesise key concepts in hydrology and/or remote sensing to understand **changes in water resources**.
@@ -73,18 +74,18 @@
 _Note: The actual content might change depending on our pace_
 | Week          | Topic                                                  | Activities                                                                                      |
 |---------------|--------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| 1  | Introduction | An introduction to the course, global and regional water cycle |
-| 2  | Water Cycle -- Precipitation and Evapotranspiration | An overview of the principles of precipitation and evaporation as processes                      |
-| 3  | Water Cycle -- Run off  | An overview of the storage component of the water cycle that might appear as run-off             |
-| 4  | Water Geodesy -- Introduction and Measuring Precipitation Remotely | **By Prof. Paul Tregoning** -- Looking into foundations of satellite geodesy and how it can estimate precipitation |
-| 5  | Water Geodesy -- Gravity and Surface Water observations | **By Prof. Paul Tregoning** -- Looking into estimates of gravitational change due to water movement |
-| 6  | Groundwater -- Principles of Groundwater | Looking into the foundations and principles of groundwater                                       |
-| 7  | Groundwater -- Aquifers | Looking in more detail into different aquifer systems                                            |
-| 8  | Groundwater -- Theory of Groundwater Flow | Looking into the physics and numerics of groundwater flow                                        |
-| 9  | Paper Critique  ||
-| 10 | Groundwater -- Geology and Hydrogeology               ||
-| 11 | Misc. and Course Revision                              ||
-| 12 | Exam                                                  ||
+| 1  | Introduction | The course, and the global and regional water cycle; observing water from space |
+| 2  | Precipitation | Precipitation processes and measurement, and satellite precipitation (GPM/TRMM) |
+| 3  | Evapotranspiration | Physical controls on evapotranspiration and its remote sensing |
+| 4  | Runoff and streamflow | Hydrographs and catchments, and satellite altimetry (SWOT) |
+| 5  | Soil moisture and the unsaturated zone | Water retention, and satellite soil moisture (SMAP/SMOS) |
+| 6  | Groundwater -- Principles | Occurrence and storage, and total water storage from GRACE gravity |
+| 7  | Groundwater -- Aquifers | Types, hydraulic properties, and characterisation of aquifers |
+| 8  | Theory of groundwater flow I | Darcy's law and saturated flow |
+| 9  | Theory of groundwater flow II | Wells, pumping, and transient flow |
+| 10 | Geology and Hydrogeology                              ||
+| 11 | Groundwater management | Water resources in Australia |
+| 12 | Water resources in a changing climate | Integrating observations and synthesis |
 
 # Course Materials
 .align{center}
@@ -105,8 +106,8 @@ _Note: The actual content might change depending on our pace_
     .mermaid
       pie showData
           "Assignments" : 40
-          "Paper Critique (Presentation)" : 10
-          "Paper Critique (Written)" : 20
+          "Oral Critique" : 20
+          "Tutorial Participation" : 10
           "Exam" : 30
 
   .container width:{30%}
@@ -115,29 +116,29 @@ _Note: The actual content might change depending on our pace_
       |Assessment| |
       |:-----|----|
       |Assignments |	40%|
-      |Oral presentation|	10%|
-      |Written critique | 20%|
+      |Oral critique|	20%|
+      |Tutorial participation | 10%|
       |Exam | 30%|
 
 # Assignments
 .row gap:{1cm}
   .container width:{33%}
     .box title:{Assignment I}
-      - Continental Scale Water Cycle.
+      - Precipitation.
       - Post Week 2
-      - _Analysing precipitation record_.
+      - _Analysing a precipitation record_.
 
   .container width:{33%}
     .box title:{Assignment II}
-      - Satellite Geodesy.
-      - Post week 5
-      - _Changes in water storage estimated from space gravity missions_.
+      - Soil Moisture.
+      - Post Week 5
+      - _Analysing soil moisture data, including satellite observations_.
 
   .container width:{33%}
     .box title:{Assignment III}
-      - Groundwater component
-      _ Post Week 7
-      - _parameter analysis_.
+      - Groundwater.
+      - Post Week 9
+      - _Analysing groundwater levels and storage_.
 .fullspan
   .align{center}
     .container width:{50%}
@@ -150,23 +151,14 @@ _Note: The actual content might change depending on our pace_
 
 .row gap:{1cm}
   .container width:{50%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
-    ## 1. Presentations & Reports
+    ## 1. Oral Presentation
     - Each student presents a selected paper (10-minute talk). (Chosen from a list of papers, first come first serve)
-    - Submit a written report (max 10 pages).
-
-    ## 2. Engagement
-    - Attend all presentations.
-    - Ask questions and take notes — these will inform your peer review.
+    - Assessed by the instructor; worth 20% of the course.
 
   .container width:{50%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
-    ## 3. Peer Review Assignment
-    - After all presentations, each student will be assigned a peer to review.
-    - Assignments are announced only *after* all talks are completed.
-
-    ## 4. Peer Review Criteria
-    - Use notes and discussion points to guide your evaluation.
-    - 50% of grade from instructor's evaluation of your peer review.
-    - 50% from your review of the peer's work.
+    ## 2. Engagement
+    - Attend the presentations.
+    - Ask questions and take part in the discussion.
 
 
 
@@ -175,16 +167,14 @@ _Note: The actual content might change depending on our pace_
 .align{center}
   .container borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
     _EMSC3025 / EMSC6025 Timetable – Semester 2_
-    | Time  | Monday             | Wednesday          | Thursday            | Friday            |
-    |:------|--------------------|---------------------|--------------------|-------------------|
-    | 09–10 | Lec A, R1.02, J8   |                     |                    |                   |
-    | 11–12 |                    | Lec B, R1.02, J8    |                    |                   |
-    | 12–13 |                    |                     | TutA, R1.02, J8    |                   |
-    | 16–17 |                    |                     |                    | ComB, R1.02, J8*  |
-    | 17–18 |                    |                     | ComA, R1.02, J8    |                   |
+    | Time  | Monday             | Wednesday               |
+    |:------|--------------------|-------------------------|
+    | 09–10 | Lecture, R1.02, J8 | Tutorial, R1.02, J8     |
+    | 10–11 | Lecture, R1.02, J8 | Tutorial, R1.02, J8     |
+    | 11–12 |                    | Computer Lab, R1.02, J8 |
 
 .box type:{Note} background:{.lightred}
-  [*] - At this point, we think _ComB_ will be a drop-in session in my office on Fridays 1500-1600.
+  Participation is assessed during the Wednesday tutorial.
 
 # Lecturers
 
@@ -194,29 +184,25 @@ _Note: The actual content might change depending on our pace_
       Dr. Sia Ghelichkhan (he/him)\
       siavash.ghelichkhan@anu.edu.au\
       Building J4 room L18\
-      _Anything except for the remote sensing module_
+      _All lectures_
 
     .clip {circle}
       !(80%)[Sky](image/internet_SiaG.webp)
 
-  .container alignment:{center} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+  .container width:{25%} alignment:{center} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
     .box background:{.lightblue}
-      Prof. Paul Tregoning (he/him)\
-      paul.tregoning@anu.edu.au\
-      Building J3 room 150\
-      _Satellite Geodesy_
-
-    .clip {circle}
-      !(80%)[Sky](image/internet_PaulT.webp)
+      Liam Morrow (he/him)\
+      liam.morrow@anu.edu.au\
+      Wednesday tutorials
 
   .container width:{25%} alignment:{center} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
     .box background:{.lightblue}
-      River Shaddock (they/she)\
-      River.Shaddock@anu.edu.au\
-      Computer Labs
+      Computer lab demonstrator\
+      _TBA -- announced closer to the date_
 
-    .clip {circle}
-      !(80%)[River](image/internet_ukperson.jpg)
+.whitespace height:{0.5cm}
+.box type:{note} background:{rgb(200, 225, 200)}
+  Some of the remote-sensing material draws on lectures given by Prof. Paul Tregoning in previous years.
 
 
 
@@ -228,11 +214,12 @@ _Note: The actual content might change depending on our pace_
       - Sample exam-type questions
       - Python examples
       - Tutorials might explain how to do the assignments
+      - **Participation is assessed here** (engagement, not attendance; best 8 count)
 
   .container width:{80%} background:{rgb(200, 225, 200)}
     .box title:{Comp Labs}
       - Drop-in sessions to work on assignments.
-      - Demonstrator available to provide assistance
+      - Demonstrator (TBA) available to provide assistance
 
 .row gap:{1cm} alignment:{center}
   .container width:{80%}

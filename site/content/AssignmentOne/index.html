@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AssignmentOne</title>
+    <script src="script/script.js"></script>
+    <script>window.PagedConfig = {auto: false};</script>
+    <script src="https://unpkg.com/pagedjs@0.4.3/dist/paged.polyfill.js"></script>
+    <script src="script/paged.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="theme/theme.css">
+    <script>
+        doc = new PagedDocument();
+        doc.prepare();
+    </script>
+
+    <style>
+
+        body {
+        }
+
+        .page-break {
+            break-before: always;
+        }
+
+        .quarkdown-plain .page-break {
+            break-before: avoid;
+            break-after: avoid;
+        }
+
+        body.quarkdown-plain {
+        }
+
+        body.quarkdown-slides .reveal {
+            width: 210.0mm;
+            height: 297.0mm;
+        }
+
+        @page {
+            size: 210.0mm 297.0mm;
+        }
+
+        p {
+        }
+    </style>
+</head>
+<body class="quarkdown quarkdown-paged">
+<div class="page-margin-content page-margin-bottom-left"><p>EMSC3025-6025</p></div><div class="page-margin-content page-margin-top-right"><p>Assignment I -- Precipitation</p></div><p>Precipitation data is available from the Bureau of Meteorology website as daily, monthly or annual data. Gridded data for the Australian continent starting from 2005, in netCDF format, can be
+downloaded. Download the monthly data netCDF, file for all available years, from the website:</p><div style="justify-content: center; align-items: center;" class="stack stack-row"><p><a href="https://awo.bom.gov.au/">https://awo.bom.gov.au/</a></p></div><ol><li><p>(4 marks) plot the Actual rainfall data for the following months (as four subplots in one figure):</p><ul><li>January 2005</li><li>August 2009</li><li>February 2010</li><li>December 2019</li></ul></li><li><p><strong>(4 marks)</strong> Derive the integrated rainfall that fell each month within the Murray-Darling Basin. The file MDB.latlon contains a polygon defining the spatial extent of the Murray-Darling Basin and is available from <a href="https://data.gadopt.org/water-course/MDB.latlon">here</a>.</p></li><li><p><strong>(1 mark)</strong> Plot a time series of the monthly rainfall, integrated over the Murray-Darling Basin.</p></li><li><p><strong>(1 mark)</strong> Calculate the rate of change in monthly rainfall over the time span of the data.</p></li><li><p><strong>(4 marks)</strong> Compare the drought periods of 2005-2009 and 2016-2019 in terms of precipitation. What was similar and what was different about these two droughts?</p></li><li><p><strong>(4 marks)</strong> Compare the la Nina periods of 2010-2012 with those of 2020-2023. What was similar and different about these periods? (For more information on El Niño and La Niña click <a href="http://www.bom.gov.au/climate/updates/articles/a020.shtml">here</a>.</p></li></ol><div class="container" style="border-width: 1.0pt 1.0pt 1.0pt 1.0pt; border-radius: 5.0pt 5.0pt 5.0pt 5.0pt; border-style: solid;"><div class="box callout"><header><h4>Note:</h4></header><div class="box-content"><p>the &ldquo;time&rdquo; variable in the BoM precipitation netCDF files refers to the number of days since 01/01/1900</p></div></div></div>
+</body>
+</html>
