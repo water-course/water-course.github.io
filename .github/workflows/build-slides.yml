@@ -22,6 +22,8 @@ jobs:
 
       - name: Prepare uv
         uses: astral-sh/setup-uv@v5
+        with:
+          cache-dependency-glob: uv.lock
 
       - name: Set up Quarkdown
         uses: quarkdown-labs/setup-quarkdown@v1
@@ -59,7 +61,6 @@ jobs:
         run: |
           mkdir -p docs/computer-lab && mv -v *.ipynb docs/computer-lab/
 
-      - uses: astral-sh/setup-uv@v5
       - name: Set up Python
         run: uv python install
 

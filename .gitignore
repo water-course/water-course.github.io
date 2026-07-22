@@ -13,3 +13,6 @@ misc/output/
 slides/output/
 # Computer-lab notebooks are pulled from the water-course/tutorials repo at build time
 docs/computer-lab/
+
+# Python virtualenv
+.venv/
