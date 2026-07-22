@@ -1,10 +1,21 @@
 .function {ul}
     input:
-    .text{.input} decoration:{underline} color:{red}
+    .text {.input} decoration:{underline} color:{.accent}
 
 .function {emph}
     input:
-    .text{.input} size:{larger} decoration:{underline} color:{red}
+    .text {.input} color:{.accent}
+
+.function {term}
+    input:
+    .text {.input} color:{.accent}
+
+.function {answer}
+    input:
+    .text {.input} size:{larger} decoration:{underline} color:{.accent}
+
+.var {accent}
+    rgb(180, 60, 60)
 
 .var {lightblue}
     rgb(173, 216, 230)
@@ -12,9 +23,8 @@
 .var {lightred}
     rgb(220, 150, 150)
 
-.function {answer}
-    input:
-    .text{.input} size:{larger} decoration:{underline} color:{red}
+.var {lightgreen}
+    rgb(200, 225, 200)
 
 .numbering
   - tables: 1

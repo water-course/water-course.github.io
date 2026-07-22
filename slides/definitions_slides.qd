@@ -1,18 +1,37 @@
-.slides center:{true}
-
+.slides center:{true} transition:{fade}
 .font size:{14pt}
 
+.cssproperties
+  - block-margin: 12px
+  - heading-margin: 16px 0 10px 0
+
+.css
+  :root {
+    --qd-main-font: "Times New Roman", Times, serif;
+    --qd-heading-font: "Times New Roman", Times, serif;
+  }
+  .quarkdown figure {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .reveal .controls {
+    bottom: 20px;
+  }
+
+.html
+  <script>
+  (function go(){
+    if(window.Reveal && Reveal.configure){
+      Reveal.configure({margin:0.01, width:1280, height:720});
+    } else { setTimeout(go,50); }
+  })();
+  </script>
+
 .pagemargin{bottomcenter}
-    .container width:{35%} borderwidth:{1px} padding:{0.1cm} radius:{0.1cm} background:{.lightblue}
+    .container width:{100%} padding:{0.1cm}
         EMSC3025/6025: Remote Sensing of Water Resources
 
-.pagemargin{bottomright}
-    Dr. Sia Ghelichkhan
-
 .pagemargin{bottomleft}
-    .container width:{100%} borderwidth:{1px} padding:{0.1cm} radius:{0.1cm} background:{.lightred}
+    .container width:{100%} padding:{0.1cm}
         [Back to water-course](https://water-course.github.io/content)
-
-.pagemargin{topright}
-    .container width:{100%} borderwidth:{1px} padding:{0.1cm} radius:{0.1cm} background:{rgb(240,240,240)}
-        .currentpage / .totalpages

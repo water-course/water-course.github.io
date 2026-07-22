@@ -23,19 +23,8 @@ jobs:
       - name: Prepare uv
         uses: astral-sh/setup-uv@v5
 
-      - name: Clone quarkdown
-        uses: GuillaumeFalourd/clone-github-repo-action@main
-        with:
-          owner: 'sghelichkhani'
-          repository: 'quarkdown'
-
-      - name: Build Quarkdown distribution
-        run: |
-          cd quarkdown
-          ./gradlew build installDist
-
-      - name: Add quarkdown to PATH
-        run: echo "PATH=$PATH:$GITHUB_WORKSPACE/quarkdown/build/install/quarkdown/bin/" >> $GITHUB_ENV
+      - name: Set up Quarkdown
+        uses: quarkdown-labs/setup-quarkdown@v1
 
       - name: Get latest successful workflow run from tutorials
         id: get_run
