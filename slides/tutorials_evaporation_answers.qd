@@ -58,7 +58,7 @@ These allow daily $ E_{pt} $ values to be computed and summed into monthly total
   * **Lysimeter or sap flow measurements** of actual evapotranspiration
   * **Water balance** residuals: $ E_t = P - Q - \Delta S $, and compare to $ E_{pt} $
 
-If actual observations show $ E_t/E_{pt} \approx 1 $ on most days, the assumption is valid for that season. The non-linear relationship shown on [this figure](https://water-course.github.io/content/Evaporation/index.html#/28) is how one can relate actual evaporation to potential evaporation.
+If actual observations show $ E_t/E_{pt} \approx 1 $ on most days, the assumption is valid for that season. The non-linear relationship shown on [this figure](https://watercourse.earth/content/Evaporation/index.html#/28) is how one can relate actual evaporation to potential evaporation.
 
 ## Evaporation Dynamics in Soil
 **Which plot would have higher total evaporation over the summer?** The **vegetated plot** would have higher total evaporation over the summer.

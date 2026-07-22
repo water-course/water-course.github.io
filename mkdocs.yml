@@ -1,5 +1,5 @@
 site_name: Water Course
-site_url: https://water-course.github.io
+site_url: https://watercourse.earth
 nav:
   - Home: index.md
   - Content: content.md

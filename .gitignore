@@ -16,3 +16,6 @@ docs/computer-lab/
 
 # Python virtualenv
 .venv/
+
+# mkdocs-material build cache
+.cache/
