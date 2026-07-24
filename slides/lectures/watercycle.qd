@@ -32,6 +32,7 @@
     - Describe the **structure and properties of water** relevant to hydrology
     - Understand the **concept and components of the hydrological cycle**
     - Explain the **global distribution of water** and its limited availability
+    - Distinguish a **store** from a **flux**, and estimate a **residence time**
     - Define the **water balance equation** and interpret each term
     - Be able to recognise a **surface catchment**
     - Identify challenges in applying hydrological concepts at different scales
@@ -39,6 +40,8 @@
 .fullspan
   .align{center}
     This lecture forms the foundation for all subsequent modules in the course.
+
+    _Reading: Davie & Quinn (2019), Fundamentals of Hydrology, 3rd ed., Chapter 1 (pp. 1--18)._
 
 # What is hydrology?
 .row
@@ -52,31 +55,37 @@
 
     .whitespace height:{1cm}
 
-    The oldest known description of water cycle:
-    >[...] precipitation falling in the mountains infiltrated the Earth's surface and led to streams and springs in the lowlands. [...]
-    > - Vitruvius, Roman Architect, 1st century BC
+    One of the oldest recognisable descriptions of the water cycle
+    (paraphrased from *De architectura*, Book VIII):
+
+    > Precipitation falling in the mountains infiltrates the Earth's surface and
+    > feeds the streams and springs of the lowlands.
+    > - after Vitruvius, Roman architect, 1st century BC
 
   .container width:{30%}
-    !(80%)[Vivitus](../image/internet_vivitus.jpg "Hydrology is one of the oldest sciences. Egyptians, Mesopotamians, Greeks and Chinese needed to understand water cycle to build irrigation systems. The oldest known description of water cycle is Vitruvius. ")
+    !(80%)[Vitruvius](../image/internet_vivitus.jpg "Hydrology is one of the oldest sciences. Egyptians, Mesopotamians, Greeks and Chinese all needed to understand the water cycle to build irrigation systems.")
 
 
 # Humans and water
 .fullspan
   .align{center}
     The human–water interactions are central to sustainable water management.
-    [Abbot et al. Nature 2019](https://www.nature.com/articles/s41561-019-0374-y)
-    !(95%)[Water Interaction](../image/internet_Abbott.png "from Abbot et al. Nature 2019")
+    [Abbott et al., Nature Geoscience 2019](https://www.nature.com/articles/s41561-019-0374-y)
+    !(95%)[Water Interaction](../image/internet_Abbott.png "from Abbott et al., Nature Geoscience 2019")
 
 # Hydrology as a science
 .row
   .container width:{50%}
     > “The total quantity of fresh water on earth could satisfy all the needs of the human population if it were evenly distributed and accessible.”
-    > — Stumm (1986)
+    > — Stumm (1986: 201)
 
     - Hydrology explains **uneven water distribution**
     - Serves as:
-      - A **pure science** – understanding natural processes
-      - An **applied science** – solving water challenges
+      - A **pure science** – explaining *why* the disparities exist
+      - An **applied science** – acting to *lessen their impact*
+    - But hydrology is more than supplying water to people:
+      - floods as **natural hazards**
+      - lakes and rivers as **ecological habitat**
 
   .container width:{50%} alignment:{center}
     !(100%)[SDGs](../image/internet_SDGs.png "Resolving global disparities in water availability and demand is one of the key SDGs")
@@ -89,7 +98,7 @@
   .container width:{60%}
     - Two main traditions:
       - **Engineering hydrology** – design-focused, quantitative
-      - **Earth science hydrology** – process-focused, explanatory
+      - **Earth science hydrology** – process-focused, explanatory, rooted in **geomorphology**
     - This course adopts a **quantitative Earth science** perspective
     - Related fields:
       - **Geohydrology** – groundwater systems
@@ -150,19 +159,21 @@
 .row
    .container width:{50%}
       ## Density
-      - Water is most dense at **4°C**
+      - Water is most dense at **3.98°C**
       - Ice is **less dense** → floats on water
       - Implications:
             - Lakes freeze from top-down
+            - Standing water **thermally stratifies**, with 4°C water sinking to the bottom
             - Aquatic ecosystems persist in cold conditions
 
-      !(80%)[density](../image/davie_fig_1-3.png "Water density as a function of temperature")
+      !(80%)[density](../image/davie_fig_1-3.png "Density of water with temperature. Maximum density is at 3.98°C.")
 
     .container width:{50%}
       ## Specific Heat
       - Water has **high specific heat capacity** (4.2 kJ/kg/K)
+      - It takes **4,200 J** to warm 1 kg ($ \approx $ 1 litre) of water by 1 K
       - Slows temperature change
-      - Buffers **climate** and daily temperature swings
+      - Buffers **climate** and daily temperature swings, which is why **maritime** climates have cooler summers and milder winters than **continental** ones
       - Comparison with other materials:
 
       | Substance        | Specific Heat (kJ/kg/K) |
@@ -183,12 +194,16 @@
     - Processes include:
       - **Melting**, **freezing**
       - **Evaporation**, **condensation**
-      - **Sublimation**, **deposition**
-    - Involves **latent heat**
-    - Crucial for energy transfer in climate systems
+      - **Sublimation**, **desublimation** (deposition)
+    - Involves **latent heat**: energy absorbed on evaporation is carried with the vapour and released as **sensible heat** on condensation, often thousands of km away
+
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.3cm}
+      **70%** of the Earth's lateral energy transport is carried as latent heat in water — *advective energy* (Mauser & Schädlich, 1998)
+
+    - Water vapour is also the **dominant greenhouse gas**
 
   .container width:{60%}
-    !(100%)[phasetransitions](../image/davie_fig_1-4.png "Phase transitions and latent heat of water")
+    !(100%)[phasetransitions](../image/davie_fig_1-4.png "Phase changes of water under normal atmospheric conditions. Note the metastable zones: supercooled liquid water can persist down to -40°C — this matters for the Bergeron process next week.")
 
 #
 .whitespace height:{3cm}
@@ -205,13 +220,16 @@
 # A catchment?
 .row
   .container width:{50%}
-    - A **catchment** is a land area where surface water drains to a common point
-    - Defined by **topographic divides**
-    - Used to define **hydrological boundaries**
-    - Contains **nested sub-catchments**
+    - A **catchment** (or **river basin**) is a land area where surface water drains to a common point
+    - Defined by **topographic divides**, assuming all water flows downhill
+    - Sizes range from **hectares to millions of km²**
+    - Every catchment is made of **nested sub-catchments**
+
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.3cm}
+      A note on words: **watershed** strictly means the *divide* — where water is "shed" one way or the other — not the area it encloses. North American usage treats it as the area.
 
   .container width:{50%}
-    !(100%)[catchmentmap](../image/davie_fig_1-5.png "Catchment boundaries and surface drainage patterns")
+    !(100%)[catchmentmap](../image/davie_fig_1-5.png "The Motueka catchment, 2,180 km², draining north at the top of the South Island, New Zealand. The dotted outline is the Baton River sub-catchment — catchments nest.")
 
 # Groundwater vs surface catchments
 .row
@@ -225,30 +243,24 @@
   .container width:{60%}
     !(100%)[gwdivide](../image/davie_fig_1-6.png "Difference between groundwater and surface water divides")
 
-# How to identify a catchment?
+# How would you identify a catchment?
 
 .row gap:{1cm}
-  .container width:{60%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm}
-    1. Get a topographic map
-      - A contour map with visible elevation lines.
-      - Mark known streams (especially the outlet point).
+  .container width:{55%}
+    Given only a **contour map** and a chosen **outlet**, everything you need is already on the page:
 
-    2. Identify the outlet (pour point)
-      - The point you want to delineate the catchment (where stream exits).
+    - Water flows **down the steepest slope**, so flow lines cross contours at **right angles**
+    - **Ridges** separate one catchment from the next — water cannot cross them
+    - The boundary must **close** on itself, at the outlet
 
-    3. Mark all flow lines (ridges to valleys)
-    	- Draw approximate flow paths down the steepest slope.
-    4. Trace ridgelines (water divides)
-      - Trace along high points (ridges) that separate your catchment from neighbouring ones.
-      - Follow the highest elevation between two drainage areas.
-      - Cross contour lines at right angles (steepest ascent).
-      - Close the boundary loop at the other side of the outlet.
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm} alignment:{center}
+      ###! You will work out the procedure yourself in this week's tutorial.
 
-    5. Check connectivity
-      - Ensure all water within your boundary flows to the outlet.
-      - Everything outside drains elsewhere.
+    .whitespace height:{0.5cm}
 
-  .container width:{40%} borderwidth:{1pt} padding:{0.2cm}
+    Test of a correct boundary: **everything inside drains to the outlet, everything outside drains elsewhere.**
+
+  .container width:{45%} borderwidth:{1pt} padding:{0.2cm}
     ![Catchment](../image/internet_catchment_delineation.jpg "Catchment identification")
 
 
@@ -264,7 +276,7 @@
 
 # Global distribution of water
 .row gap:{1cm}
-  .container width:{60%}
+  .container width:{45%}
   	- Most of Earth's water is stored in:
   	  - Oceans/seas: **96.5%**
   	  - Ice/glaciers: **1.74%**
@@ -272,15 +284,15 @@
   	- Rivers and lakes make up **tiny fractions** of total volume.
 
     .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm}
-       groundwater with the 1st km of the surface, and discount ice and snow => we have **0.27%** of which is accessible.
+       Count only groundwater within the **first km** of the surface, and discount snow and ice: about **0.27%** of all water is available for human consumption.
 
-    .whitespace height:{1cm}
+    .whitespace height:{0.5cm}
 
     .align{center}
       .container alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
         ###! Q: Is this enough water per person?
 
-  .container width:{60%}
+  .container width:{55%}
   	| Storage              | Volume (×10³ km³) | % of total |
   	|----------------------|-------------------|------------|
   	| Oceans/seas          | 1,338,000         | 96.54      |
@@ -293,7 +305,8 @@
   	| Marsh/wetlands       | 11.5              | 0.0008     |
   	| Rivers               | 2.12              | 0.00015    |
   	| Biota                | 1.12              | 0.00008    |
-    "Global estimates of water distribution"
+  	| **Total**            | **1,385,984**     | **100.00** |
+    "Global water distribution. Keep the total."
 
 # Components of the global cycle
 .row gap:{1cm}
@@ -304,72 +317,146 @@
   	  - **Run-off** moves water back to oceans
   	- Oceans evaporate more than they receive.
   	- Continents receive more precipitation than they lose.
-    - Ironically the terrestial component of the cycle is by far the smallest.
+    - Ironically, the terrestrial component, the part we care most about, is by far the smallest.
 
   .container width:{50%}
-  	!(100%)[globalcycle](../image/davie_fig_1-7.png "The global hydrological cycle and proportional flow volumes, Rekacewicz, UNEP 2008")
+  	!(100%)[globalcycle](../image/davie_fig_1-7.png "The global hydrological cycle (Rekacewicz, UNEP 2008)")
 
+# The global cycle closes
+.row gap:{1cm}
+  .container width:{52%}
+    This diagram is not decoration. It is the **water balance equation** drawn to scale, and every unit that leaves must arrive somewhere (km³ per year):
+
+    | | |
+    |:---|---:|
+    | Ocean evaporation − ocean precipitation | 502,800 − 458,000 = **44,800** |
+    | Land precipitation − evapotranspiration | 110,000 − 65,200 = **44,800** |
+    | River run-off + groundwater flow        | 42,600 + 2,200 = **44,800** |
+    "All three are the same number."
+
+    - Globally, precipitation = evaporation = **577,000 km³/yr**
+    - Land precipitation over $ 149 \times 10^6 $ km² of land $ \approx $ **740 mm/yr**
+
+  .container width:{43%}
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+      ####! Read published figures sceptically
+
+      This diagram labels **both** the internal and external runoff areas as 119 million km².
+
+      $ 119 + 119 + 361 = 599 $ million km², but the Earth's whole surface is only **510** million km² (149 land + 361 ocean).
+
+      One of those labels is wrong. The internally draining area is closer to 30 million km². The fluxes are fine; the areas are not.
+
+
+# Stores, fluxes and residence time
+.row gap:{1cm}
+  .container width:{42%}
+    - A **store** is a volume (km³); a **flux** is a rate (km³/yr). They are not comparable quantities.
+    - Divide one by the other and you get the **mean residence time**, being how long a typical water molecule stays put:
+
+    .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+      $ \tau = \frac{S}{Q} = \frac{\text{store}}{\text{flux through it}} $
+
+    - This is what makes the 96.5% figure meaningful. The atmosphere holds only **0.0009%** of Earth's water, yet **every** drop of rain passes through it, because it turns over every eight days.
+
+  .container width:{53%}
+    | Store | Volume (km³) | Flux (km³/yr) | $ \tau $ |
+    |:------|-------------:|--------------:|---------:|
+    | Atmosphere  | 12,900        | 577,000 | **8 days**  |
+    | Rivers      | 2,120         | 42,600  | **18 days** |
+    | Oceans      | 1,338,000,000 | 502,800 | **2,700 yr** |
+    | Groundwater | 23,400,000    | 2,200   | **10,600 yr** |
+    "Residence time = store / flux."
+
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.3cm}
+      Short residence time → renewable, responsive, and quick to pollute *and* quick to flush.
+
+      Long residence time → effectively **non-renewable** on a human timescale. Groundwater you pump today may have entered the ground before the last glacial maximum.
 
 # Climate zones and water partitioning
 
 .row
-  .container width:{40%}
-  	- Precipitation is partitioned into:
-  	  - **Evaporation**
-  	  - **Run-off**
-  	  - **Groundwater recharge**
-  	- Distribution varies by climate:
-  	  - Humid temperate: balanced
-  	  - Arid zones: dominated by evaporation
+  .container width:{38%}
+  	- Precipitation is partitioned into **evaporation**, **run-off** and **groundwater recharge**.
+  	- The split varies by climate:
+  	  - **Humid temperate**: roughly **one third each**
+  	  - **Semi-arid**: about half to evaporation
+  	  - **Arid**: evaporation dominates, recharge almost nil
+  	- Most of Australia sits in the **semi-arid to arid** panels.
 
-  .container width:{60%}
-  	!(100%)[climatezones](../image/davie_fig_1-8.png "Partitioning of total precipitation by climate zone")
+  .container width:{58%}
+  	!(90%)[climatezones](../image/davie_fig_1-8.png "Partitioning of total precipitation by climate zone (UNESCO, 2006)")
 
+
+# A number worth interrogating
+.row gap:{1cm}
+  .container width:{46%}
+    Davie & Quinn take the 0.27% "available" figure and convert it to a headline number:
+
+    .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm}
+      ###! ~146 million litres per person
+
+    - Let us check it. $ 0.27\% $ of $ 1{,}385{,}984 \times 10^3 $ km³ gives $ 3.74 \times 10^{18} $ L.
+    - Shared among 7 billion people: $ 5.3 \times 10^{8} $ L, or **535 million litres**, not 146.
+    - The book says "per **day**" on p. 8 and "per **year**" on pp. 10--11.
+
+  .container width:{47%}
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+      ####! Two things are wrong
+
+      **1. It is a store, not a flux.** A fixed volume cannot have units of "per year". You may only spend what is *renewed*.
+
+      **2. It does not reproduce.** 0.27% and 146 million litres do not follow from the same population.
+
+    .whitespace height:{0.3cm}
+
+    - The honest figure is the renewable one: **river run-off**, 42,600 km³/yr among 8 billion people, or about **5,300 m³ per person per year**, some **27 times smaller**.
+
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.3cm}
+      Check the units, then check the arithmetic.
 
 # Water availability vs population
-.row gap:{1cm}
+.row gap:{0.5cm}
 
-  .container width:{40%}
-    .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm}
-      ###! 146 million litres per person per year is misleading!!!
-
-    .whitespace height:{1cm}
-
+  .container width:{38%}
   	- Per capita water availability is **misleading** if population and use patterns are ignored.
-  	- Example: Australia is water-rich by volume but highly variable in space and time.
+  	- Australia looks water-rich by volume, but its high tropical north-west rainfall masks extreme scarcity elsewhere.
+  	- Availability counts only **rainfall within a country's borders**, ignoring rivers and groundwater that cross them, and food imported from elsewhere.
   	- Effective management depends on **abstraction**, **storage**, and **equity**.
 
-  .container width:{60%} alignment:{center}
+  .container width:{58%} alignment:{center}
 
-  	| Richest countries | 1,000 m³/yr | Poorest countries | 1,000 m³/yr |
-  	|:------------------|-------------|:------------------|-------------|
-  	| Iceland           | 525         | Kuwait            | 0           |
-  	| Guyana            | 301         | Bahrain           | 0.003       |
-  	| Suriname          | 184         | UAE               | 0.016       |
-  	| PNG               | 109         | Egypt             | 0.022       |
-  	| Bhutan            | 103         | Qatar             | 0.026       |
-  	| Gabon             | 98          | Bahamas           | 0.053       |
-  	| Canada            | 81          | Sudan             | 0.081       |
-  	| _Other Countries_ |             |                   |             |
-  	| Australia         | 21          | South Africa      | 0.843       |
-  	| USA               | 8           | Kenya             | 0.467       |
-  	| USA               | 2           | Israel            | 0.093       |
-  	"Comparison of annual internal renewable water per capita."
+  	| Richest    | 10³ m³ | Poorest      | 10³ m³ |
+  	|:-----------|-------:|:-------------|-------:|
+  	| Iceland    | 525.1  | Kuwait       | 0.000  |
+  	| Guyana     | 301.4  | Bahrain      | 0.003  |
+  	| Suriname   | 183.6  | UAE          | 0.016  |
+  	| PNG        | 109.4  | Egypt        | 0.022  |
+  	| Bhutan     | 103.5  | Qatar        | 0.026  |
+  	| Gabon      |  98.1  | Bahamas      | 0.053  |
+  	| Canada     |  81.1  | Sudan        | 0.081  |
+  	| _Others_   |        |              |        |
+  	| Australia  |  21.3  | South Africa | 0.843  |
+  	| USA        |   8.9  | Kenya        | 0.467  |
+  	| UK         |   2.3  | Israel       | 0.093  |
+  	"Renewable water per capita, 10³ m³/yr (2013)."
 
 
 # Water abstraction
 .row
   .container width:{30%}
   	- OECD countries vary widely in **water abstraction**.
-  	- USA: ~1,730 m³/person/year
+  	- Largest user is the USA: ~1,730 m³/person/year
+  	- Australia, Canada and New Zealand are also near the top
   	- Often driven by:
   	  - **Agriculture**
   	  - **Industry**
   	  - **Irrigation infrastructure**
   	- Water use ≠ water availability
+  	- Australia's 2005--2007 drought showed what happens when the two collide
 
   .container width:{70%}
-  	!(100%)[abstraction](../image/davie_fig_1-9.png "Water abstraction per capita for OECD countries")
+  	!(100%)[abstraction](../image/davie_fig_1-9.png "Water abstraction per capita for OECD countries (World Bank Indicators, 2014)")
 
 # Groundwater Embedded in Global Food Trade
 .row gap:{1cm}
@@ -416,7 +503,7 @@
   .container width:{50%}
   	- The **water balance equation** represents the continuity of water mass in a system.
   	- It quantifies water input, output, and storage over time.
-  	-a In its most fundamental form:
+  	- In its most fundamental form:
 
     .container width:{100%} alignment:{center} radius:{0.5cm} borderwidth:{1pt} padding:{0.2cm} background:{.lightred}
 
@@ -426,11 +513,11 @@
 
   	  $ Q = P - E - \Delta S $
 
-  	Where:
-  	- $ P $: Precipitation
-  	- $ E $: Evaporation
-  	- $ \Delta S $: Change in storage
-  	- $ Q $: Run-off (or river discharge)
+  	Where $ P $ is precipitation, $ E $ evaporation, $ \Delta S $ the change in storage, and
+  	$ Q $ run-off. We write $ Q $ rather than $ R $, because $ R $ usually means rainfall.
+
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.3cm}
+      **Why $ \pm $?** Precipitation is a gain to the Earth but a loss to the atmosphere. Hydrology stands on the ground, so terms are **positive when they are a gain to the Earth**.
 
   .container width:{50%}
   	!(100%)[balanceequation](../image/internet_waterbalance.jpg "Mass conservation is the primary concept in the water balance equation.")
@@ -458,8 +545,8 @@
 
 
 # Challenges in practice
-.row
-  .container width:{60%}
+.row gap:{1cm}
+  .container width:{52%}
   	- Difficulties in application include:
   	  - **Spatial variability** in rainfall
   	  - **Temporal mismatch** in data resolution
@@ -469,7 +556,15 @@
   	  Input daily rainfall and evaporation to calculate daily discharge using:
   	  $ Q = P - E - \Delta S $
 
-  .container width:{40%}
+  .container width:{43%}
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm}
+      The water balance equation is the closest thing hydrology has to a **fundamental theory**. Almost every hydrological study is built around it.
+
+    .whitespace height:{0.5cm}
+
+    - The uncertainty is **not** in the equation. Mass is conserved.
+    - It is in **applying** it: every process operates over some area and some period, and those rarely coincide with the area and period we can actually measure.
+    - This mismatch of **scale** is why hydrology can look like an imprecise science, and it is the thread running through the rest of this course.
 
 # Magnitude–frequency–duration
 .row
@@ -478,19 +573,41 @@
   	  - **Magnitude** (e.g. rainfall depth)
   	  - **Frequency** (how often)
   	  - **Duration** (how long)
-  	- Frequency histograms help visualize event rarity
-  	- Important for flood design and infrastructure planning
+  	- High magnitude, low frequency, and vice versa.
 
-  	- Probability:
-  	  $ p = \frac{n}{N} $
-  	- Recurrence interval = \( 1/p \)
-  	- A 1% chance event = 1-in-100-year event
-  	- Recurrence ≠ prediction of exact timing
-  	- Used for rainfall design curves and flood risk estimation
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.3cm}
+      River Boyd, 38 years of daily flow:
+      **median 0.25**, **mean 0.55** m³/s, max **11.9** m³/s.
+
+      The mean is more than **double** the median. Flows above 9 m³/s occur on **7 days**, or **0.05%** of the record.
+
+  	- Hydrological data are **positively skewed**, not normal. A few huge events drag the mean above the median, so quoting a "mean" flood tells you very little.
+  	- Probability: $ p = \frac{n}{N} $, and recurrence interval $ = 1/p $
+  	- A 1% annual chance event = the 1-in-100-year event
 
   .container width:{60%}
-  	!(100%)[flowfrequency](../image/davie_fig_1-11.png "Flow magnitude and frequency in River Boyd catchment")
+  	!(100%)[flowfrequency](../image/davie_fig_1-11.png "Frequency of daily mean flows, River Boyd near Bitton, UK, 1974--2011. Note the long tail to the right.")
 
+
+# "Return period" is a trap
+.whitespace height:{1cm}
+
+.row gap:{1cm} alignment:{center}
+  .container width:{75%} borderwidth:{1pt} padding:{0.3cm} background:{.lightred} radius:{0.5cm}
+    ##! "We had our 1-in-100-year flood last year, so we're safe for a while."
+
+.whitespace height:{0.5cm}
+
+.row gap:{1cm}
+  .container width:{50%}
+    - This is **wrong**, and it is the most common misunderstanding in hydrology.
+    - The chance of a flood of that size next year is still **1%**. The river has no memory of last year.
+    - Two 1-in-100-year floods in consecutive years are unremarkable: unlikely in any given pair of years, but there are a great many pairs of years and a great many rivers.
+
+  .container width:{50%}
+    - This is why we say **recurrence interval**, not "return period": it is the *average* spacing between events of that magnitude, taken over a very long record.
+    - It is a statement about **long-run frequency**, never about *when* the next one arrives.
+    - Practical consequence: a 1% annual chance over a 30-year mortgage is a $ 1-(0.99)^{30} \approx $ **26%** chance of at least one such flood.
 
 # Duration and design rainfall
 .row
@@ -500,21 +617,51 @@
   	  - **Storm duration**
   	  - **Event rarity**
   	- Longer durations require more rainfall to be "rare"
+  	- But the **intensity** falls: at a 20-year recurrence interval, roughly 23 mm in 1 h (23 mm/h) against 92 mm in 48 h (1.9 mm/h)
+  	- Short, intense bursts drive **flash floods**; long, moderate falls drive **river floods**
   	- Used to develop **intensity–duration–frequency (IDF)** charts
 
   .container width:{60%}
-  	!(100%)[idfcurve](../image/davie_fig_1-12.png "Rainfall MFD curves for the River Boyd catchment")
+  	!(100%)[idfcurve](../image/davie_fig_1-12.png "Rainfall MFD curves for the River Boyd catchment (CEH, 1999)")
 
+
+# So how do we actually measure any of this?
+.row gap:{1cm}
+  .container width:{47%}
+    - Every number in this lecture is an **estimate**. Nobody has ever measured global evaporation with a bucket.
+    - The scale problem is real: gauges measure **points**, we need **catchments** and **continents**.
+    - Over roughly the past 40 years, satellites have made the global distribution of precipitation, evaporation and storage observable for the first time.
+
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm} alignment:{center}
+      ###! This is the second half of what this course is about.
+
+  .container width:{48%}
+    Which term of $ P \pm E \pm \Delta S \pm Q = 0 $ can we see from orbit?
+
+    | Term | Mission | Week |
+    |:-----|:--------|:-----|
+    | $ P $ — precipitation    | GPM / TRMM   | 2 |
+    | $ E $ — evapotranspiration | thermal & optical sensors | 3 |
+    | $ Q $ — river height and discharge | SWOT altimetry | 4 |
+    | $ \Delta S $ — soil moisture | SMAP / SMOS  | 5 |
+    | $ \Delta S $ — total water storage | GRACE / GRACE-FO gravity | 6 |
+    "The course, term by term."
 
 # Summary
-.whitespace height:{2cm}
+.whitespace height:{1cm}
 
 .row gap:{1cm} alignment:{center}
-  .container width:{60%} borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
+  .container width:{70%} borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} radius:{0.5cm} alignment:{center}
     In this lecture, we covered:
     - The **definition and scope of hydrology** as a science of fresh water
     - The **physical and molecular properties** of water that influence climate and flow
     - The structure and function of the **hydrological cycle**, from global to catchment scale
-    - Key concepts such as **catchments**, **water availability**, and **flux vs storage**
+    - Key concepts such as **catchments**, **water availability**, and **store vs flux**
+    - **Residence time** as the bridge between the two, and why a store is not a supply
     - The **water balance equation** as a tool for understanding and modelling water movement
-    - Challenges in **quantifying water fluxes** and interpreting hydrological variability
+    - Challenges in **quantifying water fluxes**, and why **scale** is hydrology's central difficulty
+
+.fullspan
+  .align{center}
+    .container width:{60%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+      And one habit worth keeping: **check the units, then check the arithmetic.**

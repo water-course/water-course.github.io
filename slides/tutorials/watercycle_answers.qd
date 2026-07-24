@@ -13,151 +13,551 @@
 
 
 # Water Cycle
-## The Hydrological Cycle
-The **hydrological cycle** refers to the continuous movement of water between the atmosphere, land surface, and subsurface environments. It operates through various physical processes that transfer water in different phases (solid, liquid, gas) and between various reservoirs (e.g., ocean, land, air, vegetation, soil, groundwater).
 
-At the **global scale**, the hydrological cycle is primarily driven by:
+These are worked answers rather than a marking scheme. Where a question asks you to reason or to
+argue, what follows is one good answer and not the only one, and you should expect your own wording
+to differ. Where a question asks you to compute something, the numbers below are the numbers, and
+if yours disagree it is worth finding out why before reading on.
 
-- **Evaporation** from oceans and land surfaces
-- **Condensation** and **precipitation** of atmospheric moisture
-- **Runoff** and **infiltration** returning water to surface and subsurface systems
+## 1. The hydrological cycle across scales
 
-At the **catchment scale**, the same processes are present but modified by local topography, vegetation, and human activity. For example, precipitation may be intercepted by vegetation, infiltrate into soils, recharge groundwater, or run off into rivers. The **water balance equation** is used to quantify water inputs (precipitation), outputs (evaporation and runoff), and changes in storage.
+The **hydrological cycle** is the continuous movement of water between the atmosphere, the land
+surface and the subsurface, transferring water between phases and between reservoirs. At the global
+scale it is driven by evaporation from the oceans and land, by condensation and precipitation of
+atmospheric moisture, and by the run-off and infiltration that return water to the sea. At the
+catchment scale the same three processes operate, but each subdivides. Evaporation becomes open
+water evaporation, soil evaporation, interception loss and transpiration; precipitation may be
+intercepted by a canopy before it reaches the ground; and run-off separates into overland flow,
+throughflow and groundwater flow. What changes between the two scales is not the physics but the
+level of detail at which we are obliged to describe it.
 
-Key processes:
+Taking three processes in turn, evaporation and transpiration return water to the atmosphere, and
+while the ocean dominates globally, it is vegetation and soil moisture that set the rate within a
+catchment. Precipitation delivers water, and where atmospheric circulation governs its global
+pattern, topography and storm tracks govern the local one. Run-off and infiltration partition water
+at the surface, and this is almost entirely a catchment-scale process, yet it is what closes the
+global cycle. The three are coupled: water that infiltrates today is water that evaporates or
+discharges later, so a change in one term propagates through the others.
 
-1. **Evaporation/Transpiration** – return water to the atmosphere.
-2. **Precipitation** – delivers water to land and sea surfaces.
-3. **Runoff and Infiltration** – control how water moves through the landscape.
+On the simplifications, several are defensible. The global diagram is a **steady-state** picture,
+so it conceals year-to-year variability and any long-term trend. It treats each reservoir as
+uniform and well mixed. It omits human intervention entirely, and there are no dams, irrigation
+schemes or abstraction wells anywhere in it. It reports annual totals, so seasonality vanishes.
+It draws groundwater as a single flux, when in reality groundwater spans residence times from days
+to millennia.
 
-These processes connect global atmospheric dynamics to local water availability, influencing ecosystems, agriculture, and water resource management.
+Whether these matter to a catchment hydrologist depends on which one you pick, and the steady-state
+and annual-average assumptions matter a great deal. A catchment hydrologist works with storms,
+seasons and droughts, and the diagram says nothing about any of them. The well-mixed reservoir
+assumption is more forgiving for questions of water quantity, but it becomes serious as soon as
+water quality is at stake, since a contaminant does not distribute itself evenly through an aquifer
+simply because our diagram draws the aquifer as one box.
 
-## Water Balance in a Semi-Arid Basin
-In a **semi-arid basin**, the water balance is typically characterised by:
+## 2. Does the global water cycle balance?
 
-- **Low precipitation** $ P $: Rainfall is infrequent and often seasonal, leading to dry conditions most of the year.
-- **High evaporation** $ E $: Hot temperatures and sparse vegetation lead to significant moisture loss from soil and surface water.
-- **Minimal runoff** $ Q $: Surface runoff may be rare and occur only during intense rainfall events (flash floods).
-- **Storage changes** $ \Delta S $: Soil moisture and groundwater can vary substantially, often declining during dry seasons.
+**1. Net ocean loss and net land gain.**
 
-Challenges in this setting:
+$ 502{,}800 - 458{,}000 = 44{,}800 $ km³/yr is lost from the ocean, while
 
-- **Spatial variability**: Rainfall can be highly uneven across the basin.
-- **Temporal mismatch**: Rainfall may occur in short, intense events, but monitoring is typically done at daily or monthly scales.
-- **Estimating $ \Delta S $**: Soil moisture and groundwater data are often sparse or missing.
-- **Evapotranspiration estimation**: Requires reliable climate and vegetation data, which may not be available.
+$ 110{,}000 - 65{,}200 = 44{,}800 $ km³/yr is gained over the land.
 
-Hydrologists in these regions must rely on sparse observations, remote sensing, and models to estimate each term in the water balance.
+They are identical. The ocean loses precisely what the land gains.
 
-## Global water distribution
-Stumm's statement is theoretically true — there is enough **total freshwater** globally to meet human needs. However, the key issue is that this water is **not evenly distributed** nor equally accessible.
+**2. Return flow.**
 
-From the data:
+$ 42{,}600 + 2{,}200 = 44{,}800 $ km³/yr
 
-- **$ \approx $ 97%** of Earth’s water is saline (oceans).
-- Most freshwater is locked in **ice caps** and **groundwater**.
-- Only ** $ \approx $ 0.27%** is accessible surface freshwater.
+The budget closes exactly, with no residual at all. It had to, because the diagram represents a
+closed system in steady state. Water is neither created nor destroyed, and if the stores are not
+changing then everything leaving one reservoir must arrive at another. What we have just verified
+is the water balance equation, $ P \pm E \pm \Delta S \pm Q = 0 $, drawn as a picture.
 
-This limited supply is unevenly distributed:
+**3. Global totals.**
 
-- **Iceland** has >500,000 $ m^3 / person / year $, while **Kuwait** has virtually none.
-- Climate patterns (e.g., arid zones), topography, and land use create disparities in availability.
-- **Australia** has relatively high per-capita water resources but with extreme variability over space and time.
+Precipitation totals $ 458{,}000 + 110{,}000 + 9{,}000 = 577{,}000 $ km³/yr, and evaporation totals
+$ 502{,}800 + 65{,}200 + 9{,}000 = 577{,}000 $ km³/yr. They are equal, for the same reason as
+before. If you excluded the lake terms from both sides you would have obtained 568,000 km³/yr on
+each side, which is equally correct; what matters is that you treated the two sides consistently.
 
-**Hydrology** addresses this challenge by:
+**4. Mean land precipitation depth.**
 
-- Quantifying water inputs and outputs using models and data.
-- Understanding flow and storage dynamics (e.g., runoff generation, infiltration).
-- Supporting water resource planning and sustainable abstraction.
+$ \frac{110{,}000 \text{ km}^3\text{/yr}}{149 \times 10^6 \text{ km}^2}
+= \frac{1.1 \times 10^{14}\ \text{m}^3\text{/yr}}{1.49 \times 10^{14}\ \text{m}^2}
+= 0.738\ \text{m/yr} \approx 740\ \text{mm/yr} $
 
-The applied side of hydrology — including engineering, remote sensing, and policy support — helps ensure **equitable distribution**, even in regions of scarcity.
+To judge plausibility, compare it against something you already know. Commonly cited values for
+mean precipitation over land fall between roughly 700 and 800 mm/yr, so we are in the right place.
+It is also a little below the Australian average, which is what we should expect, given how much of
+the global land surface is desert.
 
-## Delineating a Watershed Boundary
+**5. The area labels.**
 
-Manual Delineation Steps:
+Adding them gives $ 119 + 119 + 361 = 599 \times 10^6 $ km², against an actual Earth surface area of
+$ 510 \times 10^6 $ km². The figure over-counts by 89 million km², which is not a rounding problem.
 
-1. Identify the outlet point on the stream.
-2. Draw/visualise surface flow lines perpendicular to contours.
-3. Identify high points (ridges) around the stream.
-4. Trace contour segments that divide flow toward or away from the stream.
-5. Connect these divide points to form a continuous watershed boundary.
+Since the ocean area of 361 and the total of 510 are both well established, the land area must be
+$ 510 - 361 = 149 \times 10^6 $ km², and the two runoff areas therefore cannot both be 119. The
+internal, or endorheic, runoff area is the one to distrust. Internally draining basins are usually
+put at roughly 20 to 30 million km², and $ 119 + 30 = 149 $ closes correctly. The label appears to
+have been duplicated somewhere in the reproduction of the figure.
 
-Application to the Map:
+This does not affect parts 1 to 3, and you can say so with confidence rather than hoping, because
+those parts use only the fluxes and never touch the areas. It would have affected part 4 had you
+taken the land area from the figure instead of using the standard value. The wider lesson is that a
+published figure can be entirely authoritative about one thing while being wrong about another, so
+it is worth checking whichever part of it you intend to lean on.
 
-* The outlet point is located near the centre-bottom of the figure, where the stream exits the valley.
-* Flow lines run downhill perpendicular to contours; valleys are V-shaped pointing upstream.
-* The northern and western ridgelines show closely spaced contours curving outward — this is the high ground.
-* The watershed boundary follows these ridgelines, tracing the outermost contours that direct flow inward.
-* I would connect the ridge to the east, sweep around the top of the catchment (north), and close the loop along the western slope down to the outlet.
+<<<<
 
-!(50%)[topomap](../image/tutorial_usgs_catchment_answer.png "A hypothetical topographic map of a catchment")
+## 3. How long does water stay put?
 
-Importance of Topographic Divides:
+**1. Mean residence times**, computed as $ \tau = S/Q $:
 
-* Contours that form convex curves at high elevation mark the watershed edge.
-* Flow cannot cross these divides; they are the "roof ridges" of the landscape.
-* Knowing the perpendicular relationship between flow direction and contours is essential to tracing accurate boundaries.
+.align{center}
+    | Store | $ S $ (km³) | $ Q $ (km³/yr) | $ \tau $ |
+    |:------|------------:|---------------:|---------:|
+    | Atmosphere  | $ 1.29 \times 10^4 $ | 577,000 (global precipitation) | 0.0224 yr, about **8 days** |
+    | Rivers      | $ 2.12 \times 10^3 $ | 42,600 (river run-off) | 0.0498 yr, about **18 days** |
+    | Oceans      | $ 1.338 \times 10^9 $ | 502,800 (ocean evaporation) | about **2,700 years** |
+    | Groundwater | $ 2.34 \times 10^7 $ | 2,200 (groundwater flow to ocean) | about **10,600 years** |
+    "Mean residence times of the major global stores."
 
-Limitation:
+Taking the atmosphere as a worked example, $ \tau = 12{,}900 / 577{,}000 = 0.02236 $ yr, and
+multiplying by 365.25 gives 8.2 days.
 
-* Manual delineation is slow, subjective, and less precise in flat or complex terrain.
-* Digital methods allow for scalable, reproducible watershed mapping using DEMs and flow algorithms.
+One honest caveat on the groundwater figure. We divided by the flux to the ocean, which is an
+underestimate of the total throughput, since groundwater is also lost to evapotranspiration and to
+river baseflow. Using total recharge instead would give a shorter residence time. Either is
+defensible provided you say which flux you used, and the order of magnitude, being thousands to
+tens of thousands of years, is the part of the answer that survives the choice.
 
+**2. Reconciling the two statements.** Residence time is a ratio, so a store can be very small and
+still pass enormous volumes if it turns over quickly. The atmosphere holds only 12,900 km³, yet it
+cycles 577,000 km³ every year, which is roughly forty-five times its own volume. Every raindrop
+must pass through it, and none of them stay long. The useful lesson is that the size of a store
+tells us nothing on its own about its importance, and we must always ask how fast it turns over.
 
+**3. Ice caps.** You cannot compute it, and the reason is that Figure 1.7 gives no flux term for ice
+at all. There is no accumulation, no melt and no calving anywhere in the diagram. To proceed you
+would need an independent estimate of snowfall accumulation or of total mass loss. Published values
+range from decades for small alpine glaciers to more than $ 10^5 $ years for the interior of the
+Antarctic ice sheet, which is itself worth noticing: "ice" is not one store but many, with
+turnover times that differ by four orders of magnitude.
 
-## Extra: Digital Delineation of Watersheds using the D8 Method
+**4. The two spills.** A river flushes itself in about eighteen days, so a spill is diluted and
+exported quickly. The damage is acute and extends a long way downstream, but it is short lived, and
+remediation consists largely of stopping the source and waiting. An aquifer turns over on a scale
+of thousands of years, so contamination is permanent on any timescale we care about. It does not
+flush, it migrates slowly and unpredictably, it is expensive even to monitor, and active
+remediation by pumping and treating may run for decades without finishing. The same spill has
+produced two entirely different problems, and the difference is residence time.
 
-Digital watershed delineation is typically performed using a Digital Elevation Model (DEM), which provides a grid of elevation values over a landscape. One widely used algorithm for calculating flow direction is the **D8 method** (Deterministic Eight).
+**5. Why long residence time means non-renewable.** Belonging to a cycle guarantees that water is
+eventually replaced, but it says nothing whatever about how fast. If an aquifer is replenished on a
+ten-thousand-year timescale and we abstract from it annually, we are removing water some thousands
+of times faster than it returns. That is mining a resource rather than harvesting it, and the fact
+that the water is technically part of a renewable cycle offers no comfort at all. The comparison
+that matters is always the rate of use against the rate of renewal, and never the volume in store.
 
-### Step-by-step Procedure
+<<<<
 
-1. **Fill Sinks**
-   - DEMs may contain local depressions or pits (sinks) that disrupt flow modelling.
-   - These are removed or filled to ensure water can flow continuously downslope.
-   - Algorithms typically raise the elevation of the sink to the lowest spillover point surrounding it.
+## 4. A number worth checking
 
-2. **Compute Flow Direction (D8 Algorithm)**
-   - For each cell in the DEM, the algorithm compares the elevation to its **eight neighbours** (N, NE, E, SE, S, SW, W, NW).
-   - Flow is assigned in the direction of **steepest downslope** (maximum drop in elevation per unit distance).
-   - Each cell can only drain into **one** of the eight directions (hence, deterministic).
+**1. Reproducing the calculation.**
 
-3. **Compute Flow Accumulation**
-   - Starting from the headwater cells (no inflow), accumulate the number of upstream cells draining into each cell.
-   - This identifies stream channels and the drainage network structure.
+$ 0.27\% \times 1{,}385{,}984 \times 10^3\ \text{km}^3 = 3.742 \times 10^6\ \text{km}^3 $
 
-4. **Select an Outlet**
-   - The user defines an outlet (pour point) — usually at a stream junction or known outflow.
+$ 3.742 \times 10^6\ \text{km}^3 \times 10^{12}\ \text{L/km}^3 = 3.742 \times 10^{18}\ \text{L} $
 
-5. **Watershed Delineation**
-   - Starting from the outlet, trace upstream through the flow direction grid.
-   - All cells that drain to the outlet are included in the **watershed**.
+$ \frac{3.742 \times 10^{18}}{7 \times 10^9} = 5.35 \times 10^8\ \text{L} $, which is
+**535 million litres per person**.
 
-### Notes on Implementation
+**2. The size of the disagreement.** Since $ 535 / 146 = 3.66 $, the two figures differ by a factor
+of about 3.7.
 
-- The D8 algorithm is simple and fast but can produce unrealistic straight-line drainage paths on flat or complex terrain.
-- Other flow direction algorithms distribute flow among multiple downslope neighbours, improving realism in some settings.
+Working backwards, 146 million litres for seven billion people requires
+$ 146 \times 10^6 \times 7 \times 10^9 = 1.022 \times 10^{18} $ L, which is
+$ 1.022 \times 10^6 $ km³, or **0.074%** of the total rather than 0.27%. The two numbers printed in
+the textbook therefore cannot both follow from the same population, and the text does not tell us
+which one to keep.
 
-### Visual Summary
+**3. The units, which is the important part.** Neither "per day" nor "per year" can be correct.
+Taking 0.27% of a store yields a volume, in litres per person, and that is the end of it. The
+quantity has no time dimension, because nothing in the calculation introduced one. To turn a store
+into a legitimate per-year figure we would have to divide by a residence time, or otherwise specify
+a rate of renewal, and no such step is taken anywhere. Both time labels are therefore artefacts,
+and the fact that the book uses different ones on facing pages is the clue that something has gone
+astray.
 
-| Cell | Flow Direction | Description                  |
-|------|----------------|------------------------------|
-| A    | E              | Flows to the cell to the East|
-| B    | SE             | Flows to the cell to the SE  |
+This is the store and flux distinction from Question 3, arriving in a place where it does real
+damage. A store tells us how much water exists. Only a flux tells us how much we may use.
 
-Each cell in a D8 flow direction grid is encoded with a value (e.g. 1–128) representing the compass direction. Here's a common encoding scheme:
+**4. An honest figure.**
 
-| Direction | Code |
-|-----------|------|
-| E         | 1    |
-| SE        | 2    |
-| S         | 4    |
-| SW        | 8    |
-| W         | 16   |
-| NW        | 32   |
-| N         | 64   |
-| NE        | 128  |
+$ \frac{42{,}600\ \text{km}^3\text{/yr}}{8 \times 10^9}
+= \frac{4.26 \times 10^{13}\ \text{m}^3\text{/yr}}{8 \times 10^9}
+= 5{,}325\ \text{m}^3 $ per person per year
 
-### Example Tools and Libraries
+That is about 5.3 million litres per person per year, some 27 times smaller than the published
+headline and about a hundred times smaller than the 535 million litres implied by the 0.27% share.
 
-- **Python**: see `pysheds` [GitHub](https://github.com/mdbartos/pysheds). You can also use `numpy`, `scipy.ndimage`, or `richdem` for DEM manipulation.
-- **GIS Software**: QGIS, ArcGIS provide built-in tools for watershed delineation.
+**5. Placing it in the table.** Our figure of 5,325 m³/cap/yr is $ 5.3 \times 10^3 $ m³/cap/yr,
+which sits between the United Kingdom at 2.262 and the United States at 8.914, and well below
+Australia at 21.272. That is exactly where a global average belongs, below the sparsely populated
+and water-rich countries and above the crowded or arid ones, and the fact that it lands there is
+good evidence that we have not made an error.
+
+The 146 million litre figure converts to 146,000 m³/cap/yr, which would make the global average
+richer in water than every country in the table except Iceland. That is plainly impossible, and it
+is the kind of sanity check worth running on any per-capita number before quoting it. Even with the
+units repaired the comparison would remain meaningless, because the table reports a renewable annual
+flux, being the rainfall falling within a country's borders, while the 146 million figure is a share
+of a static store. The two are different kinds of quantity and cannot be placed on the same axis.
+
+<<<<
+
+## 5. A year in the life of an inland catchment
+
+**1. Monthly evaporation.** Rearranging $ P \pm E \pm \Delta S \pm Q = 0 $, with all terms taken as
+positive when they represent a gain to the catchment, gives
+
+$ E = P - Q - \Delta S $
+
+- **January**: $ E = 28 - 1 - (-38) = 28 - 1 + 38 = 65 $ mm
+- **April**: $ E = 38 - 2 - (-8) = 38 - 2 + 8 = 44 $ mm
+- **July**: $ E = 55 - 4 - (+18) = 33 $ mm
+
+The sign is where this question is won or lost. When storage falls, $ \Delta S $ is negative,
+subtracting it adds to the total, and that water becomes available for evaporation. Evaporation
+therefore exceeds $ P - Q $ in every month of the drawdown.
+
+.align{center}
+    | Month | $ P $ | $ Q $ | $ \Delta S $ | $ E $ |
+    |:------|------:|------:|-------------:|------:|
+    | Jul | 55 | 4 | +18 | 33 |
+    | Aug | 52 | 5 | +14 | 33 |
+    | Sep | 45 | 5 | +2  | 38 |
+    | Oct | 42 | 4 | -12 | 50 |
+    | Nov | 38 | 3 | -22 | 57 |
+    | Dec | 30 | 2 | -34 | 62 |
+    | Jan | 28 | 1 | -38 | 65 |
+    | Feb | 30 | 1 | -33 | 62 |
+    | Mar | 33 | 1 | -22 | 54 |
+    | Apr | 38 | 2 | -8  | 44 |
+    | May | 50 | 3 | +12 | 35 |
+    | Jun | 59 | 4 | +23 | 32 |
+    | **Total** | **500** | **35** | **-100** | **565** |
+    "Completed monthly water balance, all values in mm."
+
+**2. Annual totals.** $ P = 500 $ mm, $ Q = 35 $ mm, $ \Delta S = -100 $ mm and $ E = 565 $ mm.
+
+Checking, $ 500 - 35 - (-100) = 565 $ mm, as required.
+
+**3. Can evaporation exceed precipitation?** It can, and there is nothing paradoxical about it.
+Over this year the catchment evaporated 565 mm while receiving only 500 mm. The additional 65 mm,
+together with the 35 mm that ran off, came out of storage, which fell by 100 mm across the year.
+The catchment spent its savings, and that is the answer to what kind of year this was: a drought.
+
+It cannot do so indefinitely. Storage is finite, and a run of years like this one draws down soil
+moisture and groundwater until either the store is exhausted or evaporation becomes water-limited
+and falls of its own accord. Averaged over a long enough record $ \Delta S $ tends to zero, and
+$ E $ must then be less than $ P $. A single year in which $ E > P $ is the signature of a drought,
+not of a measurement error, and recognising that distinction is the point of the question.
+
+**4. Run-off coefficient.**
+
+$ \frac{Q}{P} = \frac{35}{500} = 0.07 $, or 7%
+
+Against roughly one third in a humid temperate catchment, this is strikingly low, and the reasons
+are the defining features of a semi-arid water balance. High potential evaporation and low humidity
+return most rainfall to the atmosphere before it can reach a channel. Rainfall arrives in modest
+amounts spread through the year rather than concentrated in a wet season, so intensities rarely
+exceed the infiltration capacity and infiltration-excess overland flow is uncommon. Soils are dry
+and the unsaturated zone is deep, so saturation-excess flow is rarer still. Sparse vegetation and
+extensive bare soil intercept and store water on its way down. Between them these mechanisms
+consume almost all of the precipitation, and only a small remainder ever becomes stream flow.
+
+**5. From depth to volume and discharge.**
+
+$ A = 5{,}000\ \text{km}^2 = 5 \times 10^9\ \text{m}^2 $ and $ d = 35\ \text{mm} = 0.035\ \text{m} $
+
+$ V = d \times A = 0.035 \times 5 \times 10^9 = 1.75 \times 10^8\ \text{m}^3 $
+
+$ V = \frac{1.75 \times 10^8}{10^6} = \mathbf{175\ GL} $
+
+Taking a year as $ 3.156 \times 10^7 $ s, the mean discharge is
+
+$ \bar{Q} = \frac{1.75 \times 10^8\ \text{m}^3}{3.156 \times 10^7\ \text{s}} \approx \mathbf{5.5\ m^3/s} $
+
+**6. The storage loss.**
+
+$ 0.100\ \text{m} \times 5 \times 10^9\ \text{m}^2 = 5 \times 10^8\ \text{m}^3 = \mathbf{500\ GL} $
+
+The catchment lost 500 GL from storage in a single year, which is nearly three times its entire
+annual run-off. What "recovery" means depends entirely on which store the water came from. Soil
+moisture will recover within months of good rain. If a substantial part of the loss was
+groundwater, then with a residence time on the order of $ 10^3 $ to $ 10^4 $ years, recovery is not
+something that happens over a wet season or even over a wet decade, and on any timescale relevant
+to the people farming this catchment it does not happen at all. This is the difference between a
+store being drawn upon and a store being mined, and it is precisely what a single lumped
+$ \Delta S $ term conceals.
+
+<<<<
+
+## 6. Magnitude, frequency and duration
+
+**Part A. The flow record.**
+
+**1. Why the mean sits above the median.** The distribution is positively skewed, with a great many
+low flows and a long tail of rare high ones. The mean is sensitive to those extreme values and is
+dragged upward by them, whereas the median, being a rank statistic, is not. A normal distribution
+would be symmetric, with mean and median coinciding. Hydrological variables are almost never
+normally distributed, and this is why so much of hydrological statistics works with transformed
+variables or with extreme-value distributions instead.
+
+**2. Exceedance probability.** With $ N = 38 \times 365.25 \approx 13{,}880 $ days and $ n = 7 $,
+
+$ p = \frac{n}{N} = \frac{7}{13{,}880} = 5.0 \times 10^{-4} $, or **0.05%**
+
+which is the figure quoted in the textbook.
+
+**3. Which statistic to quote.** For the typical flow, give the median of 0.25 m³/s. It describes
+what the river is actually doing on an ordinary day, and half the record lies on either side of it.
+The mean of 0.55 m³/s is exceeded only about a third of the time, so it is not typical of anything.
+
+For sizing a bridge neither statistic is any use, and you need the extreme tail instead, in the form
+of a design flood at a chosen recurrence interval obtained from flood frequency analysis. A bridge
+that survives the median flow is a bridge that fails.
+
+**Part B. The design rainfall curves.**
+
+**4. Depth and intensity at a 20-year recurrence interval.** Values within a few millimetres of
+these are fine, since the point is the pattern rather than the precision.
+
+.align{center}
+    | Duration | Depth (mm) | Mean intensity (mm/h) |
+    |:---------|-----------:|----------------------:|
+    | 1 h  | about 23 | 23  |
+    | 6 h  | about 45 | 7.5 |
+    | 24 h | about 72 | 3.0 |
+    | 48 h | about 92 | 1.9 |
+    "Depth and intensity against duration for a 20-year event."
+
+**5. Why both trends occur.** Depth rises with duration for the simple reason that rain continues to
+fall, so a 48-hour storm accumulates more water than a one-hour burst and must deliver more in order
+to be equally rare. Intensity falls because the atmospheric conditions that produce very high
+rainfall rates, namely intense convection, strong uplift and abundant moisture convergence, cannot
+be sustained. A convective cell can deliver 23 mm/h for an hour, but nothing delivers 23 mm/h for
+two days. Long-duration events are built from moderate rainfall sustained by large frontal or
+synoptic systems, not from extreme rates maintained for a long time.
+
+**6. Choosing a duration.** For an urban stormwater drain, use a short duration of an hour or less.
+Urban catchments are small, sealed and steep, with times of concentration measured in minutes, so
+the peak flow is set by the most intense short burst and a long-duration average would badly
+under-design the pipe.
+
+For a flood levee on a large river, use a long duration of 24 to 48 hours or more. A large catchment
+integrates rainfall over a long travel time, so a brief intense cell over one sub-catchment barely
+registers at the outlet, and what generates the peak is sustained, widespread rainfall across the
+whole basin.
+
+The principle connecting the two is to match the storm duration to the catchment's time of
+concentration.
+
+**Part C. Recurrence intervals.**
+
+**7. Why the resident is wrong.** The recurrence interval $ T = 1/p $ describes a long-run average
+frequency and not a schedule. A one-in-a-hundred-year flood has $ p = 0.01 $ of occurring in any
+year, including the one immediately following such a flood. The river retains no memory of what it
+did last year, and successive years are, to a good approximation, independent. The argument is the
+gambler's fallacy applied to a floodplain, and it is not merely an academic error, since it has
+encouraged real people to rebuild in places where they should not have.
+
+There is one genuine caveat worth adding. If antecedent conditions remain wet, or if the climate is
+non-stationary, the risk in the following year may in fact be higher rather than lower.
+
+**8. Probability over thirty years.** The probability of no flood in a given year is
+$ 1 - 0.01 = 0.99 $, so across thirty independent years
+
+$ P(\text{none}) = 0.99^{30} = 0.7397 $, and $ P(\text{at least one}) = 1 - 0.7397 \approx \mathbf{26\%} $
+
+Roughly a one-in-four chance over the life of a mortgage. Most people's intuition for a
+"one in a hundred year" event puts the figure very much lower, which is part of why floodplain
+development remains such a persistent problem.
+
+**9. On terminology.** The phrase "return period" invites precisely the misreading in part 7,
+because it sounds as though the event returns on a fixed cycle. "Recurrence interval" makes it
+clearer that the number is an average spacing between events of a given magnitude taken over a long
+record, and that it carries no implication whatever about when the next one will arrive.
+
+<<<<
+
+## 7. Delineating a catchment boundary
+
+**1 and 2. A workable procedure.** Any procedure equivalent to the following will do, and since the
+point of the exercise was to derive it, the reasoning matters more than the wording.
+
+1. Identify the **outlet**, or pour point, on the stream, this being the point whose contributing
+   area we want.
+2. Identify the **stream network** and the valleys it occupies. Contours form a V pointing upstream
+   where they cross a valley, and a rounded nose pointing downhill where they cross a ridge.
+3. Mark the **high points and ridgelines** surrounding the stream network, since these are the
+   divides.
+4. Trace the boundary along those ridgelines, **crossing contours at right angles**, working
+   outwards from one side of the outlet, around the head of the catchment, and back down the other.
+5. **Close the loop** at the outlet, then check connectivity: everything inside must drain to the
+   outlet, and everything outside must drain elsewhere.
+
+!(50%)[topomap](../image/tutorial_usgs_catchment_answer.png "The delineated catchment boundary for the marked outlet.")
+
+Applied to this map, the outlet sits near the centre bottom of the figure, where the stream leaves
+the valley. Flow lines run downhill perpendicular to the contours, and the valleys are marked by
+contours forming V shapes that point upstream. The northern and western ridgelines show closely
+spaced contours curving outward, and that is the high ground. The boundary follows them, running up
+from the outlet along the eastern ridge, around the head of the catchment to the north, and back
+down the western slope to close at the outlet.
+
+**3. Comparing procedures.** The differences that tend to be genuine are these: whether you began at
+the outlet or at the ridges, whether you drew flow lines explicitly before locating the divide or
+inferred the divide directly, and whether you treated the stream network as given or derived it
+from the contours first. All three approaches can be made to work. The differences that are not
+genuine are differences of vocabulary, since "watershed", "divide" and "catchment boundary" all
+name the same line.
+
+**4. Physical justification.** Flow lines cross contours at right angles because water follows the
+steepest descent, and the direction of steepest descent on a surface is perpendicular to the
+contour. The contour is by definition the direction along which elevation does not change, so the
+gradient must be normal to it.
+
+The boundary follows high points and closes at the outlet because a divide is the locus from which
+water drains in two different directions. It cannot run along a valley, since water there is
+already committed to one catchment or the other. It must close on itself because the catchment is a
+finite, bounded area, and a boundary left open would leave the catchment undefined.
+
+**5. Where confidence fails.** Flat terrain is the usual difficulty, because contours are widely
+spaced and a small error in reading their position becomes a large error in the divide. Broad
+saddles and plateaux are similar, and there the position of the divide may be genuinely ambiguous
+rather than merely hard to see. Karst and fractured rock present a different problem, since surface
+topography may not control the flow at all. Modified landscapes present a third, because roads,
+drains, culverts and irrigation channels routinely route water straight across a topographic
+divide.
+
+**6. Surface and groundwater divides.** Your sketch should show a hill in cross section with the
+surface water divide at the topographic high, and the groundwater divide displaced to one side. The
+reason is that the water table is a subdued replica of the topography whose shape is controlled by
+geology, so a permeable layer dipping over an impermeable one can carry groundwater beneath the
+surface divide and into the neighbouring catchment. Figure 1.6 in the textbook shows this.
+
+The practical consequence is that a catchment water balance may fail to close if it is computed on
+the topographic boundary alone, because water is entering or leaving unseen. Allocating water on
+the basis of surface catchments can therefore over-allocate one basin while quietly starving its
+neighbour, which is why integrated water resource management works with both boundaries at once.
+
+**7. Manual against digital.** Manual delineation is slow, subjective and unreliable in flat or
+complex terrain. What it has in its favour is that it obliges you to look at the landscape, and
+that its output is easy to sanity-check.
+
+Digital, DEM-based delineation is fast, reproducible and scalable, and it brings its own problems.
+The result is only as good as the resolution and vertical accuracy of the underlying elevation
+model. Sink filling deliberately alters the real topography in order to make the algorithm work.
+The D8 algorithm forces flow into one of eight directions, which produces unrealistic parallel
+straight-line paths across planar hillslopes and performs poorly on flat ground. The approach still
+assumes that topography controls flow, so it inherits every limitation discussed in part 6. Above
+all, a digital result looks authoritative, and for that reason it is rarely checked.
+
+## 8. Water, climate and scarcity
+
+The following sketches the ground a strong answer would cover. These are open questions, so a good
+essay may take a different route through the material.
+
+**(a) Physical properties and climate.** The most useful thing to notice is that these are not four
+independent properties but four consequences of one molecular cause. Hydrogen bonding is the root
+of all of them, and it is why water requires so much energy to change either its temperature or its
+phase. Its specific heat capacity of 4.2 kJ/kg/K, against 1.1 for dry soil and 0.44 for iron, means
+that oceans and lakes warm and cool slowly, which is why maritime climates have milder summers and
+winters than continental ones at the same latitude. Latent heat is the largest effect of the four,
+since something like 70% of the Earth's lateral energy transport is carried as latent heat in water
+vapour moving from the equator towards the poles; without it the equator-to-pole temperature
+gradient would be far steeper than it is. Water vapour is also the dominant greenhouse gas. The
+density anomaly, with maximum density at 3.98 °C, means that ice floats and lakes freeze from the
+top down, insulating the water beneath, and had ice sunk instead, water bodies would freeze solid
+from the bottom and aquatic life could not survive a winter.
+
+**(b) The Stumm statement.** The statement is arithmetically defensible and practically useless, and
+the reason is the distinction between stores and fluxes. The total quantity of fresh water is
+indeed large, but a quantity held in store is not a supply, and what can actually be used is the
+renewable flux, which amounts to roughly 5,300 m³ per person per year of river run-off rather than
+the far larger store-based figures. On spatial inequality, Iceland holds 525,000 m³/cap/yr against
+essentially nothing in Kuwait, and Australia appears water-rich at 21,272 m³/cap/yr only because
+high rainfall in the tropical north-west conceals severe scarcity across the interior and the
+Murray-Darling Basin. Temporal inequality matters as much as spatial, as the 2005 to 2007 drought
+demonstrated. The measure itself is flawed, being based on rainfall falling within national borders
+and therefore ignoring transboundary rivers, shared aquifers, and the virtual water embedded in
+trade. Hydrology contributes as a pure science by quantifying and explaining these disparities, and
+as an applied science through the design of abstraction and storage, through allocation policy, and
+through the remote sensing of water resources that occupies the second half of this course.
+
+**(c) Overcoming scarcity.** The available strategies include increasing storage to buffer temporal
+variability, whether through dams or managed aquifer recharge; transferring water between basins;
+desalination, treated honestly, which means acknowledging its energy cost; demand management and
+irrigation efficiency, which is where most water actually goes and therefore where most of it can
+be saved; and treaties governing shared rivers and aquifers. To these should be added virtual
+water, meaning the import of water-intensive goods in place of the water itself, which is how
+several of the water-poorest countries in Table 1.3 function in practice. The strongest answers
+note that every one of these strategies moves the problem somewhere else rather than dissolving it,
+whether onto the energy system, onto an upstream neighbour, or onto the groundwater of an exporting
+country. Dalin et al. (2017) found that around 11% of non-renewable groundwater abstraction for
+irrigation is embedded in international food trade, which is the same displacement seen from the
+other end.
+
+<<<<
+
+## Extra: digital delineation using the D8 method
+
+Digital watershed delineation is normally performed on a **Digital Elevation Model**, which is a
+grid of elevation values. The most widely used flow-direction algorithm is **D8**, standing for
+Deterministic Eight. This section is not examinable, but the method underlies almost every
+catchment boundary you will meet in practice, and it is worth knowing what the software is doing.
+
+### Procedure
+
+1. **Fill sinks.** Elevation models contain local depressions, or pits, that interrupt continuous
+   downslope flow, and these are filled by raising the sink to the elevation of its lowest spillover
+   point. It is worth being clear that this deliberately alters the terrain, since real closed
+   depressions do exist and filling them is a modelling convenience rather than a correction.
+
+2. **Compute flow direction.** For each cell, compare its elevation with that of its eight
+   neighbours, and assign flow to the direction of steepest descent, measured as the maximum drop
+   per unit distance. Each cell drains to exactly one neighbour, which is what makes the method
+   deterministic.
+
+3. **Compute flow accumulation.** Beginning from headwater cells that receive no inflow, accumulate
+   the number of upstream cells draining through each cell. Applying a threshold to the resulting
+   grid identifies the stream network.
+
+4. **Select an outlet**, usually snapping it to a cell of high accumulation so that it sits on the
+   modelled channel rather than beside it.
+
+5. **Delineate** by tracing upstream from the outlet through the flow-direction grid. Every cell
+   that drains to the outlet belongs to the catchment.
+
+### Flow direction encoding
+
+Each cell stores a power-of-two code giving its outflow direction:
+
+.align{center}
+    | Direction | E | SE | S | SW | W | NW | N | NE |
+    |:----------|--:|---:|--:|---:|--:|---:|--:|---:|
+    | Code      | 1 | 2  | 4 | 8  | 16| 32 | 64| 128|
+    "Standard D8 direction encoding."
+
+### Limitations and tools
+
+D8 is simple and fast, but forcing all flow into one of eight directions produces artificial
+parallel flow paths across planar hillslopes and behaves poorly on flat ground. Multiple
+flow-direction algorithms such as D-infinity distribute flow among several downslope neighbours and
+represent divergent hillslope flow more realistically, at greater computational cost.
+
+In Python, `pysheds` ([GitHub](https://github.com/mdbartos/pysheds)) implements the whole workflow,
+and `richdem`, `numpy` and `scipy.ndimage` are useful for manipulating elevation models directly.
+QGIS and ArcGIS both provide built-in watershed delineation tools.

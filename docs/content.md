@@ -43,8 +43,8 @@ Below is a comprehensive list of course materials for the Water Course.
 
 This course draws exclusively from two comprehensive texts:
 
-- **Tim Davie** (2008), *Fundamentals of Hydrology*, 2nd Edition, Routledge.
-  _Used for precipitation, evaporation, runoff, and surface hydrology._
+- **Tim Davie & Nevil Wyndham Quinn** (2019), *Fundamentals of Hydrology*, 3rd Edition, Routledge.
+  _Used for the hydrological cycle, precipitation, evaporation, runoff, and surface hydrology._
 
 - **Franklin W. Schwartz & Hubao Zhang** (2024), *Fundamentals of Groundwater*, 2nd Edition, Wiley.
   _Used for soil moisture, aquifers, flow theory, and groundwater management._

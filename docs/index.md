@@ -36,7 +36,7 @@ By the end of the course, students will gain:
 
 This course draws on two foundational texts:
 
-- *Tim Davie (2008), Fundamentals of Hydrology*, 2nd Edition — for precipitation, evaporation, runoff, and surface hydrology
+- *Tim Davie & Nevil Wyndham Quinn (2019), Fundamentals of Hydrology*, 3rd Edition, Routledge — for the hydrological cycle, precipitation, evaporation, runoff, and surface hydrology
 - *Franklin W. Schwartz & Hubao Zhang (2024), Fundamentals of Groundwater*, 2nd Edition — for aquifers, groundwater flow, contamination, and sustainability
 
 These are the basis for all slides and should be used throughout for deeper understanding and exercises.
