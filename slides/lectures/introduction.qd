@@ -27,17 +27,12 @@
     ##! Remote Sensing of Water Resources
 
 .row alignment:{center}
-    .container width:{60%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
-      ####! Course Evolution
-      **Historical Focus Areas:**
-        - Previously titled **Groundwater**: Emphasised geochemistry and fine-scale groundwater processes, with aspects of hydrogeology.
-        - Later transitioned to **Remote Sensing of Water**.
-
-      **Current Direction:**
-      This year marks my first as course convenor, and I will be delivering the course for the foreseeable future. The curriculum has been comprehensively restructured and now consists of three core modules:
-        - Hydrological Cycle
-        - Remote Sensing of Water Resources
-        - Groundwater
+    .container width:{70%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
+      ####! Second time around
+      - I first ran this course in **Semester 2, 2025**; this is the second offering, **Semester 2, 2026**.
+      - Responding to your feedback, the **remote sensing** material is now taught *inside* the course, woven into each topic, rather than sitting apart from it.
+      - **Groundwater** is treated as one component of the water cycle that we simply spend more time on — not as a separate subject.
+      - From **2027** the course is renamed **Global Water Resources**. The content stays much the same, but the emphasis shifts: remote sensing as a *tool* for understanding and modelling water, rather than the topic itself.
 
 # Our Relationship to Water
 .whitespace height:{4cm}
@@ -68,31 +63,32 @@
         - Understand the principles of **groundwater** and the physics of groundwater flow.
         - Understand a variety of **remote sensing** satellite missions and how the observations inform water research.
         - **Critically evaluate** technical reports and journal articles.
-        - Synthesise key concepts in hydrology and/or remote sensing to understand **changes in water resources**.
+        - Synthesise key concepts in hydrology to understand **changes in water resources**.
 
 # Structure of the course
-_Note: The actual content might change depending on our pace_
-| Week          | Topic                                                  | Activities                                                                                      |
-|---------------|--------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| 1  | Introduction | The course, and the global and regional water cycle; observing water from space |
-| 2  | Precipitation | Precipitation processes and measurement, and satellite precipitation (GPM/TRMM) |
-| 3  | Evapotranspiration | Physical controls on evapotranspiration and its remote sensing |
-| 4  | Runoff and streamflow | Hydrographs and catchments, and satellite altimetry (SWOT) |
-| 5  | Soil moisture and the unsaturated zone | Water retention, and satellite soil moisture (SMAP/SMOS) |
-| 6  | Groundwater -- Principles | Occurrence and storage, and total water storage from GRACE gravity |
-| 7  | Groundwater -- Aquifers | Types, hydraulic properties, and characterisation of aquifers |
-| 8  | Theory of groundwater flow I | Darcy's law and saturated flow |
-| 9  | Theory of groundwater flow II | Wells, pumping, and transient flow |
-| 10 | Geology and Hydrogeology                              ||
-| 11 | Groundwater management | Water resources in Australia |
-| 12 | Water resources in a changing climate | Integrating observations and synthesis |
+_Note: our pace may shift the content. Weeks 9--12 are new -- last year's case studies were US aquifers, courtesy of the USGS; this year, Australian ones._
+| Week     | Topic                                  | What we cover                                                                   |
+|:---------|:---------------------------------------|:--------------------------------------------------------------------------------|
+| 1        | Introduction and the water cycle       | The course; the global and catchment water cycle; observing water from space     |
+| 2        | Precipitation                          | Precipitation processes and measurement; satellite precipitation (GPM/TRMM)      |
+| 3        | Evapotranspiration                     | Physical controls on evaporation and transpiration; how we sense it from space   |
+| 4        | Runoff and streamflow                  | Hydrographs, catchments, gauging; satellite altimetry (SWOT)                     |
+| 5        | Groundwater -- principles              | Porosity, occurrence and flow; total water storage from GRACE gravity            |
+| 6        | Groundwater -- aquifers                | Aquifer types, transmissivity and storativity                                    |
+| 7        | Theory of groundwater flow I           | Darcy's law, the flow equation, boundary conditions                              |
+| 8        | Theory of groundwater flow II          | Unsaturated zone and soil moisture (SMAP/SMOS); flow in fractures                |
+| 9        | Australian aquifers                    | Case studies -- new material this year                                           |
+| 10--12   | Water, management and climate          | Your paper critiques; groundwater management; synthesis and revision             |
 
 # Course Materials
 .align{center}
-  .container width:{60%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+  .container width:{75%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
     - [Canvas](https://canvas.anu.edu.au/courses/3453) will provide all the necessary resources for this course.
     - [watercourse.earth](https://watercourse.earth) is the course website. It is part of me experimenting with new ways of delivering the course.
-    - I will be providing additional resources in form of (AI generated)podcasts and links to articles and videos for the course.
+    - Two textbooks carry most of the course:
+        - Davie & Quinn (2019), [*Fundamentals of Hydrology*, 3rd ed., Routledge](https://www.routledge.com/Fundamentals-of-Hydrology/Davie-Quinn/p/book/9780415858700) -- water cycle, precipitation, evaporation, runoff.
+        - Schwartz & Zhang (2024), [*Fundamentals of Groundwater*, 2nd ed., Wiley](https://www.wiley.com/en-us/Fundamentals+of+Groundwater,+2nd+Edition-p-00340222) -- soil moisture, aquifers, flow theory, management.
+    - I will add extra material as we go: (AI generated) podcasts, short-format videos that I hope to put online, and links to articles.
     - Use [Canvas](https://canvas.anu.edu.au/courses/3453) to ask questions and discuss the course material.
     - **I am looking forward to your feedback on the course.**
 
@@ -125,25 +121,25 @@ _Note: The actual content might change depending on our pace_
   .container width:{33%}
     .box title:{Assignment I (10%)}
       - Precipitation.
-      - Post Week 2
+      - **Out now**, due Friday 21 August
       - _Analysing a precipitation record_.
 
   .container width:{33%}
     .box title:{Assignment II (15%)}
       - Total water storage.
-      - Post Week 5
+      - Posted Week 5, due Friday 25 September
       - _Deriving soil moisture and groundwater change from GRACE space gravity_.
 
   .container width:{33%}
     .box title:{Assignment III (15%)}
       - Groundwater.
-      - Post Week 9
+      - Posted Week 9, due Friday 23 October
       - _Analysing groundwater levels and storage_.
 .fullspan
   .align{center}
-    .container width:{50%}
+    .container width:{60%}
       .box type:{note} background:{.lightred}
-        - Assignments will be posted on canvas.
+        - Assignments are posted on Canvas; the first one is already there, so you can start before we cover the lecture material.
         - The three assignments are worth 10%, 15% and 15% (40% in total).
 
 
@@ -174,8 +170,10 @@ _Note: The actual content might change depending on our pace_
     | 10–11 | Lecture, R1.02, J8 | Tutorial, R1.02, J8     |
     | 11–12 |                    | Computer Lab, R1.02, J8 |
 
-.box type:{Note} background:{.lightred}
-  Participation is assessed during the Wednesday tutorial.
+.align{center}
+  .container width:{45%}
+    .box type:{Note} background:{.lightred}
+      Participation is assessed in the Wednesday tutorial.
 
 # Lecturers
 
@@ -198,12 +196,13 @@ _Note: The actual content might change depending on our pace_
 
   .container width:{25%} alignment:{center} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
     .box background:{.lightblue}
-      Computer lab demonstrator\
-      _TBA -- announced closer to the date_
+      Sruthy Sajeev\
+      _Wednesday computer labs_
 
-.whitespace height:{0.5cm}
-.box type:{note} background:{rgb(200, 225, 200)}
-  Some of the remote-sensing material draws on lectures given by Prof. Paul Tregoning in previous years.
+.align{center}
+  .container width:{60%}
+    .box type:{note} background:{rgb(200, 225, 200)}
+      Some of the remote-sensing material draws on lectures given by Prof. Paul Tregoning in previous years.
 
 
 
@@ -215,12 +214,12 @@ _Note: The actual content might change depending on our pace_
       - Sample exam-type questions
       - Python examples
       - Tutorials might explain how to do the assignments
-      - **Participation is assessed here** (engagement, not attendance; best 8 count)
+      - **Participation is assessed here**: have a go at the problems and take part in the discussion. It is engagement, not attendance -- turn up and join in and you get the marks.
 
   .container width:{80%} background:{rgb(200, 225, 200)}
     .box title:{Comp Labs}
       - Drop-in sessions to work on assignments.
-      - Demonstrator (TBA) available to provide assistance
+      - Run by **Sruthy Sajeev**, who will be there to help you.
 
 .row gap:{1cm} alignment:{center}
   .container width:{80%}

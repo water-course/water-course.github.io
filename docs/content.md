@@ -9,32 +9,41 @@ Below is a comprehensive list of course materials for the Water Course.
     If you are an *ANU student* that is currently enrolled in the course, you could have a PDF format of the slides on [Canvas](https://canvas.anu.edu.au/courses/3453).
 
 ### 🧑‍🏫 Lecture Sequence
+
+Slides are released as we get to them during the semester.
+
 - [**Introduction to the Course**](Introduction/index.html)
 - [**The Hydrologic Cycle**](Watercycle/index.html)
-- [**Precipitation**](Precipitation/index.html)
-- [**Evapotranspiration**](Evaporation/index.html)
-- [**Run-off**](Runoff/index.html)
-- [**Groundwater - Principles**](Groundwater/index.html)
-- [**Groundwater - Aquifers**](Aquifers/index.html)
-- [**Groundwater - Theory of Flow I (saturated)**](Groundwater-Theory/index.html)
-- [**Groundwater - Theory of Flow II (unsaturated)**](Unsaturated-Flow-Basics/index.html)
+- **Precipitation**
+- **Evapotranspiration**
+- **Run-off**
+- **Groundwater - Principles**
+- **Groundwater - Aquifers**
+- **Groundwater - Theory of Flow I (saturated)**
+- **Groundwater - Theory of Flow II (unsaturated)**
 
 ---
 
 ### 📄 Tutorials
-- [**The Hydrologic Cycle**](Tutorial-Watercycle/index.html)
-- [**Precipitation**](Tutorial-Precipitation/index.html)
-- [**Evapotranspiration**](Tutorial-Evaporation/index.html)
-- [**Run-off**](Tutorial-Runoff/index.html)
-- [**Groundwater - Principles**](Tutorial-Groundwater/index.html)
-- [**Groundwater - Theory of Flow**](Tutorial-Flowtheory/index.html)
-- [**Groundwater - Aquifers**](Tutorial-Aquifers/index.html)
+
+Each tutorial appears here in the week it is run.
+
+- **The Hydrologic Cycle**
+- **Precipitation**
+- **Evapotranspiration**
+- **Run-off**
+- **Groundwater - Principles**
+- **Groundwater - Theory of Flow**
+- **Groundwater - Aquifers**
 
 
 ### 🔖 Assignments
-- [**Assignment 1**](AssignmentOne/index.html) - Precipitation
-- [**Assignment 2**](AssignmentTwo/index.html) - Soil Moisture
-- [**Assignment 3**](AssignmentThree/index.html) - Groundwater
+
+Assignments are handed out on [Canvas](https://canvas.anu.edu.au/courses/3453).
+
+- **Assignment 1** - Precipitation
+- **Assignment 2** - Soil Moisture
+- **Assignment 3** - Groundwater
 
 
 ---

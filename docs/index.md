@@ -17,7 +17,7 @@ The course is structured around lecture modules that reflect the natural flow of
 
 !!! Note
 
-    Modules focusing on **Remote Sensing** are only provided on [Canvas](https://canvas.anu.edu.au/courses/3453).
+    **Remote sensing** is no longer a separate module: it is woven into each topic, and the accompanying material is on [Canvas](https://canvas.anu.edu.au/courses/3453).
 
 !!! warning
 
