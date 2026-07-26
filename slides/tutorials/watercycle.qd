@@ -51,8 +51,8 @@ enough numbers to test whether that claim is internally consistent.
     | Evaporation from the ocean | 502,800 |
     | Precipitation over the land | 110,000 |
     | Evapotranspiration from the land | 65,200 |
-    | Precipitation over lakes | 9,000 |
-    | Evaporation from lakes | 9,000 |
+    | Precipitation over internally draining land | 9,000 |
+    | Evaporation from internally draining land | 9,000 |
     | River run-off to the ocean | 42,600 |
     | Groundwater flow to the ocean | 2,200 |
     "Global annual water fluxes."
@@ -62,9 +62,10 @@ enough numbers to test whether that claim is internally consistent.
 2. Now find the total return flow from land to ocean. Does the budget close? If it does, explain in
    one sentence why it had to.
 3. Compare global precipitation with global evaporation, and comment on the result.
-4. The land receives 110,000 km³/yr of precipitation. Taking the Earth's land area as
-   $ 149 \times 10^6 $ km², express this as a mean depth in mm/yr. Is your answer plausible? What
-   would you compare it against to find out?
+4. Express the 110,000 km³/yr of land precipitation as a mean depth in mm/yr. Which area belongs in
+   the denominator: the $ 119 \times 10^6 $ km² that drains to the ocean, or the whole
+   $ 149 \times 10^6 $ km² of land? Work out both, then decide which one honestly answers "mean
+   precipitation over land". What would you compare your answer against to check it?
 5. The same figure labels the *area of internal runoff* as 119 million km² and the *area of external
    runoff* as 119 million km², with the oceans at 361 million km². Add the three areas together.
    The Earth's total surface area is $ 510 \times 10^6 $ km². Something has gone wrong. Which of

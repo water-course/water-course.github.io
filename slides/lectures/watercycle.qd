@@ -71,7 +71,7 @@
   .align{center}
     The human–water interactions are central to sustainable water management.
     [Abbott et al., Nature Geoscience 2019](https://www.nature.com/articles/s41561-019-0374-y)
-    !(95%)[Water Interaction](../image/internet_Abbott.png "from Abbott et al., Nature Geoscience 2019")
+    !(70%)[Water Interaction](../image/internet_Abbott.png "from Abbott et al., Nature Geoscience 2019")
 
 # Hydrology as a science
 .row
@@ -121,7 +121,7 @@
     - For **Indigenous Australians**, water is integral to **Country**, ceremony, and responsibility
 
   .container width:{50%} alignment:{center}
-    !(80%)[Baaka Monthly](../image/internet_monthBaakaa.png "An article in *the Monthly* magazine on the fate of the Murray-Darling Basin")
+    !(70%)[Baaka Monthly](../image/internet_monthBaakaa.png "An article in *the Monthly* magazine on the fate of the Murray-Darling Basin")
 
     .container borderwidth:{1pt} alignment:{center} padding:{0.1cm} background:{rgb(240,240,240)}
       Watch [Homily to Country - National Gallery of Victoria](https://vimeo.com/517606482?p=1s)
@@ -166,7 +166,7 @@
             - Standing water **thermally stratifies**, with 4°C water sinking to the bottom
             - Aquatic ecosystems persist in cold conditions
 
-      !(80%)[density](../image/davie_fig_1-3.png "Density of water with temperature. Maximum density is at 3.98°C.")
+      !(70%)[density](../image/davie_fig_1-3.png "Density of water with temperature. Maximum density is at 3.98°C.")
 
     .container width:{50%}
       ## Specific Heat
@@ -203,7 +203,7 @@
     - Water vapour is also the **dominant greenhouse gas**
 
   .container width:{60%}
-    !(100%)[phasetransitions](../image/davie_fig_1-4.png "Phase changes of water under normal atmospheric conditions. Note the metastable zones: supercooled liquid water can persist down to -40°C — this matters for the Bergeron process next week.")
+    !(80%)[phasetransitions](../image/davie_fig_1-4.png "Phase changes of water under normal atmospheric conditions. Note the metastable zones: supercooled liquid water can persist down to -40°C — this matters for the Bergeron process next week.")
 
 #
 .whitespace height:{3cm}
@@ -335,17 +335,16 @@
     "All three are the same number."
 
     - Globally, precipitation = evaporation = **577,000 km³/yr**
-    - Land precipitation over $ 149 \times 10^6 $ km² of land $ \approx $ **740 mm/yr**
+    - Mass is conserved, so this had to close. It is worth doing once anyway, because it tells you the diagram is a **budget**, not an illustration.
 
   .container width:{43%}
-    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
-      ####! Read published figures sceptically
+    ## From flux to depth
+    - The 110,000 km³/yr of land precipitation falls on the **externally draining** land, $ 119 \times 10^6 $ km², a mean depth of $ \approx $ **920 mm/yr**
+    - The internally draining basins take a further 9,000 km³/yr, so averaged over all $ 149 \times 10^6 $ km² of land it is $ \approx $ **800 mm/yr**
+    - Match the numerator to the denominator, or the answer is meaningless
 
-      This diagram labels **both** the internal and external runoff areas as 119 million km².
-
-      $ 119 + 119 + 361 = 599 $ million km², but the Earth's whole surface is only **510** million km² (149 land + 361 ocean).
-
-      One of those labels is wrong. The internally draining area is closer to 30 million km². The fluxes are fine; the areas are not.
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.3cm}
+      A note on this figure: it labels **both** runoff areas as 119 million km², and $ 119 + 119 + 361 $ overshoots the Earth's 510 million km². Internal drainage is nearer **30** million km². The fluxes are sound; the area labels are not.
 
 
 # Stores, fluxes and residence time
@@ -388,32 +387,34 @@
   	!(90%)[climatezones](../image/davie_fig_1-8.png "Partitioning of total precipitation by climate zone (UNESCO, 2006)")
 
 
-# A number worth interrogating
+# So is it enough water per person?
 .row gap:{1cm}
   .container width:{46%}
-    Davie & Quinn take the 0.27% "available" figure and convert it to a headline number:
+    Take the 0.27% "available" share literally. $ 0.27\% $ of $ 1{,}385{,}984 \times 10^3 $ km³ is $ 3.74 \times 10^{18} $ L, which among 8 billion people is
 
     .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm}
-      ###! ~146 million litres per person
+      ###! ~470 million litres each
 
-    - Let us check it. $ 0.27\% $ of $ 1{,}385{,}984 \times 10^3 $ km³ gives $ 3.74 \times 10^{18} $ L.
-    - Shared among 7 billion people: $ 5.3 \times 10^{8} $ L, or **535 million litres**, not 146.
-    - The book says "per **day**" on p. 8 and "per **year**" on pp. 10--11.
+    - Enormous — but it is a **store**. An inheritance, not an income.
+    - Set it against the flux that turns it over and you have a residence time again:
+
+    .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+      $ \frac{3.74 \times 10^6\ \text{km}^3}{42{,}600\ \text{km}^3\text{/yr}} \approx 90\ \text{years} $
+
+    - The entire accessible store is worth about a **century** of run-off. Spend it faster than that and you are mining it.
 
   .container width:{47%}
-    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
-      ####! Two things are wrong
+    What you may actually spend is the **flux**: river run-off, 42,600 km³/yr among 8 billion people.
 
-      **1. It is a store, not a flux.** A fixed volume cannot have units of "per year". You may only spend what is *renewed*.
+    .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.5cm}
+      ###! $ \approx 5{,}300 $ m³ per person per year
 
-      **2. It does not reproduce.** 0.27% and 146 million litres do not follow from the same population.
-
-    .whitespace height:{0.3cm}
-
-    - The honest figure is the renewable one: **river run-off**, 42,600 km³/yr among 8 billion people, or about **5,300 m³ per person per year**, some **27 times smaller**.
+    - Sanity check: $ 5.3 \times 10^3 $ m³/cap/yr lands between the **UK** and the **USA** on the next slide, below **Australia**. That is where a global average belongs.
+    - It is also about **70 times** Australian household use ($ \approx $ 200 L per person per day).
+    - So the answer to the question is **yes, in total, and no, where and when it is needed.** Scarcity is a problem of distribution, as Stumm said.
 
     .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightblue} radius:{0.3cm}
-      Check the units, then check the arithmetic.
+      Davie & Quinn quote this store as "146 million litres per person", per *day* in one place and per *year* in another. A share of a store carries no time at all, so treat it as a volume and use run-off when you want a supply.
 
 # Water availability vs population
 .row gap:{0.5cm}
@@ -465,13 +466,13 @@
     > - Dalin et al (2017), Nature
 
   .container width:{50%}
-    !(100%)[groundwater_food_trade](../image/internet_globalfoodtrade.png "Groundwater Exchange Embedded in Global Food Trade")
+    !(80%)[groundwater_food_trade](../image/internet_globalfoodtrade.png "Groundwater Exchange Embedded in Global Food Trade")
 
 # The consequence
 .fullspan
   .center
     .html
-      <div style="position:relative; width:100%; height:0px; padding-bottom:63.830%"><iframe allow="fullscreen;autoplay" allowfullscreen height="100%" src="https://streamable.com/e/ym4ni2?autoplay=1&nocontrols=1" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+      <div style="position:relative; width:100%; height:0px; padding-bottom:43.830%"><iframe allow="fullscreen;autoplay" allowfullscreen height="100%" src="https://streamable.com/e/ym4ni2?autoplay=1&nocontrols=1" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
 
 # The consequence
 .fullspan

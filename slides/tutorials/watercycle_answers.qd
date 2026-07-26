@@ -76,19 +76,34 @@ is the water balance equation, $ P \pm E \pm \Delta S \pm Q = 0 $, drawn as a pi
 
 Precipitation totals $ 458{,}000 + 110{,}000 + 9{,}000 = 577{,}000 $ km³/yr, and evaporation totals
 $ 502{,}800 + 65{,}200 + 9{,}000 = 577{,}000 $ km³/yr. They are equal, for the same reason as
-before. If you excluded the lake terms from both sides you would have obtained 568,000 km³/yr on
-each side, which is equally correct; what matters is that you treated the two sides consistently.
+before. If you excluded the internal-drainage terms from both sides you would have obtained 568,000
+km³/yr on each side, which is equally correct; what matters is that you treated the two sides
+consistently.
 
 **4. Mean land precipitation depth.**
 
-$ \frac{110{,}000 \text{ km}^3\text{/yr}}{149 \times 10^6 \text{ km}^2}
-= \frac{1.1 \times 10^{14}\ \text{m}^3\text{/yr}}{1.49 \times 10^{14}\ \text{m}^2}
-= 0.738\ \text{m/yr} \approx 740\ \text{mm/yr} $
+The 110,000 km³/yr falls on the externally draining land, which the figure gives as
+$ 119 \times 10^6 $ km²:
 
-To judge plausibility, compare it against something you already know. Commonly cited values for
-mean precipitation over land fall between roughly 700 and 800 mm/yr, so we are in the right place.
-It is also a little below the Australian average, which is what we should expect, given how much of
-the global land surface is desert.
+$ \frac{110{,}000 \text{ km}^3\text{/yr}}{119 \times 10^6 \text{ km}^2}
+= \frac{1.1 \times 10^{14}\ \text{m}^3\text{/yr}}{1.19 \times 10^{14}\ \text{m}^2}
+\approx 920\ \text{mm/yr} $
+
+For a mean over *all* land you need the internally draining basins as well, which add their own
+9,000 km³/yr:
+
+$ \frac{(110{,}000 + 9{,}000) \text{ km}^3\text{/yr}}{149 \times 10^6 \text{ km}^2}
+\approx 800\ \text{mm/yr} $
+
+That second figure is the one that answers "mean precipitation over land". Dividing 110,000 by
+$ 149 \times 10^6 $ instead gives 740 mm/yr, and that number answers no question at all, because the
+numerator and the denominator describe different pieces of the Earth. It is close enough to
+reasonable that it survives a careless glance, which is precisely why the two have to be matched.
+
+To judge plausibility, compare against something you already know. Commonly cited values for mean
+precipitation over land fall between roughly 700 and 800 mm/yr, so 800 sits at the top of the
+expected range. It is also well above the Australian average of about 470 mm/yr, which is what we
+should expect, since Australia is the driest inhabited continent.
 
 **5. The area labels.**
 
@@ -101,9 +116,15 @@ internal, or endorheic, runoff area is the one to distrust. Internally draining 
 put at roughly 20 to 30 million km², and $ 119 + 30 = 149 $ closes correctly. The label appears to
 have been duplicated somewhere in the reproduction of the figure.
 
+There is also a check available from inside the figure itself. The internally draining land receives
+9,000 km³/yr. Spread over the labelled 119 million km² that is 76 mm/yr, which is Saharan rainfall
+averaged across an area four times the size of Africa. Spread over 30 million km² it is 300 mm/yr,
+which is close to what semi-arid closed basins such as the Caspian and the Australian interior
+actually receive. The fluxes tell you which of the two labels to keep.
+
 This does not affect parts 1 to 3, and you can say so with confidence rather than hoping, because
-those parts use only the fluxes and never touch the areas. It would have affected part 4 had you
-taken the land area from the figure instead of using the standard value. The wider lesson is that a
+those parts use only the fluxes and never touch the areas. Part 4 does use an area, but only the 119
+and the independently known 149, never the mislabelled internal figure. The wider lesson is that a
 published figure can be entirely authoritative about one thing while being wrong about another, so
 it is worth checking whichever part of it you intend to lean on.
 
