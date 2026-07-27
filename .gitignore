@@ -18,6 +18,10 @@ docs/computer-lab/
 # Kept on disk but out of the repo; the frozen state lives in the emsc3025-2025 tag.
 /admin/
 
+# Worked assignment solutions. This repository is public, so these stay on disk
+# only and are built locally with `make -C assignment-solutions`.
+/assignment-solutions/
+
 # Python virtualenv
 .venv/
 

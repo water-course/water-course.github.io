@@ -4,32 +4,218 @@
 .doclang{English}
 
 .pagemargin{bottomleft}
-   EMSC3025-6025 
+   EMSC3025-6025
 
 .pagemargin{topright}
-    Assignment I -- Precipitation 
+    Assignment I -- Precipitation
 
+.include {../definitions.qd}
 
-Precipitation data is available from the Bureau of Meteorology website as daily, monthly or annual data. Gridded data for the Australian continent starting from 2005, in netCDF format, can be
-downloaded. Download the monthly data netCDF, file for all available years, from the website:
+# Precipitation over the Murray-Darling Basin
+
+This assignment uses a century of gridded rainfall to ask three questions that hydrologists
+actually argue about: how much water falls on the Murray-Darling Basin, whether that amount is
+changing, and how the droughts and wet periods of the last twenty-five years compare with one
+another. Along the way you will meet the one geometric correction that separates a defensible
+basin water balance from one that is wrong by nearly a fifth.
+
+**Total: 10 marks**, plus an extension for EMSC6025.
+
+### The rainfall data
+
+We use the monthly rainfall product from the Bureau of Meteorology's Australian Water Outlook
+(the AWRA-L v7 model archive), served by NCI over OPeNDAP. You do **not** need to download
+anything by hand: `xarray` can open the remote file directly and subset it on the server.
 
 .row alignment:{center}
-   [https://awo.bom.gov.au/](https://awo.bom.gov.au/)
+   `https://thredds.nci.org.au/thredds/dodsC/iu04/australian-water-outlook/historical/v1/AWRALv7/processed/values/month/rain_day.nc`
 
-1. (4 marks) plot the Actual rainfall data for the following months (as four subplots in one figure): 
-   -  January 2005
-   -  August 2009
-   -  February 2010
-   -  December 2019
+```python
+import xarray as xr
+url = ("https://thredds.nci.org.au/thredds/dodsC/iu04/australian-water-outlook/"
+       "historical/v1/AWRALv7/processed/values/month/rain_day.nc")
+ds = xr.open_dataset(url)
+```
 
-2. **(4 marks)** Derive the integrated rainfall that fell each month within the Murray-Darling Basin. The file MDB.latlon contains a polygon defining the spatial extent of the Murray-Darling Basin and is available from [here](https://data.gadopt.org/water-course/MDB.latlon).
-3. **(1 mark)** Plot a time series of the monthly rainfall, integrated over the Murray-Darling Basin.
-4. **(1 mark)** Calculate the rate of change in monthly rainfall over the time span of the data.
-5. **(4 marks)** Compare the drought periods of 2005-2009 and 2016-2019 in terms of precipitation. What was similar and what was different about these two droughts?
-6. **(4 marks)** Compare the la Nina periods of 2010-2012 with those of 2020-2023. What was similar and different about these periods? (For more information on El Niño and La Niña click [here](http://www.bom.gov.au/climate/updates/articles/a020.shtml).
+What you are getting:
+
+- Variable `rain_day`, in **millimetres**. Despite the name and despite a `long_name` of
+  "Daily Rainfall", in this file each value is the **monthly total** rainfall. Ignore the
+  `long_name`; trust the `units` and the time axis.
+- A regular grid of 681 latitudes by 841 longitudes at 0.05 degrees (roughly 5 km), covering
+  latitude -10 to -44 and longitude 112 to 154.
+- Monthly steps beginning **January 1911** and continuing to the present. The record is extended
+  as new months are processed, so the last time step you receive depends on when you run your
+  notebook. **State in your notebook the first and last time step of the data you actually
+  pulled**, and exclude any incomplete final calendar year from annual statistics.
+
+Everything in this assignment that refers to a climatology, a long-term mean or an anomaly uses
+the **full record from 1911 up to the last complete calendar year** as its baseline. Say so in
+your notebook, and use the same baseline throughout so your numbers are comparable.
+
+### The basin
+
+The Murray-Darling Basin boundary is supplied as a pair of shapefiles, north and south, in
+
+.row alignment:{center}
+   [https://data.gadopt.org/water-course/MDB_boundaries.zip](https://data.gadopt.org/water-course/MDB_boundaries.zip)
+
+Unzip it and take the **union** of `MDB_north_boundary.shp` and `MDB_south_boundary.shp`. This
+assignment treats the basin as a single region; the north/south split is the subject of
+Assignment II. Tutorial 2 shows how to read the shapefiles and test whether a point falls inside
+a polygon. A grid cell belongs to the basin if its centre does; that is accurate enough here, and
+you can check it by comparing your masked area against the published basin area of about
+1,060,000 km².
+
+.whitespace{10pt}
+
+.center
+   .container width:{92%} background:{rgb(255, 215, 215)} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      ##### Four ways this will silently go wrong
+
+      **1. The latitude axis runs backwards.** Latitudes in this file are **descending**
+      (-10 down to -44). A slice must be given in the same order as the axis:
+
+      ```python
+      ds.rain_day.sel(latitude=slice(-38, -24))   # returns latitude: 0  -- EMPTY, no error
+      ds.rain_day.sel(latitude=slice(-24, -38))   # returns latitude: 281 -- correct
+      ```
+
+      The first form raises **no warning**. You get an empty array, and every mean you compute
+      downstream is `nan`. Print the shape of your subset before you go any further.
+
+      **2. `open_dataset` returning instantly does not mean the data arrived.** Opening the URL
+      reads only the metadata and takes about a second. The transfer happens later, when you call
+      `.load()`, `.values`, `.plot()` or an arithmetic reduction. Expect that step to take around
+      a minute for the whole record over the basin.
+
+      **3. Do not pull the global grid.** The full record at full extent is 1386 x 681 x 841
+      float32, about **3.2 GB**. Subset to a bounding box around the basin *first*, using
+      contiguous `slice()` objects. Boolean or fancy indexing over OPeNDAP is turned into many
+      small requests and is very slow.
+
+      **4. The last year is incomplete.** Resampling to annual totals without checking will
+      produce a spurious low point in the final year. Drop it.
+
+### Questions
+
+1. **(2 marks)** Plot monthly rainfall over the basin for four months, as a single figure with
+   four panels arranged **two rows by two columns**:
+
+   |  | dry | wet |
+   |:--|:--|:--|
+   | **October** | October 2006 | October 2022 |
+   | **December** | December 2019 | December 2010 |
+
+   The layout is the point of the question. Each **row** holds the calendar month fixed, so the
+   difference between the two panels in a row cannot be the seasonal cycle -- it is purely
+   interannual. Use a **common colour scale** across all four panels (otherwise the comparison is
+   meaningless), show the basin outline, and label each panel with its date. Comment briefly on
+   what the figure shows, including where in the basin the wet months put their rain.
+
+2. **(3 marks)** Compute the total **volume** of rainfall falling on the basin each month, in
+   gigalitres (1 GL = 10⁶ m³). This requires the area of every grid cell, and grid-cell area on a
+   sphere depends on latitude. Use the exact formula derived in **Tutorial 4** (`basics_02`),
+
+   $ A = R^2 \, \big| \sin\phi_2 - \sin\phi_1 \big| \, \big| \Delta\lambda \big| $ {#equation-1}
+
+   with $ R = 6370 $ km and the cell edges at $ \phi \pm 0.025° $, all angles in radians.
+
+   - **(i)** Report the mean monthly and mean annual rainfall volume over the basin in GL, and
+     the mean annual rainfall as a depth in mm. State your basin area in km² and compare it with
+     the published value.
+   - **(ii)** Now repeat the calculation assuming every 0.05° cell has the **same area** -- the
+     area a 0.05° x 0.05° cell would have at the equator, with no $ \cos\phi $ factor. Report the
+     resulting mean annual volume and the percentage error relative to (i). Explain, in terms of
+     .ref {equation-1}, why the error has the sign it does.
+   - **(iii)** There is a third, lazier method: take the plain unweighted mean of the rainfall in
+     all masked cells, then multiply by the true basin area. Compute it. You will find it is
+     within about 0.1 % of the correct answer, while (ii) is out by nearly 18 %. **Explain why.**
+     What quantity does the unweighted mean implicitly assume about cell areas, and what is the
+     only part of the area effect that survives it?
+
+3. **(2 marks)** Build a time series of **annual** basin rainfall over complete calendar years and
+   fit a straight line to it by ordinary least squares. Report the slope **together with its
+   standard error and p-value**, and then answer the question the fit was for: *is the fitted
+   trend distinguishable from the basin's year-to-year variability?* Quote the interannual
+   standard deviation alongside the slope to support your answer.
+
+   Repeat the fit over at least two different starting years (for example 1911, 1970 and 2000) and
+   comment on what happens to the slope. A good answer explains the behaviour you see rather than
+   reporting a single number.
+
+4. **(3 marks)** Compare four periods, using the full-record baseline defined above:
+
+   - the **Millennium Drought**, 2001-2009;
+   - the **Tinderbox Drought**, 2017-2019;
+   - the **La Niña** wet period 2010-2012;
+   - the **La Niña** wet period 2020-2023.
+
+   For each, report the mean annual rainfall in GL and mm and its anomaly from the baseline, both
+   in mm and as a percentage. Then discuss: what was similar and what was different between the
+   two droughts, and between the two wet periods? Your discussion should distinguish clearly
+   between how *deep* a rainfall deficit was and how *long* it lasted, and should say which of
+   those two you would expect to matter more for storage in the basin's reservoirs and soils, and
+   why. Support the argument with the year-by-year numbers, not just the period means.
+
+### Extension -- ENSO
+
+.center
+   .container width:{92%} background:{.lightgreen} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      **EMSC6025: required.** **EMSC3025: optional**, and worth one bonus mark carried through to
+      the end of semester.
+
+5. Obtain a monthly **ENSO index** and quantify how much of the basin's rainfall variability it
+   explains. Use **one** of:
+
+   - the **Southern Oscillation Index** from the Climatic Research Unit, University of East
+     Anglia: `https://crudata.uea.ac.uk/cru/data/soi/soi.dat` (1866 to present; a fixed-width
+     text file, year followed by twelve monthly values followed by the annual mean, with -99.9
+     as the missing-value flag); or
+   - the **Niño 3.4** sea-surface-temperature anomaly from NOAA PSL:
+     `https://psl.noaa.gov/data/correlation/nina34.anom.data` (1950 to present; two header
+     numbers, then year plus twelve monthly values, with -99.99 missing and a few lines of prose
+     at the end).
+
+   Do **not** attempt to download the index from `bom.gov.au`. The Bureau blocks automated
+   access and will return an HTTP 403 error. Its
+   [background page on El Niño and La Niña](https://www.bom.gov.au/climate/about/?bookmark=enso/)
+   is worth reading, but it is reading, not a data source.
+
+   Then:
+
+   - Correlate the index against monthly basin rainfall **anomalies** (rainfall minus the
+     climatology of that calendar month -- correlating raw totals mostly measures the seasonal
+     cycle, not ENSO). Report the correlation coefficient and its p-value.
+   - Repeat the correlation with the index **lagged** by one to six months ahead of the rainfall.
+     Does the index have any useful predictive lead, or is the relationship essentially
+     concurrent?
+   - Repeat the concurrent correlation **separately for each calendar month**. The answer is not
+     the same in January as it is in September, and explaining that difference is the most
+     interesting part of this question.
+
+   Note the sign convention: a positive SOI corresponds to La Niña, whereas a positive Niño 3.4
+   anomaly corresponds to El Niño. State which index you used and check that the sign of your
+   correlation makes physical sense.
+
+.whitespace{10pt}
 
 .container borderwidth:{1pt} radius:{5pt}
-   .box title:{Note:}
-      the "time" variable in the BoM precipitation netCDF files refers to the number of days since 01/01/1900
+   .box title:{Note on the time axis}
+      The raw `time` variable in these netCDF files is the number of days since 01/01/1900.
+      `xarray` reads the `units` attribute and decodes this into proper datetimes for you, so
+      `ds.time` already gives you dates. This only matters if you read the file with `netCDF4`
+      directly, in which case you must do the conversion yourself -- and note that dividing by
+      365.25 is an approximation that drifts by days over a century-long record.
 
+.whitespace{10pt}
 
+.center
+   .container width:{85%} background:{.lightblue} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      ##### Submission Instructions:
+      - Submit your answers through the Canvas portal.
+      - Submit **one Jupyter notebook** containing your code, your figures and your written
+        answers. It must **run end to end** from a fresh kernel without errors.
+      - Include any **data files** the notebook needs that it does not download itself.
+      - If your files are too large for Canvas, send them via **AARNet FileSender** and note in
+        your Canvas submission that you have done so.
