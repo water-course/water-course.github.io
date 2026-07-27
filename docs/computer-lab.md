@@ -4,9 +4,9 @@ This section contains a growing collection of **Python tutorials** that support 
 
 👉 [github.com/water-course/colab-tutorials](https://github.com/water-course/colab-tutorials)
 
-They are fully executable and designed to be loaded into [Google Colab](https://colab.research.google.com/), an online Python notebook environment provided by Google.
+They are fully executable and designed to be loaded into [Google Colab](https://colab.research.google.com/), an online Python notebook environment provided by Google. Each tutorial comes to you with its code cells left blank for you to fill in.
 
-In addition, **executed versions of these tutorials (with all answers)** are rendered directly on this site using the `jupytext` plugin. These are meant to help you follow the logic and confirm your own solutions.
+In addition, **executed versions of these tutorials (with all answers)** are rendered directly on this site using the `mkdocs-jupyter` plugin. These are meant to help you follow the logic and confirm your own solutions.
 
 !!! note "Try it yourself first!"
     All answers are available — but that is not the spirit of things. You are encouraged to first try solving the problems in Colab or on your local machine before reading the provided solutions. Programming and data analysis are learned by doing.
@@ -42,6 +42,8 @@ Below is a short demo showing how to load the full Jupyter notebook directory in
 3. Paste `water-course/colab-tutorials`
 4. Select the notebook you want to work on
 
+If a notebook does not appear in the GitHub tab, download the `.ipynb` file from the repository and use Colab's **Upload** tab instead.
+
 ---
 
 ## 📘 Tutorial List
@@ -49,7 +51,7 @@ Below is a short demo showing how to load the full Jupyter notebook directory in
 ### [Tutorial 1](computer-lab/basics_00_solution.ipynb)
 A beginner-friendly introduction to Python programming for geoscience applications, covering basic maths, loops, formatted output, and simple map plotting with Cartopy.
 ### [Tutorial 2](computer-lab/basics_01_solution.ipynb)
-Learn how to perform geospatial analysis in Python by working with shapefiles, spatial queries, NetCDF rainfall data, and basin-scale integration over the Murray-Darling Basin.
+Learn how to perform geospatial analysis in Python by working with shapefiles and spatial queries, streaming gridded NetCDF rainfall straight off NCI's THREDDS server over OPeNDAP, building a basin mask, and averaging monthly rainfall over the Murray-Darling Basin.
 ### [Tutorial 3](computer-lab/Ex1_Precipitation_solution.ipynb)
 Apply multiple interpolation methods to estimate missing rainfall values, using real storm data and geospatial coordinates — adapted from a tutorial by [Jesús Casado Rodríguez](https://github.com/casadoj).
 ### [Tutorial 4](computer-lab/basics_02_solution.ipynb)

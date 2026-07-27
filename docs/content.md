@@ -28,7 +28,7 @@ Slides are released as we get to them during the semester.
 
 Each tutorial appears here in the week it is run.
 
-- **The Hydrologic Cycle**
+- [**The Hydrologic Cycle**](Tutorial-Watercycle/index.html)
 - **Precipitation**
 - **Evapotranspiration**
 - **Run-off**
