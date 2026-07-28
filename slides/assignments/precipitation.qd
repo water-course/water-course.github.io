@@ -62,7 +62,7 @@ The Murray-Darling Basin boundary is supplied as a pair of shapefiles, north and
 
 Unzip it and take the **union** of `MDB_north_boundary.shp` and `MDB_south_boundary.shp`. This
 assignment treats the basin as a single region; the north/south split is the subject of
-Assignment II. Tutorial 2 shows how to read the shapefiles and test whether a point falls inside
+Assignment II. Lab 2 (`lab02_shapefiles_and_masks`) shows how to read the shapefiles and test whether a point falls inside
 a polygon. A grid cell belongs to the basin if its centre does; that is accurate enough here, and
 you can check it by comparing your masked area against the published basin area of about
 1,060,000 km².
@@ -115,7 +115,7 @@ you can check it by comparing your masked area against the published basin area 
 
 2. **(3 marks)** Compute the total **volume** of rainfall falling on the basin each month, in
    gigalitres (1 GL = 10⁶ m³). This requires the area of every grid cell, and grid-cell area on a
-   sphere depends on latitude. Use the exact formula derived in **Tutorial 4** (`basics_02`),
+   sphere depends on latitude. Use the exact formula derived in **Lab 4** (`lab04_grid_cell_areas`),
 
    $ A = R^2 \, \big| \sin\phi_2 - \sin\phi_1 \big| \, \big| \Delta\lambda \big| $ {#equation-1}
 

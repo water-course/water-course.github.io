@@ -16,18 +16,21 @@ touching either file, raise it rather than silently leaving the totals wrong.
 
 ## Where things live
 
-Tutorial notebooks are **generated**, never hand-authored, and three repositories
+Computer-lab notebooks are **generated**, never hand-authored, and three repositories
 are involved:
 
-1. `water-course/tutorials` — the source of truth. Percent-format `.py` files plus a
-   `Makefile`. Its cell tags drive everything: `# + tags=["empty-cell"]` is the blank
+1. `water-course/tutorials` — the source of truth. Percent-format `.py` files, one per lab
+   (`lab01_python_basics.py`, `lab02_shapefiles_and_masks.py`, `lab03_xarray_gridded_data.py`,
+   `lab04_grid_cell_areas.py`, `lab05_rain_gauge_interpolation.py`), plus a `Makefile`. The
+   filename number is the student-facing lab number. Its cell tags drive everything: `# + tags=["empty-cell"]` is the blank
    student skeleton, `# + tags=["solution"]` is the worked answer, `# + [markdown]` is
    prose. Pushing to `main` triggers CI, which runs `make all` and uploads `ready/` as
    an artifact. That build **executes** the solution notebooks, so it needs network
    access to NCI's THREDDS server and to `data.gadopt.org`.
 2. `water-course/colab-tutorials` — what students open in Colab. A manually dispatched
    workflow pulls the artifact and commits only the exercise notebooks, filtering out
-   `*_solution.ipynb`. **The trigger is manual**, so dispatch "Grab latest tutorials"
+   `*_solution.ipynb` — so the `_solution` suffix is load-bearing and must not be renamed.
+   **The trigger is manual**, so dispatch "Grab latest tutorials"
    after pushing to `tutorials`, or students keep seeing the old version.
 3. This repository — carries the solution notebooks under `docs/computer-lab/`, which
    is **gitignored** and populated from the same artifact at build time by
@@ -46,7 +49,7 @@ public. Build it locally with `make -C assignment-solutions`.
 **Read `units` before trusting any Australian Water Outlook file.** AWO publishes a
 `processed/deciles/` tree alongside `processed/values/`, using *identical filenames*.
 The decile files carry `units: relative` with values in [0, 1] — percentile ranks, not
-depths. A decile file was mirrored to `data.gadopt.org` and Tutorial 2 plotted it as
+depths. A decile file was mirrored to `data.gadopt.org` and Lab 2 plotted it as
 "Rainfall (mm)" for a year. That file has since been deleted from the server.
 
 Monthly rainfall in real millimetres, read over OPeNDAP, no download needed:
@@ -60,7 +63,13 @@ says "Daily Rainfall" even in the monthly file — that attribute is wrong upstr
 
 **Latitude descends** (−10 to −44). `sel(latitude=slice(-38, -24))` returns an empty
 array with no error at all; the correct order is `slice(-24, -38)`. This is the single
-most common silent failure with this dataset.
+most common silent failure with this dataset. Lab 3 teaches it explicitly.
+
+**`method="nearest"` applies to every coordinate in the same `.sel`, including time.**
+Months in this file are stamped at their *end*, so
+`sel(latitude=..., longitude=..., time="2022-10", method="nearest")` parses the string as
+2022-10-01, snaps to the 2022-09-30 stamp and silently returns **September**. Do the
+nearest-neighbour lookup on the spatial coordinates, then select the time in a separate call.
 
 **BoM blocks automated access.** `bom.gov.au` returns HTTP 403 to scripted requests, so
 it cannot be used as a data source — only as reading. For ENSO indices use CRU

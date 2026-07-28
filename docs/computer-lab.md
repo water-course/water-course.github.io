@@ -1,12 +1,12 @@
-# 🧪 Tutorials
+# Computer Labs
 
-This section contains a growing collection of **Python tutorials** that support this course. All notebooks are available via our GitHub repository:
+This section contains a growing collection of **Python computer labs** that support this course. All notebooks are available via our GitHub repository:
 
 👉 [github.com/water-course/colab-tutorials](https://github.com/water-course/colab-tutorials)
 
-They are fully executable and designed to be loaded into [Google Colab](https://colab.research.google.com/), an online Python notebook environment provided by Google. Each tutorial comes to you with its code cells left blank for you to fill in.
+They are fully executable and designed to be loaded into [Google Colab](https://colab.research.google.com/), an online Python notebook environment provided by Google. Each lab comes to you with its code cells left blank for you to fill in.
 
-In addition, **executed versions of these tutorials (with all answers)** are rendered directly on this site using the `mkdocs-jupyter` plugin. These are meant to help you follow the logic and confirm your own solutions.
+In addition, **executed versions of these labs (with all answers)** are rendered directly on this site using the `mkdocs-jupyter` plugin. These are meant to help you follow the logic and confirm your own solutions.
 
 !!! note "Try it yourself first!"
     All answers are available — but that is not the spirit of things. You are encouraged to first try solving the problems in Colab or on your local machine before reading the provided solutions. Programming and data analysis are learned by doing.
@@ -31,7 +31,7 @@ In addition, **executed versions of these tutorials (with all answers)** are ren
 
 Replace `cartopy` with the name of the missing library as needed.
 
-## ▶️ How to load tutorials from Colab
+## ▶️ How to load the labs from Colab
 
 Below is a short demo showing how to load the full Jupyter notebook directory into Google Colab:
 
@@ -46,16 +46,18 @@ If a notebook does not appear in the GitHub tab, download the `.ipynb` file from
 
 ---
 
-## 📘 Tutorial List
+## 📘 Lab List
 
-### [Tutorial 1](computer-lab/basics_00_solution.ipynb)
+### [Lab 1](computer-lab/lab01_python_basics_solution.ipynb)
 A beginner-friendly introduction to Python programming for geoscience applications, covering basic maths, loops, formatted output, and simple map plotting with Cartopy.
-### [Tutorial 2](computer-lab/basics_01_solution.ipynb)
+### [Lab 2](computer-lab/lab02_shapefiles_and_masks_solution.ipynb)
 Learn how to perform geospatial analysis in Python by working with shapefiles and spatial queries, streaming gridded NetCDF rainfall straight off NCI's THREDDS server over OPeNDAP, building a basin mask, and averaging monthly rainfall over the Murray-Darling Basin.
-### [Tutorial 3](computer-lab/Ex1_Precipitation_solution.ipynb)
-Apply multiple interpolation methods to estimate missing rainfall values, using real storm data and geospatial coordinates — adapted from a tutorial by [Jesús Casado Rodríguez](https://github.com/casadoj).
-### [Tutorial 4](computer-lab/basics_02_solution.ipynb)
-Learn a practical approach for adjusting surface-area differences across latitude–longitude grids.
+### [Lab 3](computer-lab/lab03_xarray_gridded_data_solution.ipynb)
+Work with the same gridded rainfall using `xarray`, where named dimensions and coordinates travel with the data: opening a remote file lazily over OPeNDAP, selecting by label with `.sel` rather than by position with `.isel`, the descending-latitude slice that silently returns nothing, plotting straight off the array, and re-binning monthly totals into complete calendar years with `resample`.
+### [Lab 4](computer-lab/lab04_grid_cell_areas_solution.ipynb)
+Learn a practical approach for adjusting surface-area differences across latitude–longitude grids, deriving the exact grid-cell area on a sphere and applying it to GRACE satellite data.
+### [Lab 5](computer-lab/lab05_rain_gauge_interpolation_solution.ipynb)
+A standalone lab on estimating missing rain-gauge values from surrounding stations, comparing several interpolation methods on real storm data — adapted from a tutorial by [Jesús Casado Rodríguez](https://github.com/casadoj).
 
 ---
 
