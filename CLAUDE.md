@@ -44,6 +44,25 @@ Edit the `.py` in the `tutorials` repo instead.
 worked solutions to live assessments and **must stay untracked** — this repository is
 public. Build it locally with `make -C assignment-solutions`.
 
+## Rendering trap: paged documents silently delete table rows
+
+Quarkdown's `paged` doctype does not split a table that straddles a page break —
+it **drops** the rows that do not fit and leaves the caption orphaned on the next
+page. The build reports success. Assignment I shipped for days with only the
+`October` row of its two-row month table visible, and a student had to report it.
+
+`slides/definitions.qd` now carries `.quarkdown table { break-inside: avoid; }`,
+nested inside the `.pagemargin{bottomright}` block. Both details matter: at top
+level Quarkdown's `.css` emits a `<style>` node into the document flow, which then
+sits ahead of the first heading and its forced page break, producing an empty
+first page; page margins are out of flow, so the rule rides along invisibly. Text
+placed inside a `.pagemargin` block is printed verbatim, so keep comments outside
+it — an HTML comment in there renders as visible marginalia, markers and all.
+
+When you change anything about paged layout, verify by rendering, not by reading
+the `.qd`. Build the PDFs (`make -C slides pdf`), extract the text, and check that
+every table cell in the source actually appears in the output.
+
 ## Data traps that have already caused bugs
 
 **Read `units` before trusting any Australian Water Outlook file.** AWO publishes a

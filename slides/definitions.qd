@@ -31,5 +31,21 @@
   - figures: 1
   - headings:
 
+<!--
+Never let a table break across a page. The paged renderer does not split a
+straddling table, it silently DROPS the rows that do not fit and leaves the
+caption orphaned on the next page -- Assignment I lost the second row of its
+month table that way, with no warning from the build at all.
+
+The rule below is nested inside the page margin on purpose. Quarkdown emits .css
+as a style element in the document flow, and at top level that element sits ahead
+of the first heading, whose forced page break then leaves an empty first page.
+Page margins are out of flow, so the style rides along invisibly. Keep this
+comment outside the block: text inside a pagemargin is printed verbatim, HTML
+comment markers and all.
+-->
+
 .pagemargin{bottomright}
   .currentpage / .totalpages
+  .css
+    .quarkdown table { break-inside: avoid; }
