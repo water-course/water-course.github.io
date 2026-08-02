@@ -14,7 +14,7 @@ Slides are released as we get to them during the semester.
 
 - [**Introduction to the Course**](Introduction/index.html)
 - [**The Hydrologic Cycle**](Watercycle/index.html)
-- **Precipitation**
+- [**Precipitation**](Precipitation/index.html)
 - **Evapotranspiration**
 - **Run-off**
 - **Groundwater - Principles**

@@ -31,6 +31,7 @@
         - Explore **factors** controlling the **amount and distribution** of precipitation.
         - Examine how vegetation interacts with and modifies precipitation.
         - Review **methods for measuring** and estimating precipitation.
+        - Understand how **radar and satellite remote sensing** estimate rainfall over an area, and where they fail.
 
         - Fig. 1 -> From [scijinks.gov](https://scijinks.gov/precipitation/)
 
@@ -130,6 +131,12 @@
     .container width:{40%}
         !(100%)[Atmosphere](../image/davie_ed3_fig_2-1.png " Clausius-Clapeyron Relationship" )
 
+<!--
+Ideal Gas Law slide, disabled 2026-08. Not essential to the narrative: the
+adiabatic cooling slide that follows can be taken on its own terms (rising air
+expands and cools), and the gas law was only ever scaffolding for it. Restore by
+removing the comment markers if a cohort needs the derivation spelled out.
+
 # Ideal Gas Law
 
 .row gap:{1cm} alignment:{center}
@@ -146,6 +153,7 @@
         - $ R_a $ = gas constant for air
 
         If pressure decreases, the product of temperature and density must also decrease to maintain the constant.
+-->
 
 
 # Adiabatic Cooling and Lapse Rates
@@ -316,6 +324,11 @@
             .html
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/XHNN5DAq-jI?si=a_48CMyll9QqP6f2" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer" allowfullscreen></iframe>
 
+<!--
+Dewfall slide, disabled 2026-08. Dew is a negligible term in the catchment water
+balance and the lecture is already long; the dew point itself is covered on the
+Clausius-Clapeyron slides. Restore by removing the comment markers.
+
 # Dewfall
 
 .row gap:{1cm} alignment:{center}
@@ -328,6 +341,7 @@
 
     .container width:{30%}
         !(100%)[Dewfall](../image/internet_dewfall.webp)
+-->
 
 # Precipitations and Definitions
 
@@ -735,6 +749,349 @@
         _Same figure as before, but imagine you draw contour lines of the rainfall distribution from before_
 
 
+# GIS, interpolation and geostatistics
+
+.row gap:{1cm}
+    .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - Thiessen / hypsometric / isohyetal are all **weighted averages** — done by hand, on paper.
+        - In a GIS we instead build a **rainfall surface** on a grid:
+            - .ul{Smoothing}: the surface need not pass through the gauges (e.g. splines, multi-quadric).
+            - .ul{Interpolation}: the surface *does* pass through them (nearest neighbour, inverse distance).
+        - **Geostatistics** goes one step further and uses the *spatial correlation* of the field itself.
+            - Nearby gauges are more alike than distant ones.
+            - **Kriging**: fit a *semi-variogram* describing how the difference between pairs of gauges grows with separation, then estimate unsampled points as a weighted average with weights derived from that variogram.
+            - **Co-kriging** brings in a second variable (e.g. elevation, or a radar field).
+        - Crucially, kriging also returns an **uncertainty** at every point — the other methods do not.
+
+    .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! The problem of scale
+
+        - A rain gauge orifice is $ \approx 0.03 \, m^2 $.
+        - A catchment is $ 10^6 $ – $ 10^{12} \, m^2 $.
+        - We routinely scale up by **ten orders of magnitude** and call the result "the rainfall".
+        - Clarke *et al.* (1973), Plynlimon, Wales: to get areal *hourly* rainfall to 90% accuracy over a **10 km²** catchment needed $ \approx 100 $ gauges. Four gauges gave $ \approx 50\% $.
+        - This is the motivation for everything that follows.
+
+
+# Surrogate measures: looking at the rain instead of catching it
+
+.row gap:{1cm} alignment:{center}
+    .container width:{80%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue} alignment:{center}
+        ##! If we cannot afford enough gauges, can we *estimate* rainfall from something we can observe over the whole area at once?
+
+.whitespace height:{1cm}
+
+.row gap:{1cm}
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - Two families, differing fundamentally in **which way they look**:
+            - .ul{Radar}: from the ground *up* into the cloud.
+            - .ul{Satellite}: from space *down* onto the cloud top.
+        - Neither measures rainfall. Both measure electromagnetic radiation and convert it with a **calibrated relationship**.
+        - So both are **estimation**, in the sense we defined earlier — and both still need gauges, for calibration and for validation.
+
+    .container width:{50%}
+        .mermaid caption:{Two directions of view}
+            flowchart TB
+                S([Satellite]) -- "sees cloud top: bright + cold" --> C([Cloud])
+                C -- "sees hydrometeors inside" --> R([Ground radar])
+                C --> G([Rain gauge: the truth, at one point])
+                classDef bigText font-size:26px;
+                class S,C,R,G bigText
+
+
+# Ground-based radar: the principle
+
+.row gap:{1cm}
+    .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - **RA**dio **D**etection **A**nd **R**anging.
+        - A pulse of microwave energy is emitted; hydrometeors **backscatter** part of it.
+        - Two numbers come back:
+            - .ul{Return time} $ \rightarrow $ **distance** to the target, $ r = c \, t / 2 $.
+            - .ul{Returned power} $ \rightarrow $ **reflectivity** $ Z $, i.e. how much water is in that volume.
+        - Rotate the antenna in azimuth, step it in elevation $ \Rightarrow $ a **3-D volume scan** every 5–10 minutes.
+        - Wavelength choice is a compromise:
+            - **S-band** ($ \approx 10 \, cm $): barely attenuated by heavy rain, but needs a large dish.
+            - **C-band** ($ \approx 5 \, cm $): the usual operational choice, incl. most of Australia.
+            - **X-band** ($ \approx 3 \, cm $): cheap and portable, but attenuates severely.
+        - The wave must be reflected by **liquid water**, not by atmospheric gases or density gradients — this is why the band matters.
+
+    .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! Reflectivity is *not* rainfall
+
+        $ Z = \int_0^{\infty} N(D) \, D^6 \, dD $
+
+        - $ Z $ weights drop diameter to the **sixth power**.
+        - Rainfall rate weights it to roughly the **third-and-a-bit** power:
+
+        $ R = \frac{\pi}{6} \int_0^{\infty} N(D) \, D^3 \, v(D) \, dD $
+
+        - So $ Z $ and $ R $ are related, but only through the **drop size distribution** $ N(D) $ — which we do not know.
+
+
+# The Z–R relationship
+
+.row gap:{1cm}
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - In practice we assume a power law:
+
+        $ Z = a \, R^{b} $
+
+        - **Marshall–Palmer**: $ a = 200 $, $ b = 1.6 $ — the default for stratiform rain.
+        - Because $ Z $ spans many orders of magnitude, it is reported logarithmically:
+
+        $ dBZ = 10 \log_{10} \left( \frac{Z}{1 \, mm^6 m^{-3}} \right) $
+
+        - Rules of thumb: $ 20 \, dBZ \approx $ drizzle, $ 40 \, dBZ \approx 12 \, mm/hr $, $ >50 \, dBZ $ suggests hail.
+        - **The coefficients are not universal.** Convective, stratiform, tropical and snow regimes each want different $ a $, $ b $.
+        - Hence a radar must be calibrated against **rain gauges**, often over several years, at each site.
+
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! Worked example
+
+        A radar reports $ 47 \, dBZ $. What is the rain rate?
+
+        $ Z = 10^{4.7} = 50{,}119 \, mm^6 m^{-3} $
+
+        $ R = \left( \frac{Z}{200} \right)^{1/1.6} = 250.6^{0.625} \approx 32 \, mm/hr $
+
+        .whitespace height:{0.3cm}
+
+        Now use a tropical convective relation, $ a = 32 $, $ b = 1.65 $:
+
+        $ R = \left( \frac{50119}{32} \right)^{0.606} \approx 86 \, mm/hr $
+
+        .whitespace height:{0.3cm}
+
+        **Nearly a factor of three, from the same measurement.** This is the central weakness of radar QPE.
+
+
+# Why radar rainfall goes wrong
+
+.row gap:{1cm}
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - .ul{Drop size distribution}: as above — one $ Z $, many possible $ R $.
+        - .ul{The bright band}: melting snowflakes are large *and* water-coated, so they are highly reflective. The radar sees a bright ring at the melting level and over-estimates rain by up to a factor of five.
+        - .ul{Beam blockage}: hills between the radar and the storm remove part of the beam. A permanent, terrain-fixed bias.
+        - .ul{Beam broadening and overshoot}: the beam widens with range ($ \approx 1° $), so at 150 km it samples a $ \approx 2.5 \, km $ deep layer, high above the ground — and may pass clean over shallow orographic rain.
+        - .ul{Attenuation}: heavy rain between the radar and the target dims everything behind it (severe at C- and X-band).
+        - .ul{Ground clutter and anaprop}: buildings, hills, sea surface and temperature inversions all produce echoes with no rain in them.
+
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! Dual polarisation
+
+        Transmit **horizontally and vertically** polarised pulses and compare them:
+
+        - $ Z_{DR} $ (differential reflectivity): large raindrops flatten as they fall, so $ Z_{DR} $ measures drop **oblateness** $ \rightarrow $ constrains the drop size distribution.
+        - $ K_{DP} $ (specific differential phase): depends on liquid water content but is **immune to attenuation and to calibration error**.
+        - $ \rho_{HV} $ (correlation coefficient): low where the scatterers are mixed $ \rightarrow $ identifies the melting layer, hail, birds and clutter.
+
+        Australia's network has been progressively upgraded to dual-pol since the 2010s.
+
+
+# Radar in Australia
+
+.row gap:{1cm}
+    .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - The Bureau of Meteorology operates roughly **70 weather radars**, mostly C-band, with a few S-band sites on the east coast.
+        - Typical useful quantitative range is $ \approx 150 \, km $; the familiar 256 km images are for *detection*, not for measuring depth.
+        - Volume scans every 6–10 minutes $ \Rightarrow $ the temporal resolution gauges cannot give.
+        - **Rainfields** is the Bureau's operational radar rainfall product: radar fields **merged with gauge observations** to remove the bias radar alone would carry.
+        - The coverage map is the point: the network is dense along the populated coast and largely absent inland.
+
+    .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! The trade-off, in one line
+
+        | | gauge | radar |
+        |---|---|---|
+        | accuracy at a point | high | low |
+        | spatial coverage | one point | $ \approx 70{,}000 \, km^2 $ |
+        | time resolution | daily (manual) | 6 min |
+        | cost per site | $ \approx \$100 $ | $ \approx \$1M $ |
+
+        .whitespace height:{0.3cm}
+
+        They are **complementary**, not competing. Every good product merges them.
+
+
+# Satellite remote sensing: three ways to see rain
+
+.row gap:{1cm}
+    .container width:{100%}
+        .mermaid caption:{Satellite precipitation sensing}
+            flowchart LR
+                A([Satellite sensors]) --> P([Passive: receives emitted/reflected radiation])
+                A --> C([Active: emits its own pulse])
+                P --> V([Visible / Infrared])
+                P --> M([Passive microwave])
+                V --> V1([cloud brightness + cloud-top temperature])
+                M --> M1([emission and scattering by hydrometeors])
+                C --> C1([spaceborne precipitation radar: TRMM PR, GPM DPR])
+                classDef bigText font-size:24px;
+                class A,P,C,V,M,V1,M1,C1 bigText
+
+.row gap:{1cm}
+    .container width:{100%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        The physical link to the rain at the ground gets **stronger** from left to right; the sampling frequency gets **worse**. Every operational product is an attempt to have both.
+
+
+# Passive VIS / IR: the indirect view
+
+.row gap:{1cm}
+    .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - Sensor detects **reflected sunlight** (visible) and **emitted thermal radiation** (infrared).
+        - The reasoning is entirely indirect: a cloud likely to be raining is **bright** (thick) and **cold-topped** (deep). So:
+
+        $ T_{b} \, \text{(brightness temperature)} \; \longrightarrow \; R $
+
+        via a regression calibrated against gauges.
+        - Classic platforms: **LANDSAT**, **SPOT**, **AVHRR**. Operationally, geostationary imagers.
+        - For Australia: **Himawari-8/9** (JMA), geostationary at 140.7°E, full disk every **10 minutes**, 16 bands, 2 km in the IR. This is the workhorse for nowcasting where there is no radar.
+        - Strength: relentless temporal sampling over an enormous area.
+
+    .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! Where the logic breaks
+
+        - A **cirrus anvil** is very cold and very high, and produces no rain at all $ \rightarrow $ large false alarms.
+        - **Warm orographic rain** and shallow coastal showers have warm tops $ \rightarrow $ missed entirely.
+        - Snow on the ground looks like cloud: both bright, both cold. Davie notes the two must be separated before any rainfall estimate is trustworthy.
+        - The relationship is between the **top** of the cloud and the **base** of the cloud, separated by kilometres and by an unknown amount of time.
+
+
+# Passive microwave: the physical view
+
+.row gap:{1cm}
+    .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - At microwave wavelengths the sensor responds to the **hydrometeors themselves**, not to the cloud top. This is a physical, not statistical, connection to rain.
+        - Two distinct signatures:
+            - .ul{Emission} (low frequencies, $ \approx 10 – 37 \, GHz $): the ocean is a cold, low-emissivity background; liquid raindrops emit and appear **warm** against it. Works beautifully **over ocean**.
+            - .ul{Scattering} (high frequencies, $ \approx 85 – 190 \, GHz $): ice particles aloft scatter upwelling radiation away, producing a **cold** signature. Necessary **over land**, because land is already warm and emissive.
+        - Examples: **SSM/I** (Todd and Bailey 1995 used it over the UK), AMSR-2, and the GPM constellation radiometers.
+
+    .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! The two costs
+
+        1. **Resolution.** Diffraction ties footprint size to wavelength; early passive microwave gave $ \approx 10 \times 10 \, km $ at best — Davie's verdict was that this was "of little use to catchment scale hydrology".
+        2. **Sampling.** These are low-Earth-orbit instruments: a given satellite sees a given point roughly **twice a day**. A thunderstorm lasting an hour is simply not there when the satellite passes.
+
+        .whitespace height:{0.3cm}
+
+        Over land, the scattering method infers rain from **ice aloft** — so warm rain with no ice phase is under-detected.
+
+
+# Active remote sensing: TRMM and GPM
+
+.row gap:{1cm}
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        ##! TRMM (1997 – 2015)
+
+        - **T**ropical **R**ainfall **M**easuring **M**ission, NASA + JAXA, launched November 1997.
+        - First satellite dedicated to tropical and subtropical rainfall, and the first to carry a **precipitation radar** in space.
+        - Non-polar, low-inclination orbit ($ \approx 400 \, km $), covering **35°S–35°N**, 16 orbits per day, 878 km swath.
+        - Resolution 0.25° to 5°; decommissioned April 2015, leaving a **15+ year legacy record** for climate variability studies.
+
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        ##! GPM (2014 – )
+
+        - **G**lobal **P**recipitation **M**easurement: an international **constellation**, with the *GPM Core Observatory* launched February 2014 at 407 km.
+        - Extends coverage to **65°S–65°N**, so it finally includes the mid-latitudes — and all of Australia.
+        - Carries the **Dual-frequency Precipitation Radar** (Ku 13.6 GHz + Ka 35.5 GHz). Two frequencies constrain the **drop size distribution** — precisely the unknown that wrecks the ground-radar Z–R relation.
+        - Constellation revisit: **1–2 hours**. Better detection of **light rain and snow** than TRMM.
+
+
+# IMERG: how the pieces are fused
+
+.row gap:{1cm}
+    .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - **IMERG** (Integrated Multi-satellitE Retrievals for GPM) is the algorithm that turns the constellation into a usable grid.
+        - The logic:
+            1. Take every **passive microwave** overpass — physically sound, but sparse in time.
+            2. Use **geostationary IR** to *morph* the rain field between overpasses, propagating it with the observed cloud motion.
+            3. Calibrate everything against the **GPM Core** radar+radiometer, the reference standard.
+            4. In the final run, adjust to monthly **gauge** analyses.
+        - Output: **0.1°** ($ \approx 11 \, km $), **half-hourly**, quasi-global.
+        - Three runs, a deliberate latency-vs-accuracy trade:
+            - *Early* ($ \approx 4 \, hr $) — flood warning
+            - *Late* ($ \approx 14 \, hr $) — monitoring
+            - *Final* ($ \approx 3.5 \, months $, gauge-adjusted) — research and water balance
+
+    .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! Note what has happened
+
+        The "satellite" product is not a satellite measurement. It is a **blend** of:
+
+        - spaceborne radar,
+        - passive microwave,
+        - geostationary infrared,
+        - and rain gauges.
+
+        .whitespace height:{0.3cm}
+
+        Every skill claim for a satellite rainfall product is really a claim about the **merging scheme**, and every one of them is validated against gauges in the end.
+
+
+# Gridded precipitation products you will actually use
+
+.container width:{100%} borderwidth:{1pt} padding:{0.4cm} radius:{0.5cm} background:{rgb(240, 240, 250)}
+
+    | **Product** | **Basis** | **Resolution** | **Record** | **Good for** |
+    |---|---|---|---|---|
+    | GPCP | satellite + gauge merge | 2.5° monthly, 1° daily | 1979– | global climate, longest merged record |
+    | IMERG (GPM) | PMW + IR + radar + gauge | 0.1°, 30 min | 2000– | events, floods, ungauged regions |
+    | CHIRPS | IR + gauge, climatology-anchored | 0.05°, daily | 1981– | drought monitoring, data-sparse land |
+    | AGCD (ex-AWAP) | **gauge interpolation only** | 0.05°, daily | 1900– | the Australian national standard |
+    | Rainfields | radar + gauge merge | 1 km, 6 min | recent | urban and flash-flood hydrology |
+    "Common precipitation products. Note that the one Australia relies on most is not a satellite product at all."
+
+
+# Australia: where this actually bites
+
+.row gap:{1cm}
+    .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - Australia has a **long, dense, coastal** gauge record and a **sparse interior**. AGCD interpolation is excellent in Victoria and nearly unconstrained in the Simpson Desert — at the *same* stated 0.05° resolution.
+        - A gridded product's resolution tells you the **grid spacing**, never the **information content**. Always ask how many gauges went into your cell.
+        - Radar coverage follows population, not catchments.
+        - So for much of the continent, satellite is not a convenience — it is the **only** areal observation available.
+        - This is exactly why the **Australian Water Outlook / AWRA-L** system, which we use in the labs, is forced on **AGCD-derived** rainfall and then validated wherever independent data exist.
+
+    .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! In the computer labs
+
+        You will open the monthly AWO rainfall grid over OPeNDAP and treat it as data — but keep in mind that behind every cell sits:
+
+        - a gauge network of uneven density,
+        - an interpolation scheme with assumptions,
+        - and no uncertainty field shipped alongside.
+
+        .whitespace height:{0.3cm}
+
+        Two habits worth having: **read the `units` attribute** before plotting, and remember that this is an *estimate*, not a measurement.
+
+
+# Validating a rainfall product
+
+.row gap:{1cm}
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - Satellite and radar estimates are always compared back to gauges. The standard scores:
+            - **Bias** $ = \overline{E} - \overline{G} $ — systematic over/under-estimation.
+            - **RMSE** — total error magnitude.
+            - **Correlation** — does it get the *timing* right?
+            - **POD / FAR** — probability of detection, false alarm ratio. Did it see the event at all?
+        - A product can have near-zero bias in the monthly mean and be useless for a flood, because it misses the intensity peaks and compensates with drizzle.
+        - **Always match the score to the application.**
+
+    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightred}
+        ##! The awkward circularity
+
+        We validate a satellite estimate over an area against a gauge measured at a point.
+
+        .whitespace height:{0.3cm}
+
+        But we already established (Clarke *et al.* 1973) that a handful of gauges does not characterise areal rainfall over even 10 km².
+
+        .whitespace height:{0.3cm}
+
+        So the "truth" we validate against carries a representativeness error of its own — and part of what looks like satellite error is really gauge sampling error.
+
 
 # Summary:
 .box title:{Precipitation: Formation, Measurement, and Spatial Estimation} background:{.lightred}
@@ -751,3 +1108,8 @@
       - Common **errors**: evaporation, wetting, splash, and wind turbulence.
     - **Snowfall challenges**: redistribution by wind, point measurement issues, gauge modifications.
     - **Spatial estimation**: need to translate point rainfall data into **catchment-scale estimates** using methods influenced by gauge placement and terrain.
+    - **Remote sensing**:
+      - **Radar** looks up from the ground; reflectivity $ Z $ is converted to rain rate through the non-unique $ Z = aR^b $ relation, and is corrupted by the bright band, blockage, attenuation and beam geometry. Dual polarisation mitigates much of this.
+      - **Satellite** looks down at the cloud top: VIS/IR is frequent but indirect, passive microwave is physical but coarse and infrequent, and spaceborne radar (TRMM, GPM) is direct but samples narrowly.
+      - Operational products (**IMERG**, GPCP, CHIRPS, Rainfields) are **merges** of all of these plus gauges.
+      - Everything is ultimately calibrated and validated against **rain gauges** — whose own representativeness error is part of the answer.
