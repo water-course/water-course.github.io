@@ -37,7 +37,7 @@
 
     .container width:{50%}
         .align{center}
-            !(80%)[precipitation](../image/internet_NOAprecipitation.gif "")
+            !(64%)[precipitation](../image/internet_NOAprecipitation.gif "")
 
 
 
@@ -102,7 +102,7 @@
         Saturation vapour pressure curve representing absolute humidity for a given dew point temperature. Note that the saturation vapour pressure curve over ice is lower.
 
     .container width:{40%}
-        !(100%)[Atmosphere](../image/davie_ed3_fig_2-1.png " Clausius-Clapeyron Relationship" )
+        !(80%)[Atmosphere](../image/davie_ed3_fig_2-1.png " Clausius-Clapeyron Relationship" )
 
 # Cooling of the atmosphere
 .row gap:{1cm}
@@ -116,7 +116,7 @@
         - Subzero temperatures: where desublimation occurse. (**hoarfrost**).
 
     .container width:{40%}
-        !(100%)[Atmosphere](../image/davie_ed3_fig_2-1.png " Clausius-Clapeyron Relationship" )
+        !(80%)[Atmosphere](../image/davie_ed3_fig_2-1.png " Clausius-Clapeyron Relationship" )
 
 # Cooling of the atmosphere
 .row gap:{1cm}
@@ -129,7 +129,7 @@
             - 20°C: 15 g water vapour per kg air
 
     .container width:{40%}
-        !(100%)[Atmosphere](../image/davie_ed3_fig_2-1.png " Clausius-Clapeyron Relationship" )
+        !(80%)[Atmosphere](../image/davie_ed3_fig_2-1.png " Clausius-Clapeyron Relationship" )
 
 <!--
 Ideal Gas Law slide, disabled 2026-08. Not essential to the narrative: the
@@ -241,7 +241,7 @@ removing the comment markers if a cohort needs the derivation spelled out.
 
     .container width:{60%}
         .align{center}
-            !(100%)[Cloud Seeding](../image/internet_cloud_seeding.webp "Much controversy over the value of cloud seeding; Some studies support its effectiveness e.g. Gagin and Neumann, 1981; other authors query the results e.g. Rangno and Hobbs, 1995")
+            !(50%)[Cloud Seeding](../image/internet_cloud_seeding.webp "Much controversy over the value of cloud seeding; Some studies support its effectiveness e.g. Gagin and Neumann, 1981; other authors query the results e.g. Rangno and Hobbs, 1995")
 
 
 
@@ -254,7 +254,7 @@ removing the comment markers if a cohort needs the derivation spelled out.
         - They need to grow from $ \approx $ 1 $ \mu m $ to  $ \approx $ 3000 $ \mu m $.
 
     .container width:{70%}
-        !(100%)[Droplet Growth](../image/davie_ed3_fig_2-2.png "Comparing rain drops and cloud droplets")
+        !(60%)[Droplet Growth](../image/davie_ed3_fig_2-2.png "Comparing rain drops and cloud droplets")
 
 
 # Droplet Growth Processes
@@ -274,7 +274,7 @@ removing the comment markers if a cohort needs the derivation spelled out.
 
 # Different types of clouds
 .fullspan
-    !(70%)[Different types of clouds](../image/davie_3rd_fig_2-3.png "Different types of clouds")
+    !(50%)[Different types of clouds](../image/davie_3rd_fig_2-3.png "Different types of clouds")
 
 # Bergeron Process
 .row gap:{1cm}
