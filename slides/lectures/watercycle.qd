@@ -372,6 +372,9 @@
 
       Long residence time → effectively **non-renewable** on a human timescale. Groundwater you pump today may have entered the ground before the last glacial maximum.
 
+    .container width:{100%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.3cm}
+      Careful with the groundwater row: 2,200 km³/yr is only the water that reaches the sea underground. Most groundwater leaves instead by seeping into rivers, and that return is already counted inside the 42,600. Divide by everything that soaks in each year, nearer 13,000 km³/yr, and the answer is closer to **1,800 years**. Long either way, and the point stands.
+
 # Climate zones and water partitioning
 
 .row
@@ -396,12 +399,13 @@
       ###! ~470 million litres each
 
     - Enormous — but it is a **store**. An inheritance, not an income.
-    - Set it against the flux that turns it over and you have a residence time again:
+    - Set it against what the world's rivers carry in a year:
 
     .container width:{100%} alignment:{center} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
-      $ \frac{3.74 \times 10^6\ \text{km}^3}{42{,}600\ \text{km}^3\text{/yr}} \approx 90\ \text{years} $
+      $ \frac{3.74 \times 10^6\ \text{km}^3}{42{,}600\ \text{km}^3\text{/yr}} \approx 90\ \text{years of river run-off} $
 
     - The entire accessible store is worth about a **century** of run-off. Spend it faster than that and you are mining it.
+    - Read that as a comparison, not as a residence time. Almost all of this store is groundwater, and rivers are not what refills it. Rain soaking down to the water table replaces it over **several hundred years**.
 
   .container width:{47%}
     What you may actually spend is the **flux**: river run-off, 42,600 km³/yr among 8 billion people.

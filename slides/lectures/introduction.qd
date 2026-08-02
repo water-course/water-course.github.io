@@ -248,3 +248,65 @@ _Note: our pace may shift the content. Weeks 9--12 are new -- last year's case s
 
 .fullspan
     !(40%)[Questiosn](../image/internet_questions.jpg)
+
+# Our ANU Values
+.align{center}
+  .container width:{80%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    As a member of the ANU, you are part of a community that commits to:
+    - Fairness and justice
+    - Safety and wellbeing
+    - Inclusion, equity and diversity
+    - Respectful collegiality
+    - Respecting, celebrating and learning from First Nations peoples
+    - Truth-seeking, transparency and accountability
+    - Academic freedom and integrity
+
+# Our Commitment to a Safe & Inclusive Community
+.align{center}
+  .container width:{85%}
+    We welcome and respect students and staff from all parts of Australia and all around the world.
+
+    In our community, students and staff have a right to be protected from discrimination, bullying and harassment and other behaviours that could adversely affect their safety and wellbeing and/or undermine the values of our University.
+
+    We stand firmly against any form of racism, hatred or discrimination towards our Indigenous community, our culturally and linguistically diverse community, our Jewish community (antisemitism) and our Muslim community (islamophobia). We stand firmly against harmful behaviour and violence in all forms.
+
+    No one should feel unsafe or be targeted for who they are -- these acts are never acceptable and have no place in our society or on our campus.
+
+# Student Code of Conduct
+.align{center}
+  .container width:{80%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
+    The *Student Code of Conduct* sets out ANU values, principles, behaviours and conduct required of all students.
+
+    We strongly encourage you to become familiar with the [Student Code of Conduct](https://www.anu.edu.au/students/program-administration/program-management/student-code-of-conduct).
+
+# Breaches of the Student Code of Conduct
+.align{center}
+  .container width:{80%}
+    The University manages any breaches of the *Student Code of Conduct* in accordance with the [ANU Policy Framework](https://policies.anu.edu.au/ppl/index.htm).
+
+    The consequences for breaches of student responsibilities under the *Student Code of Conduct* are set out in the *ANU Discipline Rule* (non-academic misconduct) and the *Academic Integrity Rule*. Both instruments can be accessed at the [ANU legislation register](https://www.anu.edu.au/about/governance/legislation).
+
+# Disclosure Pathways
+.row gap:{1cm} alignment:{center}
+  .container width:{35%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
+    _The University encourages anyone who has experienced a harmful behaviour to reach out for support and information._
+
+  .container width:{55%}
+    **[Harmful Behaviours Disclosure](https://www.anu.edu.au/students/health-safety-wellbeing/getting-help-at-anu)**
+
+    This form links students to options to access information, support and/or provide the University with information about a harmful incident that has been experienced.
+
+    - An **identified** disclosure pathway (name and contact details provided) links students to free and confidential support through the Student Safety and Wellbeing team.
+    - A **de-identified** disclosure pathway is also available. These disclosures support the University with prevention activities, identifying patterns of behaviour and reporting.
+
+# Support Available
+.row gap:{1cm} alignment:{center}
+  .container width:{35%} borderwidth:{1px} padding:{0.5cm} radius:{0.1cm} background:{rgb(200, 225, 200)}
+    _There are a number of services available to you if you need further information or support._
+
+  .container width:{55%}
+    - **Student Safety and Wellbeing** -- free and confidential support for students experiencing a range of issues that can impact on their university experience and academic engagement. student.wellbeing@anu.edu.au
+    - **Dean of Students** -- confidential, impartial advice; acts as a neutral intermediary between students and the academic or administrative areas of the University. dean.students@anu.edu.au
+    - **ANUSA Student Assistance team** -- confidential support, advice and assistance for all ANU students. sa.assistance@anu.edu.au
+
+    Other information about support available at ANU and in the community can be found at [anu.edu.au/students/health-safety-wellbeing](https://www.anu.edu.au/students/health-safety-wellbeing).
