@@ -614,6 +614,7 @@
     - It is a statement about **long-run frequency**, never about *when* the next one arrives.
     - Practical consequence: a 1% annual chance over a 30-year mortgage is a $ 1-(0.99)^{30} \approx $ **26%** chance of at least one such flood.
 
+<!--
 # Duration and design rainfall
 .row
   .container width:{40%}
@@ -628,7 +629,7 @@
 
   .container width:{60%}
   	!(100%)[idfcurve](../image/davie_fig_1-12.png "Rainfall MFD curves for the River Boyd catchment (CEH, 1999)")
-
+-->
 
 # So how do we actually measure any of this?
 .row gap:{1cm}
