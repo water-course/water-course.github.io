@@ -16,9 +16,9 @@
 
 | Required condition | Why essential |
 |--------------------|--------------|
-| *i*. **Atmospheric cooling to dew-point** (by convective uplift in Darwin) | Lowers saturation vapour pressure; allows condensation to start. |
-| *ii*. **Abundant condensation nuclei** (sea-salt, smoke from bushfires) | Provide surfaces for initial microscopic droplet formation; without them, air can remain supersaturated. |
-| *iii*. **Droplet growth to $ > \approx 3 mm $** (collision–coalescence in warm clouds) | Gives droplets sufficient mass to overcome up-draughts and fall as rain. |
+| *i*. **Atmospheric cooling to dew-point** (by convective uplift in Darwin) | Lowers saturation vapour pressure; allows condensation to start. |
+| *ii*. **Abundant condensation nuclei** (sea-salt, smoke from bushfires) | Provide surfaces for initial microscopic droplet formation; without them, air can remain supersaturated. |
+| *iii*. **Droplet growth to $ > \approx 3 mm $** (collision–coalescence in warm clouds) | Gives droplets sufficient mass to overcome up-draughts and fall as rain. |
 
 If any one is missing, vapour remains suspended, clouds persist without rainfall, or virga evaporates before reaching ground.
 
@@ -34,24 +34,57 @@ If any one is missing, vapour remains suspended, clouds persist without rainfall
 - Dry-adiabatic: $ 9.8 \ °C \ km^{-1} $ up to LCL ( $ \approx 1200 \ m $), then saturated rate $ 6 \degree \ C \ km^{-1} $ to 3000 m: $ \Delta T \approx −23 \ \degree C $.  Descent: warms at dry rate:   $ +29 \degree C $ to valley floor.
 - Example towns: **Bishop, Lone Pine.**  Both import water via Los Angeles Aqueduct; pumping from deep alluvial fans carefully managed because local recharge is minimal under rain-shadow conditions. [See link.](https://www.ladwp.com/who-we-are/water-system/los-angeles-aqueduct/facts-history)
 
-## Clearing versus Forest Experiment
+## Radar Rainfall
 
-.code lang:{python}
-    .read{../scripts/precipitation_chart.py}
+####! 1. and 3. Reflectivity to rain rate
 
-Total rainfall: Forest = 140 mm; Pasture = 119 mm ($ \approx  +15 \% $).
+Convert decibels first, $ Z = 10^{dBZ/10} $, then invert $ Z = a R^b $ as $ R = (Z/a)^{1/b} $.
 
-####! Possible biases \& fixes:
+| $ dBZ $ | $ Z $ ($ mm^6 m^{-3} $) | $ R $, Marshall–Palmer ($ a=200, b=1.6 $) | $ R $, tropical ($ a=32, b=1.65 $) |
+|---|---|---|---|
+| 47 | $ 10^{4.7} = 50\,119 $ | $ (250.6)^{0.625} \approx 31.6 \ mm \ h^{-1} $ | $ (1566)^{0.606} \approx 86.4 \ mm \ h^{-1} $ |
+| 38 | $ 10^{3.8} = 6\,310 $ | $ (31.6)^{0.625} \approx 8.6 \ mm \ h^{-1} $ | $ (197)^{0.606} \approx 24.6 \ mm \ h^{-1} $ |
+"The same two measurements, read through two different Z–R relations."
 
-| Bias / micro-site factor | Likely effect | Mitigation |
-|--------------------------|--------------|------------|
-| Dense canopy causes **interception loss** before drops reach gauge orifice. | Under-catch at Forest site. | Install *trough* throughfall collectors + stemflow collars to quantify interception; or raise gauge above understory in a tower. |
-| **Wind-turbulence** differences: clearing exposed → eddies may enhance Pasture catch. | Over-catch at Pasture. | Equip both gauges with Alter shields, measure local wind speed for correction factors. |
-| **Splash-in from drip points** off overhanging leaves near Forest gauge. | Over-catch on intense days, but net effect variable. | Clear 1 m radius around gauge; fit non-splash grid. |
+####! 2. Accumulation and error
 
-!(90%)[Paired bar chart](../image/tutorials_precipitation_raingauge.png "Paired bar chart of rainfall at Forest and Pasture gauges.")
+Marshall–Palmer: $ 31.6 \times 0.30 \ h + 8.6 \times 0.70 \ h = 9.5 + 6.0 = \answer{15.5 \ mm} $, against a gauge total of $ 26.4 \ mm $ — an error of $ -10.9 \ mm $, or $ \approx \answer{-41 \ \%} $.
 
-## A 5 Himalayan Catchment
-- **Hypsometric method** chosen:
-    - Because gauges cluster low (< 1 800 m) yet $ \approx 40 \% $ of basin lies above snowline, rainfall–altitude gradient is strong \& non-linear.  Thiessen would over-weight lowlands; hypsometric belts (e.g., 500 m intervals) allocate snowfall intensities based on elevation and aspect -> better represent orographic input and snow-water storage.
-- Supplement **GPM (Global Precipitation Measurement) IMERG satellite** or regional weather-radar composites.  Calibrate bias using available gauges; blend with hypsometric zones through kriging or Bias-Corrected Precipitation Reconstruction (BCPR) to refine daily grids.
+Tropical: $ 86.4 \times 0.30 + 24.6 \times 0.70 = 25.9 + 17.2 = \answer{43.1 \ mm} $ — an error of $ +16.7 \ mm $, or $ \approx \answer{+63 \ \%} $.
+
+Note that most of the hour's depth comes from the *weaker* 42-minute phase in the tropical case but from neither cleanly in Marshall–Palmer: the answer is dominated by the choice of relation, not by the measurement.
+
+The expected discussion: one reflectivity is consistent with many rain rates, because $ Z $ weights drop diameter to the sixth power and $ R $ to roughly the third, so the two are linked only through the drop size distribution $ N(D) $, which the radar never observes. Marshall–Palmer assumes many small stratiform drops and so under-reads a convective cell; the tropical relation assumes fewer, larger drops and over-reads once the cell decays to stratiform. The gauge lands between the two because the hour contained **both** regimes — which is exactly why operational systems either switch $ a, b $ by echo classification or, as with Rainfields, merge the radar field with gauges rather than trusting $ Z $–$ R $ alone.
+
+####! 4. Diagnosing the three symptoms
+
+| Symptom | Mechanism | Dual-pol help |
+|---|---|---|
+| Bright ring at fixed $ \approx 90 \ km $, factor-four over-estimate, winter only | **Bright band**: at that range the beam intersects the melting level, where wet, water-coated snowflakes are large and highly reflective. Fixed range because beam height grows with range. | $ \rho_{HV} $. The melting layer is a mixture of snow, water-coated aggregates and drops, so the correlation between the two polarisations drops — a clean flag for identifying and correcting the layer. |
+| Permanent dry wedge to the west, every storm | **Beam blockage** by terrain west of the site (possibly with attenuation behind heavy cells). Terrain-fixed, therefore season-independent. | $ K_{DP} $. It is a phase, not a power, measurement, so it is insensitive to partial beam blockage, attenuation and absolute calibration error. |
+| Shallow coastal showers at $ 140 \ km $ read as zero | **Beam overshoot and broadening**: at that range the $ \approx 1° $ beam is centred a few kilometres above ground and samples a $ \approx 2.5 \ km $ deep layer, passing clean over a warm shallow shower. | **None.** This is geometry, and no polarimetric variable recovers rain the beam never illuminated. The fixes are a lower elevation scan, a closer radar, or accepting that quantitative range is $ \approx 150 \ km $ and falling back on gauges and satellite. |
+"Radar error mechanisms and the polarimetric variables that address them."
+
+$ Z_{DR} $ is the odd one out here: it constrains drop oblateness and hence the drop size distribution, so its role is in fixing problem 1 of this exercise — the non-uniqueness of $ Z $–$ R $ — rather than any of the three symptoms above.
+
+## Choosing and Trusting a Gridded Product
+
+####! 1. Product choice
+
+- **Flash-flood trial: IMERG Early.** Latency of $ \approx 4 \ h $ is the only one of the four that arrives while the flood is still developing, at half-hourly, $ 0.1° $ resolution; it is built from passive-microwave overpasses morphed with geostationary IR, so it responds to individual convective cells. The price is that it is *not* gauge-adjusted, so its depths must be treated as indicative.
+- **20-year water balance: IMERG Final** (if the twenty years fall after 2000), because the final run is calibrated against the GPM Core radar and adjusted to monthly gauge analyses — latency of $ 3.5 $ months is irrelevant for a retrospective balance. If the period must start earlier, **CHIRPS** (1981–, $ 0.05° $) is the defensible choice, being anchored to a rainfall climatology and designed for exactly this data-sparse-land case.
+- **AGCD is the trap.** It has by far the longest record (1900–) and the finest stated grid, but it is *gauge interpolation only*. With two gauges in $ 15{,}000 \ km^2 $ it carries almost no independent information here, and it is the product against which the others would be "validated".
+
+####! 2. What $ 0.05° $ actually means
+
+Resolution is the **grid spacing**, never the **information content**. In Victoria a $ 0.05° $ cell sits inside a dense gauge network, so the interpolated value is tightly constrained by nearby observations. On the Barkly Tableland the same cell is the output of an interpolation scheme extrapolating from gauges hundreds of kilometres away: the field is smooth, low in variance, and systematically blind to the isolated convective peaks that carry most of the wet-season depth. Before quoting a value you would want the **gauge density or distance-to-nearest-gauge** behind that cell, and you would note that no uncertainty field is shipped with the product.
+
+####! 3. Reading the scores
+
+**Product B for both jobs.** For the flood trial the case is obvious: $ POD = 0.88 $ against $ 0.42 $ means A simply fails to see most events, and B's $ FAR $ is lower as well. For the water balance B is still preferable, because a $ +18 \ \% $ bias is *systematic* and therefore correctable against the gauges, whereas A's error is random and cannot be removed.
+
+Product A's $ -2 \ \% $ monthly bias is a coincidence of compensating errors, not skill. It detects fewer than half the rain days, yet still reproduces the monthly total — which means it must be inventing rain on days when none fell, spreading the missed event depths as drizzle. The daily statistics give this away immediately: $ RMSE = 11.4 \ mm $ and $ r = 0.51 $ describe a field that gets the total right and the timing wrong. This is the standard warning about matching the score to the application: a product perfectly adequate for a monthly climatology can be useless for a flood.
+
+####! 4. The circularity, and a way around it
+
+Two gauges observe two points; the product estimates an area of $ 15{,}000 \ km^2 $ filled with isolated convective storms, so a large part of the apparent disagreement is the gauges' own **representativeness error** rather than product error. Worse, gauge-adjusted products (IMERG Final, CHIRPS, AGCD) may already have ingested these very gauges, in which case the comparison is not independent at all. A more defensible check is a **catchment-scale water balance**: accumulate the product over the basin and test whether it can close against measured streamflow together with modelled evapotranspiration and storage change. Alternatives worth credit are a temporary dense-gauge or disdrometer campaign over one wet season, and cross-validation by withholding gauges in a well-instrumented region of similar rainfall regime.

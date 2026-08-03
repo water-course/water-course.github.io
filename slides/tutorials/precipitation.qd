@@ -36,30 +36,38 @@ Fig. 1 shows a west-to-east cross-section across California’s San Jose from th
     !(100%)[Sierra Nevada Transect](../image/internet_googlemaps_sierraNevada.png "Sierra Nevada Transect on Google Earth")
 
 - Annotate approximate temperature changes (°C) of a rising unsaturated parcel that moves:
-    1. sea-level to 3 000 m. 
+    1. sea-level to 3 000 m.
     2. crest to Owens Valley floor. (Use the dry- and saturated-adiabatic lapse rates as appropriate.).
     3. (Use your online resources for this:) name **two rain-shadow communities** east of the crest and discuss, in  $ \approx 100 $ words, how this precipitation pattern shapes their water-supply strategies.
 
-## Paired Forest-Pasture Experiment  *(fully hypothetical)*
-Two tipping-bucket rain gauges operated for 14 consecutive days (Day 1 – Day 14):
-- **Forest-Gauge** mounted 1 m above ground beneath a closed-canopy, mature forest.
-- **Pasture-Gauge** sited in an open cattle pasture 600 m away on level terrain.
+## Radar Rainfall: from Reflectivity to Depth *(fully hypothetical)*
 
-| Day | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | **Σ 14-d** |
-|-----|---|---|---|---|---|---|---|---|---|----|----|----|----|----|-----------|
-| **Pasture-Gauge (mm)** | 0 | 5 | 12 | 0 | 20 | 8 | 4 | 15 | 9 | 22 | 7 | 17 | 11 | 10 | **140 mm** |
-| **Forest-Gauge (mm)**  | 0 | 4 | 9 | 0 | 17 | 7 | 3 | 13 | 8 | 18 | 6 | 15 | 9 | 10 | **119 mm** |
-"Daily totals from the 14-day paired-gauge experiment."
+A C-band radar on the NSW north coast scans a summer storm cell sitting directly over a tipping-bucket gauge. The cell holds $ 47\ dBZ $ over the gauge for the first **18 minutes**, then weakens to $ 38\ dBZ $ for the remaining **42 minutes** of the hour.
 
-1. Draw a **paired bar chart** comparing daily rainfall at the two gauges. The spreadsheet containing the data can be found [here](https://data.gadopt.org/water-course/Paired_Gauges_Table.csv).
-2. The Forest-Gauge shows a **15 % lower** 14-day cumulative total than the Pasture-Gauge. Explain **three plausible micro-site or measurement biases** that could produce this difference.
-3. For *each* bias, recommend one **practical adjustment or field check** that would reduce its impact in future campaigns.
+1. Convert each reflectivity to a rain rate using the **Marshall–Palmer** relation, $ Z = 200\,R^{1.6} $. Show the step from $ dBZ $ to $ Z $ explicitly.
+2. Compute the radar's **one-hour accumulation** over the gauge. The gauge itself recorded **26.4 mm**. What is the radar's error, in mm and in per cent?
+3. Repeat the calculation with a tropical-convective relation, $ Z = 32\,R^{1.65} $. Comment, in ≈ 3 sentences, on what the two answers *together* say about the reliability of a single $ Z $–$ R $ law, and on why the gauge total falls between them.
+4. The same radar shows the three symptoms below. For **each**, name the error mechanism responsible, and state which **dual-polarisation** variable ($ Z_{DR} $, $ K_{DP} $ or $ \rho_{HV} $) would most help, and why.
 
-## Method Evaluation  
-A $ 2,500\ km^2 $ catchment in central **Nepal** has four long-term rain gauges, all below $ 1,800\ m\ asl $.  Snowfields begin at $ \approx 3,000 m $ and the crest reaches $ 5,000 m $.
+| Symptom |
+|---|
+| In winter frontal rain, a bright ring of high reflectivity appears at a fixed $ \approx 90\ km $ range, and accumulations along it exceed the gauges by a factor of four. |
+| A wedge of the map to the west is *always* drier than the surrounding gauges — every storm, every season. |
+| Shallow coastal showers $ 140\ km $ from the radar record as zero, while gauges beneath them report $ 12\ mm $. |
+"Three recurring failures of a radar rainfall field."
 
-- Select **one** of the following to estimate areal rainfall for monthly water-balance work:
-    - Thiessen polygons
-    - Hypsometric (altitude-belt) method
-- Justify your choice with reference to topography, gauge distribution, and expected precipitation gradients.
-- Suggest **one supplementary data source/technology** that could improve the estimate without installing new high-altitude gauges, and explain how you would integrate it.
+## Choosing and Trusting a Gridded Product
+
+A $ 15{,}000\ km^2 $ catchment on the **Barkly Tableland, NT** has two operating rain gauges and no weather radar within $ 400\ km $. Wet-season rain arrives as isolated convective storms; the dry season is essentially rainless. You need rainfall for two separate jobs: a **flash-flood warning trial**, and a **20-year water balance** of the catchment.
+
+1. For *each* job, choose one product from the lecture (IMERG Early, IMERG Final, CHIRPS, AGCD) and justify it in ≈ 2 sentences, referring explicitly to **latency**, **record length**, and what the product is physically **based on**.
+2. AGCD is published at $ 0.05° $ across the whole continent — the same stated resolution here as in Victoria. Explain why that number means something quite different in the two places, and what you would want to know before quoting an AGCD value for this catchment.
+3. Two satellite products are scored against the two gauges over five wet seasons (table below). Which would you use for the flood trial, and which for the water balance? Product A has almost no bias — explain in ≈ 3 sentences why that is **not** evidence that it is the better product.
+
+| Product | Monthly bias | Daily RMSE | Daily correlation | POD | FAR |
+|---|---|---|---|---|---|
+| **A** — geostationary IR, gauge-calibrated | $ -2\ \% $ | $ 11.4\ mm $ | 0.51 | 0.42 | 0.31 |
+| **B** — passive microwave + IR merge | $ +18\ \% $ | $ 7.9\ mm $ | 0.78 | 0.88 | 0.24 |
+"Validation scores for two candidate products over the catchment."
+
+4. In $ \approx 100 $ words, explain why validating an areal satellite estimate against these two gauges is partly circular, and suggest **one** way to obtain a more defensible check on the product in a catchment this poorly instrumented.
