@@ -79,7 +79,7 @@
         - Nitrogen and oxygen make up 99% of the atmosphere (plus some water vapour)
         - **Gravity** keeps the atmosphere close to the surface, hence the pressure is higher at the surface.
         - e.g., at 5500m elevation, the pressure is 50% of the surface pressure.
-        - Units $ [Pa] = \frac{N}{m^{-2}} $, but commonly reported in $ [millibars] $ or $ [kPa] $
+        - Units $ [Pa] = N \, m^{-2} $, but commonly reported in $ [millibars] $ or $ [kPa] $
         - Water vapour accounts for $ < 0.3 \% $ of the atmospheric pressure.
 
     .container width:{60%}
@@ -108,12 +108,12 @@
 .row gap:{1cm}
     .container width:{40%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
         - **Vapour pressure** $ e(T) $, cannot exceed **saturated vapour pressure** $ e_{sat} $ .
-        - $ e_{sat} $ represent absolute humidity, the point where vapour turns into liquid.
-        - For this reason it is also known as the **dew point temperature** / **Frost point temperature**
+        - $ e_{sat} $ represents absolute humidity: the vapour pressure at which vapour starts to condense into liquid.
+        - The **temperature** at which a parcel reaches $ e_{sat} $ is its **dew point temperature** (**frost point temperature** below 0°C).
         - We could also have **super-saturated** air, where the vapour pressure is higher than the saturated vapour pressure (maximum 1 or 2%).
         - The dotted line represents the saturation vapour pressure curve over ice.
         - Easier to escape from the liquid phase to the vapour phase compared to the solid phase.
-        - Subzero temperatures: where desublimation occurse. (**hoarfrost**).
+        - Subzero temperatures: where desublimation occurs. (**hoarfrost**).
 
     .container width:{40%}
         !(80%)[Atmosphere](../image/davie_ed3_fig_2-1.png " Clausius-Clapeyron Relationship" )
@@ -214,7 +214,7 @@ removing the comment markers if a cohort needs the derivation spelled out.
 .row gap:{1cm}
     .container width:{30%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
         - Cooling is essential for condensation and precipitation:
-        - Rising air expands and cools (Boyle’s Law)
+        - Rising air moves to lower pressure, expands and cools
         - Main causes of uplift:
             - .ul{Convective}: surface heating
             - .ul{Orographic}: air rising over mountains
@@ -286,7 +286,7 @@ removing the comment markers if a cohort needs the derivation spelled out.
         - **Vapour diffusion**: vapour moves from higher pressure (cloud droplets) to lower pressure (ice particles).
         - But this results in drier clouds => cloud droplets evaporate.
 
-         $ e_{\text{sat. over ice}} < P_{\text{ambient}} < e_{\text{sat. water over water}} $
+         $ e_{\text{sat. over ice}} < e_{\text{ambient}} < e_{\text{sat. over water}} $
         - Ice particles attract water vapour efficiently, causing **desublimation** (direct vapour to ice).
 
     .container width:{40%}
@@ -709,7 +709,7 @@ Clausius-Clapeyron slides. Restore by removing the comment markers.
 # Thiessen Polygons
 .row
     .container width:{60%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-        - American hydrologist **Thiessen** developed a method to overcome uneven distribution of rainfall gauges.
+        - American engineer **Thiessen** (1911) developed a method to overcome uneven distribution of rainfall gauges.
         - Attach an area to each gauge. Every point in the area is closer to that gauge than any other gauge.
             - Connect each gauge to its nearest neighbours.
             - Find the perpendicular bisector of the line segment connecting the two gauges.
@@ -739,14 +739,19 @@ Clausius-Clapeyron slides. Restore by removing the comment markers.
 
 .row
     .container width:{60%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-        - Isohyetal method is a way to estimate the areal rainfall from the altitude of the catchment.
-        - It is a way to estimate the areal rainfall from the altitude of the catchment.
+        - An .ul{isohyet} is a contour of equal rainfall. Here we weight by the **measured rainfall itself**, not by a surrogate like altitude.
+        - Requires a **large number of gauges**: interpolate between the gauge values, draw the isohyets, then measure the area between each pair.
+
+            $ R = \sum_{i=1}^{n} r_i \times \left(\frac{a_i}{A}\right) $
+
+            where now $ a_i $ is the area between two isohyets and $ r_i $ the average rainfall between them.
+        - Same equation as Thiessen and hypsometric — only the definition of $ a_i $ changes.
         - With the advent of computing, these techniques have improved a lot.
         - e.g., kriging!
 
     .container width:{40%}
-        !(80%)[Hypsometric method](../image/davie_3rd_fig_2-14.png)\
-        _Same figure as before, but imagine you draw contour lines of the rainfall distribution from before_
+        !(80%)[Isohyetal method](../image/davie_3rd_fig_2-14.png)\
+        _Same figure as before, but the bands are now contours of rainfall rather than of elevation_
 
 
 # GIS, interpolation and geostatistics
