@@ -1,52 +1,36 @@
-import numpy as np
+"""Thornthwaite potential evapotranspiration, Saskatoon 1961.
+Worked solution for the evaporation tutorial; coefficients follow
+Thornthwaite (1948) and match the lecture slides."""
 
-# Data for each month representing some measured values
-# These could be temperature, precipitation, etc.
-data = {
-    "Apr": 1.8,
-    "May": 11.6,
-    "Jun": 19.7,
-    "Jul": 19.3,
-    "Aug": 21.3,
-    "Sep": 8.7,
-    "Oct": 4.6,
-}
+# Mean monthly air temperature (deg C); months above 0 deg C only.
+temperature = {"Apr": 1.8, "May": 11.6, "Jun": 19.7, "Jul": 19.3,
+               "Aug": 21.3, "Sep": 8.7, "Oct": 4.6}
 
-# Correction factors for each month
-# These might be used to adjust the data for some known bias or error
-correction = {
-    "Apr": 1.15,
-    "May": 1.33,
-    "Jun": 1.33,
-    "Jul": 1.37,
-    "Aug": 1.25,
-    "Sep": 1.06,
-    "Oct": 0.92,
-}
+# Day-length factors for ~50 deg N (nearest latitude to Saskatoon).
+correction = {"Apr": 1.15, "May": 1.33, "Jun": 1.33, "Jul": 1.37,
+              "Aug": 1.25, "Sep": 1.06, "Oct": 0.92}
 
-# Calculating the mean heat index (I)
-# This is a sum of transformed data values, which might represent some kind of energy or heat index
-I = np.sum(np.asarray([(val / 5) ** (3/2) for val in data.values()]))
+# Step 1 - annual heat index I = sum of (T / 5) ** 1.514.
+I = sum((t / 5) ** 1.514 for t in temperature.values())
 
-# Step 2: Calculate the coefficient 'a'
-# This is a polynomial function of the heat index 'I'
-# The coefficients are likely derived from empirical data or a theoretical model
-a = 0.492 + 0.0119 * I - 0.0000771 * I**2 + 0.000000675 * I**3
-
-# Print the calculated values of 'a' and 'I'
-print(f"Values for a, and I are respectively: {a:.2f}, and {I:.2f}")
-
-# Function to calculate potential evaporation (E_pt)
-# T_a is the average temperature for the month
-# Correction is a factor to adjust the calculation
-# The formula is based on the heat index 'I' and coefficient 'a'
+# Step 2 - exponent a, a cubic in I (Thornthwaite 1948).
+a = 6.75e-7 * I**3 - 7.71e-5 * I**2 + 1.792e-2 * I + 0.49239
+print(f"Annual heat index I = {I:.2f},  exponent a = {a:.3f}\n")
 
 
-def E_pt(T_a, correction=1.0):
-    return correction * 1.62 * (10 * T_a / I) ** a
+def E_pt(T_a, factor=1.0):
+    """Monthly potential evapotranspiration (cm); 1.6 cm = 16 mm."""
+    return factor * 1.6 * (10 * T_a / I) ** a
 
 
-# Loop through each month and calculate both corrected and uncorrected evaporation
-# Print the results for each month
-for month in data.keys():
-    print(f"{month}: corrected = {E_pt(T_a=data.get(month, 0.0), correction=correction.get(month, 1.0)):.3f}, uncorrected = {E_pt(T_a=data.get(month, 0.0), correction=1.0):.3f}")
+# Steps 3-4 - raw and day-length-corrected monthly E_pt.
+corrected = {}
+for m, t in temperature.items():
+    corrected[m] = E_pt(t, correction[m])
+    print(f"{m}: raw {E_pt(t):.2f}, corrected {corrected[m]:.2f} cm")
+
+# Step 5 - season total, 16 May to 24 Sep. May and September are only
+# partly inside the window, so weight them by the month fraction.
+fraction = {"May": 16/31, "Jun": 1, "Jul": 1, "Aug": 1, "Sep": 24/30}
+total = sum(corrected[m] * f for m, f in fraction.items())
+print(f"\nSeason total = {total:.1f} cm ({total*10:.0f} mm)")

@@ -12,105 +12,153 @@
     Evaporation
 
 # Evaporation
-## Potential and Actual Evaporation
-You are given three months of daily climate data (temperature, humidity, radiation, wind) for a small catchment.
-- Explain how you would estimate **potential evaporation** ($ E_{pt} $) from this data.
-- What key assumptions are you making in the calculation?
-- Explain how $ E_{pt} $ relates to actual evaporation, $ E_t $ and how you might evaluate if $ E_t \approx E_{pt} $ for the wet season.
 
-## Evaporation Dynamics in Soil
-A lysimeter experiment was conducted in two neighbouring plots: one bare soil, one vegetated.
-- Which plot would you expect to have higher total evaporation over the summer? Why?
-- Discuss how **soil moisture** affects actual evaporation in both plots.
-- Explain the role of **capillarity** and **transpiration** in the vegetated plot.
+This tutorial follows on from the evaporation lecture. The first exercises ask
+you to reason about what controls evaporation and how we tell potential from
+actual evaporation. The middle exercises work through a vapour pressure deficit
+calculation and a comparison of the main ways evaporation is measured and
+estimated, from a single lysimeter up to continental satellite products. The
+final exercise is a full numerical worked example of the Thornthwaite method, so
+that you have estimated potential evapotranspiration by hand at least once.
 
-## Vapour Pressure Deficit
-Given the following measurements at midday:
-| Air Temperature | Relative Humidity | Saturated Vapour Pressure |
-|----|----|----|
-| $ 25 \degree C $ | 40% | 3.2 kPa |
+Work through the questions in order and write your reasoning out in full. For the
+numerical parts, keep your units consistent and state any assumption you make.
 
-- Calculate the actual vapour pressure $ e_a $ and the vapour pressure deficit (VPD).
-- Briefly describe what this VPD tells us about the potential for evaporation at this time.
-- What might plants do in response to this VPD?
+## Potential and actual evaporation
 
+You are given three months of daily climate data (temperature, humidity,
+radiation and wind speed) for a small catchment. Using what you know from the
+lecture, answer the following.
 
-## Comparing Evaporation Measurement Methods
-Evaluate the **advantages and limitations** of the following methods for measuring or estimating evaporation in a catchment:
+1. Describe how you would estimate **potential evaporation** ($ E_{pt} $) from
+   these data, and name the type of equation you would use.
+2. State the key assumptions built into that estimate.
+3. Explain how $ E_{pt} $ relates to **actual evaporation** ($ E_t $), and
+   describe how you would test whether $ E_t \approx E_{pt} $ during the wet
+   season.
+
+## Vapour pressure deficit
+
+At midday a weather station records the following.
+
+.align{center}
+    | Air temperature | Relative humidity | Saturated vapour pressure |
+    |:---:|:---:|:---:|
+    | $ 25\ \degree\text{C} $ | 40% | 3.2 kPa |
+    "Midday conditions at the weather station"
+
+1. Calculate the actual vapour pressure $ e_a $ and the vapour pressure deficit
+   (VPD).
+2. Explain in one or two sentences what this VPD tells you about the potential
+   for evaporation at this moment.
+3. What are plants likely to do in response to a VPD of this size, and how does
+   that feed back on actual evaporation?
+
+## Evaporation from bare and vegetated soil
+
+A lysimeter study runs two neighbouring plots through a dry summer: one is bare
+soil, the other is vegetated.
+
+1. Which plot would you expect to lose more water in total over the summer, and
+   why?
+2. Describe how **soil moisture** limits actual evaporation in each plot as the
+   summer dries out.
+3. Explain the roles of **capillary rise** and **transpiration** in the
+   vegetated plot.
+
+## Comparing ways of measuring and estimating evaporation
+
+No instrument catches evaporated vapour directly, so every method is either an
+indirect measurement or an estimate. Evaluate the strengths and limitations of
+each of the following.
+
 1. Evaporation pans
-2. Lysimeters
-3. Water balance method (catchment scale)
+2. Weighing lysimeters
+3. Catchment water balance
 4. Eddy covariance
+5. Satellite remote sensing (for example GLEAM globally, or CMRSET over
+   Australia)
 
-For each method, comment on:
-- The scale (point vs landscape)
-- Type of surface (soil, open water, vegetation)
-- Key sources of uncertainty
+For each method, comment on the spatial scale it works at (point versus
+landscape versus continent), the type of surface it suits (open water, bare
+soil or vegetation), and its main source of uncertainty. Finish by explaining
+why Australia's Bureau of Meteorology reports a modelled actual evapotranspiration
+from the AWRA-L land surface model rather than relying on the pan network alone.
 
+## The Thornthwaite method for estimating potential evapotranspiration
 
-## The Thornthwaite Method for Estimating Potential Evapotranspiration
-**Introduction -** In hydrologic analysis, estimating evaporation is crucial but challenging. While direct measurements using lysimeters provide the most accurate data, these devices are expensive and complex to maintain. In data-sparse regions, empirical models offer practical alternatives. The **Thornthwaite method** is one of the simplest and most widely used approaches, requiring only mean monthly air temperature and geographic latitude to estimate potential evapotranspiration ($ E_{pt} $).
+Direct measurement with a lysimeter gives the best actual evapotranspiration a
+hydrologist can hope for, but the instruments are expensive and hard to
+maintain, so they are rare. In data-sparse regions we fall back on empirical
+models. The **Thornthwaite method** is one of the simplest: it needs only mean
+monthly air temperature and the site latitude, which is why it remains in wide
+use despite its known shortcomings. It estimates monthly potential
+evapotranspiration as
 
-The Thornthwaite equation estimates monthly potential evapotranspiration as:
+$ E_{pt} = 1.6 \left( \frac{10\, T_a}{I} \right)^a $
 
-$ E_{pt} = 1.62 \left( \frac{10 T_a}{I} \right)^a $
+where $ E_{pt} $ is the monthly potential evapotranspiration (cm/month), $ T_a $
+is the mean monthly air temperature (°C), $ I $ is the annual heat index and
+$ a $ is an empirical exponent.
 
-Where:
-- $ E_{pt} $ = estimated potential evapotranspiration (cm/month)
-- $ T_a $ = mean monthly air temperature (°C)
-- $ I $ = annual heat index (dimensionless)
-- $ a $ = empirically derived exponent
+The calculation has three parts. First, sum a monthly heat index over every
+month warmer than 0 °C to obtain the annual heat index,
 
-**Step-by-Step Calculation:**
+$ I = \sum_{i=1}^{12} \left( \frac{T_{a,i}}{5} \right)^{1.514} $
 
-1. **Compute the annual heat index** by summing across all months with $ T_a > 0 $:
+Second, evaluate the exponent as a cubic function of that heat index,
 
-   $ I = \sum_{i=1}^{12} \left( \frac{T_{ai}}{5} \right)^{1.5} $
+$ a = 6.75 \times 10^{-7}\, I^3 - 7.71 \times 10^{-5}\, I^2 + 1.792 \times 10^{-2}\, I + 0.49239 $
 
-2. **Calculate the exponent** using the cubic polynomial:
-
-   $ a = 0.492 + 0.0119 I - 0.0000771 I^2 + 0.000000675 I^3 $
-
-3. **Apply daylight correction** by multiplying monthly $ E_{pt} $ by a latitude-dependent factor to account for seasonal variations in day length.
-
-The table below provides daylight correction factors for different latitudes:
+Third, multiply each month's raw $ E_{pt} $ by a latitude-dependent day-length
+factor, which corrects the nominal 30-day, 12-hour month for the real number of
+daylight hours. The factors are tabulated below.
 
 | North lat. | J    | F    | M    | A    | M    | J    | J    | A    | S    | O    | N    | D    |
 |------------|------|------|------|------|------|------|------|------|------|------|------|------|
-| 0E         | 1.04 | 0.94 | 1.04 | 1.01 | 1.04 | 1.01 | 1.04 | 1.04 | 1.01 | 1.04 | 1.01 | 1.04 |
-| 10E        | 1.00 | 0.91 | 1.03 | 1.03 | 1.08 | 1.06 | 1.08 | 1.07 | 1.02 | 1.02 | 0.98 | 0.99 |
-| 20E        | 0.95 | 0.90 | 1.03 | 1.05 | 1.13 | 1.11 | 1.14 | 1.11 | 1.02 | 1.00 | 0.93 | 0.94 |
-| 30E        | 0.90 | 0.87 | 1.03 | 1.08 | 1.18 | 1.17 | 1.20 | 1.14 | 1.03 | 0.98 | 0.89 | 0.88 |
-| 35E        | 0.87 | 0.85 | 1.03 | 1.09 | 1.21 | 1.21 | 1.23 | 1.16 | 1.03 | 0.97 | 0.86 | 0.85 |
-| 40E        | 0.84 | 0.83 | 1.03 | 1.11 | 1.24 | 1.24 | 1.27 | 1.18 | 1.04 | 0.96 | 0.83 | 0.81 |
-| 45E        | 0.80 | 0.81 | 1.02 | 1.13 | 1.28 | 1.28 | 1.31 | 1.21 | 1.04 | 0.94 | 0.79 | 0.75 |
-| 50E        | 0.74 | 0.78 | 1.02 | 1.15 | 1.33 | 1.33 | 1.37 | 1.25 | 1.06 | 0.92 | 0.76 | 0.70 |
-"NRC mean hours of bright sunshine expressed in units of 30 days of 12 hours each day"
+| 0°         | 1.04 | 0.94 | 1.04 | 1.01 | 1.04 | 1.01 | 1.04 | 1.04 | 1.01 | 1.04 | 1.01 | 1.04 |
+| 10°        | 1.00 | 0.91 | 1.03 | 1.03 | 1.08 | 1.06 | 1.08 | 1.07 | 1.02 | 1.02 | 0.98 | 0.99 |
+| 20°        | 0.95 | 0.90 | 1.03 | 1.05 | 1.13 | 1.11 | 1.14 | 1.11 | 1.02 | 1.00 | 0.93 | 0.94 |
+| 30°        | 0.90 | 0.87 | 1.03 | 1.08 | 1.18 | 1.17 | 1.20 | 1.14 | 1.03 | 0.98 | 0.89 | 0.88 |
+| 35°        | 0.87 | 0.85 | 1.03 | 1.09 | 1.21 | 1.21 | 1.23 | 1.16 | 1.03 | 0.97 | 0.86 | 0.85 |
+| 40°        | 0.84 | 0.83 | 1.03 | 1.11 | 1.24 | 1.24 | 1.27 | 1.18 | 1.04 | 0.96 | 0.83 | 0.81 |
+| 45°        | 0.80 | 0.81 | 1.02 | 1.13 | 1.28 | 1.28 | 1.31 | 1.21 | 1.04 | 0.94 | 0.79 | 0.75 |
+| 50°        | 0.74 | 0.78 | 1.02 | 1.15 | 1.33 | 1.33 | 1.37 | 1.25 | 1.06 | 0.92 | 0.76 | 0.70 |
+"Mean daylight hours per month, expressed in units of 30 days of 12 hours each (Northern Hemisphere)."
 
-## Applying the Thornthwaite Method
+### Applying the method: Saskatoon, 1961
 
-**Problem Statement:**
-
-You are tasked with estimating the total potential evapotranspiration for a growing season in Saskatoon, Canada (latitude approximately 52°N). Using the Thornthwaite method, calculate the total $ E_{pt} $ for the period from May 16 to September 24, 1961.
-
-**Given Data:**
+Estimate the total potential evapotranspiration for the growing season at
+Saskatoon, Canada (latitude about 52 °N), for the period **16 May to 24
+September 1961**. The mean monthly temperatures for that year were as follows.
 
 .align{center}
-    | Month | Mean Temperature (°C) |
-    |:-----:|:------------------------:|
-    | Apr   | 1.8                   |
-    | May   | 11.6                  |
-    | Jun   | 19.7                  |
-    | Jul   | 19.3                  |
-    | Aug   | 21.3                  |
-    | Sep   | 8.7                   |
-    | Oct   | 4.6                   |
-    "Mean monthly temperatures for Saskatoon, Canada in 1961"
+    | Month | Mean temperature (°C) |
+    |:-----:|:---------------------:|
+    | Apr   | 1.8  |
+    | May   | 11.6 |
+    | Jun   | 19.7 |
+    | Jul   | 19.3 |
+    | Aug   | 21.3 |
+    | Sep   | 8.7  |
+    | Oct   | 4.6  |
+    "Mean monthly temperatures for Saskatoon, Canada, 1961."
 
-**Tasks:**
+Work through the following.
 
-1. Calculate the annual heat index $ I $ using all months with temperatures above 0°C
-2. Determine the exponent $ a $ using the cubic polynomial
-3. Calculate monthly $ E_{pt} $ values for May through September
-4. Apply appropriate daylight correction factors for latitude 52°N
-5. Sum the corrected monthly values to find the total $ E_{pt} $ for the specified period
+1. Calculate the annual heat index $ I $, using every month warmer than 0 °C.
+2. Determine the exponent $ a $ from the cubic above.
+3. Compute the unadjusted monthly $ E_{pt} $ for May through September.
+4. Apply the day-length correction. Saskatoon is at 52 °N, so use the nearest
+   tabulated latitude (50 °N).
+5. Sum the corrected values to find the total $ E_{pt} $ for 16 May to 24
+   September. Remember that May and September are only partly inside this window,
+   so weight them by the fraction of the month that falls within it.
+
+### Reflection
+
+The lecture noted that Thornthwaite tends to **underestimate** potential
+evapotranspiration in hot, arid regions. Explain briefly why a temperature-only
+model would struggle across the Australian interior, where pan evaporation
+reaches 3,000 to 3,600 mm per year, and name one estimation method from the
+lecture that would handle those conditions better.

@@ -60,7 +60,7 @@
             body of water such as lakes, streams, oceans. As can be see in
             global water cycle figure, largest source of evaporation.
             - **Potential Evaporation**, $ E_{pt} $ : Amount of evaporation above land if there was unlimited water.
-            - **Total Evaporation**, $ B_t $:  This is the actual evaporation. Wet seasons: $ E_t \approx E_{pt} $
+            - **Total (actual) Evaporation**, $ E_t $:  This is the evaporation that actually occurs. Wet seasons: $ E_t \approx E_{pt} $
 
         .center
             - We are mostly interested in $ E_O $ and $ E_t $, but $ E_{pt} $ gives us a good indicator of what $ E_t $ might be.
@@ -85,7 +85,7 @@
 
     .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
       We are considering evaporation as a negative source. But water lost, is just transferred to the atmosphere. A meteorologist would consider evaporation as
-      a positive source and dewafll as a negative one.
+      a positive source and dewfall as a negative one.
 
 # Transpiration, and bit of fun with TSA
 .fullspan
@@ -466,6 +466,58 @@ Requires observations of .ul{temperature}, .ul{wind speed}, .ul{vapour pressure}
     - $ \alpha $ is the Priestly–Taylor parameter, approximates the sensible heat transfer function, estimated by Priestly and Taylor (1972) to be 1.26 for saturated land surfaces, oceans, and lakes.
     - This adaptation is important for regional scale evapotranspiration assessment using satellite remote sensing.
 
+# Penman–Monteith: from open water to a real canopy
+
+.row gap:{1cm}
+  .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    - Monteith (1965) added a **canopy (stomatal) resistance** $ r_c $ to Penman, so that _actual_ evaporation from a vegetated surface can be estimated:
+
+    $ E_t = \frac{Q^* \Delta + \rho c_p \delta_e / r_a}{\lambda \left( \Delta + \gamma \left( 1 + \frac{r_c}{r_a} \right) \right)} $
+
+    - $ r_a $ — **aerodynamic resistance** (mixing above the surface; rougher canopy → lower $ r_a $).
+    - $ r_c $ — **canopy resistance** (the plant's control over transpiration through its stomata).
+
+  .container width:{45%}
+    - If $ r_c \to 0 $ the equation collapses back to Penman: **actual = potential**.
+    - High $ r_c $ (stressed or conservative plants) pulls actual evaporation **below** potential.
+    - FAO's recommended method — "probably the best evapotranspiration estimation method available".
+    - The catch: you need $ r_a $ and $ r_c $ for every canopy at each growth stage.
+
+    | Vegetation | $ r_a $ (s/m) | $ r_c $ (s/m) |
+    |---|---|---|
+    | Pasture | 30 | 50 |
+    | Forest | 6.5 | 112 |
+    | Scrub | 6.5 | 160 |
+    | Tussock | 7.0 | 120 |
+    "Andrew and Dymond (2007); canopy values vary seasonally."
+
+# Reference evaporation and crop coefficients
+
+.row gap:{1cm}
+  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    - Measuring resistances for every crop is impractical, so FAO defines a **reference evaporation** $ ET_o $: evaporation from a standard surface — close-cropped, **well-watered grass**, 0.12 m high, canopy resistance 70 s/m, albedo 0.23.
+
+    $ ET_o = \frac{0.408 \Delta (Q^* - Q_G) + \gamma \frac{900}{T + 273} u \delta_e}{\Delta + \gamma (1 + 0.34 u)} $
+
+    - Actual crop evapotranspiration then scales with a **crop coefficient**:
+
+    $ ET_{crop} = K_c \cdot ET_o $
+
+  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    | Crop | $ K_c $ |
+    |---|---|
+    | Sugar cane | 1.25 |
+    | Cotton | 1.15–1.20 |
+    | Wheat | 1.15 |
+    | Maize (corn) | 1.15 |
+    | Coffee | 0.95 |
+    | Grapes | 0.70 |
+    "FAO, Allen et al. (1998)"
+
+    - $ K_c > 1 $: rougher canopy than grass → higher rates.
+    - $ K_c < 1 $: stomatal control holds evaporation down.
+    - Directly relevant to Australian **irrigated agriculture** (cotton, wheat, sugar cane, wine grapes) — the coefficient sets the crop's water demand.
+
 # Relationship between Actual and Potential Evaporation
 
 .row gap:{1cm}
@@ -503,6 +555,74 @@ Requires observations of .ul{temperature}, .ul{wind speed}, .ul{vapour pressure}
     ![Soil moisture](../image/davie_3rd_fig_3-11.png "Relationship between actual and potential evaporation")
 
 
+#
+
+.row gap:{1cm} alignment:{center}
+  .container width:{60%} alignment:{center} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+
+    ## Scaling up: estimating evaporation from space
+
+# Remote sensing of evaporation
+
+.row gap:{1cm}
+  .container width:{55%}
+    - Satellites cannot see the flux directly. Passive microwave sensors estimate the **water vapour in the whole atmospheric column**, not the near-surface flux we care about.
+    - So remote sensing of evaporation is always **model + satellite**: use a surrogate model (usually Penman or Priestley–Taylor) for **potential** evaporation, then use satellite data to knock it down to **actual** evaporation.
+    - Two things the satellite supplies well:
+      - **Net radiation and surface temperature** → the energy term.
+      - **Vegetation state and soil/vegetation water** → the stress that separates actual from potential.
+
+  .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    The recurring pattern:
+
+    $ E_{actual} = f_{stress} \times E_{potential} $
+
+    - $ E_{potential} $ from Priestley–Taylor / Penman, driven by satellite radiation.
+    - $ f_{stress} \in [0, 1] $ from satellite vegetation and moisture indices.
+    - This is exactly the potential-to-actual step we saw for soil moisture — now done pixel by pixel, continent-wide.
+
+# GLEAM: global land evaporation from space
+
+.row gap:{1cm}
+  .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    - **GLEAM** — Global Land Evaporation Amsterdam Model (Miralles et al. 2011).
+    - Uses **Priestley–Taylor** for potential evaporation, driven by satellite net radiation and air temperature.
+    - Converts potential → actual with an **evaporative stress factor** from microwave **Vegetation Optical Depth** (vegetation water content) and microwave/SMOS **soil moisture**.
+    - Estimates each **component separately**: transpiration, bare-soil evaporation, interception (Gash model), open water, and snow sublimation.
+
+  .container width:{45%}
+    - Classic v3: **0.25°**, Priestley–Taylor.
+    - GLEAM4 (2025): now **0.1°**, and switched the potential-evaporation core from Priestley–Taylor to **Penman**, with the stress function trained on flux-tower and sap-flow data.
+    - Global and continental — the right tool when you want one consistent product everywhere, but coarse for catchment work.
+
+# CMRSET: actual ET across Australia
+
+.row gap:{1cm}
+  .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    - **CMRSET** (CSIRO MODIS-Reflectance-based Scaling ET), Guerschman et al. (2009, 2022) — Australia's operational **actual ET** product.
+    - Builds a scaling factor from two MODIS reflectance indices — **EVI** (greenness) and **GVMI** (vegetation moisture) — and multiplies it by potential ET.
+    - The EVI+GVMI combination detects **standing water** directly, so it handles floodplains and reservoirs without a land-cover map.
+    - Calibrated against ~30 **eddy-covariance flux towers**; now delivered at **30 m, monthly**, served through TERN and Google Earth Engine.
+
+  .container width:{45%}
+    - Used operationally for **irrigation water use and water accounting in the Murray–Darling Basin** — where roughly 70% of Australia's diverted water goes.
+    - Not to be confused with the **AWRA-L** actual-ET grid on the Australian Water Outlook (the same model family behind the AWO rainfall we already use): AWRA-L is a **water-balance model** (0.05°), CMRSET is a **remote-sensing** product. Two independent estimates of the same flux — a useful cross-check.
+
+# The Australian picture: demand dwarfs supply
+
+.row gap:{1cm}
+  .container width:{50%}
+    - Class A **pan evaporation** (BoM, 1975–2005) climbs from **~1,000–1,500 mm/yr** in the cooler, wetter south to **~3,000–3,600 mm/yr** across the arid interior.
+    - Over most of the continent **potential evaporation vastly exceeds rainfall** — Australia is fundamentally **water-limited**, so actual ET sits far below potential.
+    - **Lake Eyre**: ~140 mm/yr rainfall against ~3,500 mm/yr pan evaporation — roughly a **25:1** deficit. Rare fillings evaporate away within months.
+
+  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    **Menindee Lakes** (Darling/Baaka, far-western NSW)
+
+    - Shallow storages in a hot, windy setting lose **~426 GL/yr on average to evaporation, up to ~700 GL/yr when full** — against a capacity of ~1,731 GL.
+    - Over the 2016–2019 drought, **~900 GL** was lost to evaporation, feeding directly into the controversy over the Lower Darling fish kills.
+    - Evaporation is not a rounding error here — it is a first-order term in the water budget.
+
 # Summary
 .align{center}
     .container width:{60%} alignment:{center}
@@ -511,4 +631,5 @@ Requires observations of .ul{temperature}, .ul{wind speed}, .ul{vapour pressure}
             - Types include open water ($ E_o $), potential ($ E_{pt} $), and actual ($ E_t $).
             - Transpiration from plants adds to total evapotranspiration.
             - **VPD** (vapour pressure deficit) is a key driver of evaporation.
-            - Measured via _direct_(lysimeters) and indirect (pans, water balance) methods.
+            - Measured _directly_ by micro-meteorology (eddy covariance, Bowen ratio) and _indirectly_ via water balance (pans, lysimeters).
+            - Estimated from climate with surrogate models (Thornthwaite, Penman, Penman–Monteith) and, at continental scale, by satellite remote sensing (GLEAM, CMRSET).

@@ -12,152 +12,201 @@
     Evaporation
 
 # Evaporation
-## Potential and Actual Evaporation
-**How to estimate potential evaporation ($ E_{pt} $):** With access to daily temperature, humidity, radiation, and wind data, potential evaporation ($ E_{pt} $) can be estimated using an **energy and vapour-pressure based approach**, such as the **Dalton-type** or **Penman-type** equations. From the slides:
 
-- **Dalton’s equation** (from early theory):
+## Potential and actual evaporation
 
-  $ E = C (e_x - e_a) $
+Given daily temperature, humidity, radiation and wind data, the natural way to
+estimate potential evaporation is with an equation that combines the available
+energy with the drying power of the air. The Penman equation does exactly this,
+blending net radiation against the vapour pressure deficit and wind speed, and
+returns a rate in millimetres per day that can be summed to a monthly total. A
+simpler Dalton-type expression, $ E = C(e_x - e_a) $, captures the same idea
+through the difference between the vapour pressure at the surface and that of the
+surrounding air, but it hides the energy term inside the empirical constant $ C $
+and so is less useful when radiation data are available.
 
-  where:
+Whichever equation is used, the estimate rests on a set of assumptions. Potential
+evaporation is defined for a surface with an unlimited water supply, so the first
+assumption is that water is never the limiting factor. The estimate is usually
+tied to a reference surface such as short, well-watered grass, and it assumes the
+plants are unstressed with their stomata fully open. In effect only the
+atmosphere is allowed to control the rate, and the daily or monthly averages are
+taken to represent conditions well enough for the calculation to hold.
 
-  * $ e_x $: vapour pressure at the water surface (saturated)
-  * $ e_a $: vapour pressure of surrounding air
-  * $ C $: empirical constant dependent on wind speed, temperature
+Actual evaporation is bounded above by the potential rate. In dry conditions
+$ E_t $ falls below $ E_{pt} $ because soil moisture runs short, plants close
+their stomata, and the surface is no longer continuously wet. During a wet season
+the two converge, $ E_t \approx E_{pt} $, because energy and the vapour pressure
+deficit, rather than water, set the pace. You can test whether this holds by
+comparing an independent measurement of actual evaporation, from a lysimeter or
+sap-flow sensors, against the potential estimate, or by closing the catchment
+water balance as $ E_t = P - Q - \Delta S $ and comparing the residual with
+$ E_{pt} $. If the ratio $ E_t / E_{pt} $ sits close to one on most days, the wet
+season assumption is justified.
 
-- Alternatively, use modern formulations like **Penman**, which incorporate:
-  - Net radiation (available energy)
-  - Vapour pressure deficit ($ delta_e = e_s - e_a $)
-  - Wind speed (affecting atmospheric mixing)
-  - Temperature (influencing saturation vapour pressure)
+## Vapour pressure deficit
 
-These allow daily $ E_{pt} $ values to be computed and summed into monthly totals.
-
-**Key assumptions in calculating $ E_{pt} $**:
-1. **Unlimited water supply** — the surface is wet enough that evaporation is not water-limited.
-2. **Uniform land cover** — typically assumes a reference surface (e.g., short grass).
-3. **No plant stress** — stomata are fully open, so transpiration occurs at maximum potential.
-4. **Climatic control only** — only atmospheric variables (radiation, humidity, temperature, wind) govern the rate.
-5. **Steady-state conditions** — daily or monthly averages are assumed to represent conditions adequately.
-
-**Relationship between $ E_{pt} $ and $ E_{t} $:**
-
-* $ E_{pt} $ is the **upper bound** of evaporation — how much would occur if water was **not limiting**.
-* $ E_t $ (actual evaporation) is often **less than** $ E_{pt} $ in dry conditions due to:
-
-  * Soil moisture limitations
-  * Stomatal closure in plants
-  * Reduced surface wetness
-
-**In wet seasons**, when water is abundant:
-
-* $ E_t \approx E_{pt} $ holds, because energy and VPD dominate evaporation control.
-* You can evaluate this by comparing:
-
-  * **Soil moisture** data: if consistently high, $ E_t $ likely matches $ E_{pt} $
-  * **Lysimeter or sap flow measurements** of actual evapotranspiration
-  * **Water balance** residuals: $ E_t = P - Q - \Delta S $, and compare to $ E_{pt} $
-
-If actual observations show $ E_t/E_{pt} \approx 1 $ on most days, the assumption is valid for that season. The non-linear relationship shown on [this figure](https://watercourse.earth/content/Evaporation/index.html#/28) is how one can relate actual evaporation to potential evaporation.
-
-## Evaporation Dynamics in Soil
-**Which plot would have higher total evaporation over the summer?** The **vegetated plot** would have higher total evaporation over the summer.
-
-- Vegetation adds **transpiration** to the total water loss.
-- Plant **canopy intercepts rainfall**, which can then evaporate.
-- **Shading** by vegetation reduces soil surface evaporation early in the season, but **transpiration continues** steadily through deeper water access.
-- In contrast, **bare soil** may have higher initial evaporation but dries quickly and becomes **soil-limited**.
-
-> Bare vs. vegetated: early season evaporation can be high from bare soil but drops quickly. Vegetated soil supports sustained evaporation via transpiration.
-
-**How soil moisture affects actual evaporation ($ E_t $):**
-
-- **Bare soil:**
-  - Evaporation is initially **energy-limited** when the surface is wet.
-  - As the surface dries, it becomes **soil-limited**.
-  - Water must move upward via capillary flow, and evaporation slows significantly once the surface dries.
-
-- **Vegetated soil:**
-  - Plants access **deeper soil moisture** via roots, allowing evaporation (via transpiration) to continue even when the surface is dry.
-  - Stomata regulate water loss depending on water availability and atmospheric demand (VPD).
-  - Thus, **transpiration can sustain higher $ E_t $** even under moderate drought.
-
-
-> “Relationship between soil moisture and evaporation is dynamic… plants draw water to the surface via osmosis.”
-
-**Role of capillarity and transpiration in vegetated plot:**
-
-- **Capillarity:**
-  - Pulls water upward from deeper layers to the near-surface zone.
-  - Supports evaporation at the soil–air interface even when rainfall stops.
-  - In bare soil, capillary rise is the only upward mechanism once surface moisture is depleted.
-
-- **Transpiration:**
-  - Plants draw water through their roots and release it via stomata.
-  - The process is controlled by:
-     - Vapour pressure deficit (VPD)
-     - Soil water potential
-     - Stomatal behaviour (open/close in response to stress)
-  - Transpiration enhances **moisture gradient**, which strengthens capillary flow.
-
-> “Transpiration is the result of photosynthesis… controlled by stomatal response to VPD… and the plant’s ability to access water.”
-
-#### Vapour Pressure Deficit
-
-**Calculate the actual vapour pressure ($ e_a $) and vapour pressure deficit (VPD)**. Given: $ e_s = 3.2 $ kPa, RH = 40 %
+The actual vapour pressure follows directly from the relative humidity and the
+saturated value,
 
 $ e_a = \frac{40}{100} \times 3.2 = 1.28\ \text{kPa} $
+
+so the vapour pressure deficit is
+
 $ \text{VPD} = e_s - e_a = 3.2 - 1.28 = 1.92\ \text{kPa} $
 
-**What does this VPD tell us about evaporation potential?** A VPD of 1.92 kPa at 25°C indicates strong atmospheric demand. The greater the VPD, the higher the potential for evaporation and transpiration. Based on the slide figure (Davie Fig. 3-2), a VPD close to 2 kPa implies evaporation rates could exceed 5 mm/day under water-rich conditions.
+A deficit near 2 kPa is a strong atmospheric demand for water. The larger the
+VPD, the more vapour the air can still absorb and the higher the potential for
+evaporation and transpiration; reading Davie's Figure 3.2, a deficit of this size
+corresponds to evaporation of several millimetres per day when water is freely
+available.
 
-**Plant response to high VPD**. Many plants begin to partially close stomata when VPD exceeds about 1.5 kPa to limit water loss. This reduces transpiration and actual evaporation ($ E_t $), even if potential evaporation ($ E_{pt} $) remains high. Reduced stomatal conductance also limits CO₂ uptake and photosynthesis.
+Plants do not simply let this proceed unchecked. Many species begin to close
+their stomata once the VPD climbs past roughly 1.5 kPa, throttling transpiration
+to conserve water. This pulls actual evaporation below the potential rate even
+though the atmospheric demand stays high, and because the same stomata control
+carbon dioxide uptake, the plant also slows its photosynthesis.
 
-#### Comparing Evaporation Measurement Methods
+## Evaporation from bare and vegetated soil
 
-**Evaporation pans:** Simple, low-cost instruments that measure water loss from an open container exposed to the atmosphere. They are widely used and provide long-term records, especially for open-water or reservoir evaporation. However, they tend to overestimate actual evaporation due to enhanced radiation absorption, edge effects, and heat storage. A pan coefficient (typically 0.6–0.8) is required to adjust values for natural conditions.
+The vegetated plot loses more water over the summer. On top of evaporation from
+the soil surface it also transpires through its leaves, and its canopy intercepts
+rainfall that then evaporates. Bare soil can evaporate quickly at first while the
+surface is still wet, but it has no way to keep drawing on deeper water once the
+top has dried.
 
-**Lysimeters:** Provide the most accurate field-scale measurement of actual evapotranspiration. They mimic natural soil and vegetation and can account for infiltration and percolation. Weighing lysimeters directly measure changes in water mass. Despite their precision, lysimeters are expensive, limited in spatial scale, and prone to edge effects and soil disturbance during installation.
+That difference is a story about where the water sits. On the bare plot,
+evaporation is energy-limited only while the surface is damp; as it dries the
+process becomes soil-limited, because water now has to travel up to the surface
+by capillary rise against gravity, and the rate falls away sharply. On the
+vegetated plot the roots reach moisture deeper in the profile and lift it to the
+leaves, so transpiration can continue well after the surface has dried. The
+stomata meter this loss against the soil water available and the atmospheric
+demand, which lets the vegetated plot sustain a higher actual evaporation
+through a moderate drought.
 
-**Water balance method:** Uses the difference between precipitation, streamflow, and storage change to estimate catchment-scale evaporation:
-$ E = P - Q - \Delta S $.
-It integrates over large areas and requires only basic hydrological data. However, it is sensitive to measurement errors in each component and assumes negligible deep percolation or groundwater exchange, which may not hold true. Its accuracy is limited to monthly or annual time scales.
+Capillary rise and transpiration are the two upward pathways at work. Capillarity
+pulls water from the wetter layers below towards the drier surface and keeps the
+soil–air interface supplied once rainfall stops; in bare soil it is the only
+route left. Transpiration adds a second, plant-driven pathway: roots take up
+water and release it through the stomata, at a rate governed by the vapour
+pressure deficit, the soil water potential and the plant's own stomatal
+behaviour. By continually removing water near the roots, transpiration steepens
+the moisture gradient and so strengthens the capillary flow feeding it.
 
-**Eddy covariance:** A micrometeorological method that measures vertical turbulent fluxes of water vapour using high-frequency sensors. It provides direct, high-resolution measurements of latent heat flux (and hence evaporation) over a defined footprint. It is ideal for flat, homogeneous areas. Limitations include high cost, complexity, energy balance closure issues, and the need for continuous turbulence (e.g., fails during calm nights).
+## Comparing ways of measuring and estimating evaporation
 
-####! Applying the Thornthwaite Method – Saskatoon 1961
+**Evaporation pans** are the simple, cheap end of the range. A pan measures water
+lost from an open surface and gives long, continuous records, which is why the
+Bureau of Meteorology has run a Class A pan network for decades. It is a point
+measurement of open-water evaporation, and it overestimates evaporation from a
+real catchment: the pan absorbs extra radiation through its sides, stores heat,
+and suffers a strong edge effect, so its readings must be scaled down by a pan
+coefficient of roughly 0.6 to 0.8 before they stand in for a lake or a field.
 
-**Step 1: Calculate the annual heat index $ I $**
-Use only months with $ T_a > 0\degree C $ (April to October). From Table 2.4, the monthly $ i $ values are:
+**Weighing lysimeters** are the most accurate field measurement of actual
+evapotranspiration. Filled with soil and vegetation matched to their
+surroundings, they track the change in water mass directly and allow percolation
+to drain through, so they measure $ E_t $ over a real vegetated surface rather
+than open water. Their weakness is scale and cost: each one samples a single small
+patch, is expensive to build, and disturbs the soil during installation.
 
-$ I = 0.21 + 3.56 + 7.92 + 7.68 + 8.90 + 2.32 + 0.89 = 31.12 $
+**The catchment water balance** works at the opposite scale. Writing
+$ E = P - Q - \Delta S $, it infers evaporation for a whole catchment or lake from
+rainfall, streamflow and the change in storage, and needs only routine
+hydrological data. It integrates over a large area but is only as good as its
+least certain term; small errors in precipitation, runoff or storage propagate
+straight into the evaporation estimate, and it assumes deep percolation and
+groundwater exchange are negligible, so it is trustworthy only over monthly to
+annual periods.
 
-**Step 2: Calculate the exponent $ a $**
-Using the cubic polynomial:
+**Eddy covariance** is the most direct of the micro-meteorological methods. By
+correlating high-frequency measurements of vertical wind speed with humidity, it
+resolves the latent heat flux, and hence evaporation, over a well-defined
+footprint of flat, homogeneous ground. It is the standard against which the
+estimation methods are calibrated, but the instruments are expensive and
+demanding, the energy balance rarely closes perfectly, and the method fails when
+the air is calm and turbulence dies away, as it often does at night.
 
-$ a = 0.492 + 0.01179 \cdot I - 0.0000771 \cdot I^2 + 0.000000675 \cdot I^3 $
-$ a = 0.492 + 0.3709 - 0.0764 + 0.0000215 = 0.81 $
+**Satellite remote sensing** is the only practical way to map evaporation across a
+continent. It cannot see the flux directly, so it always couples a surrogate
+model for potential evaporation with satellite data that scale it down to the
+actual rate. GLEAM does this globally at a coarse grid, driving a Priestley–Taylor
+estimate with satellite radiation and using microwave vegetation and soil moisture
+to set an evaporative stress factor. Over Australia, CMRSET builds a scaling factor
+from MODIS greenness and vegetation-moisture indices and delivers actual
+evapotranspiration fine enough to account for irrigation water use in the
+Murray–Darling Basin. The trade-off is that these products depend on the models
+and sensors behind them, and their footprint can be too coarse for a single small
+catchment.
 
-**Step 3: Compute unadjusted monthly $ E_{pt} $**
-$ E_{pt} = 1.62 \left( \dfrac{10 T_a}{I} \right)^a $
+This is why the Bureau reports a modelled actual evapotranspiration from the
+AWRA-L land surface model on the Australian Water Outlook rather than leaning on
+the pan network. Pans only measure potential open-water evaporation at scattered
+points and overestimate what a landscape actually loses. AWRA-L instead simulates
+the daily water balance on a continuous 0.05° grid, so it produces actual
+evapotranspiration everywhere at once, water-limited where the soil is dry, in a
+form that can be checked against the flux towers and the remote-sensing products.
 
-From Table, the unadjusted $ E_{pt} $ values (cm) for May to September are:
+## The Thornthwaite method: Saskatoon, 1961
 
-- May: 4.690
-- June: 7.195
-- July: 7.077
-- August: 7.664
-- September: 3.717
+**Step 1 — annual heat index.** Every month is above 0 °C, so all of April to
+October contribute. Summing the monthly heat index $ i = (T_a/5)^{1.514} $ gives
 
-**Step 4: Apply daylight correction for 50°N (from Table 2.3)**
+$ I = \sum \left( \frac{T_a}{5} \right)^{1.514} = 31.66 $
 
-- May: $ 4.69 \times 1.33 = 6.23 $
-- June: $ 7.19 \times 1.36 = 9.57 $
-- July: $ 7.07 \times 1.37 = 9.69 $
-- August: $ 7.66 \times 1.25 = 9.58 $
-- September: $ 3.71 \times 1.06 = 3.94 $$ E_{pt} $
+**Step 2 — the exponent.** Substituting into the cubic,
+
+$ a = 6.75\times10^{-7}\, I^3 - 7.71\times10^{-5}\, I^2 + 1.792\times10^{-2}\, I + 0.49239 = 1.004 $
+
+**Step 3 — unadjusted monthly $ E_{pt} $.** Applying
+$ E_{pt} = 1.6\,(10 T_a / I)^a $ to each month gives the raw column below.
+
+**Step 4 — day-length correction.** Saskatoon lies at 52 °N, so we use the 50 °N
+row of the day-length table. Multiplying each raw value by its factor gives the
+corrected column.
+
+.align{center}
+    | Month | $ T_a $ (°C) | Raw $ E_{pt} $ (cm) | Factor (50°N) | Corrected (cm) |
+    |:-----:|:-----------:|:-------------------:|:-------------:|:--------------:|
+    | May   | 11.6 | 5.89  | 1.33 | 7.84  |
+    | Jun   | 19.7 | 10.03 | 1.33 | 13.34 |
+    | Jul   | 19.3 | 9.82  | 1.37 | 13.46 |
+    | Aug   | 21.3 | 10.84 | 1.25 | 13.56 |
+    | Sep   | 8.7  | 4.41  | 1.06 | 4.68  |
+    "Monthly potential evapotranspiration for Saskatoon, 1961."
+
+**Step 5 — seasonal total.** The growing season runs from 16 May to 24 September,
+so May and September are only partly inside the window. Weighting May by 16/31 of
+its month and September by 24/30, and taking June, July and August in full,
+
+$ E_{pt} = (7.84 \times \tfrac{16}{31}) + 13.34 + 13.46 + 13.56 + (4.68 \times \tfrac{24}{30}) $
+
+$ E_{pt} = 4.04 + 13.34 + 13.46 + 13.56 + 3.74 = 48.1\ \text{cm} \approx 481\ \text{mm} $
+
+So the estimated potential evapotranspiration for the growing season is about
+48 cm. Note how sensitive the result is to the exponent $ a $: it enters as a
+power, so getting the heat-index coefficients right matters more than any single
+temperature reading.
+
+## Reflection
+
+Thornthwaite underestimates potential evapotranspiration across the Australian
+interior because temperature alone is a poor proxy for evaporative demand in a
+hot, dry climate. The method was calibrated in the humid temperate mid-latitudes,
+where warmth, radiation and humidity move together, so a single temperature term
+can stand in for all of them. In the arid interior that link breaks: the air is
+extremely dry and the vapour pressure deficit enormous, yet temperature does not
+capture that missing moisture, so the formula returns too low a value against pan
+evaporation of 3,000 to 3,600 mm per year. A method that represents the drying
+power of the air explicitly, such as Penman or Penman–Monteith, handles these
+conditions far better because it carries the vapour pressure deficit and net
+radiation as their own terms rather than folding them into temperature.
 
 <<<
+
+The full calculation as a short Python script (its output reproduces the
+numbers in the table above and the 48.1 cm seasonal total):
 
 .code lang:{python}
   .read{../scripts/evaporation.py}
