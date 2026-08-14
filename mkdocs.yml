@@ -3,6 +3,7 @@ site_url: https://watercourse.earth
 nav:
   - Home: index.md
   - Content: content.md
+  - Videos: videos.md
   - Computer Labs: computer-lab.md
 plugins:
   - mkdocs-jupyter:
@@ -16,6 +17,10 @@ theme:
   palette:
     scheme: default
     primary: light blue
+extra_javascript:
+  - javascripts/course-videos.js
+extra_css:
+  - stylesheets/course-videos.css
 markdown_extensions:
   - admonition
   - pymdownx.details

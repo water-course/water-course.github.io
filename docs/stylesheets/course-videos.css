@@ -1,0 +1,47 @@
+.course-video-grid {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 1.5rem 0 3rem;
+}
+
+.course-video-card {
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-top: 4px solid var(--md-primary-fg-color);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 0.45rem rgb(0 0 0 / 8%);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.course-video-label {
+  color: var(--md-primary-fg-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.course-video-card h3 {
+  font-size: 1rem;
+  line-height: 1.35;
+  margin: 0 0 0.75rem;
+}
+
+.course-video-card iframe {
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+  width: 100%;
+}
+
+.course-video-description {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  margin: 0.9rem 0 0;
+}
