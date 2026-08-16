@@ -60,9 +60,9 @@
 .row gap:{1cm}
     .container width:{54%}
         .box title:{Three related fluxes} background:{.lightblue}
-            - **Open-water evaporation**, $E_o$: evaporation from lakes, rivers, reservoirs, and oceans.
-            - **Potential evaporation**, $E_p$: evaporation that the atmosphere could sustain from a specified surface with unlimited water.
-            - **Actual evaporation**, $E$: evaporation that occurs under the existing water supply and surface conditions.
+            - **Open-water evaporation**, $ E_o $: evaporation from lakes, rivers, reservoirs, and oceans.
+            - **Potential evaporation**, $ E_p $: evaporation that the atmosphere could sustain from a specified surface with unlimited water.
+            - **Actual evaporation**, $ E $: evaporation that occurs under the existing water supply and surface conditions.
 
         Potential evaporation is an atmospheric demand, not an observed loss. Actual evaporation can approach potential evaporation when water is abundant, but the relation depends on the reference surface, vegetation, and advection.
 
@@ -137,9 +137,9 @@
 
         $ E = C (e_s(T_s) - e_a) $
 
-        - $e_s(T_s)$ is the saturated vapour pressure at the surface temperature $T_s$.
-        - $e_a$ is the actual vapour pressure of the air.
-        - $C$ represents turbulent transport and therefore depends on wind, roughness, and atmospheric stability.
+        - $ e_s(T_s) $ is the saturated vapour pressure at the surface temperature $ T_s $.
+        - $ e_a $ is the actual vapour pressure of the air.
+        - $ C $ represents turbulent transport and therefore depends on wind, roughness, and atmospheric stability.
 
         This expression describes the aerodynamic control. It does not separately account for the energy required to vaporise water.
 
@@ -148,7 +148,7 @@
 
         **Atmospheric demand**
 
-        $e_s(T_s)-e_a$
+        $ e_s(T_s)-e_a $
 
         **Turbulent transport**
 
@@ -162,8 +162,8 @@
 
         $ R_n = (K_\downarrow-K_\uparrow) + (L_\downarrow-L_\uparrow) $
 
-        - $K_\downarrow$ and $K_\uparrow$: incoming and reflected short-wave radiation.
-        - $L_\downarrow$ and $L_\uparrow$: atmospheric and surface long-wave radiation.
+        - $ K_\downarrow $ and $ K_\uparrow $: incoming and reflected short-wave radiation.
+        - $ L_\downarrow $ and $ L_\uparrow $: atmospheric and surface long-wave radiation.
 
         Surface albedo controls reflected short-wave radiation. Surface temperature and emissivity control outgoing long-wave radiation. Satellites can constrain all three properties.
 
@@ -183,11 +183,11 @@
 
         $ R_n - G = H + \lambda E $
 
-        - $G$: ground or water-body heat flux.
-        - $H$: sensible heat flux to the atmosphere.
-        - $\lambda E$: latent heat flux used for evaporation.
+        - $ G $: ground or water-body heat flux.
+        - $ H $: sensible heat flux to the atmosphere.
+        - $ \lambda E $: latent heat flux used for evaporation.
 
-        A wet surface directs a larger fraction of available energy into $\lambda E$ and commonly remains cooler. A dry surface directs more energy into $H$ and commonly becomes warmer.
+        A wet surface directs a larger fraction of available energy into $ \lambda E $ and commonly remains cooler. A dry surface directs more energy into $ H $ and commonly becomes warmer.
 
     .container width:{47%}
         .mermaid caption:{Partition of available energy}
@@ -363,13 +363,13 @@
 
         $ \beta = \frac{H}{\lambda E} = \gamma\frac{\Delta T}{\Delta e}. $
 
-        Combined with $R_n-G=H+\lambda E$, this gives the latent heat flux. Small or changing humidity gradients can make the estimate unstable.
+        Combined with $ R_n-G=H+\lambda E $, this gives the latent heat flux. Small or changing humidity gradients can make the estimate unstable.
 
 # Water-balance inference
 
 .row gap:{1cm}
   .container width:{55%}
-    For storage change defined as $\Delta S=S_{end}-S_{start}$,
+    For storage change defined as $ \Delta S=S_{end}-S_{start} $,
 
     $ \Delta S = P-Q-E $
 
@@ -377,7 +377,7 @@
 
     $ E=P-Q-\Delta S. $
 
-    A water balance infers evaporation as the residual. It does not measure evaporation independently, and errors in every other term accumulate in $E$.
+    A water balance infers evaporation as the residual. It does not measure evaporation independently, and errors in every other term accumulate in $ E $.
 
   .container width:{45%}
     .mermaid caption:{Water-balance estimate}
@@ -407,7 +407,7 @@
 
 .row gap:{1cm}
   .container width:{56%}
-    A lysimeter contains soil and vegetation that approximate the surrounding surface. With measured drainage $Q$,
+    A lysimeter contains soil and vegetation that approximate the surrounding surface. With measured drainage $ Q $,
 
     $ E=P-Q-\Delta S. $
 
@@ -446,7 +446,7 @@
   .container width:{50%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
     $ E_p = 16 b \left( \frac{10T}{I} \right)^a $
 
-    The factor $b$ corrects for day length and month length. The method is economical when data are sparse, but temperature is only a proxy for radiation and atmospheric demand.
+    The factor $ b $ corrects for day length and month length. The method is economical when data are sparse, but temperature is only a proxy for radiation and atmospheric demand.
 
     It commonly underestimates potential evaporation in hot, arid environments where VPD and radiation are not represented explicitly.
 
@@ -460,7 +460,7 @@ where the wind function can be written in the empirical form
 
 $ E_a = 2.6\,\delta_e\left(1+\frac{u}{1.862}\right). $
 
-Here $Q^*$ must be expressed in evaporation-equivalent units, $\delta_e$ is the vapour-pressure deficit, $u$ is wind speed, $\Delta$ is the slope of the saturated vapour-pressure curve, and $\gamma$ is the psychrometric constant.
+Here $ Q^* $ must be expressed in evaporation-equivalent units, $ \delta_e $ is the vapour-pressure deficit, $ u $ is wind speed, $ \Delta $ is the slope of the saturated vapour-pressure curve, and $ \gamma $ is the psychrometric constant.
 
 The estimate depends on the quality of the radiation, temperature, humidity, and wind data. Heat storage and advection can be important for water bodies and wet surfaces.
 
@@ -472,7 +472,7 @@ The estimate depends on the quality of the radiation, temperature, humidity, and
 
     $ \lambda E_p = \alpha\frac{\Delta}{\Delta+\gamma}(R_n-G). $
 
-    The coefficient $\alpha$ empirically enhances equilibrium evaporation. Priestley and Taylor obtained $\alpha\approx1.26$ for extensive saturated surfaces, but it is not universal.
+    The coefficient $ \alpha $ empirically enhances equilibrium evaporation. Priestley and Taylor obtained $ \alpha\approx1.26 $ for extensive saturated surfaces, but it is not universal.
 
   .container width:{46%}
     The method requires fewer meteorological inputs than Penman, which made it attractive for early satellite applications.
@@ -487,19 +487,19 @@ The estimate depends on the quality of the radiation, temperature, humidity, and
 
     $ E = \frac{\Delta (R_n-G) + \rho_a c_p\,\mathrm{VPD}/r_a}{\lambda\left[\Delta+\gamma\left(1+r_s/r_a\right)\right]}. $
 
-    - $r_a$: aerodynamic resistance to turbulent transfer.
-    - $r_s$: bulk surface or canopy resistance.
+    - $ r_a $: aerodynamic resistance to turbulent transfer.
+    - $ r_s $: bulk surface or canopy resistance.
 
   .container width:{42%}
-    As $r_s$ approaches zero, the surface approaches the wet-surface Penman case under consistent aerodynamic assumptions.
+    As $ r_s $ approaches zero, the surface approaches the wet-surface Penman case under consistent aerodynamic assumptions.
 
-    A large $r_s$ restricts transpiration, but neither resistance is fixed. Both depend on surface structure and environmental conditions.
+    A large $ r_s $ restricts transpiration, but neither resistance is fixed. Both depend on surface structure and environmental conditions.
 
 # Reference evapotranspiration and crop coefficients
 
 .row gap:{1cm}
   .container width:{54%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
-    FAO reference evapotranspiration, $ET_o$, is defined for a hypothetical well-watered grass surface that is 0.12 m high, has surface resistance 70 s/m, and has albedo 0.23.
+    FAO reference evapotranspiration, $ ET_o $, is defined for a hypothetical well-watered grass surface that is 0.12 m high, has surface resistance 70 s/m, and has albedo 0.23.
 
     Crop evapotranspiration is commonly estimated as
 
@@ -516,7 +516,7 @@ The estimate depends on the quality of the radiation, temperature, humidity, and
 
 .row gap:{1cm}
   .container width:{48%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
-    Soil moisture provides a first-order constraint on the ratio $E/E_p$. The relation is nonlinear and depends on soil hydraulic properties, rooting depth, vegetation, and the definition of $E_p$.
+    Soil moisture provides a first-order constraint on the ratio $ E/E_p $. The relation is nonlinear and depends on soil hydraulic properties, rooting depth, vegetation, and the definition of $ E_p $.
 
     A single stress curve can be useful in a water-balance model, but it does not represent all plant responses or atmospheric feedbacks.
 
@@ -630,7 +630,7 @@ The estimate depends on the quality of the radiation, temperature, humidity, and
 
     Thermal surface temperature, albedo, vegetation cover, and meteorological data constrain the energy terms. Examples include SEBAL, METRIC, and ALEXI/ECOSTRESS.
 
-    The surface temperature is especially important for estimating sensible heat $H$.
+    The surface temperature is especially important for estimating sensible heat $ H $.
 
   .container width:{50%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
     ##! Potential evaporation with stress

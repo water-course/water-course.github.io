@@ -167,7 +167,7 @@ continuous grid and restricts evaporation where simulated soil water is scarce.
 
 Validation must account for spatial support. Eddy-covariance towers test the
 turbulent flux over a changing upwind footprint, while catchment water balances
-test longer-term area-integrated evaporation as $E=P-Q-\Delta S$. Agreement at
+test longer-term area-integrated evaporation as $ E=P-Q-\Delta S $. Agreement at
 one tower or one annual catchment total does not establish that every pixel,
 component flux, or daily value is correct.
 
