@@ -59,8 +59,8 @@ At midday a weather station records the following.
 A lysimeter study runs two neighbouring plots through a dry summer: one is bare
 soil, the other is vegetated.
 
-1. Which plot would you expect to lose more water in total over the summer, and
-   why?
+1. Can you determine which plot will lose more water over the full summer from
+   the information given? Explain the competing controls.
 2. Describe how **soil moisture** limits actual evaporation in each plot as the
    summer dries out.
 3. Explain the roles of **capillary rise** and **transpiration** in the
@@ -68,8 +68,9 @@ soil, the other is vegetated.
 
 ## Comparing ways of measuring and estimating evaporation
 
-No instrument catches evaporated vapour directly, so every method is either an
-indirect measurement or an estimate. Evaluate the strengths and limitations of
+No gauge catches evaporated vapour in the way that a rain gauge catches water.
+Each evaporation method instead observes a turbulent flux, a water balance, or
+variables that constrain an estimate. Evaluate the strengths and limitations of
 each of the following.
 
 1. Evaporation pans
@@ -79,11 +80,19 @@ each of the following.
 5. Satellite remote sensing (for example GLEAM globally, or CMRSET over
    Australia)
 
-For each method, comment on the spatial scale it works at (point versus
-landscape versus continent), the type of surface it suits (open water, bare
-soil or vegetation), and its main source of uncertainty. Finish by explaining
-why Australia's Bureau of Meteorology reports a modelled actual evapotranspiration
-from the AWRA-L land surface model rather than relying on the pan network alone.
+For each method, comment on its spatial support (plot, flux footprint,
+landscape, or continent), the type of surface it represents, and its main
+source of uncertainty.
+
+For satellite remote sensing, distinguish the measured signal from the final
+evaporation estimate. Explain what thermal infrared, optical, and microwave
+sensors observe, and state how each observation can constrain an evaporation
+model. Then distinguish GLEAM, CMRSET, and the AWRA-L land-surface model.
+
+Finish by explaining why Australia's Bureau of Meteorology reports modelled
+actual evapotranspiration rather than relying on the pan network alone. Describe
+how a hydrologist can use flux towers and catchment water balances to test a
+gridded evaporation product.
 
 ## The Thornthwaite method for estimating potential evapotranspiration
 
@@ -130,7 +139,9 @@ daylight hours. The factors are tabulated below.
 
 Estimate the total potential evapotranspiration for the growing season at
 Saskatoon, Canada (latitude about 52 °N), for the period **16 May to 24
-September 1961**. The mean monthly temperatures for that year were as follows.
+September 1961**. The mean monthly temperatures that contribute to the annual
+heat index were as follows. The omitted months, November to March, had mean
+temperatures at or below 0 °C and therefore contribute zero.
 
 .align{center}
     | Month | Mean temperature (°C) |

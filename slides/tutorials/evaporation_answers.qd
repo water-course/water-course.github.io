@@ -33,11 +33,12 @@ plants are unstressed with their stomata fully open. In effect only the
 atmosphere is allowed to control the rate, and the daily or monthly averages are
 taken to represent conditions well enough for the calculation to hold.
 
-Actual evaporation is bounded above by the potential rate. In dry conditions
-$ E_t $ falls below $ E_{pt} $ because soil moisture runs short, plants close
-their stomata, and the surface is no longer continuously wet. During a wet season
-the two converge, $ E_t \approx E_{pt} $, because energy and the vapour pressure
-deficit, rather than water, set the pace. You can test whether this holds by
+Actual evaporation commonly falls below the potential rate when soil moisture
+runs short, plants close their stomata, and the surface is no longer
+continuously wet. During a wet season the two can converge because energy and
+atmospheric demand, rather than water supply, control the rate. This is not a
+universal identity because the result depends on the reference surface,
+vegetation, and advection. You can test whether the approximation holds by
 comparing an independent measurement of actual evaporation, from a lysimeter or
 sap-flow sensors, against the potential estimate, or by closing the catchment
 water balance as $ E_t = P - Q - \Delta S $ and comparing the residual with
@@ -61,38 +62,38 @@ evaporation and transpiration; reading Davie's Figure 3.2, a deficit of this siz
 corresponds to evaporation of several millimetres per day when water is freely
 available.
 
-Plants do not simply let this proceed unchecked. Many species begin to close
-their stomata once the VPD climbs past roughly 1.5 kPa, throttling transpiration
-to conserve water. This pulls actual evaporation below the potential rate even
-though the atmospheric demand stays high, and because the same stomata control
-carbon dioxide uptake, the plant also slows its photosynthesis.
+Plants do not let this proceed unchecked. Many species close their stomata as
+VPD increases, although the response and threshold depend on species, growth
+stage, and soil water. This response restricts transpiration even while
+atmospheric demand remains high. Because the same stomata control carbon dioxide
+uptake, stomatal closure also restricts photosynthesis.
 
 ## Evaporation from bare and vegetated soil
 
-The vegetated plot loses more water over the summer. On top of evaporation from
-the soil surface it also transpires through its leaves, and its canopy intercepts
-rainfall that then evaporates. Bare soil can evaporate quickly at first while the
-surface is still wet, but it has no way to keep drawing on deeper water once the
-top has dried.
+The information given does not determine which plot loses more water over the
+full summer. Vegetation can access deeper soil water and add transpiration and
+interception loss. At the same time, the canopy shades the soil, changes the
+surface energy balance, and can close its stomata during water stress. Bare soil
+can evaporate rapidly while its surface is wet, but its flux decreases sharply
+after a dry surface layer forms. The outcome therefore depends on rooting depth,
+plant response, canopy cover, soil properties, rainfall, and initial storage.
 
-That difference is a story about where the water sits. On the bare plot,
-evaporation is energy-limited only while the surface is damp; as it dries the
-process becomes soil-limited, because water now has to travel up to the surface
-by capillary rise against gravity, and the rate falls away sharply. On the
-vegetated plot the roots reach moisture deeper in the profile and lift it to the
-leaves, so transpiration can continue well after the surface has dried. The
-stomata meter this loss against the soil water available and the atmospheric
-demand, which lets the vegetated plot sustain a higher actual evaporation
-through a moderate drought.
+The difference between the plots depends on where the water sits and how energy
+reaches the surface. On the bare plot, evaporation is energy-limited while the
+surface remains damp. After the surface dries, water must move upward from the
+wetter soil below and the flux becomes limited by soil transport. In the
+vegetated plot, roots can access deeper water and transport it to the leaves, so
+transpiration can continue after the soil surface dries. Canopy shading and
+stomatal closure can nevertheless reduce the total flux.
 
 Capillary rise and transpiration are the two upward pathways at work. Capillarity
 pulls water from the wetter layers below towards the drier surface and keeps the
 soil–air interface supplied once rainfall stops; in bare soil it is the only
 route left. Transpiration adds a second, plant-driven pathway: roots take up
 water and release it through the stomata, at a rate governed by the vapour
-pressure deficit, the soil water potential and the plant's own stomatal
-behaviour. By continually removing water near the roots, transpiration steepens
-the moisture gradient and so strengthens the capillary flow feeding it.
+pressure deficit, soil water potential, and the plant's stomatal response.
+Water uptake maintains a gradient towards the roots, while evaporation from
+the leaves maintains the water-potential gradient through the plant.
 
 ## Comparing ways of measuring and estimating evaporation
 
@@ -104,8 +105,8 @@ real catchment: the pan absorbs extra radiation through its sides, stores heat,
 and suffers a strong edge effect, so its readings must be scaled down by a pan
 coefficient of roughly 0.6 to 0.8 before they stand in for a lake or a field.
 
-**Weighing lysimeters** are the most accurate field measurement of actual
-evapotranspiration. Filled with soil and vegetation matched to their
+**Weighing lysimeters** provide one of the best plot-scale water-balance
+estimates of actual evapotranspiration. Filled with soil and vegetation matched to their
 surroundings, they track the change in water mass directly and allow percolation
 to drain through, so they measure $ E_t $ over a real vegetated surface rather
 than open water. Their weakness is scale and cost: each one samples a single small
@@ -122,36 +123,59 @@ annual periods.
 
 **Eddy covariance** is the most direct of the micro-meteorological methods. By
 correlating high-frequency measurements of vertical wind speed with humidity, it
-resolves the latent heat flux, and hence evaporation, over a well-defined
-footprint of flat, homogeneous ground. It is the standard against which the
-estimation methods are calibrated, but the instruments are expensive and
-demanding, the energy balance rarely closes perfectly, and the method fails when
-the air is calm and turbulence dies away, as it often does at night.
+resolves the latent heat flux, and hence evaporation, over an upwind footprint
+that changes with wind and atmospheric stability. It is widely used to calibrate
+and evaluate estimation methods, but the instruments are expensive and demanding.
+The energy balance rarely closes perfectly, and data quality decreases when
+turbulence becomes weak, as it often does at night.
 
-**Satellite remote sensing** is the only practical way to map evaporation across a
-continent. It cannot see the flux directly, so it always couples a surrogate
-model for potential evaporation with satellite data that scale it down to the
-actual rate. GLEAM does this globally at a coarse grid, driving a Priestley–Taylor
-estimate with satellite radiation and using microwave vegetation and soil moisture
-to set an evaporative stress factor. Over Australia, CMRSET builds a scaling factor
-from MODIS greenness and vegetation-moisture indices and delivers actual
-evapotranspiration fine enough to account for irrigation water use in the
-Murray–Darling Basin. The trade-off is that these products depend on the models
-and sensors behind them, and their footprint can be too coarse for a single small
-catchment.
+**Satellite remote sensing** is the only practical way to map evaporation across
+a continent, but the satellite does not observe the flux directly. Thermal
+infrared radiance constrains land-surface temperature, optical reflectance
+constrains vegetation, albedo, and surface water content, and microwave
+brightness temperature or radar backscatter constrains near-surface soil
+moisture and vegetation water content. These retrieved properties are combined
+with meteorological forcing in an evaporation model.
 
-This is why the Bureau reports a modelled actual evapotranspiration from the
-AWRA-L land surface model on the Australian Water Outlook rather than leaning on
-the pan network. Pans only measure potential open-water evaporation at scattered
-points and overestimate what a landscape actually loses. AWRA-L instead simulates
-the daily water balance on a continuous 0.05° grid, so it produces actual
-evapotranspiration everywhere at once, water-limited where the soil is dry, in a
-form that can be checked against the flux towers and the remote-sensing products.
+Two broad model families use these observations differently. Surface
+energy-balance methods, including METRIC, estimate latent heat as the residual
+$ \lambda E=R_n-G-H $ and use thermal surface temperature to constrain sensible
+heat. Stress-based methods calculate potential evaporation and reduce it using
+soil-moisture or vegetation information. GLEAM and CMRSET are examples of the
+second family, although their inputs and spatial scales differ.
+
+Davie and Quinn describe GLEAM v3, which used Priestley–Taylor at 0.25°
+resolution. GLEAM4 now uses Penman at 0.1° resolution and combines satellite and
+reanalysis observations with stress functions trained on flux-tower and sap-flow
+data. Over Australia, the original CMRSET used MODIS EVI and GVMI to scale
+potential evaporation. The current TERN product blends Landsat, Sentinel-2,
+MODIS, and VIIRS observations to provide monthly actual evaporation at 30 m.
+The finer grid does not remove model dependence, cloud-gap filling, or
+meteorological uncertainty.
+
+AWRA-L differs from both products because it simulates the daily landscape
+water balance, including soil stores, runoff, drainage, and evaporation. It is
+not fully independent of CMRSET because CMRSET information contributed to its
+calibration. A comparison remains useful, but disagreement cannot be interpreted
+as a test between two independent observations.
+
+This is why the Bureau reports modelled actual evapotranspiration from AWRA-L on
+the Australian Water Outlook rather than relying on the pan network. Pans
+measure open-water evaporation at scattered points and cannot represent water
+stress across a landscape. AWRA-L simulates the daily water balance on a
+continuous grid and restricts evaporation where simulated soil water is scarce.
+
+Validation must account for spatial support. Eddy-covariance towers test the
+turbulent flux over a changing upwind footprint, while catchment water balances
+test longer-term area-integrated evaporation as $E=P-Q-\Delta S$. Agreement at
+one tower or one annual catchment total does not establish that every pixel,
+component flux, or daily value is correct.
 
 ## The Thornthwaite method: Saskatoon, 1961
 
-**Step 1 — annual heat index.** Every month is above 0 °C, so all of April to
-October contribute. Summing the monthly heat index $ i = (T_a/5)^{1.514} $ gives
+**Step 1 — annual heat index.** Each listed month from April to October is above
+0 °C. The omitted months from November to March are at or below 0 °C and
+contribute zero. Summing $ i = (T_a/5)^{1.514} $ for April to October gives
 
 $ I = \sum \left( \frac{T_a}{5} \right)^{1.514} = 31.66 $
 

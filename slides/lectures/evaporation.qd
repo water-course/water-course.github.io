@@ -23,613 +23,713 @@
 # Objectives
 
 .center
-    .container width:{60%} background:{.lightblue} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm}
+    .container width:{70%} background:{.lightblue} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm}
         By the end of this lecture, you should be able to:
-          - Define .ul{evaporation} and its role in the water cycle.
-          - Differentiate between open water, potential, and actual evaporation.
-          - Understand transpiration and evapotranspiration.
-          - Identify .ul{key controls}: energy, water availability, and vapour pressure deficit.
-          - Recognise methods to measure and estimate evaporation.
+          - Explain the physical controls on evaporation.
+          - Distinguish open-water, potential, and actual evaporation.
+          - Explain how soil evaporation, transpiration, and interception combine to form evapotranspiration.
+          - Compare field methods for measuring or inferring evaporation.
+          - Apply the physical reasoning behind Penman and Penman--Monteith estimates.
+          - Explain how thermal, optical, and microwave observations constrain satellite evaporation products.
 
 # Evaporation
 
 .row gap:{1cm}
-    .container width:{50%}
+    .container width:{52%}
 
         .box{Definition} background:{rgb(200, 200, 205)}
-            Transfer of liquid water into gaseous state into the atmosphere
+            Evaporation is the net transfer of water from a liquid surface to water vapour in the atmosphere.
 
-        evaporation's importance is mainly affected by two factors:
-          1. .fragment behavior:{show} content:{The amount of available energy}
-          2. .fragment behavior:{show} content:{Available water}
+        Three conditions control the rate:
+          1. .fragment behavior:{show} content:{Energy must be available for vaporisation.}
+          2. .fragment behavior:{show} content:{Liquid water must be available at, or transported to, the surface.}
+          3. .fragment behavior:{show} content:{The atmosphere must remove the water vapour.}
 
-        Both of these are modulated by .ul{climate}.
-        Think of cases where evaporation might not be as important:
-        - .fragment content:{Humid climate in winter: much water but **limited energy**}
-        - .fragment content:{Arid climate in dry season: much energy but **limited water**}
+        Climate determines how these controls combine. A humid winter can be energy-limited, while an arid summer is commonly water-limited.
 
-    .container width:{50%}
-        !(70%)[Evaporation](../image/internet_evaporation.jpg "Available water and energy control the main controlling factors")
+    .container width:{48%}
+        .mermaid caption:{Evaporation is a net molecular flux}
+            flowchart TB
+                L[Liquid water] -- vaporisation --> V[Water vapour]
+                V -- condensation --> L
+                E[Available energy] --> L
+                M[Atmospheric mixing] --> V
 
+# Definitions used in hydrology
 
-# Different Definitions of Evaporation
 .row gap:{1cm}
-    .container width:{50%}
-        .box title:{Evaporation} background:{.lightblue}
-            - **Open water Evaporation**, $ E_O $: Evaporation above a
-            body of water such as lakes, streams, oceans. As can be see in
-            global water cycle figure, largest source of evaporation.
-            - **Potential Evaporation**, $ E_{pt} $ : Amount of evaporation above land if there was unlimited water.
-            - **Total (actual) Evaporation**, $ E_t $:  This is the evaporation that actually occurs. Wet seasons: $ E_t \approx E_{pt} $
+    .container width:{54%}
+        .box title:{Three related fluxes} background:{.lightblue}
+            - **Open-water evaporation**, $E_o$: evaporation from lakes, rivers, reservoirs, and oceans.
+            - **Potential evaporation**, $E_p$: evaporation that the atmosphere could sustain from a specified surface with unlimited water.
+            - **Actual evaporation**, $E$: evaporation that occurs under the existing water supply and surface conditions.
 
-        .center
-            - We are mostly interested in $ E_O $ and $ E_t $, but $ E_{pt} $ gives us a good indicator of what $ E_t $ might be.
-            - Fig. 2 -> Global Water Cycle, $ E_0 $ dominates the global component of evaporation
+        Potential evaporation is an atmospheric demand, not an observed loss. Actual evaporation can approach potential evaporation when water is abundant, but the relation depends on the reference surface, vegetation, and advection.
 
-    .container width:{50%}
+    .container width:{46%}
         .align{center}
-            !(100%)[Global Water Cycle](../image/davie_fig_1-7.png "Remember this figure from the water cycle lecture?")
+            !(100%)[Global Water Cycle](../image/davie_fig_1-7.png "Open-water evaporation, especially from the oceans, dominates the global evaporative flux.")
+            _Source: Davie and Quinn, Figure 1.7._
 
-
-#
-.mermaid caption:{Different Components of Evaporation}
-    flowchart TD
-        TOP([Evaporation]) --> BOTTOMRIGHT([Transpiration Related to Plants])
-        TOP([Evaporation]) --> BOTTOMLEFT([From Soil Matrix itself])
+# Components of terrestrial evaporation
 
 .row gap:{1cm}
-    .container width:{50%} borderwidth:{1pt} padding:{0.2cm} radius:{0.1cm} background:{.lightblue}
-        Transpiration is the result of photosynthesis and respiration in the plants. It is controlled by:
-        - .fragment content:{... the ability of the leafs in opening or closing of the leafs stomata in response to vapour pressure difference.}
-        - .fragment content:{... further by amount of water, the solid, the ability of plants to transfer water to the leaves.}
+    .container width:{48%}
+        .mermaid caption:{Components of evaporation above land}
+            flowchart TD
+                E[Terrestrial evaporation] --> T[Transpiration]
+                E --> B[Bare-soil evaporation]
+                E --> I[Interception loss]
+                E --> W[Open-water evaporation]
 
-    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.1cm} background:{.lightblue}
-      We are considering evaporation as a negative source. But water lost, is just transferred to the atmosphere. A meteorologist would consider evaporation as
-      a positive source and dewfall as a negative one.
+    .container width:{52%} borderwidth:{1pt} padding:{0.45cm} radius:{0.3cm} background:{.lightblue}
+        **Evapotranspiration (ET)** commonly denotes evaporation from soil and wet surfaces together with plant transpiration.
 
-# Transpiration, and bit of fun with TSA
+        The relative contribution of each component changes with vegetation cover, rainfall history, soil moisture, and atmospheric demand. A satellite product that reports total ET does not necessarily observe, or even model, each component in the same way.
+
+# Transpiration, and a bit of fun with TSA
 .fullspan
   .center
     .html
       <iframe width="560" height="315" src="https://www.youtube.com/embed/13tccn8jvBU?si=jgr0NaNXEb9kbfqx&amp;start=15" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   .whitespace height:{1cm}
 
-# Understanding Transpiration
-.row gap:{1cm}
-    .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-        - **Effect on Local Weather:**
-            - Increases **heat index**: feels hotter with added humidity.
-            - High humidity can stress humans by hindering sweat evaporation.
-            - **Night time temperatures** stay warmer due to high humidity.
-
-        - **Seasonal and Regional Impact:**
-            - Most impactful during hot summer months.
-            - Affects areas near agricultural hubs like:
-              - .fragment content:{.ul{cornfields -> corn sweat}}
-
-    .container width:{50%}
-        .align{center}
-          ![Corn Sweat](../image/internet_transpiration.jpg "The process of transpiration")
-
-# Corn Sweat:
+# Transpiration: water through the soil--plant--atmosphere system
 
 .row gap:{1cm}
+    .container width:{54%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - Water moves from soil to roots and through the xylem along a gradient in water potential.
+        - Evaporation inside a leaf maintains tension in the xylem and water is lost through stomata.
+        - Vapour pressure deficit increases atmospheric demand, while stomatal closure restricts the flux.
+        - Stomatal opening also permits carbon dioxide uptake. Transpiration is therefore coupled to photosynthesis, but it is not caused by photosynthesis or respiration.
+
+    .container width:{46%}
+        .mermaid caption:{Water follows a gradient in water potential}
+            flowchart TB
+                S[Soil<br/>−0.1 to −1 MPa] --> R[Roots]
+                R --> X[Xylem]
+                X --> L[Leaf<br/>−1 to −3 MPa]
+                L --> A[Atmosphere<br/>much more negative]
+
+# Corn sweat: a visible consequence of transpiration
+
+.row gap:{1cm}
     .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-         A common phenomenon in summer in US midwest
-          - Millions of acres of cornfields add moisture to the air.
-          - One acre can release 3,000-4,000 gallons of water per day.
-          - Iowa's cornfields could add 40.5 billion gallons of water daily.
+        Dense crops can add substantial water vapour to the atmospheric boundary layer during hot summer conditions.
+
+        The resulting humidity can increase heat stress, even though transpiration cools the crop surface. The example illustrates that transpiration redistributes both water and energy between the land and atmosphere.
+
+        The exact regional contribution depends on crop area, growth stage, soil water, wind, and boundary-layer mixing.
 
     .container width:{50%}
-        .align{center}
-          .html
-            <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 66.625%; padding-top: 120px;"><a href="https://earthsky.org/earth/what-is-corn-sweat-heat-humidity/" data-iframely-url="https://cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fearthsky.org%2Fearth%2Fwhat-is-corn-sweat-heat-humidity%2F&key=d4806df985347e90a96e331adf114995"></a></div></div><script async src="https://cdn.iframe.ly/embed.js" charset="utf-8"></script>
+        .mermaid caption:{How crop transpiration affects local heat stress}
+            flowchart TB
+                W[Soil water or irrigation] --> T[Crop transpiration]
+                T --> H[Boundary-layer humidity]
+                H --> S[Human heat stress]
+                M[Wind and atmospheric mixing] -->|reduce accumulation| H
 
 # Evaporation as a process
 
 .row gap:{1cm}
     .container width:{70%}
-        _Dalton_ (1766-1844): The English physicist was the first to recognise the relationship between wind, air dryness, and evaporation
+        Dalton recognised that evaporation depends on wind and the difference in vapour pressure between a wet surface and the surrounding air:
 
-        **Formula:** $ E = C (e_x - e_a) $
+        $ E = C (e_s(T_s) - e_a) $
 
-        **Where:**
-        - $ E $ — Evaporation rate.
-        - $ e_x $ — Vapour pressure at the water surface.
-        - $ e_a $ — Vapour pressure of the surrounding air.
-        - $ C $ — Empirical constant (depends on wind, temperature, etc.).
+        - $e_s(T_s)$ is the saturated vapour pressure at the surface temperature $T_s$.
+        - $e_a$ is the actual vapour pressure of the air.
+        - $C$ represents turbulent transport and therefore depends on wind, roughness, and atmospheric stability.
 
-        **Key Idea**: Evaporation increases with the difference in vapour pressure between the water surface and the air.
+        This expression describes the aerodynamic control. It does not separately account for the energy required to vaporise water.
 
-    .container width:{30%}
-        !(100%)[John Dalton](../image/internet_JohnDalton.jpg)
+    .container width:{30%} borderwidth:{1pt} padding:{0.45cm} radius:{0.5cm} background:{.lightblue}
+        ##! Two controls
 
-.row gap:{1cm} alignment:{center}
-    .container width:{80%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-        .mermaid
+        **Atmospheric demand**
+
+        $e_s(T_s)-e_a$
+
+        **Turbulent transport**
+
+        wind + surface roughness + stability
+
+# The radiation balance
+
+.row gap:{1cm}
+    .container width:{52%}
+        Net radiation is the balance of incoming and outgoing short-wave and long-wave radiation:
+
+        $ R_n = (K_\downarrow-K_\uparrow) + (L_\downarrow-L_\uparrow) $
+
+        - $K_\downarrow$ and $K_\uparrow$: incoming and reflected short-wave radiation.
+        - $L_\downarrow$ and $L_\uparrow$: atmospheric and surface long-wave radiation.
+
+        Surface albedo controls reflected short-wave radiation. Surface temperature and emissivity control outgoing long-wave radiation. Satellites can constrain all three properties.
+
+    .container width:{48%}
+        .mermaid caption:{Radiative fluxes at the surface}
+            flowchart TB
+                SUN[Sun] -->|incoming short-wave K↓| S[Land surface]
+                S -->|reflected short-wave K↑| SKY[Atmosphere and space]
+                ATM[Atmosphere] -->|incoming long-wave L↓| S
+                S -->|outgoing long-wave L↑| SKY
+
+# How the surface uses available energy
+
+.row gap:{1cm}
+    .container width:{53%}
+        After allowing for heat storage and horizontal advection, the surface energy balance is approximately
+
+        $ R_n - G = H + \lambda E $
+
+        - $G$: ground or water-body heat flux.
+        - $H$: sensible heat flux to the atmosphere.
+        - $\lambda E$: latent heat flux used for evaporation.
+
+        A wet surface directs a larger fraction of available energy into $\lambda E$ and commonly remains cooler. A dry surface directs more energy into $H$ and commonly becomes warmer.
+
+    .container width:{47%}
+        .mermaid caption:{Partition of available energy}
             flowchart TD
-                a(available energy)
-                b(available water)
-                c(capacity of air for water)
+                R[Net radiation R_n] --> G[Ground heat G]
+                R --> H[Sensible heat H]
+                R --> LE[Latent heat lambda E]
+                W[Water availability] --> LE
+                LE -. surface cooling .-> T[Land-surface temperature]
 
-# Available Energy
+# Water supply
 
 .row gap:{1cm}
     .container width:{50%}
-        Main source of energy is from the sun. Sun's radiation is filtered by the clouds, water vapour and absorbed by trees and tall buildings.
+        Over oceans and large lakes, water supply is effectively unlimited. The main controls are available energy, vapour pressure gradients, and atmospheric mixing.
 
-        $ Q^{\ast} = Q_S \pm Q_L \pm Q_G $
-
-        - $ Q^{\ast} $: net radiation
-        - $ Q_S $: Sun's direct radiation (Short wave), heat we feel as warmth
-        - $ Q_L $: Latent heat due to change in phase. $ Q_L < 0 $ when Water --> Gas, $ Q_L > 0 $ when Gas --> Water.
-        - $ Q_G $: Energy absorbed and released from the soil.
-
-        Two other sources of energy that _might_ become important:
-        - .fragment content:{In urban settings, energy released from buildings  in cold winters. From organic sources of energy.}
-        - .fragment content:{Advective heat: As introduced in [introduction](https://watercourse.earth/content/Watercycle/index.html)}
+        Over land, evaporation is often restricted because water must reach the evaporating surface. Soil texture, hydraulic conductivity, surface crusting, rooting depth, and antecedent rainfall all affect this transport.
 
     .container width:{50%}
-        !(100%)[Radiation](../image/internet_radiation.jpg "")
+        After a wetting event, bare-soil evaporation commonly passes through two stages:
 
+        1. An energy-limited stage while the surface remains wet.
+        2. A transport-limited stage after the surface dries and water must move upward through the soil.
 
-# Water supply and evaporation
-
-.row
-    .container width:{50%} alignment:{center}
-        - Over the **oceans**, water supply is effectively unlimited, making evaporation a major component of the hydrological cycle.
-        - On **land**, water availability varies:
-            - **Open water evaporation** ($ E_o $) occurs from lakes, rivers, ponds.
-            - **Soil evaporation** is more complex and limited by water availability.
-    .container width:{50%}
-        - In soils:
-            - Water evaporates from the **near surface**
-            - A **moisture gradient** forms, pulling water upward
-            - This upward movement must overcome **gravity** and **soil capillarity**
-        - Plants also draw water to the surface via **osmosis** in their roots.
-
-.row
-    .align{center}
-        .container width:{70%} alignment:{center}
-          ![Water supply](../image/internet_soilevaporation.png)
-          _Water supply_
-
+        Roots provide a separate pathway from deeper soil to the leaves, but stomatal regulation can restrict that flux.
 
 # The receiving atmosphere
 
-.row
-    .container width:{50%} alignment:{center}
-        - Once the water is evaporated, it diffuses into the atmosphere.
-        - Evaporation depends on the difference between:
-          - $ e_s $: saturated vapour pressure
-          - $ e_a $: actual vapour pressure
-        - The difference $ (e_s - e_a) $ is the **vapour pressure deficit (vpd)** or **saturation deficit**.
-        - Higher VPD → higher potential for evaporation
-        - Relative humidity is the ratio $ e_a / e_s $
-        - Note that mixing is very important to provide more capacity for evaporation.
+.row gap:{1cm}
+    .container width:{52%}
+        At a specified air temperature, the vapour pressure deficit is
 
-  .container width:{40%}
-        !(100%)[vpdgraph](../image/davie_fig_3-2.png "Vapour pressure deficit at 20°C")
+        $ \mathrm{VPD}=e_s(T_a)-e_a $
 
+        and relative humidity is
 
-#
+        $ \mathrm{RH}=100\,e_a/e_s(T_a). $
+
+        VPD measures atmospheric demand at the air temperature. The vapour-pressure gradient above a wet surface also depends on the surface temperature, so VPD and Dalton's surface-to-air difference are related but not identical.
+
+        Wind and turbulence replace moist air near the surface with drier air and sustain evaporation.
+
+    .container width:{48%}
+        !(100%)[Vapour pressure deficit](../image/davie_fig_3-2.png "Vapour pressure deficit at 20 degrees Celsius.")
+        _Source: Davie and Quinn, Figure 3.2._
+
+# Evaporation depends on its environment
 
 .row gap:{1cm} alignment:{center}
-  .container width:{60%} alignment:{center} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+  .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
 
-    ## Evaporation should be looked at in the context of the environment.
+    ## The same atmosphere does not produce the same evaporation from a lake, bare soil, pasture, and forest.
 
+# Open-water and soil evaporation
 
-# .ul{Open-water} versus .ul{soil} evaporation
-
-.row
+.row gap:{1cm}
   .container width:{50%}
-    ##! Open water evaporation
-    - The simplest case: evaporation from **lakes, rivers, reservoirs**
-    - Controlled by:
-      - Water body properties (temp, salinity, depth)
-      - Atmosphere above (vpd and mixing)
-    - Often **overestimates** evaporation in catchments due to unlimited water supply
+    ##! Open-water evaporation
+
+    - Water supply is not normally limiting.
+    - Surface temperature, salinity, depth, and heat storage matter.
+    - Wind, VPD, fetch, and atmospheric stability control removal of vapour.
+    - A pan is not a small lake because its sides, heat storage, and edge effects alter the flux.
 
   .container width:{50%}
     ##! Soil evaporation
-    - Same process as open water, but:
-      - **Water supply is limited**
-      - Water must move up through the soil
-    - Influenced by:
-      - Soil saturation and capillarity
-      - Surface conditions (e.g. bare vs vegetated)
 
-
+    - The surface can change rapidly from wet to dry.
+    - Soil water transport limits the flux after the surface dries.
+    - Residue, vegetation cover, albedo, and roughness modify both energy and transport.
+    - The same meteorological conditions can therefore produce much less evaporation than over open water.
 
 # Transpiration and total evaporation
 
-.row
-  .container width:{40%}
-    - Transpiration = water loss via **stomata in leaves**
-    - Plants respond to:
-      - Water availability
-      - VPD (they close stomata under stress)
-    - **Evapotranspiration (ET)** combines:
-      - Soil evaporation
-      - Transpiration
-      - Canopy interception loss
-
-  .container width:{60%}
-    ![Soil evaporation](../image/internet_transpiration.webp)
-
-
-# Transpiration and total evaporation
 .row gap:{1cm}
-  .container width:{60%}
+  .container width:{42%}
+    Transpiration depends on:
+
+    - available soil water and rooting depth,
+    - hydraulic transport through the plant,
+    - VPD and turbulent mixing,
+    - stomatal response to environmental stress.
+
+    Total terrestrial evaporation combines transpiration, bare-soil evaporation, interception loss, and any open-water evaporation within the area.
+
+  .container width:{58%}
+    .mermaid caption:{Transpiration needs both water supply and atmospheric demand}
+      flowchart LR
+        S[Soil water<br/>and roots] --> C[Plant hydraulic<br/>supply]
+        C --> ST[Stomatal<br/>control]
+        A[VPD, radiation,<br/>wind] --> ST
+        ST --> T[Transpiration]
+
+# Climate and vegetation redistribute evaporative loss
+
+.row gap:{1cm}
+  .container width:{66%}
     .align{center}
-         | Component                        | Puruki (Central North Island, NZ)(% of annual rainfall) | Balmoral (Central South Island, NZ)(% of annual rainfall) |
-         |----------------------------------|-------------------------------------------------------------|----------------------------------------------------------------|
-         | **Annual rainfall**             | 1,405 mm                                                   | 870 mm                                                        |
-         | **Annual interception loss**    | 370 mm (26%)                                               | 220 mm (25%)                                                  |
-         | **Annual transpiration**        | 705 mm (50%)                                               | 255 mm (29%)                                                  |
-         | **Annual soil evaporation**     | 95 mm (7%)                                                 | 210 mm (24%)                                                  |
-         | **Remainder (runoff + percolation)** | 235 mm (17%)                                          | 185 mm (21%)                                                  |
-         "Comparison of two Pine Radiata Forests in New Zealand (Kelliher and Jackson, 2001)"
+         | Component | Puruki, central North Island | Balmoral, central South Island |
+         |---|---:|---:|
+         | **Annual rainfall** | 1,405 mm | 870 mm |
+         | **Interception loss** | 370 mm (26%) | 220 mm (25%) |
+         | **Transpiration** | 705 mm (50%) | 255 mm (29%) |
+         | **Soil evaporation** | 95 mm (7%) | 210 mm (24%) |
+         | **Runoff + percolation** | 235 mm (17%) | 185 mm (21%) |
+         "Estimated water balances for two Pinus radiata forests."
 
-  .container width:{40%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    The relative importance of each component depends on the climate, degree of vegetation cover.
+  .container width:{34%} borderwidth:{1pt} padding:{0.45cm} radius:{0.5cm} background:{.lightblue}
+    The annual interception fraction is similar, but transpiration and soil evaporation differ strongly. Climate and vegetation determine not only total evaporation, but also its partition into components.
 
+    _Source: Kelliher and Jackson (2001), as reproduced by Davie and Quinn._
 
 #
 
 .row gap:{1cm} alignment:{center}
-  .container width:{60%} alignment:{center} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+  .container width:{70%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
 
-    ## How do we measure evaporation?
+    ## How do we observe evaporation?
 
+# No single instrument measures every relevant scale
 
-# Measuring evaporation is hard
-
-.row
-  .container width:{60%}
-    ##!
-    - No gauge can directly capture **evaporated vapour**
-    - Many methods estimate evaporation **indirectly** via:
-      - Energy balance
-      - Water balance
-      - Micro-meteorological measurements
-    - All methods make assumptions about **fluxes and gradients**
-
-  .container width:{60%}
-    ##! Direct micro-meteorological methods
-    - Require **high-frequency measurements**, since wind speed, humidity, and temperature are highly variable
-    - Three techniques:
-      - Eddy covariance
-      - Aerodynamic profile
-      - Bowen ratio
-
-# Direct: Eddy covariance
 .row gap:{1cm}
-    .container width:{60%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-        - **Eddy Covariance (Turbulence) Method**
-        - **Principle:** Directly measures turbulent fluxes by computing the covariance between vertical wind velocity and scalar quantities (e.g., temperature or vapor).
-        - **Data Needs:** High-frequency 3D wind and scalar measurements.
-        - **Assumptions:** Stationarity, homogeneous surface.
-        - **Pros:** Most accurate and direct method; no need for gradient assumptions.
-        - **Cons:** Expensive; complex instruments and processing; sensitive to sensor alignment, data gaps, and surface heterogeneity.
+  .container width:{50%}
+    A rain gauge catches a depth of water. There is no equivalent gauge that catches the water vapour leaving a catchment.
 
-    .container width:{40%}
-        !(100%)[Eddy covariance](../image/internet_anenometer.jpg "Eddy covariance system consisting of an ultrasonic anemometer and infrared gas analyser. The anemometer measures the wind speed and direction, and the infrared gas analyser measures the water vapour concentration.")
+    Evaporation is instead inferred from:
 
-# Direct: Aerodynamic profile (Flux-Gradient)
-.row gap:{1cm} alignment:{center}
-    .container width:{60%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-        - **Aerodynamic Profiling (Flux-Gradient) Method**
-        - **Principle:** Relates vertical gradients of wind, temperature, and humidity to turbulent fluxes.
-        - **Key Inputs:** Profiles of wind speed, temperature, humidity; roughness length; stability corrections.
-        - **Pros:** Useful in many micrometeorological settings.
-        - **Cons:** Requires accurate profile data; sensitive to stability corrections and roughness parameters.
+    - turbulent fluxes above a surface,
+    - changes in water storage,
+    - the surface energy balance,
+    - meteorological and remotely sensed variables.
 
-# Direct: Bowen ratio
+  .container width:{50%}
+    Each method has a spatial support:
+
+    - a lysimeter represents a small plot,
+    - an eddy-covariance tower represents a changing upwind footprint,
+    - a satellite pixel represents a mixed area,
+    - a catchment balance integrates the full drainage area.
+
+    Agreement requires more than matching units. The spatial and temporal supports must also be compatible.
+
+# Eddy covariance
+
 .row gap:{1cm}
-    .container width:{60%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-        - **Bowen Ratio Method**
-        - **Principle:** Uses measured temperature and humidity gradients between two heights to infer latent and sensible heat fluxes.
-        - **Key Variable:** Bowen ratio $ \beta = H/LE $, where $ H $ is sensible and $ LE $ is latent heat flux.
-        - **Data Needs:** Two levels of temperature and humidity, net radiation, ground heat flux.
+    .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        Eddy covariance estimates the turbulent water-vapour flux from the covariance between fluctuations in vertical wind and water-vapour density:
 
-        $ B = \frac{\gamma \cdot \Delta T}{\Delta e} $
+        $ E \propto \overline{w' q'} $
 
-         with $ \gamma $ the psychrometric constant.
+        A three-dimensional sonic anemometer and a fast gas analyser commonly sample at 10--20 Hz.
 
-        - Assumes steady state, negligible horizontal advection, similarity of turbulent transfer of heat and moisture.
+        The method is direct in the micrometeorological sense, but it still requires corrections, quality control, and an estimate of the source footprint. Calm conditions, non-stationarity, heterogeneous terrain, and incomplete energy closure remain important limitations.
 
-    .container width:{50%}
-      .center
-        .html
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/6KaQ1l8Q_pw?si=mNYE7GqMQqEf7h5F&amp;start=358" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    .container width:{45%}
+        !(100%)[OzFlux eddy-covariance instruments](../image/ozflux_collie_eddy_covariance.jpg "Eddy-covariance instruments above the Collie woodland site in Western Australia.")
+        _Source: OzFlux, Collie monitoring site._
 
-# Indirect: water balance methods
-.row
-  .container width:{60%}
-    - Evaporation can be inferred from the **water balance**:
+# Flux-gradient and Bowen-ratio methods
 
-      $ E = \Delta S - P $
+.row gap:{1cm}
+    .container width:{50%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+        ##! Aerodynamic profile
 
-    - Use a pan or lysimeter where:
-      - $ \Delta S $ = change in water volume
-      - $ P $ = precipitation
+        Vertical gradients in wind, temperature, and humidity are related to turbulent transport using similarity theory.
 
-    - Good for **controlled setups**, less reliable in field conditions
+        The method requires well-resolved profiles, surface roughness, and atmospheric-stability corrections. It is most reliable over horizontally uniform terrain with an adequate fetch.
 
-  .container width:{40%}
-    ![Water balance](../image/davie_fig_3-3.png "")
+    .container width:{50%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+        ##! Bowen ratio
+
+        The ratio of sensible to latent heat is inferred from temperature and vapour-pressure gradients:
+
+        $ \beta = \frac{H}{\lambda E} = \gamma\frac{\Delta T}{\Delta e}. $
+
+        Combined with $R_n-G=H+\lambda E$, this gives the latent heat flux. Small or changing humidity gradients can make the estimate unstable.
+
+# Water-balance inference
+
+.row gap:{1cm}
+  .container width:{55%}
+    For storage change defined as $\Delta S=S_{end}-S_{start}$,
+
+    $ \Delta S = P-Q-E $
+
+    and therefore
+
+    $ E=P-Q-\Delta S. $
+
+    A water balance infers evaporation as the residual. It does not measure evaporation independently, and errors in every other term accumulate in $E$.
+
+  .container width:{45%}
+    .mermaid caption:{Water-balance estimate}
+      flowchart TD
+        P[Precipitation P] --> S[Storage S]
+        S --> Q[Runoff or drainage Q]
+        S --> E[Evaporation E]
+        D[Observed storage change] --> E
 
 # Evaporation pans
 
-.row
-  .container width:{60%}
-    - Large containers filled with water, exposed to the atmosphere
-    - Record water loss over time
-    - Limitations:
-      - Overestimate actual $ E $
-      - Suffer from **edge effect** and radiation bias
-      - Used mostly for **open water** or **reservoirs**
+.row gap:{1cm}
+  .container width:{58%}
+    A closed pan has no runoff or drainage, so
 
-  .container width:{40%}
-    !(100%)[evappan](../image/davie_fig_3-3.png "An evaporation pan. This sits above the surface (to lessen rain splash) and has either an instrument to record water depth or a continuous weighing device, to measure changes in volume.")
+    $ E=P-\Delta S. $
+
+    A Class A pan provides a long and relatively simple record of open-water evaporation. It does not measure actual evaporation from a catchment.
+
+    The small water body has strong edge effects, absorbs heat through its sides, and stores energy differently from a lake. Empirical pan coefficients are therefore required even when estimating lake evaporation.
+
+  .container width:{42%}
+    !(100%)[Evaporation pan](../image/davie_fig_3-3.png "A Class A evaporation pan.")
+    _Source: Davie and Quinn, Figure 3.3._
 
 # Lysimeters
 
-.row
-  .container width:{50%}
-    - Measure $ E $ over **vegetated surfaces**
-    - Mimic soil and vegetation — allow **percolation**
-    - Use:
+.row gap:{1cm}
+  .container width:{56%}
+    A lysimeter contains soil and vegetation that approximate the surrounding surface. With measured drainage $Q$,
 
-      $ E = \Delta S - P - Q $
+    $ E=P-Q-\Delta S. $
 
-      where $ Q $ = drainage
+    A weighing lysimeter measures storage change directly and can resolve actual evapotranspiration over a plot. Its accuracy does not remove the scale problem: soil disturbance, vegetation mismatch, edge effects, and a small sampled area can limit representativeness.
 
-    - Can be weighed or monitored using load cells
-    - Most accurate field method, but:
-      - Small scale
-      - Expensive and complex
+  .container width:{44%}
+    !(100%)[Weighing lysimeter](../image/davie_fig_3-4.png "A weighing lysimeter installed flush with the surrounding surface.")
+    _Source: Davie and Quinn, Figure 3.4._
 
-  .container width:{50%}
-    !(100%)[lysimeter](../image/davie_fig_3-4.png "A weighing lysimeter sitting flush with the surface. The cylinder is filled with soil and vegetation similar to the surroundings.")
+# Estimating evaporation from surrogate variables
 
-# Surrogate methods
-.row
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - **Surrogate methods** are indirect methods that estimate evaporation based on other variables.
-    - They focus on climotological variables that are understood to affect evaporation.
+.row gap:{1cm}
+  .container width:{48%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    Field instruments cannot provide continuous evaporation over every catchment. Estimation methods therefore use variables that control the flux, including temperature, radiation, wind, humidity, soil moisture, and vegetation.
 
-  .container width:{50%}
-    .mermaid
+    Increasing model complexity does not make the result a direct measurement. It changes which assumptions and observations determine the estimate.
+
+  .container width:{52%}
+    .mermaid caption:{Progression of evaporation estimates}
       flowchart LR
-        A[Surrogate Methods] --> B[Thornthwaite]
-        A[Surrogate Methods] --> C[Penman]
-        A[Surrogate Methods] --> D[Penman-Monteith]
+        T[Temperature] --> TH[Thornthwaite]
+        R[Radiation + VPD + wind] --> P[Penman]
+        C[Canopy + aerodynamic resistance] --> PM[Penman--Monteith]
+        S[Satellite surface state] --> RS[Observation-constrained models]
 
 # Thornthwaite
 
 .row gap:{1cm}
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - A empirical method that estimates potential evaporation based on average temperature temperature.
-    - Sensible as we know temperature is a proxy for the available energy.
-    - A monthly heat index (i) for a region
+  .container width:{50%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    Thornthwaite is an empirical monthly estimate of potential evaporation based primarily on mean air temperature.
 
-    $ i = \left( \frac{T}{5} \right)^{1.514} $
+    $ i = \left( \frac{T}{5} \right)^{1.514}, \qquad I = \sum_{j=1}^{12} i_j $
 
-    - Annual heat index (I) is the sum of the monthly heat indices.
+    $ a = 6.75 \times 10^{-7} I^3 - 7.71 \times 10^{-5} I^2 + 0.01792 I + 0.49239 $
 
-    $ I = \sum_{i=1}^{12} i $
+  .container width:{50%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    $ E_p = 16 b \left( \frac{10T}{I} \right)^a $
 
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    The factor $b$ corrects for day length and month length. The method is economical when data are sparse, but temperature is only a proxy for radiation and atmospheric demand.
 
-    - Potential evaporation (E_p) is then given by:
+    It commonly underestimates potential evaporation in hot, arid environments where VPD and radiation are not represented explicitly.
 
-    $ E_p = 16 b \left( \frac{10T}{I} \right)^{a} $
+# Penman: energy and aerodynamic demand
 
-    - $ b $ accounts for unequal day length between months.
-    - $ a $ is calibrated as a cubic function of the heat index.
+Penman combines an energy term with an aerodynamic term for a wet surface:
 
-    $ a = 6.75 \times 10^{-7} I^3 - 7.7 \times 10^{-5} I^2 + 0.018 I + 0.49 $
+$ E_o = \frac{\Delta Q^* + \gamma E_a}{\Delta + \gamma}, $
 
-    A **raw estimate** only on temperature.\
-    It can only work on a **monthly scale**.
-    Calibrated for a specific region. For regions with high potential evaporation, **underestimates** evaporation.
+where the wind function can be written in the empirical form
 
-# Penman for Open Water Evaporation
+$ E_a = 2.6\,\delta_e\left(1+\frac{u}{1.862}\right). $
 
-- Combination of .ul{energy balance} and .ul{vapour pressure deficit}.
-- It is a very complex model, but it is very accurate (10 days to daily).
+Here $Q^*$ must be expressed in evaporation-equivalent units, $\delta_e$ is the vapour-pressure deficit, $u$ is wind speed, $\Delta$ is the slope of the saturated vapour-pressure curve, and $\gamma$ is the psychrometric constant.
 
-$ E_O = \frac{\Delta Q^* + \gamma E_a}{\Delta + \gamma} $
+The estimate depends on the quality of the radiation, temperature, humidity, and wind data. Heat storage and advection can be important for water bodies and wet surfaces.
 
-where an empirical relationship states that:
-
-$ E_a = 2.6 \delta_e \left( 1 + \frac{u}{1.862}\right) $
-
-with $ Q^* $ the net radiation, $ \delta_e $ the vapour pressure deficit, and $ u $ the wind speed at 2 m elevation, $ \Delta $ is the rate of increase of the saturation vapour deficit with temperature, $ \gamma $ is the psychrometric constant (0.063 kPa / °C).
-
-Requires observations of .ul{temperature}, .ul{wind speed}, .ul{vapour pressure} and .ul{net radiation}, and provides the rate of evaporation in mm / day. Ignores soil heat flux, and that the vapour pressure deficit is the only limiting factor.
-
-# Simplifications to Penman
+# Priestley--Taylor
 
 .row gap:{1cm}
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - Several attempts have been made to simplify the Penman equation for widespread use.
-    - Priestly and Taylor (1972) derived a simplified Penman formula for large-scale estimation of evaporation, where large-scale advection is not important, and only accounted for through **sensible heat**.
+  .container width:{54%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    Priestley and Taylor simplified the combination approach for extensive wet surfaces where regional advection is limited:
 
-    $ PE = \alpha \frac{\Delta (Q^* - Q_G)}{\Delta + \gamma} $
+    $ \lambda E_p = \alpha\frac{\Delta}{\Delta+\gamma}(R_n-G). $
 
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - $ Q_G $ is the soil heat flux term
-    - $ \alpha $ is the Priestly–Taylor parameter, approximates the sensible heat transfer function, estimated by Priestly and Taylor (1972) to be 1.26 for saturated land surfaces, oceans, and lakes.
-    - This adaptation is important for regional scale evapotranspiration assessment using satellite remote sensing.
+    The coefficient $\alpha$ empirically enhances equilibrium evaporation. Priestley and Taylor obtained $\alpha\approx1.26$ for extensive saturated surfaces, but it is not universal.
 
-# Penman–Monteith: from open water to a real canopy
+  .container width:{46%}
+    The method requires fewer meteorological inputs than Penman, which made it attractive for early satellite applications.
 
-.row gap:{1cm}
-  .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - Monteith (1965) added a **canopy (stomatal) resistance** $ r_c $ to Penman, so that _actual_ evaporation from a vegetated surface can be estimated:
+    Its assumptions become weak over heterogeneous or water-limited land. Modern products therefore add stress factors, use additional observations, or retain the aerodynamic term.
 
-    $ E_t = \frac{Q^* \Delta + \rho c_p \delta_e / r_a}{\lambda \left( \Delta + \gamma \left( 1 + \frac{r_c}{r_a} \right) \right)} $
-
-    - $ r_a $ — **aerodynamic resistance** (mixing above the surface; rougher canopy → lower $ r_a $).
-    - $ r_c $ — **canopy resistance** (the plant's control over transpiration through its stomata).
-
-  .container width:{45%}
-    - If $ r_c \to 0 $ the equation collapses back to Penman: **actual = potential**.
-    - High $ r_c $ (stressed or conservative plants) pulls actual evaporation **below** potential.
-    - FAO's recommended method — "probably the best evapotranspiration estimation method available".
-    - The catch: you need $ r_a $ and $ r_c $ for every canopy at each growth stage.
-
-    | Vegetation | $ r_a $ (s/m) | $ r_c $ (s/m) |
-    |---|---|---|
-    | Pasture | 30 | 50 |
-    | Forest | 6.5 | 112 |
-    | Scrub | 6.5 | 160 |
-    | Tussock | 7.0 | 120 |
-    "Andrew and Dymond (2007); canopy values vary seasonally."
-
-# Reference evaporation and crop coefficients
+# Penman--Monteith: from a wet surface to a canopy
 
 .row gap:{1cm}
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - Measuring resistances for every crop is impractical, so FAO defines a **reference evaporation** $ ET_o $: evaporation from a standard surface — close-cropped, **well-watered grass**, 0.12 m high, canopy resistance 70 s/m, albedo 0.23.
+  .container width:{58%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    Monteith added surface resistance to represent stomatal and canopy control:
 
-    $ ET_o = \frac{0.408 \Delta (Q^* - Q_G) + \gamma \frac{900}{T + 273} u \delta_e}{\Delta + \gamma (1 + 0.34 u)} $
+    $ E = \frac{\Delta (R_n-G) + \rho_a c_p\,\mathrm{VPD}/r_a}{\lambda\left[\Delta+\gamma\left(1+r_s/r_a\right)\right]}. $
 
-    - Actual crop evapotranspiration then scales with a **crop coefficient**:
+    - $r_a$: aerodynamic resistance to turbulent transfer.
+    - $r_s$: bulk surface or canopy resistance.
 
-    $ ET_{crop} = K_c \cdot ET_o $
+  .container width:{42%}
+    As $r_s$ approaches zero, the surface approaches the wet-surface Penman case under consistent aerodynamic assumptions.
 
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    | Crop | $ K_c $ |
-    |---|---|
-    | Sugar cane | 1.25 |
-    | Cotton | 1.15–1.20 |
-    | Wheat | 1.15 |
-    | Maize (corn) | 1.15 |
-    | Coffee | 0.95 |
-    | Grapes | 0.70 |
-    "FAO, Allen et al. (1998)"
+    A large $r_s$ restricts transpiration, but neither resistance is fixed. Both depend on surface structure and environmental conditions.
 
-    - $ K_c > 1 $: rougher canopy than grass → higher rates.
-    - $ K_c < 1 $: stomatal control holds evaporation down.
-    - Directly relevant to Australian **irrigated agriculture** (cotton, wheat, sugar cane, wine grapes) — the coefficient sets the crop's water demand.
-
-# Relationship between Actual and Potential Evaporation
+# Reference evapotranspiration and crop coefficients
 
 .row gap:{1cm}
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - Without stomatal control (e.g., pastures), the relationship between actual evaporation ($ E_t $) and potential evaporation ($ P_E $) is primarily driven by water availability.
-    - Water availability can be estimated from soil moisture content.
-    - No units on the x-axis and two different curves (depends on soil and plant types).
-    - This simple relationship is useful for soil water budgeting models (e.g., Davie et al. 2001) but not for precise modeling.
-    - The relationship is not linear, and it is not a simple function of soil moisture.
+  .container width:{54%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    FAO reference evapotranspiration, $ET_o$, is defined for a hypothetical well-watered grass surface that is 0.12 m high, has surface resistance 70 s/m, and has albedo 0.23.
 
-  .container width:{50%}
-    ![Soil moisture](../image/davie_3rd_3-10.png "Relationship between actual and potential evaporation")
+    Crop evapotranspiration is commonly estimated as
 
-# Influence of Vegetation on Evaporation
+    $ ET_{crop}=K_c ET_o. $
 
-.row gap:{1cm}
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - In vegetation types with stomatal control (e.g., coniferous forests), evaporation is influenced by both soil moisture and vapour pressure deficit (VPD).
-    - Figure -> shows a time series of soil moisture, transpiration, and VPD for Pinus radiata in New Zealand.
-    - Transpiration was measured using sap-flow meters, soil moisture with a neutron probe, and VPD from a meteorological station.
+  .container width:{46%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    The crop coefficient varies with growth stage, canopy height and cover, albedo, soil evaporation, climate, and management.
 
-  .container width:{50%}
-    ![Soil moisture](../image/davie_3rd_fig_3-11.png "Relationship between actual and potential evaporation")
+    A value above or below one cannot be attributed only to roughness or stomatal control. The coefficient integrates several differences between the crop and reference surface.
 
-# Influence of Vegetation on Evaporation
+    _Source: Allen et al. (1998)._
+
+# From potential to actual evaporation
 
 .row gap:{1cm}
-  .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - At the start of summer (Oct-Nov 1998), high soil moisture leads to a rapid increase in transpiration.
-    - Transpiration plateaus despite increasing VPD, indicating stomatal control.
-    - From Jan 1999, transpiration drops, initially matching a drop in VPD, but continues to decrease due to soil moisture limitations.
-    - Figure 13. -> illustrates the complex interaction between evaporation, soil moisture, and atmospheric conditions.
+  .container width:{48%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    Soil moisture provides a first-order constraint on the ratio $E/E_p$. The relation is nonlinear and depends on soil hydraulic properties, rooting depth, vegetation, and the definition of $E_p$.
 
-  .container width:{50%}
-    ![Soil moisture](../image/davie_3rd_fig_3-11.png "Relationship between actual and potential evaporation")
+    A single stress curve can be useful in a water-balance model, but it does not represent all plant responses or atmospheric feedbacks.
 
+  .container width:{52%}
+    ![Soil moisture stress](../image/davie_3rd_3-10.png "A hypothetical relation between soil moisture and actual-to-potential evaporation.")
+    _Source: Davie and Quinn, Figure 3.10._
+
+# Vegetation responds to both supply and demand
+
+.row gap:{1cm}
+  .container width:{47%} borderwidth:{1pt} padding:{0.42cm} radius:{0.4cm} background:{.lightblue}
+    The Pinus radiata record separates three controls:
+
+    1. In early summer, adequate soil moisture permits transpiration to increase with atmospheric demand.
+    2. Transpiration then plateaus while VPD increases, which is consistent with stomatal regulation.
+    3. Later, transpiration decreases as soil moisture becomes limiting, even when VPD remains appreciable.
+
+    A vegetation index alone cannot distinguish these controls.
+
+  .container width:{53%}
+    ![Transpiration, soil moisture, and VPD](../image/davie_3rd_fig_3-11.png "Measured soil moisture and transpiration with estimated maximum VPD near Nelson, New Zealand.")
+    _Source: Davie and Quinn, Figure 3.11; data courtesy of Rick Jackson._
 
 #
 
 .row gap:{1cm} alignment:{center}
-  .container width:{60%} alignment:{center} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+  .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
 
-    ## Scaling up: estimating evaporation from space
+    ## Scaling up: observation-constrained evaporation from space
 
-# Remote sensing of evaporation
-
-.row gap:{1cm}
-  .container width:{55%}
-    - Satellites cannot see the flux directly. Passive microwave sensors estimate the **water vapour in the whole atmospheric column**, not the near-surface flux we care about.
-    - So remote sensing of evaporation is always **model + satellite**: use a surrogate model (usually Penman or Priestley–Taylor) for **potential** evaporation, then use satellite data to knock it down to **actual** evaporation.
-    - Two things the satellite supplies well:
-      - **Net radiation and surface temperature** → the energy term.
-      - **Vegetation state and soil/vegetation water** → the stress that separates actual from potential.
-
-  .container width:{45%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    The recurring pattern:
-
-    $ E_{actual} = f_{stress} \times E_{potential} $
-
-    - $ E_{potential} $ from Priestley–Taylor / Penman, driven by satellite radiation.
-    - $ f_{stress} \in [0, 1] $ from satellite vegetation and moisture indices.
-    - This is exactly the potential-to-actual step we saw for soil moisture — now done pixel by pixel, continent-wide.
-
-# GLEAM: global land evaporation from space
-
-.row gap:{1cm}
-  .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - **GLEAM** — Global Land Evaporation Amsterdam Model (Miralles et al. 2011).
-    - Uses **Priestley–Taylor** for potential evaporation, driven by satellite net radiation and air temperature.
-    - Converts potential → actual with an **evaporative stress factor** from microwave **Vegetation Optical Depth** (vegetation water content) and microwave/SMOS **soil moisture**.
-    - Estimates each **component separately**: transpiration, bare-soil evaporation, interception (Gash model), open water, and snow sublimation.
-
-  .container width:{45%}
-    - Classic v3: **0.25°**, Priestley–Taylor.
-    - GLEAM4 (2025): now **0.1°**, and switched the potential-evaporation core from Priestley–Taylor to **Penman**, with the stress function trained on flux-tower and sap-flow data.
-    - Global and continental — the right tool when you want one consistent product everywhere, but coarse for catchment work.
-
-# CMRSET: actual ET across Australia
-
-.row gap:{1cm}
-  .container width:{55%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    - **CMRSET** (CSIRO MODIS-Reflectance-based Scaling ET), Guerschman et al. (2009, 2022) — Australia's operational **actual ET** product.
-    - Builds a scaling factor from two MODIS reflectance indices — **EVI** (greenness) and **GVMI** (vegetation moisture) — and multiplies it by potential ET.
-    - The EVI+GVMI combination detects **standing water** directly, so it handles floodplains and reservoirs without a land-cover map.
-    - Calibrated against ~30 **eddy-covariance flux towers**; now delivered at **30 m, monthly**, served through TERN and Google Earth Engine.
-
-  .container width:{45%}
-    - Used operationally for **irrigation water use and water accounting in the Murray–Darling Basin** — where roughly 70% of Australia's diverted water goes.
-    - Not to be confused with the **AWRA-L** actual-ET grid on the Australian Water Outlook (the same model family behind the AWO rainfall we already use): AWRA-L is a **water-balance model** (0.05°), CMRSET is a **remote-sensing** product. Two independent estimates of the same flux — a useful cross-check.
-
-# The Australian picture: demand dwarfs supply
+# What does a satellite measure?
 
 .row gap:{1cm}
   .container width:{50%}
-    - Class A **pan evaporation** (BoM, 1975–2005) climbs from **~1,000–1,500 mm/yr** in the cooler, wetter south to **~3,000–3,600 mm/yr** across the arid interior.
-    - Over most of the continent **potential evaporation vastly exceeds rainfall** — Australia is fundamentally **water-limited**, so actual ET sits far below potential.
-    - **Lake Eyre**: ~140 mm/yr rainfall against ~3,500 mm/yr pan evaporation — roughly a **25:1** deficit. Rare fillings evaporate away within months.
+    A satellite records electromagnetic radiance, brightness temperature, or radar backscatter. Evaporation is not one of these quantities.
+
+    The observation must first be converted into a surface property and then combined with a model.
+
+  .container width:{50%}
+    .mermaid caption:{The observation chain}
+      flowchart TD
+        O[Measured radiance or backscatter] --> R[Retrieved surface property]
+        R --> M[Evaporation model]
+        F[Meteorological forcing] --> M
+        M --> E[Estimated evaporation]
+        G[Ground observations] --> V[Validation or calibration]
+        V --> M
+
+# Thermal infrared: evaporation cools the surface
+
+.row gap:{0.35cm}
+  .container width:{33%}
+    ![Visible Landsat image](../image/nasa_landsat_visible_et.jpg "Visible Landsat image of irrigated fields in Idaho.")
+    _Visible reflectance_
+
+  .container width:{33%}
+    ![Thermal Landsat image](../image/nasa_landsat_temperature_et.jpg "Thermal Landsat image of the same fields.")
+    _Land-surface temperature_
+
+  .container width:{34%}
+    ![METRIC evaporation map](../image/nasa_landsat_metric_et.jpg "METRIC evapotranspiration estimate for the same fields.")
+    _Modelled ET_
+
+.center
+  Evaporating fields are cooler because latent heat consumes available energy. Thermal radiance constrains surface temperature, not ET directly. Clouds, emissivity, atmospheric correction, and temporal upscaling remain important limitations. _Source: NASA/GSFC Scientific Visualization Studio (2009)._
+
+# Optical observations: vegetation and surface properties
+
+.row gap:{1cm}
+  .container width:{52%}
+    Optical sensors measure reflected solar radiation. Combinations of spectral bands retrieve properties that influence evaporation:
+
+    - red and near-infrared reflectance constrain vegetation cover and greenness through NDVI or EVI,
+    - short-wave infrared reflectance responds to vegetation and surface water content,
+    - broadband albedo constrains absorbed radiation.
+
+  .container width:{48%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+    These variables do not uniquely determine evaporation.
+
+    A green canopy can close its stomata during high VPD. Vegetation indices can saturate over dense canopies, clouds remove observations, and a pixel can mix soil, vegetation, and water.
+
+    CMRSET uses EVI and the Global Vegetation Moisture Index to scale potential evaporation.
+
+# Microwave observations: water supply and stress
+
+.row gap:{1cm}
+  .container width:{50%}
+    Passive microwave radiometers measure brightness temperature. Active radar measures backscatter. Retrieval algorithms use their sensitivity to dielectric properties to estimate near-surface soil moisture.
+
+    Microwave vegetation optical depth provides information about vegetation water content and biomass. These observations help constrain whether potential evaporation can be sustained.
 
   .container width:{50%} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-    **Menindee Lakes** (Darling/Baaka, far-western NSW)
+    The observation chain is indirect:
 
-    - Shallow storages in a hot, windy setting lose **~426 GL/yr on average to evaporation, up to ~700 GL/yr when full** — against a capacity of ~1,731 GL.
-    - Over the 2016–2019 drought, **~900 GL** was lost to evaporation, feeding directly into the controversy over the Lower Darling fish kills.
-    - Evaporation is not a rounding error here — it is a first-order term in the water budget.
+    1. Microwave signal
+    2. Surface soil moisture or VOD retrieval
+    3. Root-zone model or stress factor
+    4. Evaporation estimate
+
+    Passive microwave pixels are coarse, the sensing depth is shallow, and vegetation and surface roughness affect the retrieval.
+
+    This is the same active/passive observation principle used by the ESA CCI soil-moisture product in Assignment II.
+
+# Two families of satellite evaporation models
+
+.row gap:{1cm}
+  .container width:{50%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    ##! Surface energy balance
+
+    $ \lambda E = R_n-G-H $
+
+    Thermal surface temperature, albedo, vegetation cover, and meteorological data constrain the energy terms. Examples include SEBAL, METRIC, and ALEXI/ECOSTRESS.
+
+    The surface temperature is especially important for estimating sensible heat $H$.
+
+  .container width:{50%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    ##! Potential evaporation with stress
+
+    $ E = S\,E_p, \qquad 0\leq S\leq1 $
+
+    Penman or Priestley--Taylor provides atmospheric demand. Soil moisture, VOD, vegetation indices, and land-cover information constrain the stress factor.
+
+    GLEAM and CMRSET use variants of this approach. MOD16 uses Penman--Monteith with satellite vegetation properties and meteorological forcing.
+
+# GLEAM: the Davie and Quinn case study
+
+.row gap:{0.7cm}
+  .container width:{47%}
+    !(90%)[GLEAM4 schematic](../image/gleam4_schematic.png "Input observations, model modules, and output fluxes in GLEAM4.")
+
+  .container width:{53%} borderwidth:{1pt} padding:{0.42cm} radius:{0.4cm} background:{.lightblue}
+    Davie and Quinn describe GLEAM v3, which used Priestley--Taylor at 0.25 degree resolution and assimilated microwave soil-moisture observations.
+
+    GLEAM4 now uses Penman at 0.1 degree resolution. It combines satellite and reanalysis observations of radiation, temperature, vegetation, soil moisture, wind, and VPD. Separate modules estimate transpiration, bare-soil evaporation, interception, open-water evaporation, sublimation, and condensation.
+
+    The transition from v3 to v4 shows that an evaporation product is a changing model system, not a fixed satellite measurement.
+
+    _Source: Miralles et al. (2025), Scientific Data, CC BY 4.0._
+
+# CMRSET: actual evaporation across Australia
+
+.row gap:{1cm}
+  .container width:{55%} borderwidth:{1pt} padding:{0.45cm} radius:{0.4cm} background:{.lightblue}
+    The original CSIRO MODIS Reflectance-based Scaling Evapotranspiration model used MODIS EVI and GVMI to scale Priestley--Taylor potential evaporation.
+
+    The current TERN v2.2 product blends Landsat, Sentinel-2, MODIS, and VIIRS observations to provide monthly actual evaporation at 30 m resolution without persistent cloud gaps.
+
+    The model was calibrated against OzFlux eddy-covariance sites and evaluated against water balances for unregulated catchments.
+
+  .container width:{45%}
+    !(65%)[CMRSET Australia](../image/cmrset_australia.jpg "Example CMRSET actual evapotranspiration across Australia.")
+    _Source: ANU Centre for Water and Landscape Dynamics; Guerschman et al. (2009)._
+
+# CMRSET and AWRA-L answer different questions
+
+.row gap:{1cm}
+  .container width:{50%} borderwidth:{1pt} padding:{0.48cm} radius:{0.4cm} background:{.lightblue}
+    ##! CMRSET
+
+    - Scales potential evaporation with optical vegetation and moisture indices.
+    - Resolves fields and wetlands at 30 m and monthly intervals.
+    - Is well suited to spatial water-use and irrigation studies.
+    - Depends on cloud-gap filling, meteorological forcing, and empirical calibration.
+
+  .container width:{50%} borderwidth:{1pt} padding:{0.48cm} radius:{0.4cm} background:{.lightblue}
+    ##! AWRA-L
+
+    - Simulates the daily landscape water balance on a coarser national grid.
+    - Represents soil stores, runoff, drainage, and evaporation together.
+    - Provides the Australian Water Outlook evaporation used in the tutorial.
+    - Is not fully independent of CMRSET because CMRSET information contributed to AWRA-L calibration.
+
+# How do we validate a satellite evaporation product?
+
+.row gap:{1cm}
+  .container width:{46%}
+    Validation must compare compatible spatial and temporal supports:
+
+    - a lysimeter represents a plot,
+    - a flux tower represents an upwind footprint that changes with the wind,
+    - a satellite pixel can contain several land covers,
+    - a catchment balance integrates storage and lateral flow.
+
+    Agreement at one scale does not guarantee that the component fluxes or short-term variability are correct.
+
+  .container width:{54%}
+    !(100%)[Australian evaporation product comparison](../image/australia_et_product_comparison.png "Mean annual actual evaporation from a water balance and five model products over Australia.")
+    _Source: Kim et al. (2022), Hydrology and Earth System Sciences, Figure 7, CC BY 4.0._
+
+# The Australian contrast: demand is not actual loss
+
+.row gap:{0.8cm}
+  .container width:{52%}
+    !(93%)[Australian pan evaporation](../image/bom_pan_evaporation_australia.png "Mean annual Class A pan evaporation across Australia, 1975--2005.")
+    _Source: Bureau of Meteorology, CC BY 4.0._
+
+  .container width:{48%} borderwidth:{1pt} padding:{0.48cm} radius:{0.4cm} background:{.lightblue}
+    Class A pan evaporation exceeds 3,000 mm/year across much of inland Australia. This records strong atmospheric demand over an unlimited water supply.
+
+    Actual terrestrial evaporation is much lower across the arid interior because soil and vegetation cannot sustain that demand. It is higher in wetter northern and coastal regions despite lower pan evaporation.
+
+    The contrast is the continental expression of the lecture's central distinction:
+
+    $ \text{atmospheric demand} \neq \text{actual water loss}. $
 
 # Summary
+
 .align{center}
-    .container width:{60%} alignment:{center}
-        .box title:{So here we covered that:} background:{.lightblue}
-            - Evaporation transfers water to the atmosphere, driven by energy and water availability.
-            - Types include open water ($ E_o $), potential ($ E_{pt} $), and actual ($ E_t $).
-            - Transpiration from plants adds to total evapotranspiration.
-            - **VPD** (vapour pressure deficit) is a key driver of evaporation.
-            - Measured _directly_ by micro-meteorology (eddy covariance, Bowen ratio) and _indirectly_ via water balance (pans, lysimeters).
-            - Estimated from climate with surrogate models (Thornthwaite, Penman, Penman–Monteith) and, at continental scale, by satellite remote sensing (GLEAM, CMRSET).
+    .container width:{72%} alignment:{start} borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
+        - Evaporation requires available energy, available water, and atmospheric transport.
+        - The surface energy balance partitions net radiation between ground, sensible, and latent heat fluxes.
+        - Eddy covariance estimates turbulent flux, while pans, lysimeters, and catchment balances infer evaporation at different scales.
+        - Penman and Penman--Monteith combine energy supply with atmospheric and surface resistance.
+        - Satellites observe radiance or backscatter, not evaporation.
+        - Thermal, optical, and microwave observations constrain models of surface energy and water stress.
+        - Every evaporation product must be interpreted through its model, spatial support, forcing data, and validation evidence.
