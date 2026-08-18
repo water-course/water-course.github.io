@@ -1,6 +1,6 @@
 # Computer Labs
 
-This section contains a growing collection of **Python computer labs** that support this course. All notebooks are available via our GitHub repository:
+This section contains a growing collection of **Python computer labs** that support this course. The student notebooks are available in the [Colab repository](https://github.com/water-course/colab-tutorials).
 
 👉 [github.com/water-course/colab-tutorials](https://github.com/water-course/colab-tutorials)
 
@@ -50,14 +50,28 @@ If a notebook does not appear in the GitHub tab, download the `.ipynb` file from
 
 ### [Lab 1](computer-lab/lab01_python_basics_solution.ipynb)
 A beginner-friendly introduction to Python programming for geoscience applications, covering basic maths, loops, formatted output, and simple map plotting with Cartopy.
+
+[Open the student notebook in Colab](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab01_python_basics.ipynb)
+
 ### [Lab 2](computer-lab/lab02_shapefiles_and_masks_solution.ipynb)
 Learn how to perform geospatial analysis in Python by working with shapefiles and spatial queries, streaming gridded NetCDF rainfall straight off NCI's THREDDS server over OPeNDAP, building a basin mask, and averaging monthly rainfall over the Murray-Darling Basin.
+
+[Open the student notebook in Colab](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab02_shapefiles_and_masks.ipynb)
+
 ### [Lab 3](computer-lab/lab03_xarray_gridded_data_solution.ipynb)
 Work with the same gridded rainfall using `xarray`, where named dimensions and coordinates travel with the data: opening a remote file lazily over OPeNDAP, selecting by label with `.sel` rather than by position with `.isel`, the descending-latitude slice that silently returns nothing, plotting straight off the array, and re-binning monthly totals into complete calendar years with `resample`.
+
+[Open the student notebook in Colab](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab03_xarray_gridded_data.ipynb)
+
 ### [Lab 4](computer-lab/lab04_grid_cell_areas_solution.ipynb)
 Learn a practical approach for adjusting surface-area differences across latitude–longitude grids, deriving the exact grid-cell area on a sphere and applying it to GRACE satellite data.
+
+[Open the student notebook in Colab](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab04_grid_cell_areas.ipynb)
+
 ### [Lab 5](computer-lab/lab05_rain_gauge_interpolation_solution.ipynb)
 A standalone lab on estimating missing rain-gauge values from surrounding stations, comparing several interpolation methods on real storm data — adapted from a tutorial by [Jesús Casado Rodríguez](https://github.com/casadoj).
+
+[Open the student notebook in Colab](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab05_rain_gauge_interpolation.ipynb)
 
 ---
 

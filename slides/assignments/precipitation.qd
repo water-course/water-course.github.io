@@ -21,21 +21,56 @@ basin water balance from one that is wrong by nearly a fifth.
 
 **Total: 10 marks**, plus an extension for EMSC6025.
 
+### Computer labs for this assignment
+
+Complete these student notebooks before you begin the assignment. They are available in Colab and contain blank exercise cells.
+
+- [Lab 2: Shapefiles and basin masks](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab02_shapefiles_and_masks.ipynb) explains the basin boundary and grid-cell mask.
+- [Lab 3: xarray gridded data](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab03_xarray_gridded_data.ipynb) explains OPeNDAP, coordinate selection, the descending-latitude trap, and complete years.
+- [Lab 4: Grid-cell areas](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab04_grid_cell_areas.ipynb) derives the area formula that Question 2 uses.
+
+Use the computer-lab page on the course website to read the executed solution notebooks after you attempt each exercise.
+
 ### The rainfall data
 
 We use the monthly rainfall product from the Bureau of Meteorology's Australian Water Outlook
 (the AWRA-L v7 model archive), served by NCI over OPeNDAP. You do **not** need to download
 anything by hand: `xarray` can open the remote file directly and subset it on the server.
 
+.container width:{92%} background:{.lightblue} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+   ##### Google Colab
+
+   If you use Google Colab, run `%pip install --quiet xarray netCDF4` before you import `xarray`.
+   `netCDF4` lets `xarray` open the NCI OPeNDAP data service.
+
 .row alignment:{center}
    `https://thredds.nci.org.au/thredds/dodsC/iu04/australian-water-outlook/historical/v1/AWRALv7/processed/values/month/rain_day.nc`
 
 ```python
+# Run this first in Google Colab.
+%pip install --quiet xarray netCDF4
+
+# Use xr as the short name for xarray.
 import xarray as xr
-url = ("https://thredds.nci.org.au/thredds/dodsC/iu04/australian-water-outlook/"
-       "historical/v1/AWRALv7/processed/values/month/rain_day.nc")
-ds = xr.open_dataset(url)
+
+# Store the remote data address.
+url = (
+    "https://thredds.nci.org.au/thredds/dodsC/"
+    "iu04/australian-water-outlook/historical/v1/"
+    "AWRALv7/processed/values/month/rain_day.nc"
+)
+
+# Use netcdf4 to open the OPeNDAP service.
+ds = xr.open_dataset(url, engine="netcdf4")
 ```
+
+#### What this code does
+
+`%pip install` installs `xarray` and `netCDF4` in the current Colab session. `xarray` reads and labels gridded data. `netCDF4` lets `xarray` read the NCI OPeNDAP service.
+
+`import xarray as xr` makes the `xarray` library available as `xr`. The `url` variable stores the data address. `xr.open_dataset` reads the file metadata and returns a dataset called `ds`.
+
+At this stage, `ds` contains coordinates, variable names and attributes. It does not contain the full rainfall array in memory.
 
 What you are getting:
 
@@ -77,12 +112,17 @@ you can check it by comparing your masked area against the published basin area 
       (-10 down to -44). A slice must be given in the same order as the axis:
 
       ```python
+      # This order does not match the stored latitude direction. It returns no cells.
       ds.rain_day.sel(latitude=slice(-38, -24))   # returns latitude: 0  -- EMPTY, no error
+
+      # This order follows the stored direction: north to south. It returns the basin rows.
       ds.rain_day.sel(latitude=slice(-24, -38))   # returns latitude: 281 -- correct
       ```
 
       The first form raises **no warning**. You get an empty array, and every mean you compute
       downstream is `nan`. Print the shape of your subset before you go any further.
+
+      `.sel` selects data by its coordinate labels. `slice` selects every latitude between its two limits. The limits must follow the coordinate order in the file.
 
       **2. `open_dataset` returning instantly does not mean the data arrived.** Opening the URL
       reads only the metadata and takes about a second. The transfer happens later, when you call
