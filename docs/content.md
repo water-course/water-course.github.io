@@ -15,7 +15,7 @@ Slides are released as we get to them during the semester.
 - [**Introduction to the Course**](Introduction/index.html)
 - [**The Hydrologic Cycle**](Watercycle/index.html)
 - [**Precipitation**](Precipitation/index.html)
-- **Evapotranspiration**
+- [**Evapotranspiration**](Evaporation/index.html)
 - **Run-off**
 - **Groundwater - Principles**
 - **Groundwater - Aquifers**
@@ -30,7 +30,7 @@ Each tutorial appears here in the week it is run.
 
 - [**The Hydrologic Cycle**](Tutorial-Watercycle/index.html)
 - [**Precipitation**](Tutorial-Precipitation/index.html)
-- **Evapotranspiration**
+- [**Evapotranspiration**](Tutorial-Evaporation/index.html)
 - **Run-off**
 - **Groundwater - Principles**
 - **Groundwater - Theory of Flow**
