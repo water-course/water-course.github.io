@@ -1,18 +1,24 @@
 # Notes for agents working on this repository
 
-## Outstanding: the assignment marks do not add up
+## The assignment marks
 
-The assessment scheme is meant to be **40 marks of assignments, 15 + 15 + 10**.
-Assignment I has been reworked and is correct at **10**. The other two have not:
+The assessment scheme is **40 marks of assignments, 10 + 15 + 15**. All three
+assignments now match it:
 
-| assignment | file | current total | should be |
+| assignment | file | total | breakdown |
 |---|---|---|---|
-| I — Precipitation | `slides/assignments/precipitation.qd` | 10 ✅ | 10 |
-| II — Total Water Storage | `slides/assignments/soil_moisture.qd` | **25** ❌ | 15 |
-| III — Groundwater | `slides/assignments/groundwater.qd` | **17** ❌ | 15 |
+| I — Precipitation | `slides/assignments/precipitation.qd` | 10 | 2 + 3 + 2 + 3, Q5 bonus |
+| II — Total Water Storage | `slides/assignments/soil_moisture.qd` | 15 | 3 + 3 + 3 + 3 + 3 |
+| III — Groundwater | `slides/assignments/groundwater.qd` | 15 | 2 + 4 + 4 + 5 |
 
-Rebalancing II and III is a separate job that has not been started. If you are
-touching either file, raise it rather than silently leaving the totals wrong.
+Assignment I splits differently for the two course codes. EMSC3025 takes
+Questions 1-4 for 10 marks and Question 5 as an optional bonus mark. EMSC6025
+takes Questions 1-3 for 7 marks, Question 4 for 2 and the required Question 5
+for 1. Assignments II and III carry EMSC6025 requirements that are part of the
+15 marks and do not add marks.
+
+If you change a mark, change the stated total in the same commit and rebuild the
+PDF to confirm the arithmetic still holds.
 
 ## Where things live
 

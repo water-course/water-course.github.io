@@ -15,6 +15,8 @@
 
 Depth-to-groundwater data are available on WaterNSW (in csv format) for monitoring sites across New South Wales. This assignment focuses on analysing groundwater level changes and calculating effective porosity using a combination of satellite data and soil moisture modeling.
 
+**Total: 15 marks.**
+
 ### Data Access Instructions
 
 Depth-to-groundwater data are available from the WaterNSW realtime [data website](https://realtimedata.waternsw.com.au/water.stm).
@@ -44,15 +46,28 @@ Depth-to-groundwater data are available from the WaterNSW realtime [data website
 
 1. 📈 **(2 marks)** Plot the time series of depth to groundwater level for each site. Create individual plots showing the temporal variation in groundwater depth for all monitoring locations.
 
-2. 🛰️ **(5 marks)** Calculate the groundwater change at each of the sites from a combination of satellite data and soil moisture modelling data. Use the results from previous assignment. Consider the spatial resolution limitations and interpolation methods required.
+2. 🛰️ **(4 marks)** Calculate the groundwater change at each of the sites from a combination of satellite data and soil moisture modelling data. Use the results from previous assignment. Consider the spatial resolution limitations and interpolation methods required.
 
-3. 💻 **(5 marks)** Estimate the **specific yield** (approximating effective porosity) at each location using .ref {equation-1}.
+3. 💻 **(4 marks)** Estimate the **specific yield** (approximating effective porosity) at each location using .ref {equation-1}.
 
    $ S_y \approx n_e = \frac{\Delta S}{\Delta h} $ {#equation-1}
 
 $ \Delta S $ is the change in subsurface water storage (from satellite/soil moisture data) and $ \Delta h $ is the observed change in groundwater level.
 
 4. 🌍 **(5 marks)** Produce a spatial map of specific yield over the region (i.e. interpolate between the discrete data points). Use appropriate interpolation techniques to create a continuous surface map showing spatial variation in specific yield across the study region.
+
+### EMSC6025 requirements
+
+.center
+   .container width:{85%} background:{.lightgreen} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      EMSC6025 students must also:
+
+      - Select and justify the methods used for temporal alignment, spatial comparison and interpolation.
+      - Compare at least two interpolation methods or use cross-validation to test the selected method.
+      - Quantify uncertainty in the specific-yield estimates and the spatial map.
+      - Justify conclusions using the scale mismatch between satellite observations and groundwater sites.
+
+      These requirements form part of the 15 marks. They do not add marks.
 
 .whitespace{15pt}
 

@@ -19,7 +19,11 @@ changing, and how the droughts and wet periods of the last twenty-five years com
 another. Along the way you will meet the one geometric correction that separates a defensible
 basin water balance from one that is wrong by nearly a fifth.
 
-**Total: 10 marks**, plus an extension for EMSC6025.
+**Total: 10 marks.**
+
+For EMSC3025, Questions 1–4 total 10 marks. Question 5 is an optional one-mark bonus.
+
+For EMSC6025, Questions 1–3 total 7 marks. Question 4 is worth 2 marks, and required Question 5 is worth 1 mark.
 
 ### Computer labs for this assignment
 
@@ -184,7 +188,7 @@ you can check it by comparing your masked area against the published basin area 
    comment on what happens to the slope. A good answer explains the behaviour you see rather than
    reporting a single number.
 
-4. **(3 marks)** Compare four periods, using the full-record baseline defined above:
+4. **(EMSC3025: 3 marks; EMSC6025: 2 marks)** Compare four periods, using the full-record baseline defined above:
 
    - the **Millennium Drought**, 2001-2009;
    - the **Tinderbox Drought**, 2017-2019;
@@ -202,8 +206,7 @@ you can check it by comparing your masked area against the published basin area 
 
 .center
    .container width:{92%} background:{.lightgreen} radius:{9pt} padding:{10pt} borderwidth:{1pt}
-      **EMSC6025: required.** **EMSC3025: optional**, and worth one bonus mark carried through to
-      the end of semester.
+      **EMSC6025: required and worth 1 mark.** **EMSC3025: optional and worth one bonus mark.**
 
 5. Obtain a monthly **ENSO index** and quantify how much of the basin's rainfall variability it
    explains. Use **one** of:
