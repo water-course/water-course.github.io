@@ -231,8 +231,10 @@
         Wind and turbulence replace moist air near the surface with drier air and sustain evaporation.
 
     .container width:{48%}
-        !(100%)[Vapour pressure deficit](../image/davie_fig_3-2.png "Vapour pressure deficit at 20 degrees Celsius.")
-        _Source: Davie and Quinn, Figure 3.2._
+        !(70%)[Vapour pressure deficit](../image/davie_fig_3-2.png "Vapour pressure deficit at 20 degrees Celsius.")
+
+        .center
+          _Source: Davie and Quinn, Figure 3.2._
 
 # Evaporation depends on its environment
 
