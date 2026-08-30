@@ -42,7 +42,7 @@ Each tutorial appears here in the week it is run.
 Assignments are handed out on [Canvas](https://canvas.anu.edu.au/courses/3453).
 
 - [**Assignment 1** - Precipitation](AssignmentOne/index.html)
-- **Assignment 2** - Soil Moisture
+- [**Assignment 2** - Total Water Storage](AssignmentTwo/index.html)
 - **Assignment 3** - Groundwater
 
 

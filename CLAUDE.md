@@ -8,7 +8,7 @@ assignments now match it:
 | assignment | file | total | breakdown |
 |---|---|---|---|
 | I — Precipitation | `slides/assignments/precipitation.qd` | 10 | 2 + 3 + 2 + 3, Q5 bonus |
-| II — Total Water Storage | `slides/assignments/soil_moisture.qd` | 15 | 3 + 3 + 3 + 3 + 3 |
+| II — Total Water Storage | `slides/assignments/soil_moisture.qd` | 15 | 3 + 3 + 2 + 4 + 3 |
 | III — Groundwater | `slides/assignments/groundwater.qd` | 15 | 2 + 4 + 4 + 5 |
 
 Assignment I splits differently for the two course codes. EMSC3025 takes
@@ -103,3 +103,24 @@ it cannot be used as a data source — only as reading. For ENSO indices use CRU
 The basin boundary is `https://data.gadopt.org/water-course/MDB_boundaries.zip`
 (north + south shapefiles, EPSG:4283). The old `MDB.latlon` ASCII file has been
 retired and deleted from the server.
+
+**Soil moisture for Assignment II** is the ESA CCI combined v09.1 daily record, cut to a
+box around the basin and served as
+
+```
+https://data.gadopt.org/water-course/esacci_sm_combined_v09-1_MDB_daily_2003-2023.nc
+```
+
+170 MB, 2003-01-01 to 2023-12-31, 0.25 degrees, variables `sm`, `sm_uncertainty` and
+`flag`. **The record starts in 2003**, so no groundwater series can begin in 2002 whatever
+GRACE offers. Latitude descends here too. It replaces `combined_masked_soil_moisture.nc`,
+which was 4.6 GB, was never masked to anything despite the name, and had lost the `units`
+attribute off `sm` in subsetting. That file has been deleted from the server, as has the
+stale mirror of the CSR mascons. Get the mascons from CSR itself.
+
+**The CSR GRACE file writes its metadata attribute as `Units`, capital U.** `xarray` wants
+lowercase `units`, does not find it, and leaves `time` as bare floats -- days since
+2002-01-01, per the `time_epoch` attribute -- and `lwe_thickness` unlabelled, in cm. The
+grid runs latitude *ascending* and longitude 0 to 360, the opposite of both other datasets
+in this course. Anomalies are relative to the mean of 2004.000 to 2009.999, so anything
+differenced against them must have that same period removed first.
