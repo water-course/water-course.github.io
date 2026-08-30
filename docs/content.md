@@ -6,7 +6,7 @@ Below is a comprehensive list of course materials for the Water Course.
 
 !!! Note
 
-    If you are an *ANU student* that is currently enrolled in the course, you could have a PDF format of the slides on [Canvas](https://canvas.anu.edu.au/courses/3453).
+    If you are an *ANU student* that is currently enrolled in the course, you could have a PDF format of the slides on [Canvas](https://canvas.anu.edu.au/courses/10009).
 
 ### 🧑‍🏫 Lecture Sequence
 
@@ -39,7 +39,7 @@ Each tutorial appears here in the week it is run.
 
 ### 🔖 Assignments
 
-Assignments are handed out on [Canvas](https://canvas.anu.edu.au/courses/3453).
+Assignments are handed out on [Canvas](https://canvas.anu.edu.au/courses/10009).
 
 - [**Assignment 1** - Precipitation](AssignmentOne/index.html)
 - [**Assignment 2** - Total Water Storage](AssignmentTwo/index.html)
