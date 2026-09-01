@@ -65,6 +65,12 @@ The file is hourly, from 1 to 22 February 2021, with three columns: `datetime`,
 - **Separate the baseflow.** Draw a straight line from the discharge just before the rise
   (5 February) to the discharge once the recession has flattened (around 19 February).
   Everything above that line is stormflow.
+
+  Note that Fig. (2) has a **logarithmic** discharge axis, which is the usual way to plot a
+  hydrograph: on a linear axis the peak flattens every other flow onto the x-axis and the shape
+  of the recession is lost. **Do the separation on linear axes**, or better, on the numbers
+  themselves. A straight line is not straight once the axis is logarithmic, and the area under
+  a logarithmic curve is not a volume.
 - **Integrate.** Sum the stormflow over the event to get a volume in ML, and convert it to a
   **depth in mm** over the catchment. Remember the discharge is a rate per *day* sampled every
   *hour*.

@@ -149,12 +149,27 @@ def new_water_fraction(delta_stream):
 # Figures
 # ---------------------------------------------------------------------------
 
-def _hydrograph_axes(ax, times, flow, rain):
-    """Draw the shared discharge line and inverted rainfall bars."""
+def _hydrograph_axes(ax, times, flow, rain, log=False):
+    """Draw the shared discharge line and inverted rainfall bars.
+
+    ``log`` puts discharge on a logarithmic axis, which is how a hydrograph is
+    normally presented: on a linear axis one large event flattens every normal
+    flow onto the x-axis and the recession detail disappears.
+
+    Do NOT use it for the separation figure. Stormflow is the **area** between
+    the hydrograph and the baseflow line, and area on a logarithmic axis is not
+    proportional to volume. The straight-line separation is also only a straight
+    line on linear axes.
+    """
     ax.plot(times, flow, color=C_FLOW, lw=1.6, zorder=3)
     ax.set_ylabel("Discharge (ML/day)")
-    ax.set_ylim(0, 11000)
-    ax.grid(alpha=0.25, lw=0.6)
+    if log:
+        ax.set_yscale("log")
+        ax.set_ylim(200, 20000)
+        ax.grid(alpha=0.25, lw=0.6, which="both")
+    else:
+        ax.set_ylim(0, 11000)
+        ax.grid(alpha=0.25, lw=0.6)
 
     top = ax.twinx()
     top.bar(times, rain, width=1 / 26, color=C_RAIN, zorder=2)
@@ -166,9 +181,10 @@ def _hydrograph_axes(ax, times, flow, rain):
 def figure_hydrograph(times, flow, rain):
     """A2 question figure: the storm, unannotated. The students do the work."""
     fig, ax = plt.subplots(figsize=(9.0, 4.4))
-    _hydrograph_axes(ax, times, flow, rain)
+    _hydrograph_axes(ax, times, flow, rain, log=True)
     ax.set_title(f"{GAUGE_NAME} ({GAUGE}), {AREA_KM2:.0f} km$^2$\n"
-                 "hourly discharge and rainfall, February 2021", fontsize=11)
+                 "hourly discharge (logarithmic) and rainfall, February 2021",
+                 fontsize=11)
     fig.autofmt_xdate()
     fig.tight_layout()
     path = os.path.join(IMAGE_DIR, "tutorial_runoff_hydrograph.png")
