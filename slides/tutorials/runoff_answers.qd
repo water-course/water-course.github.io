@@ -12,12 +12,25 @@
     Runoff
 
 # Runoff
+
+.center
+   .container width:{92%} background:{.lightblue} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      ##### Where the numbers come from
+
+      Every number in the Goobarragandra questions is produced by
+      `slides/scripts/runoff_tutorial_figures.py`, which reads the same CSV the students
+      download. If the event, the separation window or the isotope values change, re-run that
+      script and copy its printed block into this file rather than editing numbers by hand.
+
 ## Storm Hydrograph Interpretation
 
 **Identifying parts of the hydrograph (Fig. 1):**
 - **Rising limb**: The initial, relatively steep increase in discharge following rainfall onset.
 - **Peak discharge**: The maximum discharge reached during/after the storm.
 - **Recession limb**: The gradual decline in discharge as event water inputs diminish and the catchment drains.
+- **Lag time**: measured from the centroid (or the peak) of the rainfall to the peak of the
+  hydrograph. Students should say which of the two they used; both are in common use and they
+  differ by a couple of hours in most catchments.
 
 **Process-based explanation**
 - **Why is the rising limb steep?**
@@ -33,9 +46,69 @@
 - **Geology/permeability:**
   - **High-permeability (e.g., chalk/limestone, coarse alluvium):** broader peaks, slower rise, **stronger/sustained baseflow** (concave, long recession).
   - **Low-permeability (e.g., clay/shales, bedrock with thin soils):** **flashier** hydrographs—sharp peaks, quick recessions, weak baseflow.
-- **Reasoned inference from Fig. 1:**
-  - If Fig. 1 shows **flashy peaks and short recession**, infer **low-permeability**/more impervious geology.
-  - If Fig. 1 shows **damped peaks with strong baseflow and long recession**, infer **high-permeability** geology with substantial subsurface storage.
+
+## Baseflow separation and the runoff ratio
+
+.fullspan
+    !(95%)[Answer2](../image/tutorial_runoff_separation_answer.png "The separation. The dashed line is the baseflow; the shaded area is stormflow.")
+
+**Reading the record**
+
+| quantity | value |
+|:--|:--|
+| peak discharge | 9,707 ML/day = **14.6 mm/day** |
+| time of peak | 6 February 2021, 09:00 |
+| heaviest hour of rain | 5 February 2021, 17:00 |
+| lag time | **16 hours** |
+| pre-storm baseflow (5 Feb) | 362 ML/day = 0.54 mm/day |
+| flow at end of window (19 Feb) | 430 ML/day |
+| rise above baseflow | a factor of **27** |
+
+**The separation**
+
+A straight line from 362 ML/day on 5 February to 430 ML/day on 19 February. Everything above
+it is stormflow. Summing the excess at hourly steps, and dividing each hourly value by 24
+because the discharge is a daily rate,
+
+$ V_{\text{storm}} = \sum \frac{Q - Q_{\text{base}}}{24} = 9{,}347\ \text{ML} $
+
+Over 665 km², and using 1 ML/km² = 1 mm,
+
+$ d_{\text{storm}} = \frac{9{,}347}{665} = \boxed{14.1\ \text{mm}} $
+
+**The runoff ratio**
+
+Rainfall for 4 to 6 February totals **75.8 mm**, so
+
+$ \frac{14.1}{75.8} = \boxed{18.5\ \text{per cent}} $
+
+**What the number means**
+
+If the whole catchment had generated Hortonian overland flow and every millimetre reached the
+channel, the runoff ratio would be **100 per cent**. It is 18.5 per cent. Since a contributing
+area cannot shed more than the rain that falls on it, **at most about 19 per cent of the
+catchment can have been contributing**, and the true figure is lower still because some of the
+stormflow arrived by subsurface routes rather than as overland flow.
+
+This is the variable source area concept arrived at by division. The students should notice
+that they did not need to know anything about the soil to reach it.
+
+**The rainfall caveat**
+
+One gauge, sited at the outlet, in a catchment rising to about 1,500 m. Orographic enhancement
+means the upper catchment almost certainly received **more** rain than the gauge recorded, so
+the true event rainfall is **higher** than 75.8 mm and the true runoff ratio is **lower** than
+18.5 per cent. The bias therefore **strengthens** the argument: an even smaller fraction of the
+catchment was contributing. A good answer says which direction the bias runs and why that
+matters, rather than simply noting that one gauge is not many.
+
+**The 2 February rise**
+
+A small earlier event that wets the profile and raises antecedent soil moisture. It fills
+storage, reduces the infiltration capacity available on 5 February and expands the saturated
+area near the channel before the main storm arrives. Without it the 6 February peak would have
+been smaller and later. This is the same control that made Brisbane 2011 larger than 1974 on
+less rain.
 
 ## Runoff Mechanism Comparison
 
@@ -57,49 +130,244 @@
 
 **Synthesis — Variable Source Area (VSA) concept**
 - Modern view integrates these: **source areas vary in space/time** with antecedent wetness, rainfall, soils, and topography. Surface and subsurface pathways co-exist; saturated areas near channels expand/contract, explaining much stormflow behavior.
-- Supporting definitions of **overland flow** and **interflow** (lateral flow above the water table during storms) align with this mixed-process picture.
 
-## Runoff Estimation (Rational Method)
+## Two catchments, same rain, different soil
 
-**Given**
-- Catchment area **A** = 80 acres
-- Land uses and **C** values:
-  - 20% residential single-family: C = 0.40
-  - 10% streets & driveways: C = 0.90
-  - 30% lawn (sandy soil): C = 0.15
-  - 40% woodland: C = 0.10
-- Design storm intensity **i** = 4.9 **mm/hr**, and **T\_c** = 15 min (so use this i).
-- Target units: **m³/s** (SI)
+**The sandy catchment**
+- High infiltration capacity, typically well above ordinary rainfall intensities, so **Hortonian
+  overland flow is rare**. Rain gets in.
+- Large available storage and high permeability, so water moves to depth and reaches the
+  channel slowly as throughflow and groundwater.
+- Hydrograph: **long lag, low and rounded peak, gentle recession, strong and well sustained
+  baseflow.** The catchment keeps flowing well into dry periods.
+- Saturation overland flow is confined to a narrow riparian strip, if it occurs at all.
 
-**Step 1 – Area-weighted runoff coefficient, $ C_{\text{basin}} $:**
+**The clay catchment**
+- Low infiltration capacity, and it drops further once the surface seals under raindrop impact.
+  Rainfall intensities exceed it more often, so **infiltration excess does occur**.
+- Little storage and low permeability, so the water table rises quickly to the surface in
+  hollows and near channels, and the **saturated contributing area expands rapidly** during a
+  storm. Both Horton and Hewlett & Hibbert mechanisms are available.
+- Hydrograph: **short lag, high sharp peak, steep recession, weak baseflow**, and low flows that
+  can fall close to zero between events.
 
-$ C_{\text{basin}} = 0.20 \times 0.40 + 0.10 \times 0.90 + 0.30 \times 0.15 + 0.40 \times 0.10 \\= 0.08 + 0.09 + 0.045 + 0.04 = \boxed{0.255} $
+**The two questions are not the same**
+- For a **single storm**, the clay catchment gives the higher **runoff ratio**: more of that
+  rain leaves quickly as stormflow.
+- Over a **year**, the answer can reverse. The sandy catchment loses less to evaporation from
+  ponded and near-surface water and releases its store steadily, so annual runoff can be
+  comparable or higher, and is far more evenly distributed. This is the Lambourn against the
+  Thames in Figure 7.2 of the textbook: the same climate, different geology, and the difference
+  is visible in the shape rather than only in the total.
 
-**Step 3 – Compute peak discharge \(Q\):**
+**Marking the sketch.** The two curves must be on the same axes with the same rainfall input,
+and must differ visibly in all four of lag, peak height, recession slope and baseflow level.
+The commonest error is to draw two peaks of different height with identical timing.
 
-$ Q = 0.255 \times 4.9 \times 80 = 99.96\,cfs$
+## Saturated is not the same as contributing
 
-**Step 4 – Sensitivity to urbanisation**
+| area | contributes to the storm peak? | why |
+|:--|:--|:--|
+| **A** riparian strip | **Yes**, strongly and early | Directly beside the channel. Rain falling on it enters the stream immediately, and returning subsurface water has a path of metres. This is the classic variable source area. |
+| **B** hollow at the tributary head | **Yes** | It sits on the drainage line. Convergence of subsurface flow into the hollow forces water back to the surface, and the tributary carries it to the main channel. |
+| **C** bench on the northern slope | **No, or barely** | Saturated, but with no drainage line connecting it to the channel. Water leaving it spreads onto the freely draining slope below and re-infiltrates. |
+| **D** behind the road embankment | **Partly, and late** | Connected only through one culvert, which limits the rate. |
 
-Replace the **40% woodland (C = 0.10)** with **parking lots (C ≈ 0.90)**:
+**The disjunct source areas** are **B** and **C**. In B, subsurface flow converges into a
+hillslope hollow and the soil volume is too small for the water arriving. In C, a break of
+slope on the bench reduces the hydraulic gradient, so throughflow backs up and saturates the
+profile from below. Both are the geometries in Figure 7.5 of the textbook.
 
-$ C'_{\text{basin}}=0.20(0.40)+0.10(0.90)+0.30(0.15)+0.40(0.90) = 0.08+0.09+0.045+0.36 = \boxed{0.575} $
+**Area C in detail.** Water arrives, saturates the bench, and returns to the surface. It then
+flows a short distance downslope onto unsaturated, freely draining ground and **infiltrates
+again**. It rejoins the subsurface store and reaches the channel days or weeks later as
+throughflow and baseflow, by which time the storm peak has passed. The area is fully saturated
+and is contributing nothing to the peak.
 
-$ Q' = 0.575 \times 4.9 \times 80= \boxed{225.39\ cfs} $
-**Increase factor:** \(0.113/0.0502 \approx \mathbf{2.25\times}\).
+**Area D and the culvert.** The embankment turns a hillslope into a small detention basin. The
+culvert imposes a maximum outflow rate, so D's contribution is **delayed** and **flattened**:
+it arrives later and lower than it would across an open slope. Removing the embankment would
+let D drain freely and would probably **raise** the peak at the outlet, by letting D's water
+arrive at the same time as the rest. This is the channelisation argument from the lecture in
+miniature, and it is worth noting that the road was not built to do any of this.
+
+**The principle.** Saturation makes an area *capable* of producing runoff; **hydrological
+connectivity to the channel network** decides whether it actually contributes to the peak.
 
 ## Groundwater and Subsurface Contributions
 
 A. _Piston flow vs throughflow_
 - **Throughflow:** Lateral movement of water through the **unsaturated** soil matrix on slopes, contributing to streams during/after storms.
-- **Piston flow (conceptual):** New rainfall infiltrates at the top and **displaces older pore water** downslope/downslope interfaces (e.g., along a low-permeability horizon), pushing it rapidly toward streams—akin to a pressure pulse.
-- Result: Event hydrographs can contain a large fraction of **pre-event (“old”) water** mobilised from storage rather than newly infiltrated rain.
+- **Piston flow (conceptual):** New rainfall infiltrates at the top and **displaces older pore water** at the base of the profile, pushing it toward the stream. What travels quickly is the **pressure**, not the water.
 
-B. _Capillary fringe/"groundwater ridge" contribution_
-- During recharge, rising heads near channels create a local **groundwater mound** (ridge) adjacent to streams, steepening hydraulic gradients toward the channel.
-- This accelerates **rapid groundwater discharge** to the stream, boosting stormflow beyond what overland flow alone can explain.
+B. _Capillary fringe / "groundwater ridge" contribution_
+- During recharge, a small amount of infiltrating water takes the near-channel soil from tension
+  (unsaturated) to positive pore pressure, because the water-saturation relationship is strongly
+  **nonlinear**. A local **groundwater ridge** forms beside the stream.
+- That steepens the hydraulic gradient toward the channel and enlarges the discharge area, so
+  both the **rate** and the **area** of groundwater discharge rise, and they do so **before**
+  any throughflow arrives from upslope.
 
-C. _Why is "old water" observed after storms? Implications_
-- Tracer studies show much stormflow is stored water quickly **mobilised by pressure and gradient changes** (piston-like displacement, macropore bypass, rising water tables), not solely new rain.
-- **Implication:** Subsurface pathways and dynamic saturated areas are central to storm response; the hydrograph recession reflects **drainage of subsurface storages** (throughflow and groundwater).
-- Overland flow and interflow are part of **direct runoff**, but the significant role of subsurface contributions explains sustained recessions and the presence of old water in early stormflow.
+C. _The travel-time arithmetic_
+
+At 13 mm/hour, water takes
+
+$ t = \frac{200\ \text{m}}{0.013\ \text{m/hour}} = 15{,}400\ \text{hours} \approx \boxed{1.8\ \text{years}} $
+
+to cross a 200 m hillslope. The Goobarragandra lag time was **16 hours**. Matrix throughflow is
+roughly **a thousand times too slow** to deliver the storm peak. Any mechanism that explains the
+hydrograph must move water, or pressure, by some other route.
+
+## How much of the storm hydrograph is old water?
+
+.fullspan
+    !(88%)[Answer1](../image/tutorial_runoff_isotope_answer.png "The same peak, split into event and pre-event water.")
+
+Applying $ f_{\text{new}} = (\delta_{\text{stream}} - \delta_{\text{pre}}) / (\delta_{\text{rain}} - \delta_{\text{pre}}) $ with $ \delta_{\text{pre}} = -6.2 $ ‰ and $ \delta_{\text{rain}} = -11.4 $ ‰, so that the denominator is $ -5.2 $ ‰:
+
+| time | $ \delta^{18}\text{O} $ (‰) | new water | old water |
+|:--|:--|:--|:--|
+| 5 Feb 18:00 | -6.4 | 3.8 % | 96.2 % |
+| 6 Feb 00:00 | -6.9 | 13.5 % | 86.5 % |
+| **6 Feb 09:00 (peak)** | **-7.6** | **26.9 %** | **73.1 %** |
+| 6 Feb 18:00 | -7.2 | 19.2 % | 80.8 % |
+| 7 Feb 12:00 | -6.7 | 9.6 % | 90.4 % |
+
+**At the peak the river is about 27 per cent storm rain and 73 per cent water that was already
+in the catchment.** In absolute terms, of 9,707 ML/day at the peak, about 2,610 ML/day is new.
+
+**The two percentages are fractions of different things**
+
+- The runoff ratio, **18.5 per cent**, is a fraction of the **rainfall**: of every 100 mm that
+  fell, 18.5 mm left as stormflow during the event.
+- The new water fraction, **27 per cent**, is a fraction of the **streamflow**: of the water in
+  the river at the peak, 27 per cent fell in this storm.
+
+One has rainfall in the denominator, the other has discharge. Students who report "so 18.5 per
+cent and 27 per cent disagree" have not identified the denominators. The two are entirely
+consistent: most of the rain never reached the river, and most of what did reach the river was
+not the rain.
+
+**Why the old water cannot have come down the hillslope through the matrix**
+
+From the previous question, matrix throughflow needs about 1.8 years to cross a 200 m slope.
+The storm lasted a day. The three mechanisms that can do it, and what each actually moves
+quickly:
+
+1. **Piston (translatory) flow** — new water entering at the top displaces old water at the
+   base of the profile. What propagates fast is a **pressure wave**, not a water parcel.
+2. **Macropores and pipes** — preferential paths that bypass the matrix. Their clearest role is
+   delivering new water **rapidly down to the saturated layer or bedrock interface**, which then
+   drives the piston displacement.
+3. **Groundwater ridging** — a rapid change of state from tension to positive pressure beside
+   the channel, mobilising stored water that was already within metres of the stream.
+
+All three separate the speed of the **response** from the speed of the **water**. That is the
+single idea the question is testing.
+
+**The assumptions**
+
+- **Constant end members.** Rainfall isotopic composition varies through a storm, usually
+  becoming lighter as the event proceeds. If the later, lighter rain dominates, using a single
+  average $ \delta_{\text{rain}} $ makes the denominator too small in magnitude and
+  **overestimates** $ f_{\text{new}} $. Pre-event water also varies with depth in the profile.
+- **No third component.** Soil water is often isotopically distinct from both groundwater and
+  rainfall. Forcing a genuinely three-component mixture into two components loads the soil water
+  onto whichever end member it sits closer to, usually the pre-event one, which
+  **underestimates** $ f_{\text{new}} $ and overstates how much water is genuinely old.
+
+A good answer names a direction for each, not merely that the assumption "may not hold".
+
+## Design peak flow: the Rational Method
+
+**Step 1 — the area-weighted runoff coefficient**
+
+| land use | share | $ C $ | product |
+|:--|:--|:--|:--|
+| residential | 0.25 | 0.40 | 0.1000 |
+| roads and roofs | 0.15 | 0.90 | 0.1350 |
+| parkland on sand | 0.25 | 0.15 | 0.0375 |
+| remnant woodland | 0.35 | 0.10 | 0.0350 |
+
+$ C_{basin} = 0.1000 + 0.1350 + 0.0375 + 0.0350 = \boxed{0.3075} $
+
+**Step 2 — the peak discharge**
+
+$ Q = \frac{C\,i\,A}{3.6} = \frac{0.3075 \times 78 \times 2.4}{3.6} = \boxed{16.0\ \text{m}^3/\text{s}} $
+
+**Step 3 — the woodland becomes hardstand**
+
+$ C'_{basin} = 0.1000 + 0.1350 + 0.0375 + (0.35 \times 0.90) = 0.5875 $
+
+$ Q' = \frac{0.5875 \times 78 \times 2.4}{3.6} = \boxed{30.6\ \text{m}^3/\text{s}} $
+
+An increase by a factor of **1.91**. Converting 35 per cent of a small catchment has nearly
+doubled its design peak.
+
+**Step 4 — the response to the developer**
+
+The catchment being small is the reason the effect is large, not a reason it is small. A
+2.4 km² catchment has a short time of concentration, so its whole area contributes at once and
+the peak is sharp. The extra 15 m³/s does not disappear: it is delivered to the receiving
+channel faster than before, and if that channel is already sized for the old peak, the risk has
+been moved downstream rather than removed. This is the channelisation argument from the lecture.
+
+**Step 5 — a longer time of concentration**
+
+Rainfall intensity falls as duration rises, for any fixed frequency: that is what an
+intensity–duration–frequency curve says. A $ T_c $ of 40 minutes therefore takes a **lower**
+design intensity, and $ Q $ falls. Note the trap this sets, because $ T_c $ is estimated rather
+than measured: underestimating $ T_c $ inflates $ i $ and produces a conservative (large)
+design, while overestimating it produces an unsafe one.
+
+## A satellite that cannot measure discharge
+
+**Step 1 — slope and area change**
+
+$ S = \frac{0.46\ \text{m}}{10{,}000\ \text{m}} = \boxed{4.6 \times 10^{-5}} $
+
+$ \Delta h = 85.38 - 84.12 = 1.26\ \text{m}, \qquad \delta A \approx \tfrac{1}{2}(185 + 210) \times 1.26 = \boxed{249\ \text{m}^2} $
+
+**Step 2 — what is known and what is not**
+
+$ Q = \frac{1}{n}\,(A_0 + \delta A)\left(\frac{A_0 + \delta A}{W}\right)^{2/3} S^{1/2} $
+
+**Measured:** $ W $, $ S $, $ \delta A $. **Not measured:** $ n $ and $ A_0 $. Two unknowns, one
+equation. The problem is underdetermined, so a single overpass cannot give a discharge at all.
+
+**Step 3 — the sensitivity table**
+
+Discharge in m³/s:
+
+| $ A_0 $ (m²) | $ n = 0.030 $ | $ n = 0.035 $ | $ n = 0.045 $ |
+|:--|:--|:--|:--|
+| 560 | 449 | 385 | 300 |
+| 700 | 586 | 503 | 391 |
+| 840 | 737 | 632 | 492 |
+
+**Step 4 — the central estimate and the range**
+
+The central estimate is **503 m³/s**. The table spans **300 to 737 m³/s**, a factor of **2.5**.
+Neither unknown was extreme, and neither was measured badly: this is the honest width of the
+answer given what the instrument can see.
+
+**Step 5 — what is different and what is the same**
+
+Different: the observation is of water surface elevation, width and slope over a reach, made
+uniformly worldwide, including on rivers with no gauge and no data-sharing agreement.
+
+The same: **discharge is still inferred, not observed.** A rating curve converts a measured
+stage into discharge through a relationship calibrated against gaugings; SWOT converts a
+measured geometry into discharge through an inversion constrained by priors. Both should be
+interrogated the same way: how many observations constrain it, over what range of flows, and
+how far beyond them is this value extrapolated?
+
+**Step 6 — the 21-day repeat**
+
+A 21-day revisit against a peak lasting about a day means the probability of catching that peak
+is roughly 1 in 21, and the instrument will usually miss it. Flood peaks are precisely what a
+satellite of this kind is worst at. What it is good for is the slower, wider signal: reach-scale
+water surface elevation and slope for large rivers globally, lake and reservoir storage change,
+seasonal and interannual patterns, and a consistent yardstick against which national records can
+be compared. The right framing is not a replacement for gauges but a uniform, sparse-in-time
+observation that is most valuable exactly where the ground network is thinnest.

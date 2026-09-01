@@ -48,9 +48,9 @@ Convert decibels first, $ Z = 10^{dBZ/10} $, then invert $ Z = a R^b $ as $ R = 
 
 ####! 2. Accumulation and error
 
-Marshall–Palmer: $ 31.6 \times 0.30 \ h + 8.6 \times 0.70 \ h = 9.5 + 6.0 = \answer{15.5 \ mm} $, against a gauge total of $ 26.4 \ mm $ — an error of $ -10.9 \ mm $, or $ \approx \answer{-41 \ \%} $.
+Marshall–Palmer: $ 31.6 \times 0.30 \ h + 8.6 \times 0.70 \ h = 9.5 + 6.0 = \boxed{15.5 \ mm} $, against a gauge total of $ 26.4 \ mm $ — an error of $ -10.9 \ mm $, or $ \approx \boxed{-41 \ \%} $.
 
-Tropical: $ 86.4 \times 0.30 + 24.6 \times 0.70 = 25.9 + 17.2 = \answer{43.1 \ mm} $ — an error of $ +16.7 \ mm $, or $ \approx \answer{+63 \ \%} $.
+Tropical: $ 86.4 \times 0.30 + 24.6 \times 0.70 = 25.9 + 17.2 = \boxed{43.1 \ mm} $ — an error of $ +16.7 \ mm $, or $ \approx \boxed{+63 \ \%} $.
 
 Note that most of the hour's depth comes from the *weaker* 42-minute phase in the tropical case but from neither cleanly in Marshall–Palmer: the answer is dominated by the choice of relation, not by the measurement.
 
