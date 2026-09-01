@@ -110,7 +110,7 @@ is distributed by the CEDA archive:
 
       **2. The three datasets in this course use three different coordinate conventions.**
       The rainfall file in Assignment I runs latitude -10 down to -44. The soil moisture file
-      also runs north to south, -10.125 down to -42.875. The GRACE file runs the other way,
+      also runs north to south, -23.125 down to -38.875. The GRACE file runs the other way,
       -89.875 **up** to 89.875, and its longitude runs 0 to 360 rather than -180 to 180.
       A `slice` given in the wrong order returns an empty array and no error. Print the shape
       of every subset before you use it.
@@ -123,7 +123,7 @@ is distributed by the CEDA archive:
       well. If you skip this, every groundwater number you report is wrong by a constant of
       several centimetres. Note also what those six years were in the Murray-Darling Basin.
 
-      **4. Months are missing, and one gap is a year long.** About twenty individual months
+      **4. Months are missing, and one gap is a year long.** About twenty-five individual months
       are absent from the GRACE record, and there is no data at all between June 2017 and
       June 2018, when GRACE had ended and GRACE-FO had not yet started. The epochs are also
       irregular dates near the middle of each month, not the first of the month. Do not
@@ -165,8 +165,8 @@ is distributed by the CEDA archive:
    plot it globally. The daily files are public and about 1.4 MB each; the address follows
    the pattern
 
-   .row alignment:{center}
-      `https://dap.ceda.ac.uk/neodc/esacci/soil_moisture/data/daily_files/COMBINED/v09.1/<year>/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-<yyyymmdd>000000-fv09.1.nc`
+   `https://dap.ceda.ac.uk/neodc/esacci/soil_moisture/data/daily_files/COMBINED/v09.1/<year>/`
+   `ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-<yyyymmdd>000000-fv09.1.nc`
 
    Then explain, in a short paragraph each, how the combined product is made and what its
    limitations are. Your answer must cover which sensors contribute and how active and

@@ -34,3 +34,7 @@ docs/computer-lab/
 
 # mkdocs-material build cache
 .cache/
+
+# Exam model answers. These must never reach the public site or the public repo.
+# The slides Makefile also excludes *_solutions.qd from the build.
+/slides/exams/final_exam_solutions.qd

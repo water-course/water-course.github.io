@@ -5,6 +5,10 @@
 # assignments/, overviews/, exams/). The shared includes (definitions.qd,
 # definitions_slides.qd) sit at this root and are pulled in via .include, so
 # they must NOT be compiled as standalone documents.
+#
+# *_solutions.qd is excluded too. Everything this Makefile compiles is uploaded
+# to the public site by .github/workflows/build-slides.yml, so exam model answers
+# must not be compiled. Tutorial *_answers.qd ARE published, deliberately.
 
 # Define the output directory
 HTML_DIR = ../site/content/
@@ -13,7 +17,7 @@ PDF_DIR = ../pdf/
 # All standalone Quarkdown documents, found recursively in the category
 # subdirectories. definitions*.qd are includes, not documents, so they are
 # excluded (they have no docname and would produce junk output).
-QMD_FILES = $(shell find . -name '*.qd' -not -name 'definitions*.qd')
+QMD_FILES = $(shell find . -name '*.qd' -not -name 'definitions*.qd' -not -name '*_solutions.qd')
 
 # Define the quarkdown command with your preferred options.
 # --strict makes Quarkdown exit non-zero on hard errors.

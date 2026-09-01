@@ -116,11 +116,13 @@ you can check it by comparing your masked area against the published basin area 
       (-10 down to -44). A slice must be given in the same order as the axis:
 
       ```python
-      # This order does not match the stored latitude direction. It returns no cells.
-      ds.rain_day.sel(latitude=slice(-38, -24))   # returns latitude: 0  -- EMPTY, no error
+      # Wrong: this order does not match the axis.
+      ds.rain_day.sel(latitude=slice(-38, -24))
+      # -> latitude: 0 cells. EMPTY, and no error.
 
-      # This order follows the stored direction: north to south. It returns the basin rows.
-      ds.rain_day.sel(latitude=slice(-24, -38))   # returns latitude: 281 -- correct
+      # Right: north to south, following the axis.
+      ds.rain_day.sel(latitude=slice(-24, -38))
+      # -> latitude: 281 cells. Correct.
       ```
 
       The first form raises **no warning**. You get an empty array, and every mean you compute
@@ -216,7 +218,7 @@ you can check it by comparing your masked area against the published basin area 
      text file, year followed by twelve monthly values followed by the annual mean, with -99.9
      as the missing-value flag); or
    - the **Niño 3.4** sea-surface-temperature anomaly from NOAA PSL:
-     `https://psl.noaa.gov/data/correlation/nina34.anom.data` (1950 to present; two header
+     `https://psl.noaa.gov/data/correlation/nina34.anom.data` (1948 to present; two header
      numbers, then year plus twelve monthly values, with -99.99 missing and a few lines of prose
      at the end).
 
