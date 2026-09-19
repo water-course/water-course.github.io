@@ -27,140 +27,126 @@
   .container width:{100%}
     By the end of this module, you will be able to:
 
-    - **Understand porosity**: Calculate and interpret porosity in different geological materials
-    - **Apply Darcy's Law**: Use the fundamental equation to analyze groundwater flow
-    - **Measure hydraulic properties**: Distinguish between hydraulic head, conductivity, and permeability
-    - **Analyze flow systems**: Interpret flow patterns in heterogeneous and anisotropic media
-    - **Use field methods**: Design monitoring networks using wells and piezometers
-    - **Create flow maps**: Construct potentiometric surfaces and interpret hydrographs
-    - **Solve practical problems**: Apply groundwater principles to real-world scenarios
+    - **Separate storage from transmission**: explain why porosity tells you how much water a rock holds and nothing about how fast it gives it up
+    - **Use hydraulic head**: explain why head, and not pressure, is the quantity that decides which way water flows, and calculate it from a field measurement
+    - **Apply Darcy's Law**: calculate specific discharge and pore velocity, and say where the law stops working
+    - **Explain where the law comes from**: derive the dependence of conductivity on the square of the grain size, and use it to read the empirical formulas
+    - **Handle layered ground**: compute equivalent horizontal and vertical conductivity, and explain why layering alone can make a rock a million times easier to cross one way than the other
+    - **Read field data**: interpret piezometer nests, potentiometric maps and water-level hydrographs
+    - **Weigh a basin from orbit**: explain how GRACE measures total water storage and how groundwater is separated from it
 
 
-# Groundwater Flow Theory
+# Two questions, and they are independent
 
 .row
-  .container width:{50%}
-    - This module introduces the principal laws that govern groundwater movement through porous media.
-    - We will explore:
-      - Definitions and significance of **porosity**
-      - **Darcy’s Law**: the foundational equation for flow in saturated zones.
-      - Concepts of **hydraulic head**, **conductivity**, and **velocity**
-    - These principles form the basis for:
-      - Understanding aquifer behavior
-      - Designing wells and evaluating sustainability
-      - Developing numerical models
+  .container width:{55%}
+    Everything in this lecture answers one of two questions about a piece of ground.
 
-  .container width:{50%}
-    !(100%)[Wetland](../image/internet_wetland_info.png "From wetlands to aquifers, we will explore the principles of groundwater flow.")
+    .box title:{1. How much water is in there?}
+      Answered by **porosity**. A property of the void space.
+
+    .box title:{2. How fast will it come out?} background:{.lightblue}
+      Answered by **hydraulic conductivity**. A property of how the voids connect.
+
+    The mistake to avoid for the next twelve weeks: assuming that the answer to
+    one tells you the answer to the other. It does not. The material with the
+    highest porosity in this lecture is also the material with the lowest
+    conductivity.
+
+  .container width:{45%}
+    !(100%)[Wetland](../image/internet_wetland_info.png "From wetlands to aquifers: this module is about what happens between the two.")
+
+
+#
+
+.row gap:{1cm} alignment:{center}
+    .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
+
+        ## Porosity: how much water the ground holds
 
 
 # Porosity of a Soil or Rock
 
 .row
-  .container width:{50%}
-    - **Porosity** describes how much void space exists in a rock or soil—essentially, how much room is available to hold water.
-    - Groundwater resides in the pores of rocks and sediments.
+  .container width:{55%}
+    - **Porosity** is the fraction of a volume of rock or soil that is void space.
     - **Total porosity** $ n_T $ is defined as:
 
       $ n_T = \frac{V_v}{V_T} = \frac{V_T - V_s}{V_T} $
 
-      where:
-      - $ V_v $ = volume of voids
-      - $ V_s $ = volume of solids
-      - $ V_T $ = total volume
-    - Typical values of $ n_T $:
-      - Sand and gravel: 0.25 – 0.35
-      - Cemented sandstones: 0.05 – 0.15
-
-  .container width:{50%}
-    !(100%)[Porosity Schematic](../image/internet_porosity.jpg "Porosity and permeability are connected, but not the same.")
-
-
-# Porosity and Bulk Density
-
-.row
-  .container width:{50%}
-    - Porosity can also be calculated using **bulk density**:
+      where $ V_v $ is the volume of voids, $ V_s $ the volume of solids and $ V_T $ the total volume.
+    - Since $ V_v < V_T $, porosity is always a fraction below 1. It is often quoted as a percentage.
+    - In the laboratory it is easier to weigh than to measure void volume, so the same quantity is obtained from densities:
 
       $ n_T = 1 - \frac{\rho_b}{\rho_s} $
 
-      where:
-      - $ \rho_b $ = bulk density (mass/volume of dry sample)
-      - $ \rho_s $ = particle density (mass/volume of solids)
-    - This approach is common in lab settings where volume and mass can be measured directly.
+      with $ \rho_b $ the **bulk density** of the dry sample and $ \rho_s $ the **particle density** of the solids.
+    - For most silicate minerals $ \rho_s \approx 2650 $ kg/m³, so a dry bulk density of 1600 kg/m³ gives $ n_T = 0.40 $.
 
-    It is also useful to distinguish:
-    - **Primary porosity**: original voids formed during rock/soil formation (e.g., in sediments, vesicles in lava).
-    - **Secondary porosity**: formed later, e.g., via fractures, faults, or dissolution in carbonates.
-
-  .container width:{40%}
-    !(100%)[Types of Porosity](../image/internet_porosity_primarysecondary.png "Primary vs Secondary Porosity")
+  .container width:{45%}
+    !(100%)[Porosity Schematic](../image/internet_porosity.jpg "Void space is what holds the water. How the voids connect is a separate question.")
 
 
-# Factors Affecting Porosity
+# What sets porosity: packing
+
+.row
+  .container width:{50%}
+    - For grains of **one size**, porosity is set by how they are stacked.
+    - Take identical spheres. The loosest stable stacking is cubic, each sphere sitting directly on the one below:
+
+      $ n_T = 1 - \frac{\pi}{6} = 0.476 $
+
+    - The tightest is rhombohedral, each sphere resting in the hollow between three others:
+
+      $ n_T = 1 - \frac{\pi}{3\sqrt{2}} = 0.260 $
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      Both numbers are **independent of the size of the spheres**. Void volume and total volume both scale as the cube of the radius, so the ratio does not change. Marbles and beach balls have the same porosity.
+
+  .container width:{50%}
+    !(100%)[Sphere packing and porosity](../image/franklin_fig_3-2.png "Sections of four contiguous spheres of equal size: in (a) the most compact arrangement and the lowest porosity; in (b) less compact; in panel c, least compact and the highest porosity.")
+
+    Compaction moves a real sediment from the loose end of that range towards the tight end. It does not change the grain size.
+
+
+# What sets porosity: sorting and shape
+
+.row
+  .container width:{50%}
+    - **Sorting** is the spread of grain sizes in a sample.
+      - **Well sorted** (one size) → porosity near the sphere-packing values above.
+      - **Poorly sorted** (mixed sizes) → small grains sit in the voids between large ones, and porosity falls.
+      - Glacial till is the standard example: sand, silt and clay together, mean porosity 23.5%, the lowest of any unlithified material in the table.
+    - **Grain shape** moves the result in either direction. Angular and platy grains bridge against each other and hold open voids that spheres would close; they can also interlock and close voids that spheres would hold open. Shape alone does not fix the sign.
+    - **Clays** reach 40 to 55% because their platy particles stack edge to face in an open framework held by surface charge, and not because their grains are small.
+
+  .container width:{50%}
+    .box title:{The rule that catches people} background:{.lightred}
+      "Smaller grains, more porosity" is true as a description of the table of measured values, and it is not a mechanism. Within one well-sorted material the grain size does not enter at all. Clay is porous because of how the particles are shaped and charged.
+
+    Grain size returns with full force in the next section, where it controls **conductivity** as the square of the diameter.
+
+
+# Primary and Secondary Porosity
 
 .row
   .container width:{45%}
-    - **Primary porosity** depends on:
-      - **Compaction**: tighter packing = lower porosity
-      - **Grain shape and arrangement**: more spherical = less compact = higher porosity
-      - **Sorting**:
-        - Well-sorted sediments (uniform size) → higher porosity
-        - Poorly sorted (mixed sizes) → smaller grains fill the voids
-    - **Porosity ranges**:
-      - 0 to >50% depending on material
-      - Unlithified materials (e.g. sand) >> lithified ones (e.g. sandstone)
-
-    Good sorting and less compaction = more room for groundwater.
+    - **Primary porosity**: the voids that formed with the rock.
+      - Pores between grains in a sediment or sandstone
+      - Vesicles, lava tubes and cooling fractures in basalt
+    - **Secondary porosity**: voids created afterwards.
+      - Joints and faults in igneous, metamorphic and consolidated sedimentary rock
+      - Solution-enlarged openings in carbonates and other soluble rock
+    - The distinction matters because the two behave differently: primary porosity is distributed through the rock, secondary porosity is concentrated on surfaces that may or may not connect to each other.
 
   .container width:{55%}
-    !(100%)[Sorting and Porosity](../image/franklin_fig_3-2.png "Sections of four contiguous spheres of equal size: (a) the most compact arrangement, lowest porosity; (b) less compact arrangement, higher porosity; (c) least compact arrangement, highest porosity")
-
-
-# Porosity in Natural Materials
-
-.row
-  .container width:{40%}
-    - For **unlithified materials**:
-      - **Smaller grain size** → higher porosity (e.g. clays > sands)
-      - Glacial till is variable (mixtures of sand/silt/clay + varying compaction)
-    - **Sandstone**:
-      - Porosity reduced by cementation
-    - **Carbonates (e.g., limestone, dolomite)**:
-      - Diagenesis and reactivity make porosity highly variable
-    - **Igneous rocks**: low primary porosity
-    - **Fractured rocks**:
-      - Have **dual porosity**: matrix + fractures
-      - Fractures provide **secondary porosity** essential for flow
-
-
-
-  .container width:{60%}
-    !(100%)[Fractured Rock Porosity](../image/franklin_fig_3-1.png "Types of openings in selected water-bearing rocks. Block (a) is several millimeters wide and shows primary porosity for unlithified sand. Blocks (b, c) are larger potential meters to 10s of meters in width. For granite (b), secondary porosity created by fracturing facilitates flow. Block (c) illustrates caverns in limestone produced by solution-enhanced enlargements of fractures.")
+    !(100%)[Types of openings](../image/franklin_fig_3-1.png "Types of openings in water-bearing rocks. (a) is a few millimetres wide and shows primary porosity in unlithified sand. panels b and c are metres to tens of metres wide: fracturing in granite, and caverns in limestone produced by solution along fractures.")
 
     .container width:{100%} borderwidth:{1px} background:{yellow} padding:{2px}
-        Never judge porosity by rock type alone—structure and history matter.
+      Knowing that a unit is "limestone" tells you almost nothing about its porosity. Its history does.
 
 
-# Effective Porosity and Dual Porosity Systems
-
-.row
-  .container width:{50%}
-    - **Effective porosity**: fraction of pore space that actually contributes to flow
-      - Often < total porosity (Not all the pores are connected)
-      - Especially important in fractured or poorly connected media
-    - **Fractured media** (e.g. shales, granite):
-      - Matrix may store water, but fractures control flow
-      - Fracture porosity $n_f$ for shale: ~0.05 or less
-    - **Dual porosity** systems:
-      - Primary: matrix porosity
-      - Secondary: fractures, dissolution features (e.g. caverns in limestone)
-    - Porosity must be paired with **permeability** (up next!) to understand flow.
-
-  .container width:{50%}
-    !(100%)[Dual Porosity Types](../image/franklin_fig_3-3.png "Outcrops of Coconino Sanstone along Silver Creek in northeastern Arizona. Notice the fracturing in vertical and horizontal directions.")
-
-# Range of Porosity values
+# Porosity in natural materials
 
 .row
   .container width:{50%}
@@ -174,6 +160,8 @@
     | Glacial till      | 14.3   | 23.5  | 34   | c    |
     | Peat              | c      | 92    | c    | c    |
 
+    Values in per cent. "c" marks too few measurements to quote. Sand and gravel in the field are usually quoted more narrowly, 25 to 35%, because the laboratory samples behind this table are loosely packed.
+
   .container width:{50%}
     | Material          | Min    | Mean  | Max  | SD   |
     |-------------------|--------|-------|------|------|
@@ -186,453 +174,923 @@
     | Granite           | <0.001 |       | 0.01 |      |
     | Basalt            | <0.01  |       | 0.1  |      |
 
+    Cementation is what separates sandstone from sand. Burial and diagenesis reduce porosity with age and depth. Unaltered igneous rock has effectively none, which is why the fracturing in the previous figure is the whole story for granite.
+
+
+# Effective porosity
+
+.row
+  .container width:{50%}
+    - Not every void carries flow. **Effective porosity** $ n_e $ is the fraction of the volume made of voids that are connected along a path through the sample.
+    - In a clean sand or gravel the pores are all connected, and $ n_e \approx n_T $.
+    - In a fractured rock they are not. An unfractured shale holds water in poorly connected pores; the water that moves, moves in the fractures. There the **fracture porosity** $ n_f $ is the effective porosity.
+    - Fracture apertures away from outcrop are tens to hundreds of micrometres. Fractures 100 µm wide spaced a metre apart give
+
+      $ n_f = \frac{10^{-4}\,\mathrm{m}}{1\,\mathrm{m}} = 10^{-4} $
+
+    - Typical fracture porosities are $ 10^{-4} $ to $ 10^{-3} $, against a total porosity of 0.10 for the same shale: a factor of a thousand.
+
+  .container width:{50%}
+    !(78%)[Fractured Coconino Sandstone](../image/franklin_fig_3-3.png "Fractured Coconino Sandstone, northeastern Arizona. The fracturing runs both vertically and horizontally, and varies from place to place in one unit.")
+
+    .container width:{100%} borderwidth:{1px} background:{.lightred} padding:{4px}
+      Schwartz & Zhang p. 45 gives $ n_f \approx 5\times10^{-2} $ for shale. That is a misprint: the book's own worked example uses $ 3\times10^{-3} $.
+
+
+# Dual porosity
+
+.row
+  .container width:{55%}
+    A fractured rock has **two** porosities at once, and they do different jobs.
+
+    | | Matrix | Fractures |
+    |---|---|---|
+    | Porosity | 0.05 – 0.15 | $ 10^{-4} $ – $ 10^{-3} $ |
+    | Holds the water | **yes** | no |
+    | Carries the flow | no | **yes** |
+
+    - Almost all of the water is in the matrix. Almost all of the movement is in the fractures.
+    - A contaminant travelling in the fractures diffuses slowly into the matrix, and then leaks back out for decades after the fractures have been flushed. This is why fractured-rock contamination is so hard to clean up, and we return to it later in the course.
+    - The same two-compartment picture describes karst, where the fractures have been enlarged by dissolution into conduits.
+
+  .container width:{45%}
+    !(100%)[Caverns and fractures](../image/internet_porosity_primarysecondary.png "Primary porosity between grains; secondary porosity along fractures and solution openings.")
+
+
+# The central result of this lecture
+
+.row
+  .container width:{50%}
+    Two wells, drilled to the same depth, in two materials with the **same porosity** of 0.30.
+
+    | | Gravel | Silt |
+    |---|---|---|
+    | Porosity | 0.30 | 0.30 |
+    | Water stored per m³ | 300 L | 300 L |
+    | Hydraulic conductivity | $ 10^{2} $ m/day | $ 10^{-2} $ m/day |
+    | Yield to a well | supplies a town | fills a bucket |
+
+    The two columns hold identical quantities of water. One of them will give it to you.
+
+  .container width:{50%}
+    .box title:{And the extreme case} background:{.lightred}
+      **Clay** has the highest mean porosity of any material in the table on the previous slide, 46%. It also has the lowest hydraulic conductivity of any material in the figure two sections from now. Clay is nearly half water by volume and will not give you a drink.
+
+    - Porosity sets **storage**.
+    - Conductivity sets **transmission**.
+    - An aquifer needs both. A unit with high porosity and low conductivity is a **confining bed**, and that is the subject of next week's lecture.
+
+
+#
+
+.row gap:{1cm} alignment:{center}
+    .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
+
+        ## Occurrence: where the water sits
+
+
 # Occurrence of Groundwater
 
 .row
   .container width:{50%}
-    - Water in the subsurface occupies **pores** in soil and rock.
-    - **Unsaturated zone**: pores contain both air and water
-      - Water content fluctuates with infiltration and evapotranspiration
-      - Plants use this water
-    - **Saturated zone**: pores are fully water-filled — this is **groundwater**
-    - The **water table** separates the two zones
-    - A small portion of rain infiltrates deep enough to reach the water table → **recharge**
-
-    Water in the ground isn’t just “there”—it’s dynamic and layered.
+    - In the shallow subsurface the pores hold **both water and air**: the **unsaturated zone**. Water content there rises with infiltration and falls as plants and evaporation take it back. This is the water plants live on, and the subject of the soil moisture lecture.
+    - Deeper, the pores hold **only water**: the **saturated zone**, and the water in it is **groundwater**.
+    - The **water table** separates the two. It is the surface on which water pressure equals atmospheric pressure.
+    - Just above it, surface tension holds a saturated layer at below-atmospheric pressure, the **capillary fringe**. By the definition above it is not groundwater. It is millimetres thick in gravel and metres thick in clay.
+    - Water that gets past the root zone and reaches the water table is **recharge**.
 
   .container width:{50%}
-    !(100%)[franklin_fig_3-4.png](../image/franklin_fig_3-4.png "Recharge, unsaturated zone, and water table")
+    !(62%)[Subsurface water](../image/franklin_fig_3-4.png "Precipitation infiltrates the soil zone and percolates through the unsaturated zone. What reaches the water table becomes groundwater.")
+
 
 # Flow of Groundwater
 
 .row
-  .container width:{40%}
-    - After recharge, groundwater flows:
-      - **Downward** from water table due to gravity
-      - **Sideways** following pressure gradients, often toward streams
-    - This flow forms **discharge** zones (e.g. rivers, springs)
-    - Example: Rain → infiltration → percolation → river discharge
-    - **Timescales vary**:
-      - Surface runoff = hours
-      - Groundwater discharge = months to years
-    - Flow influenced by:
-      - Water table shape
-      - Conductivity of subsurface materials
+  .container width:{45%}
+    - Recharge arrives at the water table and then moves **down and sideways** towards a discharge point: a river, a spring, a wetland, the sea.
+    - Both parts of that motion are driven by **one** quantity, the gradient in hydraulic head. The next section defines it, and shows why it is not the pressure gradient.
+    - Surface runoff and groundwater discharge end up in the same river. The difference is the time taken.
+    - This is where the baseflow of the runoff lecture comes from. The reason a river still flows in October is that water which fell in some earlier year is still on its way.
 
-
-  .container width:{60%}
-    !(100%)[franklin_fig_3-5.png](../image/franklin_fig_3-5.png "Groundwater flow system and discharge to stream")
+  .container width:{55%}
+    !(100%)[A groundwater flow system](../image/franklin_fig_3-5.png "Some precipitation becomes recharge; groundwater moves down and laterally and discharges into the nearby river.")
 
     .align{center}
       .container alignment:{center} borderwidth:{1px} background:{yellow} padding:{5px}
-        Flow is slow, deep, and essential to sustaining surface water.
+        Surface runoff reaches the stream in hours. The groundwater beside it takes years.
+
+
+# How long does it take?
+
+.row
+  .container width:{55%}
+    Residence time is path length divided by the speed along the path, and the speed comes from the section after next:
+
+    $ t = \frac{L}{v} = \frac{L\, n_e}{K\, i} $
+
+    | System | $ L $ | $ v $ | $ t $ |
+    |---|---|---|---|
+    | Hillslope to creek, sand | 300 m | 0.15 m/day | 5 years |
+    | Small basin, sand and gravel | 20 km | 0.5 m/day | 100 years |
+    | Great Artesian Basin | 1000 km | 1 m/year | $ 10^{5} $ – $ 10^{6} $ years |
+
+    - The recharge that feeds a bore in western Queensland fell on the Great Dividing Range before the last glacial period.
+    - This is the residence time from the water cycle lecture, computed for one flow path instead of a whole reservoir.
+
+  .container width:{45%}
+    .box title:{Why this matters for management} background:{.lightred}
+      A store with a residence time of $ 10^{5} $ years is not refilled on any timescale a water plan can use. Pumping it is mining, and the question is how fast to mine, not whether it recovers.
+
+    We return to this in the groundwater management lecture, and the same arithmetic appears in Assignment III.
 
 
 # Groundwater flow in the lab
 .align{center}
   .html
-    <iframe width="400" height="600" src="https://www.youtube.com/embed/FparakKnNZU" height:{100%} width:{20%} a title="Groundwater flow geology lab 💧 There IS water underground!  #geology #hydrology #groundwater" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="400" height="600" src="https://www.youtube.com/embed/FparakKnNZU" title="Groundwater flow geology lab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-# Darcy’s Law: The Foundations
+
+#
+
+.row gap:{1cm} alignment:{center}
+    .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
+
+        ## Hydraulic head: the quantity that decides the direction
+
+
+# Water does not flow from high pressure to low pressure
+
+.row
+  .container width:{50%}
+    Take a column of water standing still in a tube. Pressure at depth $ d $ below the surface is
+
+    $ P = \rho_w g d $
+
+    - The pressure at the bottom is larger than the pressure at the top. The pressure gradient points upward, so a pressure rule predicts flow upward.
+    - Nothing moves. The column is in equilibrium.
+    - The same is true below a water table: pressure increases downward everywhere, in ground where no water is moving at all.
+
+    .container width:{100%} borderwidth:{1px} background:{.lightred} padding:{4px}
+      **Pressure alone cannot tell you the direction of flow.** The quantity that can is hydraulic head.
+
+  .container width:{50%}
+    .html
+      <svg viewBox="0 0 380 230" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="ar" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 z" fill="#b43c3c"/></marker></defs>
+        <text x="110" y="18" font-size="12" text-anchor="middle">pressure</text>
+        <rect x="70" y="30" width="80" height="170" fill="#add8e6" stroke="#333" stroke-width="1.5"/>
+        <line x1="78" y1="60"  x2="98"  y2="60"  stroke="#b43c3c" stroke-width="2.5" marker-end="url(#ar)"/>
+        <line x1="78" y1="115" x2="120" y2="115" stroke="#b43c3c" stroke-width="2.5" marker-end="url(#ar)"/>
+        <line x1="78" y1="170" x2="145" y2="170" stroke="#b43c3c" stroke-width="2.5" marker-end="url(#ar)"/>
+        <text x="64" y="64"  font-size="11" text-anchor="end">small</text>
+        <text x="64" y="119" font-size="11" text-anchor="end">larger</text>
+        <text x="64" y="174" font-size="11" text-anchor="end">largest</text>
+        <text x="300" y="18" font-size="12" text-anchor="middle">head</text>
+        <rect x="260" y="30" width="80" height="170" fill="#add8e6" stroke="#333" stroke-width="1.5"/>
+        <line x1="250" y1="30" x2="352" y2="30" stroke="#b43c3c" stroke-width="3"/>
+        <line x1="275" y1="60"  x2="275" y2="32" stroke="#b43c3c" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="300" y1="115" x2="300" y2="32" stroke="#b43c3c" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="325" y1="170" x2="325" y2="32" stroke="#b43c3c" stroke-width="1" stroke-dasharray="3,3"/>
+        <circle cx="275" cy="60"  r="3" fill="#b43c3c"/>
+        <circle cx="300" cy="115" r="3" fill="#b43c3c"/>
+        <circle cx="325" cy="170" r="3" fill="#b43c3c"/>
+        <text x="300" y="222" font-size="11" text-anchor="middle">every point: the same h</text>
+      </svg>
+
+    Pressure varies from top to bottom of the column. Head does not. Where head is constant, there is no flow, whatever the pressure is doing.
+
+
+# Hydraulic head
+
+.row
+  .container width:{55%}
+    The energy of a unit weight of water at a point has three parts, which is the Bernoulli equation written in units of length:
+
+    $ h = z + \frac{P}{\rho_w g} + \frac{v^2}{2g} $
+
+    - $ z $: **elevation head**, the height of the point above the datum, usually sea level. This is the gravitational part.
+    - $ P/\rho_w g $: **pressure head**, the height of the water column the pressure would support.
+    - $ v^2/2g $: **velocity head**, the kinetic part.
+
+    Groundwater moves at about 1 m/day, which is $ 1.2 \times 10^{-5} $ m/s, so
+
+    $ \frac{v^2}{2g} = \frac{(1.2\times10^{-5})^2}{19.6} \approx 7\times10^{-12}\ \mathrm{m} $
+
+    against head differences of metres. The velocity head is dropped, and
+
+    $ h = z + \frac{P}{\rho_w g} $
+
+  .container width:{45%}
+    !(90%)[Head components](../image/franklin_fig_3-9.png "Elevation head, pressure head and total head at a point in the flow field.")
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      Going down the still column raises $ P/\rho_w g $ by exactly what it takes off $ z $. The sum does not change.
+
+
+# Measuring head in the field
 
 .row
   .container width:{60%}
-    - **Henry Darcy** (1800s) studied water filtration and developed an empirical law for groundwater flow.
-    - Darcy’s experiments showed that **flow depends on energy differences**:
-      - Water moves from **high to low gravitational energy**
-      - Like a drop on a slide — higher up means more potential energy
-    - Energy loss over distance gives rise to the **hydraulic gradient**:
+    A **standpipe** open at the bottom, and the water level in it, give the head at the open end.
 
+    - In theory (a): read the elevation of the water column against a scale. In the figure, 110 m above sea level.
+    - In practice (b): the pipe has no scale on it, so head is assembled from two measurements.
+      - Survey or high-precision GPS gives the **elevation of the top of casing**, $ EL_{TOC} $ = 160 m.
+      - A weighted electric tape gives the **depth to water**, $ DTW $ = 50 m.
 
-      $ i = \frac{e_{top} - e_{bot}}{\Delta l} $
+      $ h = EL_{TOC} - DTW = 160 - 50 = 110\ \mathrm{m} $
 
-    - This principle forms the core of Darcy’s Law.
+    - The head belongs to the **measurement point**, which is the middle of the screen at the bottom of the pipe, and not to the water level in the pipe and not to the water table.
+    - The screen is a slotted section of casing. In low-conductivity ground it lets the water level in the pipe keep up with changes outside.
 
   .container width:{40%}
-    !(100%)[franklin_fig_3-6.png](../image/franklin_fig_3-6.png "Water flows downhill due to gravitational energy")
+    !(80%)[Measuring head](../image/franklin_fig_3-8.png "(a) Head as the elevation of the water column, 110 m asl, at the red measurement point. (b) The same head assembled from the casing elevation and the depth to water.")
 
-# Hydraulic Gradient and Energy Slope
+
+# One site, two answers
+
+.row
+  .container width:{45%}
+    .html
+      <svg viewBox="0 0 330 220" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="45" width="330" height="175" fill="#f2ead9"/>
+        <line x1="0" y1="45" x2="330" y2="45" stroke="#6b5b3e" stroke-width="2"/>
+        <rect x="70" y="30" width="16" height="160" fill="#cfcfcf" stroke="#333"/>
+        <rect x="70" y="150" width="16" height="40" fill="#e8c96a" stroke="#333"/>
+        <rect x="200" y="30" width="12" height="80" fill="#cfcfcf" stroke="#333"/>
+        <rect x="200" y="95" width="12" height="15" fill="#e8c96a" stroke="#333"/>
+        <line x1="70" y1="140" x2="86" y2="140" stroke="#1f6fb2" stroke-width="4"/>
+        <line x1="200" y1="62" x2="212" y2="62" stroke="#1f6fb2" stroke-width="4"/>
+        <text x="60" y="26" font-size="10" text-anchor="middle">water well</text>
+        <text x="206" y="26" font-size="10" text-anchor="middle">piezometer</text>
+        <text x="96" y="143" font-size="11" fill="#1f6fb2">h = 73 m</text>
+        <text x="222" y="65" font-size="11" fill="#1f6fb2">h = 84 m</text>
+        <line x1="0" y1="72" x2="330" y2="78" stroke="#1f6fb2" stroke-dasharray="5,4" stroke-width="1.5"/>
+        <text x="240" y="92" font-size="9" fill="#1f6fb2">water table 81.5 m</text>
+        <line x1="150" y1="120" x2="150" y2="165" stroke="#b43c3c" stroke-width="2.5" marker-end="url(#a2)"/>
+        <text x="156" y="148" font-size="10" fill="#b43c3c">flow</text>
+        <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 z" fill="#b43c3c"/></marker></defs>
+      </svg>
+
+  .container width:{55%}
+    Two pipes, eleven metres apart, screened at different depths. The shallow one reads **84 m**. The deep one reads **73 m**.
+
+    - Neither is wrong. There is no single "groundwater level" at this site.
+    - The 11 m difference over that depth is a **downward** hydraulic gradient. Water is moving from the shallow unit into the deep aquifer.
+    - Head is a property of a **point**, so a head measurement is meaningless until you say where the screen is and which unit it is in.
+    - This is why piezometers are installed in **nests**: three short screens at three depths at one location, to measure how head changes with depth.
+    - A single long-screened well averages over everything its screen crosses, and in a site like this it tells you nothing about the vertical gradient.
+
+
+# The three devices
+
+.row
+  .container width:{55%}
+    - **Water wells**: wide casing, long screen. Cheap, already drilled in their thousands, and the only practical basis for regional work. Suited to a well-defined aquifer where flow is horizontal, because then equipotential lines are vertical and the depth of the screen does not change the reading.
+    - **Piezometers**: narrow casing, short screen, sealed above with bentonite. A head measurement for a point. Used for contamination, for dewatering, and in nests for vertical gradients.
+    - **Water table observation wells**: long screen deliberately straddling the range that the water table moves through, so the water table always sits somewhere in the screen.
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      The observation well is the odd one out: its measurement point is **not** the middle of the screen. It is the water table, and it moves up and down through the year. Head at any point on the water table equals the elevation of that point.
+
+  .container width:{45%}
+    !(100%)[Three devices](../image/franklin_fig_3-17.png "A water well, a water table observation well and a nest of three piezometers at one site. Heads: 73 m in the aquifer, 81.5 m at the water table, and 84, 81 and 78 m in the piezometer nest. Dashed lines are equipotentials; red arrows are flow directions.")
+
+    In the figure the nest reads 84, 81 and 78 m from shallow to deep: head falls with depth, so flow in the shallow unit is downward.
+
+
+#
+
+.row gap:{1cm} alignment:{center}
+    .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
+
+        ## Darcy's law
+
+
+# Darcy's experiment
+
+.row
+  .container width:{55%}
+    - **Henry Darcy**, civil engineer, built the water supply of Dijon in the 1850s and needed to size the sand filters.
+    - His apparatus: a cylinder of known cross-section area $ A $ packed with sand, water forced through at a measured rate $ Q $, and two manometers a distance $ \Delta l $ apart whose water levels give $ h_1 $ and $ h_2 $.
+    - He varied the flow rate, the head difference, the length of the column and the sand, and found a single relationship:
+
+      $ \frac{Q}{A} = -K \frac{dh}{dl} $
+
+    - $ K $, the **hydraulic conductivity**, absorbs everything about the sand. It is a measured constant, not a derived one — the derivation came a century later, and we do it two slides from now.
+    - This is an **empirical** law in exactly the same sense as Ohm's law, and it has the same form: a flux proportional to the gradient of a potential.
+
+  .container width:{45%}
+    !(100%)[Darcy's apparatus](../image/franklin_fig_3-7.png "Laboratory apparatus demonstrating Darcy's equation: flow Q through a column of length Δl, with head h₁ and h₂ read from two manometers.")
+
+
+# Darcy's law, and its sign
+
+.row
+  .container width:{55%}
+    $ q = -K \frac{dh}{dl} \qquad Q = qA = -KA \frac{dh}{dl} $
+
+    - $ q = Q/A $ is the **specific discharge** or **Darcy velocity**: volume per unit time through unit area of the whole column face. Units of m/day.
+    - The minus sign is the physics: $ dh/dl $ is the change in head **in the direction you are walking**, so water moves in the direction in which head decreases.
+    - If instead you define the gradient as a positive head loss over a positive distance,
+
+      $ i = \frac{h_1 - h_2}{\Delta l} \quad (h_1 > h_2) $
+
+      then $ q = Ki $ and the flow runs from 1 towards 2. Both forms are in use. Fix one, then keep it.
+
+    .container width:{100%} borderwidth:{1px} background:{.lightred} padding:{4px}
+      Writing $ i = (h_1-h_2)/\Delta l $ **and** $ q = -Ki $ in the same breath, as the textbook does at its equation 3.5, gives a discharge that runs uphill. Note that $ (h_1-h_2)/\Delta l = -dh/dl $.
+
+  .container width:{45%}
+    !(78%)[Head gradient in a column](../image/franklin_fig_3-6.png "A dipping aquifer with head measured at two points: h₁ = 145 m, h₂ = 125 m, Δl = 5000 m, so i = 0.004.")
+
+    The gradient is **dimensionless**: four millimetres of head lost per metre travelled.
+
+
+# Darcy velocity is not a velocity
 
 .row
   .container width:{50%}
-    - **Gradient** = energy change per unit length of flow path
-    - In groundwater terms:
-      - Energy is **hydraulic head** (gravitational + pressure)
-      - Steeper gradient → faster potential flow
-    - Flow rate increases with:
-      - Greater difference in head
-      - Shorter flow distance
-    - Key analogy: **sliding down a playground slide**
-      - Steeper slide → faster slide
+    - $ q $ is a discharge divided by the **whole** face of the column, solids included. No water travels at $ q $.
+    - Water moves only through the connected voids, which are a fraction $ n_e $ of that face. The **average linear velocity**, or pore velocity, is therefore
 
-    The gradient controls the force pushing water through pores.
+      $ v = \frac{q}{n_e} = -\frac{K}{n_e}\frac{dh}{dl} $
 
-  .container width:{50%}
-    !(60%)[gradient_slide.png](../image/internet_slide.jpg "Gravitational energy slope analogy")
+    - Since $ n_e < 1 $, always $ v > q $.
+    - $ v $ is the speed to use for travel times and for contaminant arrival.
 
-# Hydraulic Conductivity
-
-.row
-  .container width:{50%}
-    - Not all materials transmit water equally well.
-    - **Hydraulic conductivity** ($ K $) quantifies this:
-      - High $ K $ → gravel, coarse sand
-      - Low $ K $ → clay, unfractured rock
-    - Units: length per time (e.g. m/day)
-    - $ K $ depends on:
-      - Pore size and connectivity
-      - Fluid properties (viscosity, density)
-
-    Even with the same gradient, **some materials flow better than others**.
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      $ v $ is a **mean**. Individual paths through wide and narrow pores run at very different speeds, and that spread is what spreads a contaminant plume out along its own flow path. We give it a name, **hydrodynamic dispersion**, later in the course.
 
   .container width:{50%}
-    !(100%)[franklin_fig_3-7.png](../image/franklin_fig_3-7.png "Darcy’s column experiment setup")
-
-
-# Darcy’s Equation
-
-.row
-  .container width:{50%}
-    - Darcy combined gradient ($ i $) and material property ($ K $) to describe flow:
-
-      $ q = -K i $
-
-      - $ q $: Darcy velocity (aka specific discharge), volumetric flow per area
-
-    - Alternate form using cross-sectional area $ A $:
-
-      $ Q = -K i A $
-
-    - Negative sign: flow goes from high head to low head
-    - Valid for **laminar flow** in porous media
-
-    Darcy’s Law is **foundational** to all groundwater flow modeling.
-
-  .container width:{50%}
-    !(100%)[darcy_column.png](../image/franklin_fig_3-7.png "Q and h measured along a porous column")
-
-# Linear (Pore) Velocity
-
-.row
-  .container width:{50%}
-    - **Darcy velocity** ($ q $) assumes flow spreads over the whole cross section.
-    - But in reality, water only flows through **connected pores**
-    - True or **pore velocity** ($ v $) is:
-
-      $ v = \frac{q}{n_e} $
-
-      where:
-      - $ n_e $: effective porosity (only connected pore space)
-      - $ q $: Darcy velocity
-
-    - Since $ n_e < 1 $, pore velocity is **greater** than Darcy velocity
-    - Rearranged Darcy's Law:
-
-      $ v = -\frac{K}{n_e} \cdot \frac{h_1 - h_2}{\Delta l} $
-
-
-  .container width:{50%}
+    !(100%)[Pore velocity](../image/internet_pore_velocity_schematic.jpg "Flow takes place only in the connected pore space, so the true speed exceeds the Darcy velocity.")
 
     .align{center}
       .container
         [gw-project.org](https://books.gw-project.org/hydrogeologic-properties-of-earth-materials-and-principles-of-groundwater-flow/chapter/darcys-law/)
 
 
-    !(100%)[Linear velocity concept](../image/internet_pore_velocity_schematic.jpg "Water flows through effective pore space only.")
-
-    This gives the **actual speed** water travels through aquifers.
-
-
-
-# Components of Hydraulic Head
-
-.row
-  .container width:{70%}
-    - **Hydraulic head** is a measure of energy available to move groundwater
-    - It is expressed in units of **length** (e.g., m above sea level)
-    - In the field, head is measured with a **standpipe** or piezometer.
-    - Key components:
-      - Elevation of top of casing ($ EL_{TOC} $)
-      - Depth to water ($ DTW $)
-
-    - The head is calculated by:
-
-      $ h = EL_{TOC} - DTW $
-
-    Measuring head tells us the **direction and gradient** of groundwater flow.
-
-  .container width:{30%}
-    !(100%)[franklin_fig_3-8.png](../image/franklin_fig_3-8.png "Measuring hydraulic head in practice and theory")
-
-# Components of Hydraulic Head II
-
-.row
-  .container width:{60%}
-    - Hydraulic head consists of:
-      - **Elevation head** ($ z $): height above datum
-      - **Pressure head** ($ P/\rho_w g $): height of water column exerting pressure
-      - **Velocity head**: often negligible in groundwater
-
-    - General form (Bernoulli):
-
-      $ h = z + \frac{P}{\rho_w g} + \frac{v^2}{2g} $
-
-    - Simplified form (no velocity term):
-
-      $ h = z + \frac{P}{\rho_w g} $
-
-    - Units: meters (m), Pressure (Pa) can be converted from depth of water:
-
-      $ P = \rho_w g (h - z) $
-
-  .container width:{40%}
-    !(90%)[franklin_fig_3-9.png](../image/franklin_fig_3-9.png "Total head = elevation + pressure head")
-
-
-# Hydraulic Conductivity
+# Worked example: the same aquifer, twice
 
 .row
   .container width:{50%}
-    - **Hydraulic conductivity** is a measure of how easily water flows through porous material
-    - Denoted by $ K $, it appears in Darcy’s Law:
+    Take $ K = 1\times10^{-4} $ m/s and $ i = 0.004 $ from the previous slide, and ask how fast the water actually travels.
 
-      $ q = -K \frac{dh}{dl} $
+    **(a) Granular sand,** $ n_e \approx n_T = 0.30 $:
 
-    - Units of $ K $ are velocity (e.g. m/day)
-    - ↑ $ K $: sand, gravel, ↓ $ K $: clay, shale
-    - $ K $ depends on:
-      - Properties of the **medium**
-      - Properties of the **fluid** (density, viscosity)
+    $ v = \frac{Ki}{n_e} = \frac{10^{-4}\times 0.004}{0.30} = 1.33\times10^{-6}\ \mathrm{m/s} $
 
-    Hydraulic conductivity is widely used in field hydrogeology.
+    $ v = 0.115\ \mathrm{m/day} $
 
-   .container width:{50%}
-        - **Intrinsic permeability** $ k $ characterizes the medium only:
-          - Independent of fluid type
-          - Units: $ \mathrm{m}^2 $, also expressed in **darcy** or **cm²**
-        - Darcy’s Law rewritten:
+    **(b) Fractured shale,** same $ K $, $ n_T = 0.10 $, $ n_f = 3\times10^{-3} $:
 
-          $ q = -\frac{k \, \rho_w g}{\mu} \, \frac{dh}{dl} $
+    $ v = \frac{10^{-4}\times 0.004}{3\times10^{-3}} = 1.33\times10^{-4}\ \mathrm{m/s} $
 
-        - Conversion to hydraulic conductivity:
-
-          $ K = \frac{k \, \rho_w g}{\mu} $
-
-        - At 20°C and 1 atm:
-          $ K = 9.77 \times 10^6 \cdot k$
-
-          $ k = (1.023 ) \times 10^{-7} \, \mathrm{m \cdot sec} \cdot K $
-
-        Use $ k $ for comparisons across different fluids.
-
-# Estimating Hydraulic Conductivity
-
-.row
-	.container width:{40%}
-		!(100%)[Fig311](../image/franklin_fig_3-11.png "Hydraulic conductivity for selected acquifer materials")
-
-	.container width:{60%}
-		!(100%)[Table](../image/franklin_table_3-2.png "Examples of empirical relationships for estimating hydraulic conductivity or permeability values")
-
-# Experimental Determination of Hydraulic Conductivity
-##! Constant-Head Test
-
-.row
-  .container width:{70%}
-  	- Used for **coarse-grained** materials (e.g. sands, gravels)
-  	- A steady flow is established by maintaining a **constant head difference** across the sample
-  	- Flow rate $ Q $ is measured at the outlet
-  	- Hydraulic conductivity $ K $ is calculated as:
-
-  	  $ K = \frac{Q L}{A h} $
-
-  	  where:
-  	  - $ L $ = sample length
-  	  - $ A $ = cross-sectional area
-  	  - $ h $ = constant head difference
-
-  	Works best when $ Q $ is large and easily measured.
-
-  .container width:{30%}
-  	!(100%)[franklin_fig_3-13a.png](../image/franklin_fig_3-13-a.png "Constant-head permeameter")
-
-
-
-# Experimental Determination of Hydraulic Conductivity
-##! Falling-Head Test
-
-.row
-  .container width:{70%}
-  	- Preferred for **fine-grained** or **less permeable** materials (e.g. clays, silts)
-  	- No continuous flow: water level in standpipe drops over time
-  	- Measure time $ t_1 - t_0 $ for water head to fall from $ h_0 $ to $ h_1 $
-  	- Hydraulic conductivity:
-
-  	  $ K = 2.3 \, \frac{a L}{A (t_1 - t_0)} \log_{10} \left( \frac{h_0}{h_1} \right) $
-
-  	  where:
-  	  - $ a $ = standpipe cross-section
-  	  - $ A $ = sample cross-section
-
-  	Falling-head is more accurate for slow flows and low $ K $.
-
-  .container width:{30%}
-  	!(65%)[franklin_fig_3-13b.png](../image/franklin_fig_3-13-b.png "Falling-head permeameter")
-
-
-# Anisotropic Flow and Darcy’s Law
-
-.row
-  .container width:{100%}
-  	- In **anisotropic materials**, hydraulic conductivity depends on direction.
-  	- Darcy’s Law becomes a **vector-tensor** equation:
-
-  	  $ \mathbf{q} = - \mathbf{K} \nabla h $
-
-  	- In Cartesian form:
-
-  	  $ \mathbf{q} = q_x \mathbf{i} + q_y \mathbf{j} + q_z \mathbf{k} $
-
-  	  $ \nabla h = \frac{\partial h}{\partial x} \mathbf{i} + \frac{\partial h}{\partial y} \mathbf{j} + \frac{\partial h}{\partial z} \mathbf{k} $
-
-  	- The hydraulic conductivity tensor is:
-
-  	  $ \mathbf{K} = \begin{bmatrix} K_{xx} & K_{xy} & K_{xz} \\ K_{yx} & K_{yy} & K_{yz} \\ K_{zx} & K_{zy} & K_{zz} \end{bmatrix} $
-
-  	These terms describe how flow in one direction may be influenced by gradients in others.
-
-  .container width:{100%}
-  	!(100%)[Anisotropic flow](../image/internet_anisotropy.png "Anisotropic diffusivity makes material move with different velocities in different directions.")
-
-
-# Darcy Velocity Components
-
-.row
-  .container width:{100%}
-  	- For anisotropic flow, each component of flow is influenced by **multiple gradients**:
-
-
-  	  $ q_x = -K_{xx} \frac{\partial h}{\partial x} - K_{xy} \frac{\partial h}{\partial y} - K_{xz} \frac{\partial h}{\partial z} $
-  	  $ q_y = -K_{yx} \frac{\partial h}{\partial x} - K_{yy} \frac{\partial h}{\partial y} - K_{yz} \frac{\partial h}{\partial z} $
-  	  $ q_z = -K_{zx} \frac{\partial h}{\partial x} - K_{zy} \frac{\partial h}{\partial y} - K_{zz} \frac{\partial h}{\partial z} $
-
-  	- If the medium is **aligned with coordinate axes**, then off-diagonal terms vanish:
-
-
-  	  $ K_{xy} = K_{yx} = K_{xz} = K_{zx} = K_{yz} = K_{zy} = 0 $
-
-  	- This simplifies to:
-
-
-  	  $ q_x = -K_{xx} \frac{\partial h}{\partial x}, \quad q_y = -K_{yy} \frac{\partial h}{\partial y}, \quad q_z = -K_{zz} \frac{\partial h}{\partial z} $
-
-  	This is common in layered sedimentary rocks where horizontal and vertical conductivities differ.
-
-# Anisotropy in Sedimentary Rocks
-
-.row
-  .container width:{40%}
-  	- Field and lab studies confirm many rocks are **anisotropic**
-  	- Horizontal conductivity is often **orders of magnitude** greater than vertical
-  	- This affects:
-  	  - Recharge and discharge zones
-  	  - Aquifer drawdown patterns
-  	  - Contaminant transport direction
-
-  	Below are typical values from core samples:
-
-   .container width:{60%}
-    ### Table – Anisotropic Conductivity of Sedimentary Rocks
-
-    | **Material**            | **Hydraulic conductivity (m/s)**       | **Vertical conductivity (m/s)** |
-    |-------------------------|----------------------------------------|------------------------------------------|
-    | Anhydrite               | $ 10^{-14} $ to $ 10^{-12} $               | $ 10^{-15} $ to $ 10^{-13} $ |
-    | Chalk                   | $ 10^{-10} $ to $ 10^{-8} $                | $ 5 \times 10^{-11} $ to $ 5 \times 10^{-9} $ |
-    | Limestone, dolomite     | $ 10^{-9} $ to $ 10^{-7} $                 | $ 5 \times 10^{-10} $ to $ 5 \times 10^{-8} $ |
-    | Sandstone               | $ 5 \times 10^{-13} $ to $ 10^{-10} $      | $ 2.5 \times 10^{-13} $ to $ 5 \times 10^{-11} $ |
-    | Shale                   | $ 10^{-14} $ to $ 10^{-12} $               | $ 10^{-15} $ to $ 10^{-13} $ |
-    | Salt                    | $ 10^{-14} $                             | $ 10^{-14} $ |
-
-# Heterogeneous Hydraulic Conductivity
-
-.row
-  .container width:{50%}
-  	- A medium is **homogeneous** if permeability is constant within it.
-  	- If permeability varies across space, it is **heterogeneous**.
-  	- A common model: **layered medium** with different $ K_{hi} $, $ K_{vi} $, and thicknesses $ b_i $
-  	- For $ M $ horizontal layers, the **equivalent horizontal conductivity** is:
-
-  	  $ K_h = \frac{ \sum_{i=1}^M b_i K_{hi} }{ \sum_{i=1}^M b_i } $
-
-  	- This is a **thickness-weighted average**.
-  	- Horizontal conductivity dominates in flow parallel to bedding.
+    $ v = 11.5\ \mathrm{m/day} $
 
   .container width:{50%}
-  	!(100%)[franklin_fig_3-14.png](../image/franklin_fig_3-14.png "Layered heterogeneity with varying $K_h$, $K_v$")
+    .box title:{Read the result} background:{.lightred}
+      Same conductivity. Same gradient. Same discharge $ q $ through the face of the rock. **One hundred times** the travel speed, entirely because the flow is squeezed into a hundredth of the area.
+
+    - A spill above the fractured unit reaches a bore 1 km away in **three months**. Above the sand it takes **24 years**.
+    - This is the practical reason effective porosity is worth measuring, and the reason the misprinted $ n_f = 0.05 $ matters: it would have given 0.7 m/day, and a reassuring wrong answer.
+
+    Careful with the book here: its printed answer for (a), 0.152 m/day, does not follow from its own numbers.
 
 
-# Vertical Flow and Flow Refraction
-
-.row
-  .container width:{40%}
-  	- In vertical direction, **equivalent conductivity** is given by:
-
-  	  $ K_v = \frac{ \sum_{i=1}^M b_i }{ \sum_{i=1}^M \frac{b_i}{K_{vi}} } $
-
-  	- This is a **harmonic average** — low $ K_{vi} $ dominates vertical resistance.
-  	- When groundwater crosses a boundary between layers, it refracts.
-
-  	- **Refraction law**:
-
-  	  $ \frac{K_1}{K_2} = \frac{\tan(\alpha_1)}{\tan(\alpha_2)} $
-
-  	- The angle of flow changes based on contrast in hydraulic conductivity across boundary.
-
-  .container width:{60%}
-  	!(100%)[franklin_fig_3-15.png](../image/franklin_fig_3-15.png "Flow refraction across geologic contacts")
-
-
-# Investigating Groundwater Flow
+# Where Darcy's law comes from
 
 .row
   .container width:{55%}
-  	- Hydraulic head can be measured with:
-  	  1. Water wells
-  	  2. Piezometers
-  	  3. Water table observation wells
-  	- These are often installed **together** at study sites
-  	- Example system: deep aquifer beneath shallow, low-permeability unit
-  	- Flow is:
-  	  - Vertical in shallow layer
-  	  - Horizontal in deeper aquifer
+    Darcy measured $ K $. We can derive its form by treating the pore space as a bundle of tubes.
+
+    For laminar flow in a tube of diameter $ d $, Poiseuille's result gives the mean velocity driven by a pressure gradient:
+
+    $ \bar{v} = \frac{d^2}{32\mu}\left(-\frac{dP}{dx}\right) $
+
+    Write the driving term with head, $ P = \rho_w g (h-z) $, so that $ -dP/dx = -\rho_w g\, dh/dx $:
+
+    $ \bar{v} = \frac{\rho_w g\, d^2}{32\mu}\left(-\frac{dh}{dx}\right) $
+
+    The specific discharge is $ q = n_e \bar{v} $ divided by a tortuosity factor, and all the dimensionless bookkeeping collects into one constant $ c $:
+
+    $ q = \underbrace{\frac{c\,\rho_w g\, d^2}{\mu}}_{K}\left(-\frac{dh}{dx}\right) $
+
+  .container width:{45%}
+    .box title:{Three things fall out at once} background:{.lightblue}
+      1. **The law is linear in the gradient**, which is Darcy's observation, and it holds only while the tube flow is laminar.
+      2. **$ K $ splits into two factors**: $ c\,d^2 $ belongs to the rock, $ \rho_w g/\mu $ belongs to the fluid. The next slide gives the rock part its own name.
+      3. **$ K $ goes as the square of the pore diameter**, and pore diameter scales with grain diameter. Every empirical formula in the next section is a version of $ K \propto d^2 $.
+
+    A factor of 10 in grain size is a factor of 100 in conductivity. That single line explains the whole range from gravel to clay.
+
+
+# Where Darcy's law stops
+
+.row
+  .container width:{50%}
+    **Too fast: turbulence.** The derivation assumed laminar tube flow. The test is a Reynolds number built on grain diameter,
+
+    $ Re = \frac{\rho_w q d}{\mu} $
+
+    and the law holds for $ Re $ below about 1 to 10.
+
+    | Setting | $ q $ | $ d $ | $ Re $ |
+    |---|---|---|---|
+    | Sand aquifer | 1 m/day | 1 mm | 0.01 |
+    | Coarse gravel | 100 m/day | 10 mm | 12 |
+    | Karst conduit, near a pumped well | much larger | much larger | $ \gg 10 $ |
+
+    Beyond that, discharge grows more slowly than the gradient, and a drawdown predicted from Darcy's law comes out too small.
+
+  .container width:{50%}
+    **Too slow: a threshold.** In very low-permeability clays, water close to charged mineral surfaces is held tightly enough that a minimum gradient may be needed before anything moves at all (Bolt and Groenevelt, 1969).
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      Both failures sit at the ends of the range. In between — which is nearly every aquifer, nearly always — Darcy's law is accurate enough to build the rest of the subject on, and we do exactly that in the theory lecture.
+
+    Two places in this course where it fails and it matters: **karst conduits**, in the aquifers lecture, and the **immediate neighbourhood of a pumping well**, in the well hydraulics lecture.
+
+
+#
+
+.row gap:{1cm} alignment:{center}
+    .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
+
+        ## Conductivity, permeability, and how to estimate them
+
+
+# Hydraulic conductivity: thirteen orders of magnitude
+
+.row
+  .container width:{45%}
+    !(88%)[Conductivity of aquifer materials](../image/franklin_fig_3-11.png "Hydraulic conductivity for selected aquifer materials, and their potential as an aquifer.")
+
+  .container width:{55%}
+    - $ K $ has units of length over time. Values run from $ 10^{-8} $ m/day in unfractured igneous rock to $ 10^{4} $ m/day in cavernous limestone.
+    - Almost nothing else in the earth sciences varies over twelve or thirteen orders of magnitude. Porosity, by comparison, covers a factor of 50.
+
+    .container width:{100%} borderwidth:{1px} background:{.lightred} padding:{4px}
+      **The consequence for how you spend money.** Getting the gradient wrong by a factor of two changes your answer by a factor of two. Getting the material wrong changes it by a factor of $ 10^{6} $. Site investigation therefore spends its budget on finding out what the ground is made of.
+
+    - Read the figure with the fracturing in mind: for every rock type on it, the fractured version sits one to three decades to the right of the unfractured one.
+
+
+# Intrinsic permeability
+
+.row
+  .container width:{50%}
+    The derivation split $ K $ into a rock part and a fluid part. Name the rock part:
+
+    $ q = -\frac{k\rho_w g}{\mu}\frac{dh}{dl} \qquad K = \frac{k\rho_w g}{\mu} $
+
+    - $ k $ is the **intrinsic permeability**, with units of **area**: $ \mathrm{m^2} $, or $ \mathrm{cm^2} $, or darcy, where $ 1\ \mathrm{darcy} = 9.87\times10^{-13}\ \mathrm{m^2} $.
+    - It is an area because it is the $ c\,d^2 $ of the derivation: a pore cross-section.
+    - At 20 °C and 1 atm, with $ \rho_w = 998.2 $ kg/m³ and $ \mu = 1.002\times10^{-3} $ kg/(m s):
+
+      $ K = 9.77\times10^{6}\ \mathrm{m^{-1}s^{-1}} \cdot k $
+
+      $ k = 1.023\times10^{-7}\ \mathrm{m\,s} \cdot K $
+
+  .container width:{50%}
+    .box title:{Why anyone bothers} background:{.lightblue}
+      $ K $ describes rock **and** water together. Change the fluid and $ K $ changes although the rock has not. Petroleum, contaminant and geothermal work all move fluids that are not water, so they quote $ k $.
+
+    **A temperature effect you can check in the field.** Only $ \mu $ changes appreciably over the natural range:
+
+    | | $ \mu $ (kg m⁻¹s⁻¹) | $ K $ relative |
+    |---|---|---|
+    | 5 °C | $ 1.52\times10^{-3} $ | 1.00 |
+    | 25 °C | $ 0.89\times10^{-3} $ | 1.71 |
+
+    The same rock conducts water **1.7 times faster** in a warm summer aquifer than in a cold winter one, with no change in the rock at all.
+
+
+# Estimating K from grain size
+
+.row
+  .container width:{50%}
+    The derivation gave $ K \propto d^2 $. The empirical formulas are that result with a fitted constant and a choice of which $ d $.
+
+    | Source | Equation |
+    |---|---|
+    | Hazen (1911) | $ K = C d_{10}^2 $, C = 100–150 cm⁻¹s⁻¹ |
+    | Harleman (1963) | $ k = 6.54\times10^{-4} d_{10}^2 $ |
+    | Kozeny–Carman | $ K = \frac{\rho_w g}{\mu}\frac{n^3}{(1-n)^2}\frac{d_m^2}{180} $ |
+
+    - $ d_{10} $ is the **effective grain size**: the sieve opening that 10% of the sample by weight passes through, so 90% of the grains are coarser.
+    - Kozeny–Carman is the only one carrying porosity as well, through $ n^3/(1-n)^2 $, and it carries $ \rho_w g/\mu $ openly. It is the pore-bundle derivation with the geometry done properly.
+
+  .container width:{50%}
+    .box title:{Why the tenth percentile and not the mean?} background:{.lightred}
+      Because the **fines** control the flow. A sand with 10% clay in it conducts like a clay, since the small grains sit in the throats between the large ones and it is the throats that resist. Using $ d_{10} $ builds that in.
+
+      The same idea returns twice more today: the harmonic mean, and the vertical conductivity of a layered sequence. In each case the worst material sets the answer.
+
+    Worked in the tutorial: $ d_{10} = 0.095 $ mm gives $ K \approx 6\times10^{-3} $ cm/s from Harleman and $ 9\times10^{-3} $ cm/s from Hazen. Agreement to a factor of 1.5 is as good as grain-size estimates get. Field tests remain the reliable method.
+
+
+# Measuring K in the laboratory: constant head
+
+.row
+  .container width:{60%}
+    Used for **coarse** material, $ K > 10^{-3} $ cm/s.
+
+    - Hold the head difference $ h $ fixed across a core of length $ L $ and cross-section area $ A $.
+    - Wait until the flow is steady, then measure the outflow rate $ Q $ by collecting water for a known time.
+    - Darcy's law rearranged gives
+
+      $ K = \frac{QL}{Ah} $
+
+    - The overflow weir at the top is what holds the supply head constant. Without it the head falls as the reservoir drains and the test is no longer steady.
+    - This is Darcy's own apparatus with the plumbing tidied up.
 
   .container width:{40%}
-  	!(100%)[franklin_fig_3-17.png](../image/franklin_fig_3-17.png "Wells, piezometers, and equipotential lines")
+    !(58%)[Constant head](../image/franklin_fig_3-13-a.png "Constant-head permeameter: a fixed head difference Δh across a core of length ℓ.")
 
 
-# Water Wells and Piezometers
+# Measuring K in the laboratory: falling head
+
+.row
+  .container width:{60%}
+    Used for **fine** material: fine sands through to clays.
+
+    - No steady supply. Water in a standpipe of cross-section area $ a $ drains through the core, and the head falls from $ h_0 $ to $ h_1 $ in time $ t_1 - t_0 $:
+
+      $ K = 2.3\,\frac{aL}{A(t_1-t_0)}\log_{10}\!\left(\frac{h_0}{h_1}\right) $
+
+    - The split between the two tests is practical. In a clay, $ Q $ in a constant-head test is too small to catch, and watching a level fall is easier than measuring a drip. The narrow standpipe is what makes the fall visible: a small $ a $ over a large $ A $ means a large drop in level for a small volume passed.
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      Both tests measure a core a few centimetres across, repacked or disturbed by the coring. Whether that number describes the aquifer is the subject of the next section.
+
+  .container width:{40%}
+    !(44%)[Falling head](../image/franklin_fig_3-13-b.png "Falling-head permeameter: the level in the standpipe falls from h₀ to h₁.")
+
+
+#
+
+.row gap:{1cm} alignment:{center}
+    .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
+
+        ## Real ground: heterogeneous and anisotropic
+
+
+# Two independent questions about a piece of ground
+
+.row
+  .container width:{45%}
+    .html
+      <svg viewBox="0 0 340 250" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <text x="95" y="14" font-size="11" text-anchor="middle">isotropic</text>
+        <text x="255" y="14" font-size="11" text-anchor="middle">anisotropic</text>
+        <text x="8"  y="70" font-size="11" transform="rotate(-90 8,70)" text-anchor="middle">homogeneous</text>
+        <text x="8"  y="190" font-size="11" transform="rotate(-90 8,190)" text-anchor="middle">heterogeneous</text>
+        <rect x="25" y="25" width="140" height="90" fill="#e8dcc0" stroke="#333"/>
+        <circle cx="95" cy="70" r="26" fill="none" stroke="#b43c3c" stroke-width="2"/>
+        <rect x="185" y="25" width="140" height="90" fill="#e8dcc0" stroke="#333"/>
+        <line x1="185" y1="45" x2="325" y2="45" stroke="#a08a5e"/>
+        <line x1="185" y1="70" x2="325" y2="70" stroke="#a08a5e"/>
+        <line x1="185" y1="95" x2="325" y2="95" stroke="#a08a5e"/>
+        <ellipse cx="255" cy="70" rx="40" ry="16" fill="none" stroke="#b43c3c" stroke-width="2"/>
+        <rect x="25" y="145" width="140" height="90" fill="#e8dcc0" stroke="#333"/>
+        <circle cx="60" cy="175" r="16" fill="none" stroke="#b43c3c" stroke-width="2"/>
+        <circle cx="125" cy="205" r="26" fill="none" stroke="#b43c3c" stroke-width="2"/>
+        <rect x="185" y="145" width="140" height="90" fill="#e8dcc0" stroke="#333"/>
+        <line x1="185" y1="165" x2="325" y2="171" stroke="#a08a5e"/>
+        <line x1="185" y1="195" x2="325" y2="201" stroke="#a08a5e"/>
+        <ellipse cx="225" cy="180" rx="26" ry="10" fill="none" stroke="#b43c3c" stroke-width="2"/>
+        <ellipse cx="288" cy="212" rx="34" ry="13" fill="none" stroke="#b43c3c" stroke-width="2"/>
+      </svg>
+
+    Each red outline shows how far water travels from a point in one unit of time.
+
+  .container width:{55%}
+    - **Homogeneous or heterogeneous** asks whether $ K $ changes from **place to place**.
+    - **Isotropic or anisotropic** asks whether $ K $ changes with **direction** at one place.
+    - The two are independent, and all four combinations occur. Real ground is the bottom right box.
+    - A circle means the material treats every direction alike; an ellipse means it does not.
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      The rest of this section makes one point: **heterogeneity at a small scale becomes anisotropy at a larger one.** A stack of layers, each of them isotropic, behaves as a single anisotropic material once you stop resolving the layers.
+
+
+# K varies within a single unit
+
+.row
+  .container width:{50%}
+    Thirty-two measurements of $ K $, all from **one** geological unit:
+
+    | | value (m/s) |
+    |---|---|
+    | smallest | $ 2\times10^{-10} $ |
+    | largest | $ 1.5\times10^{-6} $ |
+    | arithmetic mean $ \eta $ | $ 2.64\times10^{-7} $ |
+    | geometric mean $ G $ | $ 9.93\times10^{-8} $ |
+    | harmonic mean $ H $ | $ 5.72\times10^{-9} $ |
+
+    - Four decades of spread inside one unit that a geologist would map as one colour.
+    - The three means differ by a factor of **46**. Quoting "the" conductivity of a unit without saying which average you took is not a well-defined statement.
+
+  .container width:{50%}
+    - A histogram of $ K $ is strongly skewed; a histogram of $ \log K $ is close to normal. $ K $ is **log-normally distributed**, with $ \eta_{\log K} = -7.0 $ and $ \sigma = 0.76 $ in this sample.
+    - That is why hydrogeologists quote geometric means and plot conductivity on log axes.
+
+    .box title:{Which mean is the right one?} background:{.lightblue}
+      It depends on how the flow meets the variation, and the next two slides derive exactly that:
+
+      - flow **along** the variation → arithmetic mean
+      - flow **across** it → harmonic mean
+      - everything else lies between the two (Matheron, 1967), and for a statistically isotropic field the geometric mean is the usual estimate.
+
+
+# Layers in parallel: the arithmetic mean
+
+.row
+  .container width:{50%}
+    Flow **along** the bedding. Each layer feels the same head drop over the same distance, so each has the same gradient $ i $, and the discharges add:
+
+    $ Q = \sum_i K_{hi} b_i i \;=\; K_h \left(\sum_i b_i\right) i $
+
+    $ K_h = \frac{\sum_i b_i K_{hi}}{\sum_i b_i} $
+
+    a **thickness-weighted arithmetic mean**.
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      The best layer dominates. One metre of gravel in a hundred metres of clay carries nearly all of the horizontal flow, and $ K_h $ barely notices the clay.
+
+  .container width:{50%}
+    .html
+      <svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="25"  width="240" height="26" fill="#e3d5a8" stroke="#333"/>
+        <rect x="40" y="51"  width="240" height="16" fill="#9aa6a0" stroke="#333"/>
+        <rect x="40" y="67"  width="240" height="34" fill="#e3d5a8" stroke="#333"/>
+        <rect x="40" y="101" width="240" height="20" fill="#9aa6a0" stroke="#333"/>
+        <rect x="40" y="121" width="240" height="30" fill="#e3d5a8" stroke="#333"/>
+        <text x="292" y="42"  font-size="10">K₁ b₁</text>
+        <text x="292" y="63"  font-size="10">K₂ b₂</text>
+        <text x="292" y="88"  font-size="10">K₃ b₃</text>
+        <line x1="55" y1="38"  x2="265" y2="38"  stroke="#b43c3c" stroke-width="3" marker-end="url(#a3)"/>
+        <line x1="55" y1="59"  x2="120" y2="59"  stroke="#b43c3c" stroke-width="1" marker-end="url(#a3)"/>
+        <line x1="55" y1="84"  x2="265" y2="84"  stroke="#b43c3c" stroke-width="3" marker-end="url(#a3)"/>
+        <line x1="55" y1="111" x2="120" y2="111" stroke="#b43c3c" stroke-width="1" marker-end="url(#a3)"/>
+        <line x1="55" y1="136" x2="265" y2="136" stroke="#b43c3c" stroke-width="3" marker-end="url(#a3)"/>
+        <text x="160" y="175" font-size="11" text-anchor="middle">same gradient in every layer, discharges add</text>
+        <defs><marker id="a3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 z" fill="#b43c3c"/></marker></defs>
+      </svg>
+
+    Each layer carries $ K_{hi} b_i i $. Thick, conductive layers carry almost all of it.
+
+
+# Layers in series: the harmonic mean
+
+.row
+  .container width:{50%}
+    Flow **across** the bedding. Now every layer passes the same $ q $, and the head losses add:
+
+    $ \Delta h = \sum_i q\,\frac{b_i}{K_{vi}} \;=\; \frac{q}{K_v}\sum_i b_i $
+
+    $ K_v = \frac{\sum_i b_i}{\sum_i b_i/K_{vi}} $
+
+    a **harmonic mean**.
+
+    .container width:{100%} borderwidth:{1px} background:{.lightred} padding:{4px}
+      Now the worst layer dominates. One metre of clay in a hundred metres of gravel sets the vertical conductivity of the whole stack almost on its own, because the water has no way around it.
+
+    This is the same asymmetry as resistors: in parallel the best path wins, in series the worst one does.
+
+  .container width:{50%}
+    .html
+      <svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="25"  width="240" height="26" fill="#e3d5a8" stroke="#333"/>
+        <rect x="40" y="51"  width="240" height="16" fill="#9aa6a0" stroke="#333"/>
+        <rect x="40" y="67"  width="240" height="34" fill="#e3d5a8" stroke="#333"/>
+        <rect x="40" y="101" width="240" height="20" fill="#9aa6a0" stroke="#333"/>
+        <rect x="40" y="121" width="240" height="30" fill="#e3d5a8" stroke="#333"/>
+        <line x1="110" y1="20" x2="110" y2="158" stroke="#b43c3c" stroke-width="3" marker-end="url(#a4)"/>
+        <line x1="210" y1="20" x2="210" y2="158" stroke="#b43c3c" stroke-width="3" marker-end="url(#a4)"/>
+        <text x="292" y="63"  font-size="10" fill="#b43c3c">tight</text>
+        <text x="292" y="115" font-size="10" fill="#b43c3c">tight</text>
+        <text x="160" y="180" font-size="11" text-anchor="middle">same q through every layer, head losses add</text>
+        <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 z" fill="#b43c3c"/></marker></defs>
+      </svg>
+
+    The two grey layers occupy a fifth of the thickness and take nearly all of the head loss. A nest of piezometers through this stack would show head almost constant in the sandy layers and dropping steeply across the grey ones.
+
+
+# Worked example: layering makes anisotropy
+
+.row
+  .container width:{50%}
+    A 300 m sequence of interbedded sandstone and shale, 75% sandstone. **Both rocks are isotropic.**
+
+    - Sandstone: $ K = 1\times10^{-5} $ m/s, 225 m in total
+    - Shale: $ K = 1.92\times10^{-12} $ m/s, 75 m in total
+
+    $ K_h = \frac{225(10^{-5}) + 75(1.92\times10^{-12})}{300} = 7.5\times10^{-6} $ m/s
+
+    $ K_v = \frac{300}{\frac{225}{10^{-5}} + \frac{75}{1.92\times10^{-12}}} = 7.7\times10^{-12} $ m/s
+
+    $ \frac{K_h}{K_v} \approx 10^{6} $
+
+  .container width:{50%}
+    .box title:{Read the two answers} background:{.lightblue}
+      $ K_h $ is three quarters of the sandstone value: the shale might as well not be there.
+
+      $ K_v $ is almost exactly the shale value scaled by its share of the thickness: the sandstone might as well not be there.
+
+    - Not one of the six numbers that went in was anisotropic. The factor of a million is produced **entirely by the arrangement**.
+    - So "is this rock anisotropic?" is a question you cannot answer without saying at what scale you are looking.
+    - This is why a regional groundwater model with 500 m cells uses $ K_h/K_v $ ratios of $ 10^2 $ to $ 10^4 $: the cell is bigger than the beds inside it.
+
+
+# Anisotropy at two scales
 
 .row
   .container width:{55%}
-  	- **Water wells**:
-  	  - Large-diameter casings
-  	  - Long screens → integrate over large depth
-  	  - Used in well-defined aquifers
-  	- Measure average head where equipotential lines are vertical
-  	- In horizontal aquifer flow, screen depth doesn’t affect head reading
+    ### Measured on a core
 
-  	- **Piezometers**:
-  	  - Narrow diameter
-  	  - Short screen → **point-specific** measurements
-  	  - Ideal for contamination, dewatering, or vertical gradient studies
-  	  - Often installed as **nests** at multiple depths
+    | Material | Horizontal $ K $ (m/s) | Vertical $ K $ (m/s) | Ratio |
+    |---|---|---|---|
+    | Anhydrite | $ 10^{-14} $–$ 10^{-12} $ | $ 10^{-15} $–$ 10^{-13} $ | 10 |
+    | Chalk | $ 10^{-10} $–$ 10^{-8} $ | $ 5\times10^{-11} $–$ 5\times10^{-9} $ | 2 |
+    | Limestone, dolomite | $ 10^{-9} $–$ 10^{-7} $ | $ 5\times10^{-10} $–$ 5\times10^{-8} $ | 2 |
+    | Sandstone | $ 5\times10^{-13} $–$ 10^{-10} $ | $ 2.5\times10^{-13} $–$ 5\times10^{-11} $ | 2 |
+    | Shale | $ 10^{-14} $–$ 10^{-12} $ | $ 10^{-15} $–$ 10^{-13} $ | 10 |
+    | Salt | $ 10^{-14} $ | $ 10^{-14} $ | 1 |
 
-  .container width:{40%}
-  	- Water well: $ h = 73 $ m (deep)
-  	- Piezometers: show vertical gradient (e.g., 81 → 78 m)
+  .container width:{45%}
+    - A core is a piece of **one bed**. At that scale the anisotropy comes from the alignment of flat grains during deposition, and the ratio is about **2 to 10**.
+    - The ratios of $ 10^3 $ to $ 10^6 $ that regional models use come from **layering**, by the calculation on the previous slide.
 
-    !(100%)[franklin_fig_3-17.png](../image/franklin_fig_3-17.png )
-    _Wells, piezometers, and equipotential lines_
+    .container width:{100%} borderwidth:{1px} background:{.lightred} padding:{4px}
+      Two different mechanisms, two different scales, the same word. Quote a ratio and say which one you mean, or the number is not interpretable.
+
+    - The consequence is the same in both cases: water crosses a sedimentary sequence with great difficulty and travels along it easily. Which is what makes confined aquifers possible at all.
+
+
+# Darcy's law when direction matters
+
+.row
+  .container width:{55%}
+    In an anisotropic material $ q $ and the head gradient **point in different directions**, so the constant $ K $ becomes a tensor:
+
+    $ \mathbf{q} = -\mathbf{K}\nabla h $
+
+      $ \mathbf{K} = \begin{bmatrix} K_{xx} & K_{xy} & K_{xz} \\ K_{yx} & K_{yy} & K_{yz} \\ K_{zx} & K_{zy} & K_{zz} \end{bmatrix} $
+
+    so that each component of flow responds to all three components of the gradient:
+
+    $ q_x = -K_{xx}\frac{\partial h}{\partial x} - K_{xy}\frac{\partial h}{\partial y} - K_{xz}\frac{\partial h}{\partial z} $
+
+    - The tensor is symmetric, $ K_{xy} = K_{yx} $, so six numbers describe it.
+    - Choose the coordinate axes along the **principal directions of anisotropy** — for a layered sequence, along and across the bedding — and the off-diagonal terms vanish:
+
+      $ q_x = -K_{xx}\frac{\partial h}{\partial x},\quad q_y = -K_{yy}\frac{\partial h}{\partial y},\quad q_z = -K_{zz}\frac{\partial h}{\partial z} $
+
+  .container width:{45%}
+    !(100%)[Anisotropy from layering](../image/internet_anisotropy.png "The same layered material in three orientations relative to the axes. Here σ is electrical conductivity, and hydraulic conductivity behaves in exactly the same way: the tensor components swap as the layering is reoriented, although the material is unchanged.")
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      Consequence worth holding onto: in anisotropic ground, **flow lines do not cross equipotential lines at right angles**. That is an isotropic result. It is assumed on almost every map you will see.
+
+
+# Flow lines bend at a boundary
+
+.row
+  .container width:{55%}
+    Two conditions hold where flow crosses from unit 1 into unit 2, with $ \alpha $ measured from the **normal** to the boundary:
+
+    - Mass is conserved, so the component of $ q $ **across** the boundary is continuous:
+
+      $ q_1\cos\alpha_1 = q_2\cos\alpha_2 $
+
+    - Head is continuous along the boundary, so the head gradient **along** it is the same on both sides. With $ q = -K\,dh/dl $ that means $ q_1\sin\alpha_1/K_1 = q_2\sin\alpha_2/K_2 $.
+
+    Dividing one by the other gives the **tangent refraction law**:
+
+    $ \frac{K_1}{K_2} = \frac{\tan\alpha_1}{\tan\alpha_2} $
+
+  .container width:{45%}
+    !(100%)[Refraction of flow lines](../image/franklin_fig_3-15.png "Flow line refraction at boundaries between materials of different permeability: in (a) k₂ > k₁, in (b) k₂ < k₁, and in panel c, k₂ ≫ k₁.")
+
+    Take the limits and the law becomes easy to remember:
+
+    - Into a **much tighter** unit: $ \alpha_2 \to 0 $, flow turns to cross it **straight down**.
+    - Into a **much more conductive** unit: $ \alpha_2 \to 90° $, flow turns to run **along** it.
+
+
+# What refraction means in the field
+
+.row
+  .container width:{50%}
+    **Entering the shale.** Take the layered example again: water in the sandstone moving at 45° to the boundary enters the shale at
+
+    $ \alpha_2 = \arctan\!\left(\frac{1.92\times10^{-12}}{10^{-5}}\tan 45°\right) \approx 0° $
+
+    Whatever the flow was doing in the sandstone, it crosses the shale **vertically**. This is why cross sections show downward arrows through every confining bed, and why leakage through one can be treated as one-dimensional.
+
+  .container width:{50%}
+    **Entering the sand.** Reverse the contrast and the flow turns until it runs nearly parallel to the bedding. A thin permeable bed therefore gathers flow from the whole thickness above and below it, and carries it away laterally.
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      Those two results together are the reason aquifers and confining beds behave as they do. Water is collected sideways by the conductive units and passed vertically between them by the tight ones. Next week's lecture is about the units themselves.
+
+    Both are visible in the cross section at the end of this lecture, where the flow arrows bend as they cross the contact.
+
+
+#
+
+.row gap:{1cm} alignment:{center}
+    .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
+
+        ## Mapping a flow system
+
+
+# Potentiometric surface maps
+
+.row
+  .container width:{55%}
+    - A **potentiometric surface** is the imaginary surface that everywhere matches the level to which water rises in wells completed in one aquifer (Meinzer, 1923). A map of it is contoured hydraulic head.
+    - Three conditions have to hold for the map to mean anything.
+      1. **One aquifer.** A deeper or shallower unit at the same place can have a completely different head, as the piezometer nest showed. You must know which unit each well is screened in.
+      2. **Flow is horizontal in the aquifer.** Then equipotential lines are vertical, head does not change with depth, and it makes no difference where in the aquifer a well is screened or how long its screen is.
+      3. **Contour spacing is the gradient.** The head drop between contours is fixed, so close contours mean a steep gradient and wide spacing means a flat one. This is how you read a map by eye.
+
+  .container width:{45%}
+    !(100%)[Making a potentiometric map](../image/franklin_fig_3-18.png "Three steps: in (a) plot the wells with their heads; in (b) contour to get equipotential lines and add flow directions; in panel c, add flow lines to make a flow net.")
+
+    Three steps: plot the measured heads, contour them, then add arrows at right angles to the contours pointing down-gradient.
+
+
+# Two warnings about these maps
+
+.row
+  .container width:{50%}
+    .box title:{A potentiometric surface is not a water table} background:{.lightred}
+      For an **unconfined** aquifer the two coincide, because the aquifer's top surface is where the water stands.
+
+      For a **confined** aquifer the potentiometric surface lies **above** the top of the aquifer, often far above. It marks where water would rise if you drilled, and there is no water at that level.
+
+      Where it lies above the ground, a well flows without pumping. That is an **artesian** bore, and it is how the Great Artesian Basin got its name.
+
+  .container width:{50%}
+    .box title:{Right angles are an assumption} background:{.lightred}
+      Flow arrows are drawn at right angles to the contours. That is correct only in **isotropic** material.
+
+      In layered ground, which is most ground, the flow direction is rotated away from the perpendicular, towards the direction of easier travel.
+
+    - A third, practical warning: contouring requires the measurements to be **contemporaneous**. Heads move seasonally by metres, so a map assembled from readings taken across a year is contouring the calendar as much as the aquifer.
+
+
+# Example: the Memphis aquifer
+
+.row
+  .container width:{45%}
+    - The Memphis Sand, contoured from wells screened in that single unit, 1995.
+    - Several well fields each produced a local **cone of depression**. The cones overlapped and merged into one regional low in the centre of the map.
+    - Contours are closely spaced around the low, so the gradient there is steep, and every flow arrow points inward. The aquifer's natural discharge has been replaced by discharge to pumps.
+    - Reduced pumping in later years has allowed water levels to recover, which is visible in the hydrograph on the next slide.
+
+  .container width:{55%}
+    !(84%)[Memphis potentiometric surface](../image/franklin_fig_3-19.png "Potentiometric surface of the Memphis aquifer in 1995, contour interval 10 ft, hachured where the contours enclose a depression. Red dots are the wells used as control.")
+
+
+# Water-level hydrographs
+
+.row
+  .container width:{55%}
+    - A **water-level hydrograph** is head at one well against time. A map is a snapshot; a hydrograph is the history.
+    - Historically, monthly visits with a tape. Now loggers reporting over satellite or mobile networks.
+    - Well Sh:P-76 in the Memphis aquifer, monitored from 1925 to 1995, falls steadily for forty years and then levels off around 1970 as pumping is reduced.
+    - What to read off one of these:
+      - **Seasonal cycle**: recharge in the wet season, drawdown by irrigation in the dry.
+      - **Trend**: the balance of long-term recharge against long-term abstraction.
+      - **Steps**: a new well field, a new allocation rule, a drought.
+    - Maps back in time are usually impossible to make because the measurements were never taken at enough wells at once. A long record at one well is what survives.
+
+  .container width:{45%}
+    !(100%)[A long hydrograph](../image/franklin_fig_3-20.png "Long-term hydrograph of well Sh:P-76, completed in the Memphis aquifer: water levels decline for about forty years and then stabilise.")
+
+
+# Hydrogeological cross sections
+
+.row
+  .container width:{50%}
+    - A vertical slice through the flow system, drawn **along** the mean flow direction so that the picture is a fair two-dimensional representation.
+    - It carries the stratigraphy, the conductivity of each unit, the head measurements from the piezometer nests along the line, and the equipotentials contoured from them.
+    - In the example: a low-$ K $ unit over an aquifer. In the upper unit flow is nearly vertical with closely spaced equipotentials, so a steep gradient. In the aquifer the equipotentials are vertical and flow is horizontal with a gentle gradient. In the middle, the flow lines **refract** across the contact.
+    - The vertical scale is exaggerated to make the layers visible. On an exaggerated section, flow lines and equipotentials genuinely do not meet at right angles, although they are usually drawn that way.
+
+  .container width:{50%}
+    !(88%)[Cross section](../image/franklin_fig_3-21.png "Head distribution in a two-layer system from four piezometer nests: downward flow through the upper low-conductivity unit, horizontal flow in the aquifer, refraction at the contact.")
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      Everything in this lecture is in this figure: heads at points, a gradient, two conductivities, refraction, and a flow direction that follows from them.
 
 
 #
@@ -641,99 +1099,153 @@
     <iframe width="672" height="378" src="https://www.youtube.com/embed/Tjg0VgBhmgk?si=CyUgW3MrT-xvZcrf&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-# Potentiometric Surface Maps
+#
+
+.row gap:{1cm} alignment:{center}
+    .container width:{75%} alignment:{center} borderwidth:{1pt} padding:{0.6cm} radius:{0.5cm} background:{.lightblue}
+
+        ## Weighing the groundwater from orbit
+
+
+# Every method so far measures a point
 
 .row
   .container width:{55%}
-    - Mapping the spatial distribution of hydraulic heads in an aquifer is a key method for **evaluating aquifer conditions**.
-    - A **potentiometric surface map** shows groundwater levels (hydraulic head) across an area.
-    - Important uses:
-      - Identifying **recharge and discharge areas**
-      - Detecting **pumping impacts** (cones of depression)
-      - Predicting **contaminant migration paths**
-    - **Meinzer (1923)**: defined potentiometric surface as the imaginary surface representing groundwater head in an aquifer.
+    - A piezometer samples a volume metres across. A pumping test samples hundreds of metres. A basin is hundreds of kilometres across.
+    - Worse, head is not water. Converting a change in head to a change in **volume** needs the storage properties of next week's lecture, and they are rarely known well.
+    - Worse again, bores are not where the water is. They are where the drilling was paid for: near towns, near irrigation, near roads.
+    - So the basin-scale question — **has this basin gained or lost water this decade** — cannot be answered by adding up bores.
+
+    .container width:{100%} borderwidth:{1px} background:{yellow} padding:{4px}
+      Since 2002 it can be answered another way, by weighing the basin. Water has mass, mass has a gravity field, and a gravity field can be measured from orbit.
 
   .container width:{45%}
-    !(100%)[Potentiometric Map Steps](../image/franklin_fig_3-18.png "Steps in constructing a potentiometric surface map")
+    .box title:{The size of the signal} background:{.lightblue}
+      The Millennium Drought removed about **140 km³** of water from the Murray-Darling Basin.
+
+      Spread over the basin's $ 1.06\times10^{6}\ \mathrm{km^2} $ that is a layer
+
+      $ \frac{140\ \mathrm{km^3}}{1.06\times10^{6}\ \mathrm{km^2}} = 0.13\ \mathrm{m} $
+
+      **Thirteen centimetres of water.** That is the thing being weighed from 490 km up.
 
 
-# Steps to Create Potentiometric Maps
+# How GRACE weighs water
 
 .row
   .container width:{50%}
-    - Three main steps:
-      1. **Plot points**: map well/piezometer locations with measured head values
-      2. **Contour**: draw equipotential lines connecting equal head values
-      3. **Flow arrows**: add arrows perpendicular to equipotential lines (showing decreasing head)
-
-    - Key notes:
-      - Map must be for **one aquifer only**
-      - Flow in aquifers is assumed **horizontal**
-      - Equipotential lines → vertical in cross-section, but projected to 2D on the map
+    .html
+      <svg viewBox="0 0 340 210" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="a5" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 z" fill="#333"/></marker></defs>
+        <path d="M10,150 Q90,120 170,128 Q250,136 330,120 L330,200 L10,200 Z" fill="#c8e1c8" stroke="#6b8f6b"/>
+        <ellipse cx="170" cy="155" rx="70" ry="20" fill="#add8e6" stroke="#1f6fb2"/>
+        <text x="170" y="159" font-size="11" text-anchor="middle">extra water mass</text>
+        <line x1="120" y1="22" x2="215" y2="22" stroke="#333" stroke-width="1.5" marker-end="url(#a5)"/>
+        <text x="167" y="16" font-size="10" text-anchor="middle">direction of travel</text>
+        <rect x="80" y="40" width="26" height="14" fill="#8a8a8a" stroke="#333"/>
+        <rect x="215" y="40" width="26" height="14" fill="#8a8a8a" stroke="#333"/>
+        <text x="93" y="70" font-size="10" text-anchor="middle">trailing</text>
+        <text x="228" y="70" font-size="10" text-anchor="middle">leading</text>
+        <line x1="106" y1="47" x2="215" y2="47" stroke="#b43c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="160" y="43" font-size="10" text-anchor="middle" fill="#b43c3c">220 km, measured to µm</text>
+        <line x1="93" y1="76" x2="93" y2="133" stroke="#999" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <line x1="228" y1="76" x2="228" y2="133" stroke="#999" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <text x="170" y="196" font-size="10" text-anchor="middle">the leading satellite reaches the mass first and is pulled forward</text>
+      </svg>
 
   .container width:{50%}
-    !(100%)[Equipotential Example](../image/franklin_fig_3-18.png "Equipotential lines and flow arrows on a potentiometric map")
+    - Two identical satellites, one chasing the other about 220 km behind, at roughly 490 km altitude.
+    - A microwave link measures the **distance between them** continuously, to within a few micrometres.
+    - Passing over a mass excess, the leading satellite is pulled forward and the separation grows; as the pair passes over, it shrinks again. The pattern of stretching and squeezing over a month is inverted into a global gravity field.
+    - Everything that is not water is modelled and removed: atmospheric mass, ocean tides, and the slow rebound of the crust from the last ice age. Over Australia that last correction is small, which makes the continent an unusually clean target.
+    - What remains is reported as **equivalent water thickness**, in millimetres of water, as an anomaly against a reference mean.
 
 
-# Example: Memphis Aquifer
-
-.row
-  .container width:{45%}
-    - Example: **Memphis Sand Aquifer (1995)**
-    - Heavy pumping caused **cones of depression**
-    - Equipotential contours + flow arrows show water moving toward pumping centers
-    - **Applications**:
-      - Tracking regional groundwater flow
-      - Managing water supply stress
-      - Identifying recovery trends after reduced pumping
-
-  .container width:{55%}
-    !(100%)[Memphis Potentiometric Surface](../image/franklin_fig_3-19.png "Potentiometric surface of the Memphis aquifer, showing cones of depression")
-
-
-# Water-Level Hydrographs
+# What the measurement can and cannot resolve
 
 .row
-  .container width:{55%}
-    - A **hydrograph** shows groundwater levels over time at a monitoring well
-    - Traditionally: manual measurements (monthly, seasonal)
-    - Now: automated, remote sensors (satellite uplinks, wireless)
-    - Hydrographs complement potentiometric maps:
-      - Maps = snapshot at one time
-      - Hydrographs = long-term temporal trends
-    - Useful for:
-      - Detecting pumping impacts
-      - Seasonal recharge/discharge cycles
-      - Long-term aquifer depletion or recovery
+  .container width:{50%}
+    - A monthly gravity field is expressed in spherical harmonics to about degree 50, which corresponds to features of about **400 km** on the ground. Newer mascon solutions are reported on finer grids, and the true resolution is still set by the physics, not the grid spacing.
+    - So GRACE sees **basins**, not fields, not bores. Published studies use areas of at least $ 10^{5} $ to $ 10^{6}\ \mathrm{km^2} $.
+    - The Murray-Darling, at $ 1.06\times10^{6}\ \mathrm{km^2} $, is right at the smallest size that can be resolved with confidence. Studying the Murrumbidgee alone this way is not possible.
+    - Signal from outside the basin bleeds in and signal from inside bleeds out. This is **leakage**, and correcting for it is most of the work in a GRACE study.
 
-  .container width:{45%}
-    !(100%)[Hydrograph Example](../image/franklin_fig_3-20.png "Long-term water-level hydrograph of Memphis aquifer well")
+  .container width:{50%}
+    .box title:{Three more limitations to state plainly} background:{.lightred}
+      - **No depth information.** Gravity gives a mass change in a column. It cannot say whether the water left a reservoir, the soil or an aquifer at 200 m.
+      - **Monthly, at best.** No storm, no single recharge event.
+      - **A gap in the record.** GRACE ran 2002 to 2017, GRACE-FO began in 2018, and the eleven months between them are missing from every time series.
+
+    In exchange you get the one thing no ground network provides: a complete, unbiased total for the whole basin, every month, for twenty years.
 
 
-# Hydrogeological Cross Sections
+# From total storage to groundwater
 
 .row
-  .container width:{55%}
-    - Vertical sections through aquifers showing:
-      - **Stratigraphy** (layering, $ K $ contrasts)
-      - **Hydraulic head distributions**
-      - **Flow lines and equipotentials**
-    - Often constructed along **mean flow direction**
-    - Show how layering causes **refraction of flow paths**
-    - Vertical exaggeration helps visualize layering and flow
+  .container width:{50%}
+    Gravity measures **all** the water in the column at once:
 
-  .container width:{45%}
-    !(100%)[Cross Section](../image/franklin_fig_3-21.png "Hydrogeologic cross section with equipotential lines and flow refraction")
+    $ \Delta \mathrm{TWS} = \Delta S_{snow} + \Delta S_{surface} + \Delta S_{soil} + \Delta S_{groundwater} $
+
+    Groundwater is obtained by subtracting the others, each from an independent source:
+
+    $ \Delta S_{gw} = \Delta \mathrm{TWS} - \Delta S_{surface} - \Delta S_{soil} $
+
+    - Surface water from reservoir and river records; soil moisture from a land surface model or from satellite soil moisture; snow is negligible in the Murray-Darling.
+    - Every error in those terms lands in the groundwater estimate, which is why the method is only as good as its soil moisture.
+
+  .container width:{50%}
+    .box title:{Does the subtraction actually work?} background:{.lightblue}
+      Leblanc et al. (2009) tested it over the Murray-Darling against ground measurements.
+
+      - Annual GRACE storage against the sum of measured groundwater, surface water and soil moisture: **R = 0.94**.
+      - GRACE minus soil moisture and surface water, against measured groundwater alone: **R = 0.92**.
+
+      The residual really does track the bores.
+
+    **This is what Assignment II and Assignment III ask you to do**, with CSR mascons for storage and the ESA CCI record for soil moisture.
+
+
+# The Millennium Drought, weighed
+
+.row
+  .container width:{50%}
+    Murray-Darling Basin, 2001 to 2007, from Leblanc et al. (2009):
+
+    | Store | Change | Over what period |
+    |---|---|---|
+    | Soil moisture | $ -80\ \mathrm{km^3} $ | 2001 to 2003 |
+    | Surface water | $ -12\ \mathrm{km^3} $ | 2001 to 2003 |
+    | Groundwater | $ -104\ \mathrm{km^3} $ | 2001 to 2007 |
+
+    - Average total deficit over the GRACE record: **140 km³**. Peak deficit, January to March 2007: **240 km³**.
+    - Soil moisture and surface water emptied within **two years** and then had nothing left to give. Groundwater was still falling **six years** in.
+    - Rainfall returned to average in 2007. Groundwater storage did not.
+
+  .container width:{50%}
+    .box title:{What the sequence tells you} background:{.lightblue}
+      A drought moves through the stores in order of their residence times. Rainfall deficit first, then soil moisture in months, then streamflow, then groundwater over years, and groundwater recovers last of all.
+
+      A rainfall record says the drought ended in 2007. The aquifer says it had not.
+
+    - This is the argument for measuring storage instead of inferring it from rainfall, and it is why this lecture ends on a gravity mission.
+    - The physics of *why* groundwater empties slowly is everything earlier in this lecture: low $ K $, long paths, and residence times of decades.
+
 
 # What we learned
 
 .row
   .container width:{100%}
-        - We learned about the principles of groundwater flow, covering:
-      - **Porosity and Physical Properties**: void space in rocks and how it controls water storage
-      - **Groundwater Occurrence**: unsaturated vs saturated zones and the water table
-      - **Darcy's Law**: the fundamental equation governing groundwater flow rates
-      - **Hydraulic Properties**: head, conductivity, and permeability measurements
-      - **Heterogeneous Media**: flow behavior in layered systems and flow refraction
-      - **Field Investigation Methods**: wells, piezometers, and mapping techniques
-      - **Practical Applications**: aquifer management and contaminant transport
+    - **Storage and transmission are different properties.** Porosity says how much water is held; conductivity says how fast it moves. Clay is the extreme case: highest porosity, lowest conductivity.
+    - **Head, not pressure, sets the direction of flow.** $ h = z + P/\rho_w g $, and in still water it is constant while pressure is not. Head belongs to a point, so one site can have several heads.
+    - **Darcy's law**, $ q = -K\,dh/dl $, is a measured relationship with a pore-scale explanation: $ K \propto d^2 \rho_w g/\mu $. That single result explains the range from gravel to clay, the empirical grain-size formulas, and the split into permeability and fluid properties.
+    - **Divide by effective porosity** to get the speed the water actually travels. In fractured rock that factor is a hundred or more.
+    - **Layering turns heterogeneity into anisotropy.** Along the bedding, the arithmetic mean and the best layer wins; across it, the harmonic mean and the worst layer wins. Isotropic layers alone can give $ K_h/K_v = 10^6 $.
+    - **Flow lines refract** at a contact: straight down into a tight unit, along a conductive one.
+    - **Field practice**: piezometer nests for vertical gradients, potentiometric maps for one aquifer at one time, hydrographs for the history, and GRACE for the whole basin.
+
+.fullspan
+  .align{center}
+    .container width:{60%} borderwidth:{1pt} padding:{0.2cm} background:{.lightred} radius:{0.5cm}
+      Next week: **aquifers**. The units themselves, and how much water they release when the head falls.

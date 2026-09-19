@@ -148,7 +148,7 @@ $ k = \frac{K \mu}{\rho_w g} $
 
 **Step 4: Substitute values**
 
-$ k = \frac{(1.76 \times 10^{-4} \text{m/sec}) \times (1.023 \times 10^{-3} \text{ Pa.s})}{(1000 \text{ kg/m}^3) \times (9.81 \text{ m/s}^2)} $
+$ k = \frac{(1.76 \times 10^{-4} \text{m/sec}) \times (1.002 \times 10^{-3} \text{ Pa.s})}{(1000 \text{ kg/m}^3) \times (9.81 \text{ m/s}^2)} $
 
 $ k = \frac{1.8 \times 10^{-7} \text{ m.Pa.s/sec}}{9810 \text{ kg/(m.s}^2\text{)} } $
 
@@ -228,3 +228,284 @@ $ \theta_2 = \arctan(1.92 \times 10^{-7}) \approx 1.1 \times 10^{-5} \text{ degr
 - **Snell's law for groundwater**: $ \frac{\tan \theta_1}{K_1} = \frac{\tan \theta_2}{K_2} $
 - **Layered systems**: create strong anisotropy ($ K_h >> K_v $ when low-K layers present)
 - **Practical implication**: contaminants preferentially move horizontally in layered aquifers
+
+## Problem 6: Solutions
+
+a) **Hydraulic head at each measurement point**
+
+Head is the elevation of the water level in the pipe, and it belongs to the middle of the
+screen. With a ground surface at 120.0 m above sea level, $ h = 120.0 - DTW $:
+
+| Device | Measurement point (m asl) | Head (m asl) |
+|---|---|---|
+| P1 | 110.0 | **116.0** |
+| P2 | 95.0 | **112.5** |
+| P3 | 60.0 | **109.0** |
+| W1 | undefined | **110.8** |
+
+**Explanation:** The measurement point of a piezometer is the midpoint of its screen, so P1
+reports conditions at 110 m asl and P3 at 60 m asl. Note that every head is above its own
+measurement point, which simply means the water is under pressure at that depth.
+
+b) **Vertical hydraulic gradient and flow direction**
+
+$ i_{P1\to P2} = \frac{116.0 - 112.5}{110.0 - 95.0} = \frac{3.5}{15.0} = 0.233 $
+
+$ i_{P2\to P3} = \frac{112.5 - 109.0}{95.0 - 60.0} = \frac{3.5}{35.0} = 0.100 $
+
+Head **decreases with depth**, so vertical flow is **downward**. Water is entering the
+groundwater system here, so this is a **recharge area**.
+
+**Explanation:** The two gradients differ by a factor of 2.3 and the difference is
+informative. The steeper gradient sits in the upper interval, entirely inside the silt. The
+gentler one spans the base of the silt and the top of the sand. The same vertical discharge
+passes through both intervals, so where the gradient is steeper the conductivity must be
+smaller. This is the layers-in-series argument of the lecture, read backwards from field data.
+
+c) **What the water well reads**
+
+W1 is screened from 15 to 60 m, across the silt **and** the sand. Its water level is an
+average of the heads over that interval, weighted by the conductivity and screen length of
+each unit it crosses. Since the sand is much the more conductive, W1 reads 110.8 m, close to
+the sand's 109.0 m and nothing like the silt's 116.0 m.
+
+That number belongs to **no particular depth**, so it cannot be used in a gradient
+calculation. A gradient needs two heads at two known points, and W1 supplies only one head
+at an unknown point.
+
+d) **Specific discharge through the silt**
+
+Both P1 and P2 are screened in the silt, so use the gradient between them:
+
+$ q = K_v\, i = (1 \times 10^{-8}\ \mathrm{m/s})(0.233) = 2.33 \times 10^{-9}\ \mathrm{m/s} $
+
+Converting to a yearly rate:
+
+$ q = 2.33 \times 10^{-9} \times 3.16 \times 10^{7} = 0.0737\ \mathrm{m/year} = \boxed{74\ \mathrm{mm/year}} $
+
+**Explanation:** This is a recharge rate: the depth of water crossing each square metre of the
+silt each year, on its way to the aquifer. Comparing it with annual rainfall at the site
+tells you what fraction of the rain reaches the aquifer, which is the number any groundwater
+allocation depends on.
+
+e) **What a single long-screened well would lose**
+
+Everything in parts (b) and (d). One well gives one averaged head, so there is no way to find
+the vertical gradient, no way to establish whether the site recharges or discharges, and no
+way to estimate the recharge rate. It would also hide the conductivity contrast found in
+part (b).
+
+**Key Learning Points:**
+- Head belongs to the measurement point, which is the midpoint of the screen
+- Several devices at one site legitimately give several different heads
+- Head falling with depth means downward flow, which means a recharge area
+- A long-screened well averages over what it crosses and cannot resolve a vertical gradient
+- A vertical gradient plus a vertical conductivity gives a recharge rate
+
+
+## Problem 7: Solutions
+
+a) **Equivalent horizontal hydraulic conductivity**
+
+With equal thicknesses the thickness-weighted arithmetic mean is the plain arithmetic mean:
+
+$ K_h = \frac{20 + 10 + 15 + 50 + 1}{5} = \frac{96}{5} = \boxed{19.2\ \mathrm{m/day}} $
+
+b) **Equivalent vertical hydraulic conductivity**
+
+$ K_v = \frac{5}{\frac{1}{20}+\frac{1}{10}+\frac{1}{15}+\frac{1}{50}+\frac{1}{1}} = \frac{5}{0.050+0.100+0.0667+0.020+1.000} = \frac{5}{1.2367} = \boxed{4.04\ \mathrm{m/day}} $
+
+**Explanation:** The single term $ 1/1 = 1.000 $ contributes 81% of the denominator. The layer
+with $ K = 1 $ m/day is a fifth of the thickness and sets four fifths of the vertical
+resistance.
+
+c) **Anisotropy ratio**
+
+$ \frac{K_h}{K_v} = \frac{19.2}{4.04} = 4.75 $
+
+Every one of the five formations is isotropic, so not one of them contributes any directional
+dependence of its own. The anisotropy is produced **entirely by the arrangement**. Horizontal
+flow can use the best layer and ignore the rest, giving an arithmetic mean; vertical flow must
+pass through every layer in turn, giving a harmonic mean. Treated as one block, the sequence
+therefore conducts 4.75 times better along the bedding than across it.
+
+d) **Flow direction in each formation**
+
+The tangent refraction law, with angles measured from the normal to the boundaries, which
+here is the vertical:
+
+$ \tan\alpha_i = \frac{K_i}{K_1}\tan\alpha_1, \qquad \tan 30° = 0.577 $
+
+| Formation | $ K $ (m/day) | $ K_i/K_1 $ | $ \tan\alpha_i $ | $ \alpha_i $ from vertical |
+|---|---|---|---|---|
+| 1 | 20 | 1.00 | 0.577 | **30.0°** |
+| 2 | 10 | 0.50 | 0.289 | **16.1°** |
+| 3 | 15 | 0.75 | 0.433 | **23.4°** |
+| 4 | 50 | 2.50 | 1.443 | **55.3°** |
+| 5 | 1 | 0.05 | 0.029 | **1.7°** |
+
+**Explanation:** Flow turns towards the vertical on entering a tighter formation and towards
+the horizontal on entering a more conductive one. In formation 4 it runs at 55° from the
+vertical, travelling mostly sideways; in formation 5 it is within two degrees of straight
+down. Neither result depends on the path taken to get there, only on the conductivity of the
+formation relative to formation 1.
+
+e) **Removing the bottom formation**
+
+$ K_h = \frac{20+10+15+50}{4} = \frac{95}{4} = 23.75\ \mathrm{m/day} $
+
+$ K_v = \frac{4}{0.050+0.100+0.0667+0.020} = \frac{4}{0.2367} = 16.90\ \mathrm{m/day} $
+
+$ K_h $ rose by 24%. $ K_v $ rose by a factor of **4.2**, and the anisotropy ratio fell from
+4.75 to 1.41.
+
+**Explanation:** Removing a fifth of the thickness barely changes the horizontal answer,
+because that layer was carrying almost none of the horizontal flow. It transforms the vertical
+answer, because it was carrying all of the vertical resistance. This asymmetry is the whole
+practical content of the two averaging formulas: to predict horizontal flow you must identify
+the **best** layer, and to predict vertical flow you must identify the **worst** one.
+
+**Key Learning Points:**
+- Equal thicknesses reduce the weighted means to plain arithmetic and harmonic means
+- A stack of isotropic layers is an anisotropic medium at the scale of the stack
+- The refraction angle in a layer depends only on its own conductivity, not on the path
+- The harmonic mean is controlled by its smallest term, the arithmetic mean by its largest
+
+
+## Problem 8: Solutions
+
+a) **Contouring**
+
+Contours at 40, 42, 44, 46, 48 and 50 m run approximately north-northwest to south-southeast.
+They are widely spaced in the western half and closely spaced in the eastern half. Flow arrows
+cross them at right angles, pointing east-northeast, down the gradient.
+
+b) **Hydraulic gradient in each half**
+
+Taking differences between adjacent wells:
+
+$ \frac{\partial h}{\partial x}\bigg|_{west} = \frac{48.0-50.0}{1000} = -0.002, \qquad \frac{\partial h}{\partial x}\bigg|_{east} = \frac{42.0-48.0}{1000} = -0.006 $
+
+$ \frac{\partial h}{\partial y} = \frac{49.0-50.0}{1000} = -0.001 \quad \text{everywhere} $
+
+West: $ |i| = \sqrt{0.002^2 + 0.001^2} = \boxed{2.24 \times 10^{-3}} $, directed
+$ \arctan(0.001/0.002) = 26.6° $ north of east.
+
+East: $ |i| = \sqrt{0.006^2 + 0.001^2} = \boxed{6.08 \times 10^{-3}} $, directed
+$ \arctan(0.001/0.006) = 9.5° $ north of east.
+
+**Explanation:** The gradient in the east is 2.7 times the gradient in the west, which is the
+closer contour spacing expressed as a number. The flow direction also swings: as the
+east-west component grows, the constant north-south component matters less, so the flow turns
+to point more nearly due east.
+
+c) **Transmissivity and discharge in the western half**
+
+$ T = Kb = (15\ \mathrm{m/day})(30\ \mathrm{m}) = \boxed{450\ \mathrm{m^2/day}} $
+
+Only the east-west component of flow crosses a north-south section, so use
+$ \partial h/\partial x $:
+
+$ Q = T \frac{\partial h}{\partial x} W = (450)(0.002)(2000) = \boxed{1800\ \mathrm{m^3/day}} $
+
+d) **Transmissivity of the eastern half**
+
+The flow is steady and nothing enters or leaves between the two sections, so the same
+1800 m³/day must cross both:
+
+$ 1800 = T_{east}(0.006)(2000) \;\Rightarrow\; T_{east} = \frac{1800}{12} = \boxed{150\ \mathrm{m^2/day}} $
+
+which is one third of the western value. The thickness is constant at 30 m, so the
+conductivity must fall to 5 m/day. A plausible cause is a facies change: the sand becomes
+finer, siltier or better cemented towards the east, perhaps away from the axis of an old
+channel.
+
+**Explanation:** This is the most useful thing a potentiometric map does. The map itself
+contains no conductivity measurements at all, and yet the contour spacing has just told you
+that the aquifer gets three times worse towards the east. Wherever Darcy's law holds and the
+discharge is constant, the gradient and the transmissivity are inversely proportional, so
+**closely spaced contours mark poor ground, not more water**.
+
+e) **A well in the wrong aquifer**
+
+That well measures the potentiometric surface of a different unit, which can sit metres above
+or below this one. Contoured with the others it produces a false local high or low, and the
+flow directions drawn around it point the wrong way. It must be removed and the map redrawn.
+This is the first of the three rules for potentiometric maps: one map, one aquifer.
+
+**Key Learning Points:**
+- Contour spacing is the gradient: close contours mean a steep gradient
+- Only the component of the gradient normal to a section drives flow across it
+- With steady flow and no recharge, $ Ti $ is constant, so gradient and transmissivity trade off
+- A steep gradient signals poor transmissivity, not abundant water
+- Every well on one map must be screened in the same aquifer
+
+
+## Problem 9: Solutions
+
+a) **Storage change as an equivalent water thickness**
+
+$ \frac{65\ \mathrm{km^3}}{1.06\times10^{6}\ \mathrm{km^2}} = \frac{65\times10^{9}\ \mathrm{m^3}}{1.06\times10^{12}\ \mathrm{m^2}} = 0.0613\ \mathrm{m} = \boxed{61\ \mathrm{mm}} $
+
+**Explanation:** Sixty-one millimetres of water spread over the basin, accumulated over four
+years. That is the size of the signal a pair of satellites 490 km up has to detect through
+their separation changing by micrometres.
+
+b) **The budget, and the groundwater change**
+
+Total water storage is the sum of everything held on and below the surface:
+
+$ \Delta \mathrm{TWS} = \Delta S_{snow} + \Delta S_{surface} + \Delta S_{soil} + \Delta S_{gw} $
+
+Snow is negligible in this basin, so rearranging for the groundwater term:
+
+$ \Delta S_{gw} = \Delta \mathrm{TWS} - \Delta S_{surface} - \Delta S_{soil} = -65 - 0 - (-9) = \boxed{-56\ \mathrm{km^3}} $
+
+**Explanation:** Gravity cannot distinguish one store from another, so groundwater is never
+measured directly. It is what is left after every other term has been subtracted, which means
+every error in those terms transfers in full to the groundwater estimate.
+
+c) **Sensitivity to the soil moisture estimate**
+
+With $ \Delta S_{soil} = -12 $ km³ instead of $ -9 $ km³:
+
+$ \Delta S_{gw} = -65 + 12 = -53\ \mathrm{km^3} $
+
+The answer moved by 3 km³, which is 5% of 56 km³. The method is robust here.
+
+For 2001 to 2003 the soil moisture loss was about 80 km³, and a 30% model error is
+**24 km³**. An error that size is comparable to the whole groundwater signal of the early
+drought, so the subtraction would be worthless over that period.
+
+**Explanation:** The error in the groundwater estimate equals the error in the subtracted
+terms, whatever their size. So the method works when the term being subtracted is small
+compared with the term being sought, and fails when it is not. In this basin soil moisture
+emptied quickly and then stayed low, so the later years, when soil moisture was no longer
+changing much, give the most reliable groundwater estimates.
+
+d) **Average fall of the water table**
+
+An unconfined aquifer releases a volume of water equal to the drained volume times the
+specific yield, so
+
+$ \Delta z = \frac{\Delta S_{gw}}{A\,S_y} = \frac{56\times10^{9}\ \mathrm{m^3}}{(1.06\times10^{12}\ \mathrm{m^2})(0.1)} = \boxed{0.53\ \mathrm{m}} $
+
+**Explanation:** Half a metre of water table across an area the size of France and Germany
+combined. The conversion runs through $ S_y $, which is the subject of the aquifers lecture.
+Note the leverage: because only a tenth of the drained rock was water, a 61 mm loss of total
+storage corresponds to a water table fall almost ten times larger.
+
+e) **Why the Murrumbidgee is too small**
+
+An area of 84,000 km² is a square roughly 290 km on a side. A monthly gravity field resolves
+features of about 400 km, so the catchment is smaller than the smallest thing the measurement
+can separate. Its signal would be mixed with that of everything within a few hundred
+kilometres, which is the leakage problem, and no amount of processing recovers detail that was
+never in the measurement.
+
+**Key Learning Points:**
+- GRACE reports total water storage as an equivalent thickness of water, in millimetres
+- Groundwater is obtained by subtraction, so it inherits every other term's error
+- The subtraction is trustworthy when the subtracted terms are small compared with the residual
+- Converting a storage volume to a water table change requires the specific yield
+- The measurement resolves about 400 km, which sets the smallest basin it can be used on

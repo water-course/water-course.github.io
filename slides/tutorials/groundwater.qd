@@ -104,3 +104,133 @@ a) Calculate the equivalent horizontal hydraulic conductivity $ K_h $ for the en
 b) Calculate the equivalent vertical hydraulic conductivity $ K_v $ for the entire layered system.
 
 c) Using principles of flow refraction, determine the flow direction in the shale layers when groundwater crosses from sandstone at the observed 45° angle.
+
+## Problem 6: A Piezometer Nest
+
+A monitoring site on the edge of an irrigation district has four devices installed within
+ten metres of each other. The ground surface is 120.0 m above sea level. A shallow
+low-conductivity silt extends from the surface to 35 m depth; below it lies a sand
+aquifer. All four devices were read on the same morning.
+
+| Device | Screened interval (m below surface) | Depth to water (m) |
+|---|---|---|
+| Piezometer P1 | 9 – 11 | 4.0 |
+| Piezometer P2 | 24 – 26 | 7.5 |
+| Piezometer P3 | 59 – 61 | 11.0 |
+| Water well W1 | 15 – 60 | 9.2 |
+
+**Given data:**
+- Ground surface elevation: 120.0 m above sea level
+- Vertical hydraulic conductivity of the silt: $ K_v = 1 \times 10^{-8} $ m/sec
+- One year is $ 3.16 \times 10^{7} $ seconds
+
+**Tasks:**
+
+a) Calculate the hydraulic head at the measurement point of each of the four devices.
+
+b) Calculate the vertical hydraulic gradient between each adjacent pair of piezometers
+   (P1 to P2, and P2 to P3). State the direction of vertical flow, and say whether this site
+   is a recharge area or a discharge area.
+
+c) The water well W1 gives a different head again. Explain what its reading represents, and
+   why it cannot be used in the calculation you did in part (b).
+
+d) P1 and P2 are both screened in the silt. Use the gradient between them, with the vertical
+   conductivity of the silt, to calculate the specific discharge through the silt in m/sec,
+   and express it as a recharge rate in mm/year.
+
+e) A colleague proposes saving money by installing one long-screened well instead of the
+   three piezometers. Say what information would be lost.
+
+
+## Problem 7: A Five-Layer Sequence
+
+A sedimentary sequence consists of five horizontal formations of **equal thickness**, each
+of them isotropic. From the top down, their hydraulic conductivities are 20, 10, 15, 50 and
+1 m/day. Groundwater in the uppermost formation flows at 30° from the vertical as it
+approaches the first boundary.
+
+**Tasks:**
+
+a) Calculate the equivalent horizontal hydraulic conductivity $ K_h $ of the sequence.
+
+b) Calculate the equivalent vertical hydraulic conductivity $ K_v $ of the sequence.
+
+c) Calculate the anisotropy ratio $ K_h/K_v $ of the sequence as a whole. Every layer in it is
+   isotropic. Explain where the anisotropy comes from.
+
+d) Calculate the direction of flow in each of the five formations, as an angle from the
+   vertical.
+
+e) The bottom formation, the one with $ K = 1 $ m/day, is eroded away. Recalculate $ K_h $ and
+   $ K_v $ for the remaining four layers. Comment on which of the two changed more, and why.
+
+
+## Problem 8: Reading a Potentiometric Surface
+
+Nine wells, all screened in the same confined sand aquifer, were read within the same week.
+The origin is at the southwest corner of the area, $ x $ increases to the east and $ y $ to the
+north. Heads are in metres above sea level.
+
+| $ x $ (m) | $ y = 0 $ | $ y = 1000 $ | $ y = 2000 $ |
+|---|---|---|---|
+| 0 | 50.0 | 49.0 | 48.0 |
+| 1000 | 48.0 | 47.0 | 46.0 |
+| 2000 | 42.0 | 41.0 | 40.0 |
+
+**Given data:**
+- Aquifer thickness: 30 m, constant across the area
+- Hydraulic conductivity in the **western** half: $ K = 15 $ m/day
+- Steady flow, no recharge to the aquifer through its confining bed
+
+**Tasks:**
+
+a) Contour the data by hand with a contour interval of 2 m, and mark the direction of
+   groundwater flow with arrows.
+
+b) Calculate the magnitude and direction of the hydraulic gradient in the western half of
+   the area ($ x $ = 0 to 1000 m), and again in the eastern half ($ x $ = 1000 to 2000 m).
+
+c) Calculate the transmissivity of the western half, and from it the discharge through a
+   north-south section 2000 m wide, in m³/day.
+
+d) The flow is steady and nothing is added or removed between the two halves, so the same
+   discharge must cross both. Use that fact to calculate the transmissivity of the eastern
+   half, and state what physically could produce the difference.
+
+e) One of the nine wells is later found to be screened in a deeper aquifer. Explain what that
+   does to your map.
+
+
+## Problem 9: Weighing the Basin from Orbit
+
+The GRACE satellites measure the change in total water storage over the Murray-Darling
+Basin. Between 2002 and 2006 the basin lost 65 km³ of total water storage. Independent
+estimates put the soil moisture loss over the same period at 9 km³, and the change in
+surface water storage at approximately zero.
+
+**Given data:**
+- Area of the Murray-Darling Basin: $ 1.06 \times 10^{6} $ km²
+- Change in total water storage, 2002 to 2006: $ -65 $ km³
+- Change in soil moisture storage: $ -9 $ km³
+- Change in surface water storage: $ 0 $ km³
+- Specific yield of the unconfined aquifers, taken as uniform: $ S_y = 0.1 $
+
+**Tasks:**
+
+a) Express the total water storage change as an equivalent water thickness in millimetres
+   over the basin. This is the quantity GRACE actually reports.
+
+b) Write the water storage budget that relates total water storage to its components, and use
+   it to calculate the change in groundwater storage over the period.
+
+c) The soil moisture estimate comes from a model and could be wrong by 30%. Recalculate the
+   groundwater change for a soil moisture loss of 12 km³ instead of 9 km³, and state how
+   much the answer moved. Then repeat the exercise for the period 2001 to 2003, when the
+   soil moisture loss was 80 km³, and comment on when this method is trustworthy.
+
+d) Convert your groundwater loss from part (b) into an average fall of the water table across
+   the basin, in metres.
+
+e) A student proposes using the same method for the Murrumbidgee catchment alone, an area of
+   84,000 km². Explain why this will not work.

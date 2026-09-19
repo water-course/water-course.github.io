@@ -17,7 +17,7 @@ Slides are released as we get to them during the semester.
 - [**Precipitation**](Precipitation/index.html)
 - [**Evapotranspiration**](Evaporation/index.html)
 - [**Run-off**](Runoff/index.html)
-- **Groundwater - Principles**
+- [**Groundwater - Principles**](Groundwater/index.html)
 - **Groundwater - Aquifers**
 - **Groundwater - Theory of Flow I (saturated)**
 - **Groundwater - Theory of Flow II (unsaturated)**
@@ -32,7 +32,7 @@ Each tutorial appears here in the week it is run.
 - [**Precipitation**](Tutorial-Precipitation/index.html)
 - [**Evapotranspiration**](Tutorial-Evaporation/index.html)
 - [**Run-off**](Tutorial-Runoff/index.html)
-- **Groundwater - Principles**
+- [**Groundwater - Principles**](Tutorial-Groundwater/index.html)
 - **Groundwater - Theory of Flow**
 - **Groundwater - Aquifers**
 
