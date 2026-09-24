@@ -7,83 +7,226 @@
    EMSC3025-6025
 
 .pagemargin{topright}
-    Assignment III
+    Assignment III -- Groundwater
 
 .include {../definitions.qd}
 
-# Groundwater
+# Groundwater: Specific Yield from Space and from Bores
 
-Depth-to-groundwater data are available on WaterNSW (in csv format) for monitoring sites across New South Wales. This assignment focuses on analysing groundwater level changes and calculating effective porosity using a combination of satellite gravity data and satellite soil moisture data.
+In Assignment II you took the total water storage that GRACE measures, subtracted the water in
+the soil, and called the rest groundwater. A bore measures something different: the height of
+the water in one hole in the ground. If the water table falls by one metre and the aquifer
+gives up 50 mm of water, the aquifer has a specific yield of 0.05. This assignment puts the two
+measurements side by side at ten monitoring sites in the southern Murray-Darling Basin and asks
+whether their ratio really is a specific yield. The calculation is short. Most of the marks are
+for finding out what the number means, and where it stops meaning anything.
 
 **Total: 15 marks.**
 
-### Data Access Instructions
+For EMSC3025, Questions 1–5 total 15 marks. Question 6 is an optional one-mark bonus.
 
-Depth-to-groundwater data are available from the WaterNSW realtime [data website](https://realtimedata.waternsw.com.au/water.stm).
+For EMSC6025, Questions 1–3 total 8 marks, Question 4 is worth 3 marks, Question 5 is worth 2 marks, and required Question 6 is worth 2 marks.
 
-**Data retrieval steps:**
-- In the "Groundwater (Telemetered data)" section on the left, select "Search".
-- Enter the site code in .ref {table-1}, then search for the data.
-- Choose "download" found in the "Output" options. Select the sampling interval that you require.
+### Computer labs for this assignment
 
-### Monitoring Site Information
+- [Lab 3: xarray gridded data](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab03_xarray_gridded_data.ipynb) covers coordinate selection and the latitude-direction trap, which you need again for the GRACE and soil moisture grids.
+- [Lab 5: Rain gauge interpolation](https://colab.research.google.com/github/water-course/colab-tutorials/blob/main/lab05_rain_gauge_interpolation.ipynb) covers inverse-distance weighting, which Question 5 uses.
 
-| Location | Site Code | Latitude | Longitude |
-|:---------|:----------|:---------|:----------|
-| Toganmain | GW036275 | -34.6736 | 145.6233 |
-| Amberdell | GW036582 | -35.8116 | 144.8309 |
-| Barratta | GW036871 | -35.2736 | 144.5336 |
-| Howlong | GW273166 | -35.9735 | 146.6186 |
-| Wagga Wagga | GW273167 | -35.1006 | 147.3692 |
-| Narrandera | GW040956 | -34.6966 | 146.3422 |
-| Jerilderie | GW036211 | -35.06580 | 145.3797 |
-| McLennons Bore Rd | GW403747 | -35.0293 | 145.5936 |
-| Forbes | GW036597 | -33.7657 | 147.4806 |
-| Roeta Rd | GW036284 | -33.3522 | 145.0312 |
+Your Assignment II notebook already reads both gridded files. Reuse that code.
+
+.whitespace{10pt}
+
+.center
+   .container width:{92%} background:{.lightblue} radius:{9pt} padding:{10pt}
+      ##### The idea
+
+      When the water table in an unconfined aquifer falls by $ \Delta h $, the pores that
+      drain release a depth of water $ \Delta S = S_y \, \Delta h $, where $ S_y $ is the
+      specific yield. So
+
+      $ S_y = \frac{\Delta S}{\Delta h} $ {#equation-1}
+
+      GRACE minus soil moisture gives $ \Delta S $ as a depth of water. A bore gives
+      $ \Delta h $ as a change in water level. Both are in metres once you convert, and
+      $ S_y $ has no units. The aquifers lecture gives $ S_y $ between 0.01 and 0.30 for
+      unconfined aquifers and a storativity $ S $ between $ 10^{-5} $ and $ 10^{-3} $ for
+      confined aquifers. Keep those two ranges in mind from the start.
+
+### The data
+
+#### Bore water levels
+
+The bore records come from the WaterNSW [realtime data website](https://realtimedata.waternsw.com.au/water.stm).
+A fixed copy for this assignment, one CSV file per pipe with a site table and a README, is on
+the course data server:
+
+.row alignment:{center}
+   [https://data.gadopt.org/water-course/waternsw_bores_2003-2025.zip](https://data.gadopt.org/water-course/waternsw_bores_2003-2025.zip)
+
+Use this copy, so that everybody works from the same data. The column `depth_below_mp_m` is the
+depth in metres from the measuring point at the top of the bore down to the water. Read the
+README in the zip before you start.
+
+A monitoring site can have several pipes. Each pipe is a separate tube in the same borehole,
+open to the ground over a different depth interval, so two pipes at one site can measure two
+different aquifers. Use the pipe given in .ref {table-1} for Questions 1–5.
+
+| Location | Site | Pipe | Latitude | Longitude |
+|:---------|:-----|:----:|:---------|:----------|
+| Toganmain | GW036275 | 1 | -34.6736 | 145.6233 |
+| Amberdell | GW036582 | 2 | -35.8116 | 144.8309 |
+| Barratta | GW036871 | 3 | -35.2736 | 144.5336 |
+| Howlong | GW273166 | 1 | -35.9735 | 146.6186 |
+| Wagga Wagga | GW273167 | 1 | -35.1006 | 147.3692 |
+| Narrandera | GW040956 | 3 | -34.6966 | 146.3422 |
+| Jerilderie | GW036211 | 1 | -35.0658 | 145.3797 |
+| McLennons Bore Rd | GW403747 | 3 | -35.0293 | 145.5936 |
+| Forbes | GW036611 | 1 | -33.7553 | 147.5824 |
+| Roeta Rd | GW036284 | 2 | -33.3522 | 145.0312 |
 {#table-1}
+
+The zip also holds a second pipe at Toganmain (pipe 2), Barratta (pipe 2) and Wagga Wagga
+(pipe 2). Question 6 uses them.
+
+#### GRACE and soil moisture
+
+Use the same two files as Assignment II: the CSR RL06.3 mascons
+(`CSR_GRACE_GRACE-FO_RL0603_Mascons_all-corrections.nc`) and the ESA CCI soil moisture subset
+(`esacci_sm_combined_v09-1_MDB_daily_2003-2023.nc`). Every warning in Assignment II about these
+two files still applies.
+
+.whitespace{10pt}
+
+.center
+   .container width:{92%} background:{rgb(255, 215, 215)} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      ##### Six ways this will go wrong without an error message
+
+      **1. Depth is not level.** A larger `depth_below_mp_m` means the water is *lower*. If you
+      use depth where the equation needs level, every $ S_y $ comes out negative. Define the
+      water level as $ h = -\text{depth} $ before you do anything else.
+
+      **2. Millimetres against metres.** GRACE and soil moisture give $ \Delta S $ in mm of
+      water. The bores give $ \Delta h $ in m. If you do not convert, $ S_y $ is a thousand
+      times too large.
+
+      **3. The bore records are short.** At most sites the telemetry starts in 2009–2011.
+      Before that, some files contain daily values interpolated between occasional manual
+      readings (quality code 26). The soil moisture file ends in December 2023. Use **January
+      2010 to December 2023** for all fitting.
+
+      **4. GRACE has gaps.** Of the 168 months from 2010 to 2023, 32 have no GRACE solution,
+      including every month from July 2017 to May 2018. Average all three datasets to calendar
+      months, match on year and month, and do not fill the gaps.
+
+      **5. The GRACE traps from Assignment II.** The time axis does not decode (`Units` with a
+      capital U), `lwe_thickness` is in cm, latitude runs south to north, and the anomalies are
+      relative to the 2004–2009 mean. Remove the 2004–2009 mean from the soil moisture before
+      you subtract it. Select the grid cell with `method="nearest"` on latitude and longitude
+      only, never in the same call as a time selection.
+
+      **6. Do not divide month by month.** The ratio of one month's $ \Delta S $ to that month's
+      $ \Delta h $ becomes very large whenever $ \Delta h $ is close to zero, and the mean of
+      such ratios means nothing. Question 3 tells you how to estimate $ S_y $ from the whole
+      record.
 
 ### Questions
 
-1. 📈 **(2 marks)** Plot the time series of depth to groundwater level for each site. Create individual plots showing the temporal variation in groundwater depth for all monitoring locations.
+1. **(2 marks)** Read the ten bore records in .ref {table-1}, average them to calendar months
+   (state the minimum number of days you require in a month), and convert them to water level
+   $ h $ with up positive. Plot the monthly water level at all ten sites, with dates on the
+   time axis and units on the level axis.
 
-2. 🛰️ **(4 marks)** Calculate the groundwater change at each of the sites from a combination of satellite gravity and satellite soil moisture data. Reuse the method of the previous assignment, but not its basin-mean series: you need a separate value of $ \Delta S $ for each site, taken from the grid cells at that site rather than averaged over the whole basin. A single basin-wide number applied to all ten sites would leave Question 4 mapping nothing but the bore data. Consider the spatial resolution limitations and interpolation methods required.
+   Make a table with, for each site, the first and last month of the record, the number of
+   months with a value in 2010–2023, the mean depth to water in 2010–2023, and the median
+   within-year range of the monthly level (the maximum minus the minimum in each calendar
+   year). Describe what you see. Which sites swing by several metres every year, in which
+   season is the water lowest, and what do you think causes it? Which sites show short upward
+   spikes, and in which years? Look at where those sites are.
 
-3. 💻 **(4 marks)** Estimate the **specific yield** (approximating effective porosity) at each location using .ref {equation-1}.
+2. **(3 marks)** Using the method of Assignment II, build a monthly series of groundwater
+   storage change $ \Delta S $ in mm at each of the ten sites: GRACE total water storage change
+   in the grid cell nearest the site, minus the soil moisture change in the soil moisture grid
+   cell nearest the site. Take $ L = 20 $ cm for the soil layer. Plot the ten series together.
 
-   $ S_y \approx n_e = \frac{\Delta S}{\Delta h} $ {#equation-1}
+   Then test how much GRACE can tell the ten sites apart.
 
-$ \Delta S $ is the change in subsurface water storage (from satellite/soil moisture data) and $ \Delta h $ is the observed change in groundwater level.
+   - Count how many of the ten GRACE series are different from each other, and explain why
+     some are identical.
+   - Compute the correlation of $ \Delta S $ between every pair of sites over the months that
+     all ten share, and report the range.
+   - Compare the standard deviation *between* the ten sites in a given month, averaged over
+     all months, with the standard deviation *in time* at one site, averaged over all sites.
 
-4. 🌍 **(5 marks)** Produce a spatial map of specific yield over the region (i.e. interpolate between the discrete data points). Use appropriate interpolation techniques to create a continuous surface map showing spatial variation in specific yield across the study region.
+   The grid spacing is 0.25 degrees, the mascons are estimated on a 1 degree grid, and GRACE
+   resolves features of about 300 km. How large is the area that the ten sites cover? What do
+   your three numbers mean for the map you will make in Question 5?
 
-### EMSC6025 requirements
+3. **(3 marks)** Estimate $ S_y $ at each site with .ref {equation-1}. Use the months from
+   January 2010 to December 2023 in which both $ \Delta S $ and $ h $ have a value. Subtract
+   from each series its own mean over those months, convert $ \Delta S $ to metres, and fit
+   $ \Delta S = S_y \, \Delta h $ plus a constant by least squares. The slope is your estimate.
+
+   Report, for each site, $ S_y $ with its standard error, the correlation coefficient $ r $
+   and the number of months used. Show the scatter plot with the fitted line for at least one
+   site.
+
+4. **(EMSC3025: 4 marks; EMSC6025: 3 marks)** Are these numbers specific yield? Answer with
+   evidence from your own results.
+
+   - Place each value against the ranges in the aquifers lecture: 0.01 to 0.30 for unconfined
+     aquifers, $ 10^{-5} $ to $ 10^{-3} $ for confined aquifers.
+   - Compare the estimate at each site with its within-year range from Question 1. Explain
+     the relation you find. Think about what pumping from a confined or leaky aquifer does to
+     the water level and what it does to the water stored in the ground.
+   - $ \Delta S $ is everything GRACE sees minus 20 cm of soil. Lake Hume, a few tens of
+     kilometres upstream of Howlong, holds about 3,000 GL when full. Calculate what the change
+     from nearly empty to full is in mm spread over a square 300 km on a side, and compare it
+     with the variation of $ \Delta S $ at Howlong. Name the other water that the subtraction
+     assigns to groundwater.
+   - One GRACE value represents an area of the order of 90,000 km². One bore represents the
+     aquifer within some hundreds of metres of it. State what your estimates can be used for
+     and what they cannot.
+
+5. **(EMSC3025: 3 marks; EMSC6025: 2 marks)** Make a map of $ S_y $ from your ten values with
+   two interpolation methods, for example inverse-distance weighting (Lab 5) and a
+   thin-plate spline or linear interpolation. Show the map only inside the convex hull of the
+   ten sites, and mark the sites on it. State the parameters of each method.
+
+   Test the maps with leave-one-out cross-validation: remove one site, predict its value from
+   the other nine, repeat for every site, and report the root-mean-square error of each method.
+   Compare these errors with the standard deviation of the ten values and with the error you
+   get if you predict each site with the mean of the other nine. What can the map show, and
+   what can it not show?
+
+.whitespace{10pt}
 
 .center
-   .container width:{85%} background:{.lightgreen} radius:{9pt} padding:{10pt} borderwidth:{1pt}
-      EMSC6025 students must also:
+   .container width:{92%} background:{.lightgreen} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      **EMSC6025: required and worth 2 marks.** **EMSC3025: optional and worth one bonus mark.**
 
-      - Select and justify the methods used for temporal alignment, spatial comparison and interpolation.
-      - Compare at least two interpolation methods or use cross-validation to test the selected method.
-      - Quantify uncertainty in the specific-yield estimates and the spatial map.
-      - Justify conclusions using the scale mismatch between satellite observations and groundwater sites.
+6. **Two pipes, and how far the estimate moves.**
 
-      These requirements form part of the 15 marks. They do not add marks.
+   - Repeat Question 3 for the second pipe at Toganmain, Barratta and Wagga Wagga. Compare the
+     two pipes at each site: the mean depth to water, the within-year range and $ S_y $.
+     Argue which pipe is open to the deeper, more confined part of the aquifer. The screen
+     depths are not in the data, so say what your argument rests on.
+   - Least squares assumes that all the error is in $ \Delta S $. Repeat Question 3 at all ten
+     sites with annual means instead of monthly means, with $ L = 5 $ cm and $ L = 100 $ cm,
+     and with the regression reversed (fit $ \Delta h $ against $ \Delta S $ and invert the
+     slope). Explain why noise in the bore level biases the ordinary slope towards zero. Give
+     a range for $ S_y $ at each site, and say which of the choices changes the estimate most.
 
-.whitespace{15pt}
-
-.center
-   .container width:{85%} background:{rgb(255, 215, 215)} radius:{9pt} padding:{10pt} borderwidth:{1pt}
-      ##### Important Considerations:
-      - **Spatial Resolution**: Find out about the optimal spatial resolution for the GRACE data. Discuss how this affects point-scale comparisons.
-      - **Temporal Alignment**: Ensure satellite and ground data are properly synchronized. (Select the groundwater data from the same time period as the GRACE data.)
-      - **Units**: Be careful with unit conversions between depth measurements (m) and storage changes (mm equivalent water depth).
-
-### Guidelines
+### Submission
 
 .center
-   .container width:{80%} background:{.lightblue} radius:{9pt} padding:{10pt} borderwidth:{1pt}
-      ##### Submission Instructions:
-      - Submit your answers through Canvas portal
-      - Include your **Python notebook** (file.ipynb or file.py)
-      - Submit the **groundwater depth data files** that you downloaded
-      - Provide a brief **methodology summary** explaining your approach to spatial interpolation and uncertainty assessment
+   .container width:{88%} background:{.lightblue} radius:{9pt} padding:{10pt} borderwidth:{1pt}
+      - Submit your answers through the Canvas portal.
+      - Submit **one Jupyter notebook** with your code, your figures and your written answers.
+        Put the written answers in markdown cells, not in `print` statements.
+      - The notebook must **run end to end** from a fresh kernel without errors. Read all data
+        from the URLs given above. A path on your own computer or your Google Drive makes the
+        notebook impossible to run for anyone else.
+      - Label every axis with its quantity and unit.
+      - If you use a different data source, or make a different choice from the one the
+        question states, say so and give the reason. That is allowed. Doing it without saying
+        so is not.

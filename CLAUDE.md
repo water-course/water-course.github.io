@@ -9,13 +9,15 @@ assignments now match it:
 |---|---|---|---|
 | I — Precipitation | `slides/assignments/precipitation.qd` | 10 | 2 + 3 + 2 + 3, Q5 bonus |
 | II — Total Water Storage | `slides/assignments/soil_moisture.qd` | 15 | 3 + 3 + 2 + 4 + 3 |
-| III — Groundwater | `slides/assignments/groundwater.qd` | 15 | 2 + 4 + 4 + 5 |
+| III — Groundwater | `slides/assignments/groundwater.qd` | 15 | 2 + 3 + 3 + 4 + 3, Q6 bonus |
 
 Assignment I splits differently for the two course codes. EMSC3025 takes
 Questions 1-4 for 10 marks and Question 5 as an optional bonus mark. EMSC6025
 takes Questions 1-3 for 7 marks, Question 4 for 2 and the required Question 5
-for 1. Assignments II and III carry EMSC6025 requirements that are part of the
-15 marks and do not add marks.
+for 1. Assignment III follows the same pattern: EMSC3025 takes Questions 1-5 for
+15 marks (2 + 3 + 3 + 4 + 3) and Question 6 as an optional bonus mark; EMSC6025
+takes 2 + 3 + 3 + 3 + 2 and the required Question 6 for 2. Assignment II carries
+EMSC6025 requirements that are part of the 15 marks and do not add marks.
 
 If you change a mark, change the stated total in the same commit and rebuild the
 PDF to confirm the arithmetic still holds.
@@ -124,3 +126,14 @@ lowercase `units`, does not find it, and leaves `time` as bare floats -- days si
 grid runs latitude *ascending* and longitude 0 to 360, the opposite of both other datasets
 in this course. Anomalies are relative to the mean of 2004.000 to 2009.999, so anything
 differenced against them must have that same period removed first.
+
+**The Assignment III bore data** is a fixed package,
+`https://data.gadopt.org/water-course/waternsw_bores_2003-2025.zip`, built on 2026-09-23
+from the WaterNSW Hydstra webservice (`https://realtimedata.waternsw.com.au/cgi/webservice.exe`,
+function `get_ts_traces`, datasource `A`, variable `110.00`, daily means). The webservice
+needs no login, but the pipe construction tables are closed, so screen depths are unknown.
+The variable is depth below the measuring point, so a larger value means lower water.
+Telemetry starts in 2009-2011 at most sites; earlier daily values at Roeta Rd and Barratta
+pipe 2 are interpolated between manual readings (quality code 26). The original Forbes bore,
+GW036597, has almost no data from 2010 to 2023 despite a listed period to 2026, so the
+assignment uses GW036611 (Forbes at Marsden East Billabong) instead.
