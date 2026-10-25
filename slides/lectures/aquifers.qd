@@ -476,229 +476,81 @@
 
 .whitespace height:{3cm}
 
-# Specific Storage in Confined Aquifers
+# Specific Storage from Compressibility
 
 .row gap:{1cm}
-  .container width:{60%}
-    For a confined aquifer, specific storage reflects storage from:
-    - **Compression of the granular matrix**
-    - **Expansion of water**
-
-    The mathematical definition (Domenico and Schwartz, 1998):
+  .container width:{55%}
+    In a confined aquifer, specific storage comes from **compression of the matrix** and **expansion of water** (Domenico and Schwartz, 1998):
 
     .align{center}
       .container borderwidth:{2pt} padding:{0.5cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
         $ S_s = \rho_w g (\beta_p + n\beta_w) $
 
-  .container width:{40%}
-    Where:
-    - $ \rho_w $ = density of water $ [ML^{-3}] $
-    - $ g $ = gravitational constant (9.81 m/sec²) $ [LT^{-2}] $
-    - $ n $ = porosity of the aquifer
-    - $ \beta_p $ = vertical compressibility of rock matrix
-    - $ \beta_w $ = compressibility of water
-
-# Compressibility of Water and Matrix
-
-.row gap:{1cm}
-  .container width:{50%}
-    **Compressibility** ($ \beta $) quantifies how much a material compresses under pressure.
-
-    **Units**: inverse of pressure \[$ 1/Pa $\] or \[$ m^2/N $\]
-
-    **Key insight**:
-    - **Higher** compressibility = more compressible
-    - **Lower** compressibility = more rigid/incompressible
-
-    Water compressibility ($ \beta_w $):
-    - $ 4.4 \times 10^{-10} $ m²/N at 25°C
-
-  .container width:{50%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Material property comparison**
-
-      Clay is ~1000× more compressible than sound rock
-
-      This is why clay layers are major contributors to land subsidence!
-
-# Compressibility Values for Earth Materials
-
-.fullspan
-  .align{center}
-    .container width:{85%}
-      **Geologic Materials (matrix compressibility $ \alpha $)**
-
-      | Material | Compressibility (m²/N) |
-      |:---------|:----------------------:|
-      | Clay | $ 1 \times 10^{-6} $ to $ 1 \times 10^{-8} $ |
-      | Sand | $ 1 \times 10^{-7} $ to $ 1 \times 10^{-9} $ |
-      | Gravel | $ 1 \times 10^{-8} $ to $ 1 \times 10^{-10} $ |
-      | Jointed Rock | $ 1 \times 10^{-8} $ to $ 1 \times 10^{-10} $ |
-      | Sound Rock | $ 1 \times 10^{-9} $ to $ 1 \times 10^{-11} $ |
-
-      .whitespace height:{0.5cm}
-
-      **Fluid compressibility $ \beta $**
-
-      | Fluid | Compressibility (m²/N) |
-      |:------|:----------------------:|
-      | Water | $ 4.4 \times 10^{-10} $ |
-
-      _Note: Loose sediments are more compressible than well-cemented rocks_
-
-# Using the Specific Storage Equation
-
-.row gap:{1cm}
-  .container width:{60%}
-    The equation $ S_s = \rho_w g (\beta_p + n\beta_w) $ can be used to estimate specific storage and storativity.
-
-    **Example calculation**:
-    - Clay layer with $ n = 0.3 $
-    - $ \beta_p = 1 \times 10^{-7} $ m²/N
-    - $ \beta_w = 4.4 \times 10^{-10} $ m²/N
     - $ \rho_w g \approx 10^4 $ N/m³
+    - $ n $ = porosity
+    - $ \beta_p $ = vertical compressibility of the matrix
+    - $ \beta_w = 4.4 \times 10^{-10} $ m²/N = compressibility of water
 
-    $ S_s = 10^4 (1 \times 10^{-7} + 0.3 \times 4.4 \times 10^{-10}) $
-    $ S_s \approx 1 \times 10^{-3} $ m⁻¹
+    **Example**: a clay with $ n = 0.3 $ and $ \beta_p = 10^{-7} $ m²/N gives $ S_s \approx 10^{-3} $ m⁻¹. The matrix term dominates.
 
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Key observation**
-
-      The matrix compressibility ($ \beta_p $) term typically **dominates** over the water compressibility term, especially in fine-grained materials like clay.
-
-# Storage in Unconfined Aquifers
-
-.row gap:{1cm}
-  .container width:{60%}
-    In an unconfined aquifer, the groundwater response to pumping is **different** from a confined aquifer:
-
-    **Early time** (no significant water level change):
-    - Water comes from **expansion** of the water
-    - Water comes from **compression** of the grains
-    - Similar to confined aquifer behaviors
-
-    **Later on** (water table falls):
-    - Water mainly comes from **gravity drainage** of pores
-    - This is the dominant storage mechanism
-
-  .container width:{40%}
-    !(100%)[Unconfined aquifer](../image/internet_b.png "Response to reduction in hydraulic head")
+  .container width:{45%}
+    | Material | Compressibility (m²/N) |
+    |:---|:---:|
+    | Clay | $ 10^{-6} $ to $ 10^{-8} $ |
+    | Sand | $ 10^{-7} $ to $ 10^{-9} $ |
+    | Gravel | $ 10^{-8} $ to $ 10^{-10} $ |
+    | Jointed rock | $ 10^{-8} $ to $ 10^{-10} $ |
+    | Sound rock | $ 10^{-9} $ to $ 10^{-11} $ |
+    | Water | $ 4.4 \times 10^{-10} $ |
+    "Compressibility of earth materials and water"
 
 # Storativity of Unconfined Aquifers
 
 .row gap:{1cm}
   .container width:{60%}
-    The storativity of an unconfined aquifer is expressed as:
+    An unconfined aquifer releases water in two ways:
+    - **Early time**: expansion of water and compression of the matrix, as in a confined aquifer
+    - **Later**: **gravity drainage** of pores as the water table falls
 
     .align{center}
       .container borderwidth:{2pt} padding:{0.5cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
         $ S = S_y + bS_s $
 
-    Where:
-    - $ S_y $ = specific yield of the aquifer
-    - $ b $ = aquifer thickness
-    - $ S_s $ = specific storage
+    - $ S_y \approx 0.1 $ to $ 0.3 $
+    - $ bS_s \approx 10^{-5} $ to $ 10^{-3} $
+    - So **specific yield dominates** in an unconfined aquifer
 
   .container width:{40%}
+    !(70%)[Unconfined aquifer](../image/internet_b.png "Response to reduction in hydraulic head")
+
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Key insight**
-
-      - Specific yield: $ 0.1 $ to $ 0.3 $
-      - Product $ bS_s $: $ 10^{-3} $ to $ 10^{-5} $
-
-      Thus, **specific yield is the dominant storage term** for unconfined aquifers.
-
-# Aquifer Type Transitions
-
-.row gap:{1cm}
-  .container width:{50%}
-    In some cases, an aquifer may be:
-    - **Confined at early stage** of pumping
-    - **Becomes unconfined** at late time
-
-    **Process**:
-    1. Initial pumping creates cone of depression
-    2. Water levels decline
-    3. Head falls below the top of the aquifer
-    4. Aquifer dewaters from the top down
-    5. Storage mechanism changes from elastic to gravity drainage
-
-    As the aquifer changes from confined to unconfined, **storativity values change accordingly**.
-
-  .container width:{50%}
-    !(100%)[Aquifer type transition](../image/franklin_fig_4-1.png "Aquifers can transition from confined to unconfined")
+      If pumping lowers the head below the top of a confined aquifer, the aquifer becomes unconfined and its storativity rises by several orders of magnitude.
 
 # Specific Yield and Specific Retention
 
 .row gap:{1cm}
-  .container width:{60%}
-    .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue}
-      **Specific yield** ($ S_y $) is the water released from a water-bearing material by **gravity drainage**.
-
-      Say the ratio of the volume of water yielded from a soil or rock by gravity drainage after being saturated, to the total volume of the soil or rock.
-
-    Expressed as the ratio of:
+  .container width:{55%}
+    Not all the water in the pores drains under gravity:
+    - **Specific yield** $ S_y = V_d / V_T $: the volume that drains by gravity, per total volume
+    - **Specific retention** $ S_r = V_r / V_T $: the volume held as a film on grains and in small openings, per total volume
 
     .align{center}
-      .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-        $ S_y = \frac{V_d}{V_T} $
+      .container borderwidth:{2pt} padding:{0.5cm} background:{.lightblue} alignment:{center} radius:{0.5cm}
+        $ n = S_y + S_r $
 
-    Where:
-    - $ V_d $ = volume of water that drains by gravity
-    - $ V_T $ = total volume of soil or rock (after being saturated)
+    Specific retention increases as grain size and pore size decrease.
 
-  .container width:{40%}
-    <!-- Placeholder: Diagram showing saturated sample before drainage and after drainage, with water draining out under gravity, showing retained water film on grains -->
+  .container width:{45%}
+    | Material | $ S_r $ |
+    |:---|:---:|
+    | Coarse gravel | 0.01 to 0.05 |
+    | Fine sand | 0.05 to 0.15 |
+    | Silt | 0.15 to 0.30 |
+    | Clay | 0.30 to 0.50 |
+    "Typical specific retention"
 
-# Specific Retention
-
-.row gap:{1cm}
-  .container width:{60%}
-    Not all water initially present is released from storage.
-
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Specific retention** ($ S_r $) describes water that is **retained** as a film on grain surfaces or held in small openings by molecular attraction.
-
-    .align{center}
-      .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue} alignment:{center}
-        $ S_r = \frac{V_r}{V_T} $
-
-    Where:
-    - $ V_r $ = volume of water retained against gravity
-    - $ V_T $ = total volume of soil or rock
-
-  .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
-      **Important relationship**
-
-      Porosity is related to specific yield and specific retention by:
-
-      $ n = S_y + S_r $
-
-      The sum equals the total porosity.
-
-# Specific Retention Characteristics
-
-.row gap:{1cm}
-  .container width:{60%}
-    Specific retention **increases with**:
-    - **Decrease in grain size** (more surface area)
-    - **Decrease in pore size** (stronger capillary forces)
-
-    **Typical values**:
-    - Coarse gravel: $ S_r \approx 0.01 $ to $ 0.05 $
-    - Fine sand: $ S_r \approx 0.05 $ to $ 0.15 $
-    - Silt: $ S_r \approx 0.15 $ to $ 0.30 $
-    - Clay: $ S_r \approx 0.30 $ to $ 0.50 $
-
-  .container width:{40%}
-    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Inverse relationship**
-
-      Materials with high specific retention have **low specific yield**, and vice versa.
-
-      This is why clay has high porosity but yields little water!
+      Clay has a high porosity, but most of its water is retained, so it yields little.
 
 #
 .whitespace height:{3cm}
