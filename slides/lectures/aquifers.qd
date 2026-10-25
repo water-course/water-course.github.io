@@ -42,10 +42,10 @@
     .container width:{75%}
         .box title:{By the end of this lecture, you should be able to:} background:{.lightblue}
             **Aquifer Systems:**
-            - Identify major aquifer types: **basin-fill**, **fluvial**, **semiconsolidated**, **sandstone**, and **carbonate-rock** aquifers
+            - Identify major aquifer types: **alluvial**, **fluvial**, **semiconsolidated**, **sandstone**, **carbonate-rock**, **fractured-rock** and **volcanic** aquifers
             - Understand how depositional environments control aquifer properties
             - Recognise **karst features**: sinkholes, solution conduits, and cave systems
-            - Apply concepts to real-world examples (Dakota Sandstone, Gulf Coast, Floridan aquifer system)
+            - Apply these concepts to Australia's groundwater provinces, from the Great Artesian Basin to the Perth Basin and the Northern Territory carbonates
 
 # Introduction
 
@@ -394,11 +394,10 @@
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
       **Real-world example**
 
-      **Houston, Texas**:
-      - Groundwater depletion from Gulf Coast aquifer
-      - Land subsided **>9 ft (>2.75 m)**
-      - Damage to infrastructure
-      - Increased flooding risk
+      **Latrobe Valley, Victoria**:
+      - Open-cut coal mines pump the confined Latrobe Group aquifers
+      - Heads fell 120 to 130 m at the mines
+      - Land subsided **1 to 2.2 m** near the mines, from compaction of coal and clay
 
 # Storage in Unconfined Aquifers
 
@@ -454,7 +453,7 @@
 
 .fullspan
   .align{center}
-    !(70%)[Storativity diagram](../image/franklin_fig_4-3.png "Concept of storativity: confined aquifer shows small release due to water expansion and aquifer compression; unconfined aquifer shows large release due to drainage from pores")
+    !(62%)[Storativity diagram](../image/franklin_fig_4-3.png "Concept of storativity: confined aquifer shows small release due to water expansion and aquifer compression; unconfined aquifer shows large release due to drainage from pores")
 
 # Comparing Storage Properties
 
@@ -706,43 +705,7 @@
 
 .row gap:{1cm} alignment:{center}
   .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue} alignment:{center}
-    ##! Examples of Real-World Aquifer Systems
-
-#
-
-.fullspan
-  .center
-    .html
-      <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%; padding-top: 120px;"><a href="https://www.usgs.gov/mission-areas/water-resources/science/principal-aquifers-united-states" data-iframely-url="//iframely.net/PENPjeK2?theme=light"></a></div></div><script async src="//iframely.net/embed.js"></script>
-
-#
-.fullspan
-  !(100%)[Principal aquifers](../image/internet_US_aquifers.png "Principal aquifers in the United States")
-
-#
-.fullspan
-
-  .center
-    !(80%)[Principal aquifers](../image/internet_GA_groundwater.png)
-
-.row gap:{1cm}
-  .center
-    .container width:{100%} alignment:{center}
-        [Groundwater in Australia](https://www.ga.gov.au/scientific-topics/water/groundwater/groundwater-in-australia)
-
-#
-!(50%)[Principal aquifers](../image/internet_parlimant_GW.jpg "Principal aquifers in the United States")
-
-
-# Principal Aquifers in the United States
-
-.row gap:{1cm}
-    .container width:{65%}
-        !(100%)[Principal aquifers](../image/franklin_fig_4-4.png )
-
-    .container width:{35%}
-        _Principal Aquifers in the United States organized by aquifer type and showing pumping rates for different uses_
-        - This collection accounts for about 90% of daily groundwater production in the US.
+    ##! Types of Aquifer Systems
 
 # Unconsolidated Sand and Gravel Aquifers
 
@@ -752,13 +715,12 @@
     - Intergranular porosity
     - Primarily **unconfined** conditions
     - High permeability (varies with clay content and sorting)
-    - Most extensively pumped aquifer type in US
+    - The most heavily pumped aquifer type in Australia
 
-    **Four main categories**:
-    1. **Basin/valley-fill**: Central Valley (California), Arizona basins
-    2. **Blanket sand and gravel**: High Plains aquifer (most pumped)
-    3. **Glacial deposits**: North of glaciation line (outwash, terraces)
-    4. **Stream-valley aquifers**: Local, small extent (not mapped)
+    **Three main settings in Australia**:
+    1. **Alluvial**: the Lachlan, Namoi, Murrumbidgee and Condamine rivers, the Lockyer Valley
+    2. **Coastal sand**: the superficial aquifer under Perth, the Burdekin delta
+    3. **Palaeovalley**: sand buried in old river channels, for example under the Yilgarn
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
@@ -767,57 +729,77 @@
       - High storage and transmission
       - Thicker deposits → more regional flow
       - **Susceptible to contamination**
-      - Provide much of western US groundwater
+      - Alluvial aquifers hold about 20% of Australia's bores but give about 60% of the extraction
 
-# US Distribution: Sand and Gravel Aquifers
-
-.fullspan
-  .align{center}
-    !(50%)[Basin and Range aquifers](../image/basinandrange.gif "Basin-fill aquifers in Basin and Range Province")
-
-    _Basin-fill aquifers concentrated in Basin and Range Province (western US)_
-
-# US Distribution: Sandstone Aquifers
+# Unconsolidated Aquifers Summary
 
 .row gap:{1cm}
   .container width:{50%}
-    !(100%)[Sandstone Aquifers](../image/usgs_sandstone_aquifers.gif "Principal sandstone aquifers in the United States")
+    **Valley-Fill and Palaeovalley Aquifers**:
+    - Sediment that fills a valley or a buried river channel
+    - Long, narrow bodies with interbedded materials
+    - Examples: the Condamine and Lockyer valleys (Qld)
+    - Yilgarn palaeochannel sands: $ K $ = 20–70 m/day, water more than 100 000 years old
+
+    **Fluvial Aquifers**:
+    - Deposited by river systems
+    - Two types: meandering vs braided
+    - Braided → more continuous and productive
+    - Long, narrow, thin geometry
+    - Examples: the Shepparton and Calivil formations of the Murray–Darling rivers
 
   .container width:{50%}
     **Key characteristics**:
-    - Consolidated sand → **reduced porosity**
-    - Joints and fractures transmit most groundwater
-    - **Low to moderate** hydraulic conductivity
-    - Extend over **large areas** → provide large water quantities
+    - High permeability (varies with sorting)
+    - Unconfined conditions
+    - High specific yield ($ 0.1-0.3 $)
+    - Susceptible to contamination
+    - Most heavily pumped in Australia
 
-    .whitespace height:{0.5cm}
+    **Settings**:
+    - Alluvial
+    - Coastal sand
+    - Palaeovalley
 
-    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
-      **Map note**
-
-      Shows only shallowest principal aquifer. Deeper, sometimes more productive aquifers may exist below.
-
-# US Distribution: Carbonate-Rock Aquifers
+# Consolidated Aquifers Summary
 
 .row gap:{1cm}
   .container width:{50%}
-    !(100%)[Carbonate-Rock Aquifers](../image/usgs_carbonate_rocks.gif "Principal carbonate-rock aquifers in the United States")
+    **Semiconsolidated Sediments**:
+    - Layered sand, clay and limestone in young basins
+    - Coastal wedges thicken toward the sea: unconfined where they crop out, confined further down dip
+    - Examples: the Murray Basin, the Gippsland Basin, Bundaberg
+    - Risk: saltwater intrusion (Bundaberg, about 12 500 ha lost)
+    - Risk: land subsidence (Latrobe Valley, 1 to 2.2 m)
+
+    **Sandstone Aquifers**:
+    - Cemented sand with reduced porosity
+    - Flow in fractures and bedding planes
+    - Low to moderate hydraulic conductivity
+    - Large areal extent
+    - Example: the Great Artesian Basin, recharged on its eastern outcrop at about 15 mm/yr
 
   .container width:{50%}
-    **Composition**:
-    - **Calcite** (CaCO₃) → limestone
-    - **Dolomite** (CaMg(CO₃)₂) → dolostone
-    - Marine origin (shells, corals, algae, precipitates)
+    **Carbonate-Rock Aquifers**:
+    - Limestone and dolostone
+    - Solution-enhanced permeability
+    - **10 orders of magnitude** range in $ K $
+    - Large yields where well-connected
+    - Examples: the Tindall Limestone (NT), the Gambier Limestone (SA)
 
-    **Key processes**:
-    - Post-depositional: compaction, cementation, dolomitisation
-    - **Solution enhancement**: dissolution by acidic groundwater
-    - Creates tubes, widened joints, and caverns
+    **Other Types**:
+    - **Crystalline-rock**: fractured granite and metasediments, flow in fractures
+    - **Volcanic-rock**: basalt with cooling fractures and lava tubes
 
 # Carbonate Aquifer Characteristics
 
 .row gap:{1cm}
   .container width:{60%}
+    **Composition**:
+    - **Calcite** (CaCO₃) → limestone
+    - **Dolomite** (CaMg(CO₃)₂) → dolostone
+    - Marine origin (shells, corals, algae, precipitates)
+
     **Solution openings range from**:
     - Small tubes and widened joints
     - To caverns **tens of meters wide**
@@ -830,99 +812,9 @@
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Famous example**
+      **Australian example**
 
-      **Floridan aquifer system**: One of the most productive aquifer systems in the world, supplies water to millions in Florida
-
-# Other Important Aquifer Types
-
-.row gap:{1cm}
-  .container width:{50%}
-    **Crystalline-rock aquifers**:
-    - Fractured granite, basalt, metamorphic rocks
-    - Very low primary porosity
-    - Flow occurs **primarily in fractures**
-    - Secondary porosity controls productivity
-    - Important in New England, Canadian Shield
-    - Well yields highly variable
-
-  .container width:{50%}
-    **Volcanic-rock aquifers**:
-    - Basalt flows with **high permeability**
-    - Flow in cooling fractures and lava tubes
-    - Vesicular zones store water
-    - Examples: Hawaiian volcanic, Columbia Plateau
-    - Can be extremely productive locally
-    - Complex interbedded structure
-
-#
-.whitespace height:{3cm}
-
-.row gap:{1cm} alignment:{center}
-  .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue} alignment:{center}
-    ##! Summary of Aquifer Systems
-
-# Unconsolidated Aquifers Summary
-
-.row gap:{1cm}
-  .container width:{50%}
-    **Basin-Fill Aquifers**:
-    - Structural basins in mountain regions
-    - Hundreds to thousands of meters thick
-    - Examples: Basin and Range, Central Valley
-    - Long, narrow bodies with interbedded materials
-    - Major water sources in western US
-
-    **Fluvial Aquifers**:
-    - Deposited by river systems
-    - Two types: meandering vs braided
-    - Braided → more continuous and productive
-    - Long, narrow, thin geometry
-    - Mississippi River Valley, High Plains
-
-  .container width:{50%}
-    **Key characteristics**:
-    - High permeability (varies with sorting)
-    - Unconfined conditions
-    - High specific yield ($ 0.1-0.3 $)
-    - Susceptible to contamination
-    - Most extensively pumped in US
-
-    **Categories**:
-    - Basin/valley-fill
-    - Blanket sand and gravel
-    - Glacial deposits
-    - Stream-valley aquifers
-
-# Consolidated Aquifers Summary
-
-.row gap:{1cm}
-  .container width:{50%}
-    **Semiconsolidated Sediments**:
-    - Gulf Coast aquifer systems
-    - Wedge-shaped geometry (thicken toward coast)
-    - Confined updip, unconfined downdip
-    - Risk: saltwater intrusion, land subsidence
-    - Example: Houston subsided >9 ft (>2.75 m)
-
-    **Sandstone Aquifers**:
-    - Cemented sand with reduced porosity
-    - Flow in fractures and bedding planes
-    - Low to moderate hydraulic conductivity
-    - Large areal extent
-    - Example: Dakota Sandstone (~46% recharge through confining beds)
-
-  .container width:{50%}
-    **Carbonate-Rock Aquifers**:
-    - Limestone and dolostone
-    - Solution-enhanced permeability
-    - **10 orders of magnitude** range in $ K $
-    - Large yields where well-connected
-    - Example: Floridan aquifer system
-
-    **Other Types**:
-    - **Crystalline-rock**: fractured granite/basalt, flow in fractures
-    - **Volcanic-rock**: basalt with cooling fractures and lava tubes
+      **Tindall Limestone**, Katherine (NT): $ T $ reaches 17 000 m²/day, and dye moved 570 to 1250 m/day from a sinkhole to a spring. Its discharge keeps the Katherine and Daly rivers flowing through the dry season.
 
 # Karst Systems Summary
 
@@ -947,10 +839,31 @@
     - Large spring systems
     - Underground cave networks
 
-    **Management challenges**:
-    - Rapid contaminant transport
-    - Unpredictable flow paths
-    - Surface-subsurface connectivity
+    **Australian examples**:
+    - The Nullarbor: the largest area of exposed karst in the world
+    - Mount Gambier: sinkholes and cenotes
+    - Mataranka springs (NT)
+
+# Other Important Aquifer Types
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Crystalline-rock aquifers**:
+    - Fractured granite, basalt, metamorphic rocks
+    - Very low primary porosity
+    - Flow occurs **primarily in fractures**
+    - Secondary porosity controls productivity
+    - Examples: the Yilgarn (WA), the Mount Lofty Ranges (SA), the eastern highlands
+    - Well yields highly variable
+
+  .container width:{50%}
+    **Volcanic-rock aquifers**:
+    - Basalt flows with **high permeability**
+    - Flow in cooling fractures and lava tubes
+    - Vesicular zones store water
+    - Examples: the Newer Volcanics (Vic), the Atherton Tablelands (Qld)
+    - Can be extremely productive locally
+    - Complex interbedded structure
 
 # Comparing Major Aquifer Types
 
@@ -969,6 +882,318 @@
       |**Crystalline**|Very low|Very low|Very low|Fractures only|Limited yield|
 
       _Comparison of principal aquifer characteristics_
+
+
+#
+.whitespace height:{3cm}
+
+.row gap:{1cm} alignment:{center}
+  .container borderwidth:{1pt} padding:{0.5cm} radius:{0.5cm} background:{.lightblue} alignment:{center}
+    ##! Australian Aquifer Systems
+
+# Groundwater in Australia
+
+.row gap:{1cm}
+  .container width:{42%}
+    !(85%)[Hydrogeology of Australia](../image/ga_hydrogeology_map_1987.jpg "Hydrogeology of Australia (BMR 1987). GA, CC BY 4.0.")
+
+  .container width:{58%}
+    - Australia uses about 3 to 5 thousand GL of groundwater per year. The ABS counted 3,249 GL of self-extracted groundwater in 2021–22.
+    - Groundwater is about one fifth to one third of all water use. The share depends on the year and on how use is counted.
+    - Irrigation and stock take most of it, then mining, then town supply.
+    - The Northern Territory gets about 90% of its water from aquifers, and Western Australia about two thirds.
+    - In much of the arid interior, groundwater is the only reliable supply for towns, stations and mines.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue}
+      Alluvial aquifers hold about 20% of all bores but give about 60% of the extraction.
+
+# How the aquifers are classified
+
+.row gap:{1cm}
+  .container width:{50%}
+    !(100%)[Groundwater provinces](../image/internet_parlimant_GW.jpg "Groundwater provinces of Australia. The slides that follow go through them one by one.")
+
+  .container width:{50%}
+    Three newer schemes use the same idea at different scales:
+
+    - **Geoscience Australia** uses six aquifer settings: alluvial, coastal, fractured rock, sedimentary basin, palaeovalley and karst.
+    - The **National Hydrogeological Inventory** (2023) splits the continent into about 40 groundwater provinces: sedimentary basins and fractured-rock provinces.
+    - The Bureau of Meteorology's **National Aquifer Framework** groups formations into hydrogeologic units and complexes, so that every state uses the same names.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
+      About 40% of Australia's groundwater is stored in fractured rock, but fractured rock gives only about 10% of the extraction.
+
+# Great Artesian Basin
+
+.fullspan
+  .align{center}
+    !(72%)[GAB section](../image/ga_gab_section_1987.jpg "West–east section through the Eromanga Basin. Blue: Jurassic (J) and Cretaceous (K) sandstone aquifers. Arrows: flow from the Great Dividing Range. GA 1987, CC BY 4.0.")
+
+.row gap:{1cm}
+  .container width:{55%}
+    - More than 1.7 million km², one fifth of Australia (Qld, NSW, SA, NT).
+    - Jurassic–Cretaceous sandstones under the marine **Rolling Downs** mudstone, up to 3000 m thick.
+    - **Confined** and **artesian**. $ K $ = 0.1 to 10 m/day, $ S \approx 10^{-5} $.
+
+  .container width:{45%}
+    - Recharge on the eastern outcrop, mean about 15 mm/yr.
+    - Flow 1 to 5 m/yr. Water near the centre is more than one million years old.
+
+# Great Artesian Basin: 140 years of flowing bores
+
+.row gap:{1cm}
+  .container width:{55%}
+    **Use**: about 450 GL/yr. Stock 41%, irrigation 25%, oil and gas 19%, more than 120 towns 9%.
+
+    **Pressure loss**:
+    - About 4700 flowing bores were drilled after the 1880s.
+    - Open bore drains up to 100 km long lost more than 90% of the water to seepage and evaporation.
+    - Heads fell by up to about 100 m, and many springs stopped flowing.
+
+    **Recovery**:
+    - Bore capping and piping (GABSI, 1999–2017) controlled about 750 bores and replaced 21 000 km of drains.
+    - This saves about 250 GL/yr, and pressures are rising again in many areas.
+
+  .container width:{45%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **Springs**
+
+      More than 460 spring groups depend on GAB discharge. The mound springs near Lake Eyre are a listed endangered ecological community.
+
+    .whitespace height:{0.4cm}
+
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightred}
+      **Coal seam gas**
+
+      Gas wells in the Surat Basin pump about 52 GL/yr of water from coal seams. Drawdown in the Walloon Coal Measures is up to 280 m.
+
+# Murray Basin
+
+.row gap:{1cm}
+  .container width:{45%}
+    !(88%)[Murray Basin salinity](../image/ga_murray_basin_salinity.jpg "Salinity (mg/L) of the shallow unconfined aquifer. Evans and Kellett (1989), Fig. 17. Geoscience Australia, CC BY 4.0.")
+
+  .container width:{55%}
+    - A saucer-shaped Cenozoic basin of about 300 000 km² under NSW, Vic and SA, up to about 600 m thick.
+    - Stacked porous aquifers: the confined **Renmark Group** (fluvial sand), the **Murray Group limestone**, the Pliocene sands, and the **Shepparton Formation** at the top.
+    - A **closed** groundwater basin. The River Murray is the only drain for water and salt.
+    - Salinity ranges from below 200 to 300 000 mg/L.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
+      Clearing the Mallee raised recharge from below 0.1 mm/yr to 8–40 mm/yr. Fourteen salt interception schemes now pump saline groundwater away from the river.
+
+# Alluvial aquifers of the Murray–Darling rivers
+
+.fullspan
+  .align{center}
+    !(70%)[Riverine section](../image/ga_murray_basin_section.png "Section down a flow line from the Murrumbidgee River to the River Murray. Evans and Kellett (1989), Fig. 6. GA, CC BY 4.0.")
+
+.row gap:{1cm}
+  .container width:{50%}
+    - Lachlan, Namoi, Murrumbidgee, Condamine: unconsolidated sand and gravel, unconfined over confined layers.
+    - Most recharge on the plains is **leakage from rivers**. Pumping turned many gaining rivers into losing rivers.
+
+  .container width:{50%}
+    - Basin groundwater use: 1832 GL in 2004–05 (16% of all water use), 1232 GL in 2023–24.
+    - Lower Namoi: allocations of 213 GL/yr against a sustainable yield of 95 GL/yr. Condamine: levels down 3 to 35 m since the 1960s.
+
+# Perth Basin
+
+.row gap:{1cm}
+  .container width:{40%}
+    !(72%)[Perth recharge](../image/dawes_perth_recharge.png "Modelled recharge (mm), six scenarios. Dawes et al. (2012), CC BY 3.0.")
+
+  .container width:{60%}
+    - A rift basin about 1300 km long. Fresh groundwater reaches about 1 km below Perth.
+    - **Superficial aquifer**: unconfined sand, with karstic Tamala Limestone at the coast ($ K $ up to 100–1000 m/day). Recharge builds two water-table mounds, Gnangara and Jandakot.
+    - **Leederville** and **Yarragadee**: deep, confined, layered sandstone, with water up to about 36 000 years old.
+    - Groundwater supplies about 70% of all water used in Perth and Mandurah.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
+      Rainfall has fallen about 15% since 1975. The Gnangara Mound has lost more than 1000 GL of storage since 1980, and wetlands and cave pools have dried. Perth can now inject up to 28 GL/yr of recycled water into the confined aquifers.
+
+# Otway Basin: Mount Gambier
+
+.row gap:{1cm}
+  .container width:{50%}
+    !(100%)[Mount Gambier section](../image/somaratne_mount_gambier_section.png "Section under Mount Gambier: Gambier Limestone over the confined Dilwyn Formation, and the Blue Lake crater. Somaratne et al. (2014), CC BY 4.0.")
+
+  .container width:{50%}
+    - **Gambier Limestone**: unconfined karst, with sinkholes, cenotes and spring-fed ponds. $ T $ = 450 to 24 000 m²/day.
+    - **Dilwyn Formation**: confined sand below, artesian in places. Most of its water is older than 25 000 years.
+    - Recharge is about 1300 GL/yr. Licensed extraction was 177 GL in 2022–23, and plantations take about 240 GL/yr more.
+    - The groundwater-fed Blue Lake supplies Mount Gambier with about 3.5 GL/yr.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue}
+      Plantations are licensed as groundwater users here, because their roots reach a shallow water table.
+
+# Gippsland Basin: Latrobe Valley
+
+.row gap:{1cm}
+  .container width:{45%}
+    !(90%)[Latrobe Group heads](../image/ba_gippsland_latrobe_heads.png "Head (m AHD) in the upper Latrobe Group aquifers, 1980 and 2012. Bioregional Assessment Programme (2015), CC BY 3.0 AU.")
+
+  .container width:{55%}
+    - Confined **Latrobe Group** sands below brown coal seams up to 135 m thick. The aquifers were artesian before development.
+    - The open-cut coal mines pump about 30 GL/yr to keep their floors stable. Offshore oil and gas production takes about 100 GL/yr more.
+    - Heads fell 120 to 130 m at the mines and about 1 m/yr across the region.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
+      **Land subsidence**: 1 to 2.2 m near the mines and 0.3 to 0.5 m across the region, from compaction of coal and clay. The coast near the Gippsland Lakes fell 27 to 89 mm from 2004 to 2019.
+
+# Newer Volcanics, western Victoria
+
+.row gap:{1cm}
+  .container width:{68%}
+    - More than 400 volcanic centres, Pliocene to Holocene, over about 19 000 km².
+    - Water moves through **fractures, flow contacts and lava tubes**; scoria cones store it. $ K $ ranges from $ 10^{-3} $ to $ 10^{2} $ m/day.
+    - Recharge is up to about 30 mm/yr at young volcanoes but 1 to 2 mm/yr through clay soils. Salinity rises from below 560 mg/L near vents to above 3000 mg/L on the plains.
+    - Use is about 23 GL/yr. Many basalt-plain wetlands depend on groundwater.
+    - The Atherton Tablelands basalt (Qld) is the same aquifer type in a wet climate: recharge 150 to 660 mm/yr, water less than 30 years old.
+
+  .container width:{32%}
+    !(68%)[Crater lakes](../image/kirono_crater_lakes.png "Crater lake depth, observed (dots) and modelled. Kirono et al. (2009), CC BY 4.0.")
+
+# Northern Territory carbonates: the Tindall Limestone
+
+.row gap:{1cm}
+  .container width:{52%}
+    !(90%)[Tindall Limestone aquifer](../image/ntg_tindall_conceptual_model.png "Tindall Limestone aquifer at Katherine. Rooke (2024), NT Government, CC BY 4.0.")
+
+  .container width:{48%}
+    - Cambrian limestone and dolostone: the Tindall Limestone and Oolloo Dolostone of the Daly Basin.
+    - **Karst**: $ T $ reaches 17 000 m²/day. Dye moved 570 to 1250 m/day from a sinkhole to springs.
+    - About 70% of the monsoon recharge enters through sinkholes and macropores.
+    - Discharge keeps the Katherine and Daly rivers flowing through the dry season.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
+      Licences are cut in dry years to protect river flow. Fire-fighting foam from RAAF Base Tindal put PFAS in the aquifer.
+
+# The Cambrian Limestone Aquifer
+
+.row gap:{1cm}
+  .container width:{34%}
+    !(85%)[CLA flow systems](../image/gba_cla_flow_systems.jpg "Cambrian Limestone Aquifer flow systems. GBA Program (2020), CC BY 4.0.")
+
+  .container width:{66%}
+    - One karst aquifer system across the Daly, Wiso and Georgina basins, about 570 000 km².
+    - Recharge follows the rainfall gradient: median about 82 mm/yr in the Daly Basin, 9 mm/yr in the Georgina Basin.
+    - Flow paths hundreds of kilometres long end at springs: Mataranka (25–33 °C), the Flora River and the Roper River.
+    - Water is mostly below 1000 mg/L TDS. Present use is small, but plans allow large increases.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue}
+      The Beetaloo shale gas targets lie below this aquifer, separated by aquitards. How well those aquitards seal is not yet known.
+
+# Canning Basin
+
+.row gap:{1cm}
+  .container width:{55%}
+    - The largest sedimentary basin in WA, about 430 000 km² onshore, and almost undeveloped.
+    - **Broome Sandstone**: unconfined, weakly consolidated. Coastal throughflow holds the seawater interface in place.
+    - **Wallal Sandstone**: confined below the Jarlemai Siltstone. On the coastal plain it is artesian, with heads 2 to 30 m above ground.
+    - **Grant Group and Poole Sandstone** (Fitzroy Valley): up to 2000 m thick and artesian. Water is up to 40 000 years old.
+
+  .container width:{45%}
+    .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
+      **A resource in waiting**
+
+      Fitzroy Valley use is about 5 GL/yr. A CSIRO assessment estimates that up to 170 GL/yr could be taken. The 120 GL/yr of this from the Grant–Poole aquifer is less than 5% of its recharge.
+
+    .whitespace height:{0.4cm}
+
+    Groundwater discharge feeds the dry-season pools of the Fitzroy River and Mandora Marsh, which has the most inland mangroves in Australia.
+
+# Pilbara: Millstream and mine dewatering
+
+.row gap:{1cm}
+  .container width:{50%}
+    **Millstream aquifer**
+    - Cainozoic dolomite and calcrete in the Fortescue valley: karst with cavities. Storage about 1.7 km³.
+    - Recharge comes mainly from **floods**. One cyclone flood in 1975 added about 49 GL.
+    - Springs feed 20 km of permanent river pools. A water-table fall of only 0.23 m reduced spring flow, so pumping now follows rules on minimum levels.
+
+  .container width:{50%}
+    **Iron-ore mines**
+    - Mines below the water table must dewater. In 2012 the Pilbara abstracted about 400 GL/yr: 48% for mining and 40% as surplus mine water released to creeks.
+    - One mine next to the Fortescue Marsh is approved to pump up to 100 GL/yr and reinject most of it.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue}
+      About 350 species of stygofauna, animals that live in groundwater, have been found in Pilbara aquifers.
+
+# Eucla Basin: the Nullarbor
+
+.row gap:{1cm}
+  .container width:{52%}
+    !(100%)[Nullarbor Plain](../image/woodhead_nullarbor_map.jpg "The Nullarbor Plain and dated caves. Woodhead et al. (2019), Scientific Reports, CC BY 4.0.")
+
+  .container width:{48%}
+    - Eocene to Miocene marine limestones (Wilson Bluff, Abrakurrie, Nullarbor): the largest area of exposed karst in the world.
+    - Rainfall is 150 to 250 mm/yr. Recharge happens only in rare large storms, through clay pans and blowholes.
+    - The water table is 30 to 120 m deep and almost flat.
+    - Mostly **saline**: about 6000 to 15 000 mg/L. Use is a few stock bores.
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightblue}
+      The caves formed in a wetter Pliocene climate. Most speleothems are 3 to 5 million years old.
+
+# Fractured rock: Yilgarn, Mount Lofty Ranges, eastern highlands
+
+.row gap:{1cm}
+  .container width:{52%}
+    - **Yilgarn (WA)**: deeply weathered Archean granite. Saprolite $ K \approx 0.5 $ m/day; water up to more than 250 000 mg/L. Gold mines pump buried palaeochannel sands ($ K $ = 20–70 m/day) with water more than 100 000 years old.
+    - **Mount Lofty Ranges (SA)**: fractured metasediments. $ K $ spans seven orders of magnitude. Clearing raised recharge from below 2 to about 60 mm/yr.
+    - **Eastern highlands and Tasmania**: low-yield fold-belt rocks used for stock and domestic supply.
+
+  .container width:{48%}
+    !(100%)[Mount Lofty salinity](../image/dew_wmlr_fractured_rock_salinity.png "Salinity in fractured-rock wells, Western Mount Lofty Ranges, 2020. SA DEW (2021), CC BY 4.0.")
+
+    .container borderwidth:{1pt} padding:{0.3cm} background:{.lightred}
+      In 2000, 4.4 million ha of the WA Wheatbelt had a high potential to develop dryland salinity.
+
+# Queensland coastal alluvium
+
+.row gap:{1cm}
+  .container width:{52%}
+    !(100%)[Coastal irrigation salinity](../image/ga_coastal_irrigation_tds.png "Maximum TDS (mg/L) of groundwater in coastal irrigation areas; inset Bundaberg. Ivkovic et al. (2013), GA and NCGRT, CC BY 3.0 AU.")
+
+  .container width:{48%}
+    - Shallow, unconfined alluvium and delta sands, pumped for sugarcane.
+    - **Burdekin delta**: more than 100 m of sediment. River water has been put back underground since 1965, up to about 45 GL/yr.
+    - **Pioneer Valley**: pumping stops when the head in the aquifer above sea level falls below a trigger.
+    - **Bundaberg**: about 12 500 ha lost to seawater intrusion since the 1960s.
+    - **Lockyer Valley** (inland): use above the sustainable yield; no new bores since 2005.
+
+# Comparing Australian Aquifer Systems (1)
+
+.fullspan
+  .align{center}
+    .container width:{95%}
+      |**System**|**Aquifer type**|**$ K $ or $ T $**|**Recharge**|**Salinity (mg/L)**|**Main issue**|
+      |:---|:---|:---:|:---:|:---:|:---|
+      |**Great Artesian Basin**|Confined sandstone|$ K $ 0.1–10 m/d|~15 mm/yr|500–1000|Pressure loss|
+      |**Murray Basin**|Layered sand, limestone|$ K $ 1–100 m/d|<0.1 to 40 mm/yr|200–300 000|Salinisation|
+      |**MDB alluvium**|Sand and gravel|$ T $ to 6500 m²/d|River leakage|<500–10 000|Over-allocation|
+      |**Perth Basin**|Sand over sandstone|$ K $ 1–1000 m/d|~120 mm/yr|mostly <1000|Drying climate|
+      |**Otway Basin**|Karst over sand|$ T $ to 24 000 m²/d|~1300 GL/yr|<500–10 000|Plantations|
+      |**Gippsland Basin**|Sand under coal|$ T $ 530–2600 m²/d|Basin margins|<500–3500|Subsidence|
+      |**Newer Volcanics**|Fractured basalt|$ K $ $ 10^{-3} $–$ 10^{2} $ m/d|1–30 mm/yr|<560 to >3000|Wetlands|
+
+      _South and east. Typical ranges from Geoscience Australia, the Bureau of Meteorology and state reports._
+
+# Comparing Australian Aquifer Systems (2)
+
+.fullspan
+  .align{center}
+    .container width:{95%}
+      |**System**|**Aquifer type**|**$ K $ or $ T $**|**Recharge**|**Salinity (mg/L)**|**Main issue**|
+      |:---|:---|:---:|:---:|:---:|:---|
+      |**NT carbonates**|Karst carbonate|$ T $ to 17 000 m²/d|9–82 mm/yr|~100–2000|River baseflow|
+      |**Canning Basin**|Sandstone, artesian|$ K $ 1–140 m/d|0.3–85 mm/yr|<500–5000|Future use|
+      |**Pilbara (Millstream)**|Karst dolomite|$ T $ to ~5000 m²/d|Floods|300–1500|Springs, dewatering|
+      |**Eucla Basin**|Karst limestone|not measured|Very low|6000–15 000|Saline|
+      |**Fractured rock**|Granite, metasediments|$ K $ ~0.5 m/d|<2 to 60 mm/yr|<500 to >250 000|Low yield|
+      |**Qld coastal alluvium**|Sand|no data|Rain, river, MAR|<1500 to >6000|Seawater intrusion|
+
+      _North, west and fractured rock. Typical ranges from Geoscience Australia, the Bureau of Meteorology and state reports._
 
 # Summary
 
@@ -990,11 +1215,9 @@
   .container width:{75%}
     .box title:{Key takeaways from this lecture:} background:{.lightblue}
       **Real-World Aquifer Systems:**
-      - **Basin-fill** (Basin and Range): structural basins with thick sediment accumulation
-      - **Fluvial**: braided streams create more continuous aquifers than meandering systems
-      - **Semiconsolidated** (Gulf Coast): wedge-shaped geometry, saltwater intrusion risk, land subsidence issues
-      - **Sandstone** (Dakota): vertical leakage through confining beds dominates recharge (~46%)
-      - **Carbonate-rock**: solution enhancement creates 10 orders of magnitude range in hydraulic conductivity
-      - **Karst landscapes**: dissolution features create unique surface and subsurface drainage systems
-
-      Understanding aquifer diversity enables effective groundwater management and resource protection.
+      - **Alluvial** (Murray–Darling rivers): the most heavily pumped aquifers, recharged mostly by river leakage
+      - **Sandstone** (Great Artesian Basin): confined and artesian, with water more than one million years old
+      - **Semiconsolidated** (Murray, Gippsland): salinisation, seawater intrusion and land subsidence
+      - **Carbonate and karst** (NT, Mount Gambier, Nullarbor): very high transmissivity, springs that keep rivers flowing
+      - **Fractured rock** (Yilgarn, Mount Lofty Ranges): about 40% of the stored groundwater, but low yields
+      - Climate and land use change recharge: a drying climate in Perth, land clearing in the Mallee
