@@ -352,7 +352,7 @@
     2. **Aquifer compression**: Lower water pressure → less support for skeleton → grains pushed closer together → squeezes water out
 
   .container width:{40%}
-    !(100%)[Confined aquifers and pumping](../image/internet_unconfined_aquifer.png "Confined aquifer before and after pumping")
+    !(100%)[Leaky aquifer and pumping](../image/internet_unconfined_aquifer.png "Pumping a semi-confined aquifer: water leaks down through the aquitard and the water table above falls")
 
 # Understanding Aquifer Compression
 
@@ -491,7 +491,7 @@
     - $ \beta_p $ = vertical compressibility of the matrix
     - $ \beta_w = 4.4 \times 10^{-10} $ m²/N = compressibility of water
 
-    **Example**: a clay with $ n = 0.3 $ and $ \beta_p = 10^{-7} $ m²/N gives $ S_s \approx 10^{-3} $ m⁻¹. The matrix term dominates.
+    **Example**: a clay with $ n = 0.3 $ and $ \beta_p = 10^{-7} $ m²/N gives $ S_s \approx 10^{-3} $ m⁻¹. The matrix term dominates. Aquifer sand and gravel are less compressible and give $ 10^{-6} $ to $ 10^{-4} $ m⁻¹.
 
   .container width:{45%}
     | Material | Compressibility (m²/N) |
@@ -583,7 +583,7 @@
       - **Susceptible to contamination**
       - Alluvial aquifers hold about 20% of Australia's bores but give about 60% of the extraction
 
-# Unconsolidated Aquifers Summary
+# Valley-Fill, Palaeovalley and Fluvial Aquifers
 
 .row gap:{1cm}
   .container width:{50%}
@@ -593,27 +593,16 @@
     - Examples: the Condamine and Lockyer valleys (Qld)
     - Yilgarn palaeochannel sands: $ K $ = 20–70 m/day, water more than 100 000 years old
 
+  .container width:{50%}
     **Fluvial Aquifers**:
     - Deposited by river systems
     - Two types: meandering vs braided
     - Braided → more continuous and productive
     - Long, narrow, thin geometry
+    - High specific yield ($ 0.1-0.3 $)
     - Examples: the Shepparton and Calivil formations of the Murray–Darling rivers
 
-  .container width:{50%}
-    **Key characteristics**:
-    - High permeability (varies with sorting)
-    - Unconfined conditions
-    - High specific yield ($ 0.1-0.3 $)
-    - Susceptible to contamination
-    - Most heavily pumped in Australia
-
-    **Settings**:
-    - Alluvial
-    - Coastal sand
-    - Palaeovalley
-
-# Consolidated Aquifers Summary
+# Semiconsolidated and Consolidated Aquifers
 
 .row gap:{1cm}
   .container width:{50%}
@@ -664,9 +653,9 @@
 
   .container width:{40%}
     .container borderwidth:{1pt} padding:{0.5cm} background:{.lightblue}
-      **Australian example**
+      **Australian examples**
 
-      **Tindall Limestone**, Katherine (NT): $ T $ reaches 17 000 m²/day, and dye moved 570 to 1250 m/day from a sinkhole to a spring. Its discharge keeps the Katherine and Daly rivers flowing through the dry season.
+      The **Tindall Limestone** (NT), the **Gambier Limestone** (SA) and the **Millstream** dolomite (WA). Each has a slide in the Australian section, with measured transmissivities and spring flows.
 
 # Karst Systems Summary
 
@@ -725,7 +714,7 @@
       |**Aquifer Type**|**Porosity**|**K Range**|**Storage**|**Key Feature**|**Main Challenge**|
       |:---|:---:|:---:|:---:|:---|:---|
       |**Unconsolidated**|High (0.25-0.35)|High|$ S_y = 0.1-0.3 $|Intergranular|Contamination|
-      |**Basin-fill**|High|High-Moderate|High|Thick accumulations|Over-exploitation|
+      |**Valley-fill, palaeovalley**|High|High-Moderate|High|Long, narrow bodies|Over-exploitation|
       |**Fluvial (braided)**|High|High|High|Lateral continuity|Variable quality|
       |**Semiconsolidated**|Moderate|Moderate|Moderate|Wedge geometry|Subsidence, saltwater|
       |**Sandstone**|Low-Moderate|Low-Moderate|$ S = 10^{-3}-10^{-5} $|Fracture flow|Vertical leakage|
@@ -784,7 +773,7 @@
 .row gap:{1cm}
   .container width:{55%}
     - More than 1.7 million km², one fifth of Australia (Qld, NSW, SA, NT).
-    - Jurassic–Cretaceous sandstones under the marine **Rolling Downs** mudstone, up to 3000 m thick.
+    - Jurassic–Cretaceous sandstones under the marine **Rolling Downs** mudstone. The basin fill is up to 3000 m thick.
     - **Confined** and **artesian**. $ K $ = 0.1 to 10 m/day, $ S \approx 10^{-5} $.
 
   .container width:{45%}
@@ -847,7 +836,7 @@
 
   .container width:{50%}
     - Basin groundwater use: 1832 GL in 2004–05 (16% of all water use), 1232 GL in 2023–24.
-    - Lower Namoi: allocations of 213 GL/yr against a sustainable yield of 95 GL/yr. Condamine: levels down 3 to 35 m since the 1960s.
+    - Lower Namoi in 2002: allocations of 213 GL/yr against a sustainable yield of 95 GL/yr. The limit is now 86 GL/yr. Condamine: levels down 3 to 35 m since the 1960s.
 
 # Perth Basin
 
@@ -904,7 +893,7 @@
     - The Atherton Tablelands basalt (Qld) is the same aquifer type in a wet climate: recharge 150 to 660 mm/yr, water less than 30 years old.
 
   .container width:{32%}
-    !(68%)[Crater lakes](../image/kirono_crater_lakes.png "Crater lake depth, observed (dots) and modelled. Kirono et al. (2009), CC BY 4.0.")
+    !(68%)[Crater lakes](../image/kirono_crater_lakes.png "Crater lake depth, observed (dots) and modelled. The lakes have fallen since 1841 because the climate became drier, not because of pumping. Kirono et al. (2009), CC BY 4.0.")
 
 # Northern Territory carbonates: the Tindall Limestone
 
@@ -1025,7 +1014,7 @@
       |**Murray Basin**|Layered sand, limestone|$ K $ 1–100 m/d|<0.1 to 40 mm/yr|200–300 000|Salinisation|
       |**MDB alluvium**|Sand and gravel|$ T $ to 6500 m²/d|River leakage|<500–10 000|Over-allocation|
       |**Perth Basin**|Sand over sandstone|$ K $ 1–1000 m/d|~120 mm/yr|mostly <1000|Drying climate|
-      |**Otway Basin**|Karst over sand|$ T $ to 24 000 m²/d|~1300 GL/yr|<500–10 000|Plantations|
+      |**Otway Basin**|Karst over sand|$ T $ to 24 000 m²/d|~90 mm/yr|<500–10 000|Plantations|
       |**Gippsland Basin**|Sand under coal|$ T $ 530–2600 m²/d|Basin margins|<500–3500|Subsidence|
       |**Newer Volcanics**|Fractured basalt|$ K $ $ 10^{-3} $–$ 10^{2} $ m/d|1–30 mm/yr|<560 to >3000|Wetlands|
 
