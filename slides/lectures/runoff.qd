@@ -306,7 +306,7 @@
         - Crucially, the ridge develops **before** any throughflow arrives from upslope.
 
     .container width:{40%}
-        !(100%)[Maimai River](../image/davie_fig_5-5.png "McGlynn et al. (2002): a conceptual summary of hillslope stormflow at Maimai, combining macropore delivery to bedrock with piston flow along the interface.")
+        !(75%)[Maimai River](../image/davie_fig_5-5.png "McGlynn et al. (2002): a conceptual summary of hillslope stormflow at Maimai, combining macropore delivery to bedrock with piston flow along the interface.")
 
         .fragment content:{Ridging has been observed in the field (McDonnell 1990), but it is hard work: instrument response times are often too slow to catch the pore-pressure change.}
 

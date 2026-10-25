@@ -1,4 +1,11 @@
 .slides center:{true} transition:{fade}
+
+<!--
+Only level-1 headings start a new slide. Quarkdown also breaks at "##" by
+default, so a "## subtitle" directly under a "# title" became a slide of its
+own and left the title alone on an empty slide.
+-->
+.autopagebreak maxdepth:{1}
 .font size:{14pt}
 
 .cssproperties
@@ -17,6 +24,55 @@
   }
   .reveal .controls {
     bottom: 20px;
+  }
+  /* The beamer layout puts a grey bar behind every h1/h2 and pushes each
+     slide title 7rem down. That extra space pushed content off the bottom
+     of the slide, and the PDF build then spilled it onto a second page.
+     Remove the bar and the top margin. */
+  .quarkdown h1, .quarkdown h2 {
+    background-color: transparent;
+  }
+  .quarkdown h1 {
+    margin-top: 0 !important;
+    padding: 10px 0 6px 0;
+  }
+  /* PDF only: keep the title at the top and centre the content vertically
+     in the space below it. The title and the ::after spacer take equal
+     auto margins, so the free space splits above and below the content.
+     The selector must be more specific than reveal.js's print rule
+     ".reveal-print .reveal .slides section { display: block !important }".
+     It is limited to print mode because in the browser reveal.js already
+     centres each slide, and a forced display there shows every slide at once. */
+  html.reveal-print .reveal .slides .pdf-page > section {
+    display: flex !important;
+    flex-direction: column;
+    height: 100% !important;
+    top: 0 !important;
+  }
+  html.reveal-print .reveal .slides .pdf-page > section > h1 {
+    margin-bottom: auto !important;
+  }
+  /* A "## subtitle" directly under the title stays with the title, and the
+     auto margin moves below the subtitle. */
+  html.reveal-print .reveal .slides .pdf-page > section > h1:has(+ h2) {
+    margin-bottom: 0 !important;
+  }
+  html.reveal-print .reveal .slides .pdf-page > section > h1 + h2 {
+    margin-bottom: auto !important;
+  }
+  html.reveal-print .reveal .slides .pdf-page > section::after {
+    content: "";
+    margin-top: auto;
+  }
+  /* Cap the height of images. Most images are sized by a width percentage,
+     so a tall image can come out taller than the slide (720 px). The PDF
+     build then moves the whole block onto a second page and leaves the title
+     alone. object-fit keeps the aspect ratio when the cap applies. The rule
+     covers images with and without a caption (only captioned ones sit
+     inside a figure element). */
+  .reveal .slides section img {
+    max-height: 470px;
+    object-fit: contain;
   }
 
 .html

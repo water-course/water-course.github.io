@@ -439,7 +439,7 @@ Clausius-Clapeyron slides. Restore by removing the comment markers.
 # Case Study: The rain shadow effect in Mareeba
 
 .row gap:{1cm} alignment:{center}
-    .container width:{80%}
+    .container width:{55%}
         .html
             <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 56.2645%; padding-top: 120px;"><a href="https://www.abc.net.au/news/2025-06-29/rain-shadow-effect-inspires-sunny-mareeba/105467478" data-iframely-url="//iframely.net/3fdoIBuv?theme=light"></a></div></div><script async src="//iframely.net/embed.js"></script>
 
@@ -1113,6 +1113,9 @@ Clausius-Clapeyron slides. Restore by removing the comment markers.
       - Common **errors**: evaporation, wetting, splash, and wind turbulence.
     - **Snowfall challenges**: redistribution by wind, point measurement issues, gauge modifications.
     - **Spatial estimation**: need to translate point rainfall data into **catchment-scale estimates** using methods influenced by gauge placement and terrain.
+
+# Summary: remote sensing
+.box title:{Precipitation: Remote Sensing} background:{.lightred}
     - **Remote sensing**:
       - **Radar** looks up from the ground; reflectivity $ Z $ is converted to rain rate through the non-unique $ Z = aR^b $ relation, and is corrupted by the bright band, blockage, attenuation and beam geometry. Dual polarisation mitigates much of this.
       - **Satellite** looks down at the cloud top: VIS/IR is frequent but indirect, passive microwave is physical but coarse and infrequent, and spaceborne radar (TRMM, GPM) is direct but samples narrowly.
