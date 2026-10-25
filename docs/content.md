@@ -18,7 +18,7 @@ Slides are released as we get to them during the semester.
 - [**Evapotranspiration**](Evaporation/index.html)
 - [**Run-off**](Runoff/index.html)
 - [**Groundwater - Principles**](Groundwater/index.html)
-- **Groundwater - Aquifers**
+- [**Groundwater - Aquifers**](Aquifers/index.html)
 - **Groundwater - Theory of Flow I (saturated)**
 - **Groundwater - Theory of Flow II (unsaturated)**
 
